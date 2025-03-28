@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "PlantGuessingGame (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "PlantGuessingGame (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}
