@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window x:Class="PlantLibraryApp.Views.PlantView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Plant Library" Height="350" Width="525">
+    <Window.DataContext>
+        <local:PlantViewModel />
+    </Window.DataContext>
+
+    <Grid>
+        <ListBox ItemsSource="{Binding Plants}" DisplayMemberPath="CommonName" HorizontalAlignment="Left" Height="200" Width="500" Margin="10"/>
+
+        <!-- Add Plant Button -->
+        <Button Content="Add Plant" Command="{Binding AddPlantCommand}" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="100" Height="30" Margin="0,0,10,10"/>
+    </Grid>
+</Window>
+
