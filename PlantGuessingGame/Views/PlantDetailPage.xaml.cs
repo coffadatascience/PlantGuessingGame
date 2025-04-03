@@ -1,3 +1,4 @@
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Controls.Primitives;
@@ -5,6 +6,7 @@ using Microsoft.UI.Xaml.Data;
 using Microsoft.UI.Xaml.Input;
 using Microsoft.UI.Xaml.Media;
 using Microsoft.UI.Xaml.Navigation;
+using PlantGuessingGame.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -23,9 +25,24 @@ namespace PlantGuessingGame.Views
     /// </summary>
     public sealed partial class PlantDetailPage : Page
     {
+
+        public PlantViewModel ViewModel { get; } = (Application.Current as App).Container.GetService<PlantViewModel>();
+
         public PlantDetailPage()
         {
             this.InitializeComponent();
+
+            //execute add plant command
+
+
+
+        }
+
+        public PlantDetailPage(PlantViewModel plantViewModel)
+        {
+            this.InitializeComponent();
+            this.DataContext = plantViewModel;  // Set the DataContext to the injected PlantViewModel
+
         }
     }
 }
