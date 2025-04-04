@@ -5,20 +5,123 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:PlantGuessingGame"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:model="using:PlantGuessingGame.DataModels"
     mc:Ignorable="d">
     <!--Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"-->
 
 
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <!--<Button x:Name="myButton" Click="myButton_Click">Click Me</Button>-->
+        <!--<StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+            --><!--<Button x:Name="myButton" Click="myButton_Click">Click Me</Button>--><!--
 
         <Button DoubleTapped="{x:Bind ViewModel.NavigateToDetailsPage}"
                         Content="Open Detail Page"
                         Margin="8"/>
             
-    </StackPanel>
+    </StackPanel>-->
 
 
-    
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <SymbolIcon Symbol="Home" Margin="8"/>
+                <TextBlock Text="Plant Collection"
+                           Style="{StaticResource SubheaderTextBlockStyle}" 
+                           Margin="8"/>
+            </StackPanel>
+
+            <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+                <TextBlock Text="Plant Type: " 
+                           Style="{StaticResource SubtitleTextBlockStyle}" 
+                           Margin="4"
+                           VerticalAlignment="Bottom"/>
+
+                <!--<ComboBox Width="120"
+                          Margin="0,2,6,4"
+                          HorizontalAlignment="Right"
+                          VerticalAlignment="Bottom"
+                          ItemsSource="{x:Bind ViewModel.PlantTypes}"
+                          SelectedItem="{x:Bind ViewModel.SelectedPlantType, Mode=TwoWay}" />-->
+            </StackPanel>
+        </StackPanel>
+
+        <ListView Grid.Row="1"
+                  DoubleTapped="{x:Bind ViewModel.ListViewDoubleTapped}"
+                  ItemsSource="{x:Bind PlantViewModel.Plants}"
+                  SelectedItem="{x:Bind PlantViewModel.SelectedPlant, Mode=TwoWay}">
+
+            <ListView.HeaderTemplate>
+                <DataTemplate>
+                    <Grid Margin="4,0,4,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="150" />
+                            <ColumnDefinition Width="150" />
+                            <ColumnDefinition Width="150" />
+                            <ColumnDefinition Width="150" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Border BorderBrush="{ThemeResource SystemAccentColor}" BorderThickness="0,0,0,2">
+                            <TextBlock Text="Common Name" Margin="4,0,0,0" Style="{StaticResource TitleTextBlockStyle}"/>
+                        </Border>
+
+                        <Border Grid.Column="1" BorderBrush="{ThemeResource SystemAccentColor}" BorderThickness="0,0,0,2">
+                            <TextBlock Text="Family Name" Margin="4,0,0,0" Style="{StaticResource TitleTextBlockStyle}"/>
+                        </Border>
+
+                        <Border Grid.Column="2" BorderBrush="{ThemeResource SystemAccentColor}" BorderThickness="0,0,0,2">
+                            <TextBlock Text="Genus" Margin="4,0,0,0" Style="{StaticResource TitleTextBlockStyle}"/>
+                        </Border>
+
+                        <Border Grid.Column="3" BorderBrush="{ThemeResource SystemAccentColor}" BorderThickness="0,0,0,2">
+                            <TextBlock Text="Species" Margin="4,0,0,0" Style="{StaticResource TitleTextBlockStyle}"/>
+                        </Border>
+
+                        <Border Grid.Column="4" BorderBrush="{ThemeResource SystemAccentColor}" BorderThickness="0,0,0,2">
+                            <TextBlock Text="Description" Margin="4,0,0,0" Style="{StaticResource TitleTextBlockStyle}"/>
+                        </Border>
+                        
+                    </Grid>
+                </DataTemplate>
+            </ListView.HeaderTemplate>
+
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="model:Plant">
+                    <Grid IsHitTestVisible="False">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="150" />
+                            <ColumnDefinition Width="150" />
+                            <ColumnDefinition Width="150" />
+                            <ColumnDefinition Width="150" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Text="{x:Bind CommonName}" />
+                        <TextBlock Grid.Column="1" Text="{x:Bind FamilyName}" />
+                        <TextBlock Grid.Column="2" Text="{x:Bind Genus}" />
+                        <TextBlock Grid.Column="3" Text="{x:Bind Species}" />
+                        <TextBlock Grid.Column="4" Text="{x:Bind Description}" />
+
+
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <Border Grid.Row="2" BorderBrush="{ThemeResource SystemAccentColor}" BorderThickness="0,2,0,0" Margin="4,0">
+            <StackPanel Grid.Row="2" HorizontalAlignment="Right" Orientation="Horizontal">
+                <Button Command="{x:Bind ViewModel.AddEditCommand}" Content="Add/Edit Plant" Margin="8,8,0,8"/>
+                <Button Command="{x:Bind ViewModel.DeleteCommand}" Content="Delete Plant" Margin="8"/>
+                <Button Content="Add Window" HorizontalAlignment="Right" Margin="8" Click="AddWindow_Click"/>
+            </StackPanel>
+        </Border>
+
+    </Grid>
+
 </Page>
