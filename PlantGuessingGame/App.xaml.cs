@@ -166,6 +166,7 @@ namespace PlantGuessingGame
             // --> the constructor of the viewmodel is the place where the services are injected (this is a property of the DI pattern)
             services.AddTransient<MainViewModel>();
             services.AddTransient<PlantViewModel>();
+            services.AddTransient<PlantDetailsViewModel>();           
             //-------------------------------------------------------------------------------------------------------------------------------------------------
 
 

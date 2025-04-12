@@ -5,6 +5,7 @@ using System.Runtime.CompilerServices;
 using PlantGuessingGame.DataModels;
 using System.Collections.Generic;
 using PlantGuessingGame.Interfaces;
+using System.Threading.Tasks;
 
 namespace PlantGuessingGame.ViewModels
 {
@@ -15,12 +16,56 @@ namespace PlantGuessingGame.ViewModels
     public class PlantViewModel : INotifyPropertyChanged
     {
 
+
+        #region private variables
+
+        /// <summary>
+        /// local selected plant variable
+        /// </summary>
         private Plant _selectedPlant;
+
+        /// <summary>
+        /// service for navigation
+        /// </summary>
         private readonly INavigationService _navigationService; // Assuming you have a navigation service to handle page navigation
-        // The NavigateBackCommand to navigate back
+
+
+        // Command to add a new plant
+        public ICommand AddPlantCommand { get; set; }
+
+        /// <summary>
+        /// The NavigateBackCommand to navigate back
+        /// </summary>
         public ICommand NavigateBackCommand { get; set; }
 
-        // The SelectedPlant property, which will hold the plant details.
+
+
+        /// <summary>
+        /// observable collection to display list of plants (private)
+        /// </summary>
+        private ObservableCollection<Plant> _plants;
+
+        #endregion
+
+
+        #region public variables
+
+        /// <summary>
+        /// Collection of plants that the View will bind to
+        /// </summary>
+        public ObservableCollection<Plant> Plants
+        {
+            get { return _plants; }
+            set
+            {
+                _plants = value;
+                OnPropertyChanged();
+            }
+        }
+
+        /// <summary>
+        /// The SelectedPlant property, which will hold the plant details.
+        /// </summary>
         public Plant SelectedPlant
         {
             get { return _selectedPlant; }
@@ -34,23 +79,18 @@ namespace PlantGuessingGame.ViewModels
             }
         }
 
-        private ObservableCollection<Plant> _plants;
+        #endregion
 
-        // Collection of plants that the View will bind to
-        public ObservableCollection<Plant> Plants
-        {
-            get { return _plants; }
-            set
-            {
-                _plants = value;
-                OnPropertyChanged();
-            }
-        }
 
-        // Command to add a new plant
-        public ICommand AddPlantCommand { get; set; }
+        #region constructors
 
-        // Constructor
+        /// <summary>
+        /// Constructor
+        /// --> gets navigation service from DI
+        /// --> preps command
+        /// --> add list of default plant information (we will make these collection later in a data service)
+        /// </summary>
+        /// <param name="navigationService"></param>
         public PlantViewModel(INavigationService navigationService)
         {
 
@@ -66,6 +106,11 @@ namespace PlantGuessingGame.ViewModels
             // Add plants on initialization
             AddPlant();
         }
+
+        #endregion
+
+        #region procedures
+
 
         // Method to add a plant to the collection
         private void AddPlant()
@@ -109,7 +154,11 @@ namespace PlantGuessingGame.ViewModels
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+
     }
+
+    #endregion
+
 
 
 }

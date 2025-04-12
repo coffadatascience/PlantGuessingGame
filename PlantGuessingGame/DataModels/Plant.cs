@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 namespace PlantGuessingGame.DataModels
 {
     using System;
+    using System.ComponentModel.DataAnnotations;
 
     /// <summary>
     /// class for plants
@@ -14,6 +15,11 @@ namespace PlantGuessingGame.DataModels
     public class Plant
     {
         // Properties
+        /// <summary>
+        /// Id of the medium
+        /// </summary>
+        [Key]
+        public int Id { get; set; }
         public string FamilyName { get; set; }
         public string Genus { get; set; }
         public string Species { get; set; }

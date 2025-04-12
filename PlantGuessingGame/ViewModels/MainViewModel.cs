@@ -1,4 +1,6 @@
 ﻿using Microsoft.UI.Xaml.Input;
+using PlantGuessingGame.DataModels;
+
 //using PlantGuessingGame.Enums;
 using PlantGuessingGame.Interfaces;
 //using PlantGuessingGame.Model;
@@ -30,7 +32,7 @@ namespace PlantGuessingGame.ViewModels
         /// <summary>
         /// selected item in the list
         /// </summary>
-        //private MediaItem selectedMediaItem;
+        private Plant selectedPlantItem;
 
         /// <summary>
         /// Temp var for number of items added to the list
@@ -39,9 +41,9 @@ namespace PlantGuessingGame.ViewModels
 
 
         /// <summary>
-        /// List of media items
+        /// List of Plant items
         /// </summary>
-        private string selectedMedium;
+        private string selectedPlant;
 
         ///// <summary>
         ///// List of media items
@@ -96,12 +98,12 @@ namespace PlantGuessingGame.ViewModels
         /// <summary>
         /// command for add edit
         /// </summary>
-        public ICommand AddEditCommand { get; set; }
+        public RelayCommand AddEditCommand { get; set; }
 
         /// <summary>
         /// command for delete
         /// </summary>
-        public ICommand DeleteCommand { get; set; }
+        public RelayCommand DeleteCommand { get; set; }
 
         /// <summary>
         /// public property for the selected medium
@@ -131,18 +133,18 @@ namespace PlantGuessingGame.ViewModels
         //}
 
         /// <summary>
-        /// public property for the selected medium
+        /// public property for the selected plant
         /// </summary>
-        public string SelectedMedium
+        public string SelectedPlant
         {
             get
             {
-                return selectedMedium;
+                return selectedPlant;
             }
             set
             {
                 //set the value
-                SetProperty(ref selectedMedium, value);
+                SetProperty(ref selectedPlant, value);
 
                 ////call the filter method
                 //Items.Clear();
@@ -190,8 +192,9 @@ namespace PlantGuessingGame.ViewModels
             //DeleteCommand = new RelayCommand2(DeleteItem, CanDeleteItem);
             // --> replace by async call
             //DeleteCommand = new RelayCommand2(async() => await DeleteItemAsync(), CanDeleteItem);
-            ////add edit (note that we can always add, but cant alway delete)
-            //AddEditCommand = new RelayCommand2(AddOrEditItem);
+
+            //add edit (note that we can always add, but cant alway delete)
+            AddEditCommand = new RelayCommand(AddOrEditItem);
 
             //populate with some data (this normally would come from a DB)
             PopulateDataAsync();
@@ -298,14 +301,14 @@ namespace PlantGuessingGame.ViewModels
 
 
             //rather than having here a mockup add, we will get the selected item and navigate to the items details pages
-            //var selectedItemId = -1;
-            //if (selectedMediaItem != null)
-            //{
-            //    selectedItemId = selectedMediaItem.Id;
-            //}
+            var selectedItemId = -1;
+            if (selectedPlantItem != null)
+            {
+                selectedItemId = selectedPlantItem.Id;
+            }
 
-            //navigate to the edit page by passing the selected item
-            //_navigationServices.NavigateTo("ItemDetailsPage", selectedItemId);
+            //navigate to the edit page by passing the selected item (therefore the item detail page should process the selected item and load the content)
+            _navigationServices.NavigateTo("PlantDetailPage", selectedItemId);
 
         }
 

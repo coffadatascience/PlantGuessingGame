@@ -26,7 +26,17 @@ namespace PlantGuessingGame.Views
     public sealed partial class PlantDetailPage : Page
     {
 
-        public PlantViewModel ViewModel { get; } = (Application.Current as App).Container.GetService<PlantViewModel>();
+        #region Fields
+
+        /// <summary>
+        /// viewmodel for detaili page
+        /// </summary>
+        public PlantDetailsViewModel ViewModel { get; } = (Application.Current as App).Container.GetService<PlantDetailsViewModel>();
+
+
+        #endregion
+
+        #region constructors
 
         public PlantDetailPage()
         {
@@ -44,5 +54,35 @@ namespace PlantGuessingGame.Views
             this.DataContext = plantViewModel;  // Set the DataContext to the injected PlantViewModel
 
         }
+
+        #endregion
+
+        #region procedures
+
+        /// <summary>
+        /// method to handle the navigation to the item details page
+        /// --> it is necessary to overwrite the OnNavigatedTo method to handle the navigation to the item details page
+        ///     in order to access the parameter that is passed to the page
+        ///     the NavigationEventArgs e parameter is used to access the parameter that is passed to the page
+        ///     which is then cast to the appropriate type (in this case an int)
+        /// </summary>
+        /// <param name="e"></param>
+        protected override async void OnNavigatedTo(NavigationEventArgs e)
+        {
+            // call the base class
+            base.OnNavigatedTo(e);
+
+            // get the selected item id
+            var selectedItemId = (int)e.Parameter;
+
+            // check if the selected item id is greater than 0
+            if (selectedItemId > 0)
+            {
+                await ViewModel.InitializeItemDetailDataAsync(selectedItemId);
+            }
+        }
+
+        #endregion
+
     }
 }
