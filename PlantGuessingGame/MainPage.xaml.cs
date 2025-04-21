@@ -45,5 +45,10 @@ namespace PlantGuessingGame
             //navigate to the edit page by passing the selected item
            //ViewModel._navigationServices.NavigateTo("PlantDetailPage");
         }
+
+        private void AddWindow_Click(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

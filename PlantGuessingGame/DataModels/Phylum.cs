@@ -8,7 +8,7 @@ using PlantGuessingGame.Enums;
 namespace PlantGuessingGame.DataModels
 {
 
-    public class PlantGroup
+    public class Phylum
     {
 
         /// <summary>
@@ -25,8 +25,7 @@ namespace PlantGuessingGame.DataModels
         /// type of the plant
         /// </summary>
         public required PlantType PlantType { get; set; }
-
-
+        public string Description { get; internal set; }
     }
 
 

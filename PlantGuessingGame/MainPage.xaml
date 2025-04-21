@@ -103,7 +103,7 @@
                         </Grid.ColumnDefinitions>
 
                         <TextBlock Text="{x:Bind CommonName}" />
-                        <TextBlock Grid.Column="1" Text="{x:Bind FamilyName}" />
+                        <TextBlock Grid.Column="1" Text="{x:Bind Family}" />
                         <TextBlock Grid.Column="2" Text="{x:Bind Genus}" />
                         <TextBlock Grid.Column="3" Text="{x:Bind Species}" />
                         <TextBlock Grid.Column="4" Text="{x:Bind Description}" />

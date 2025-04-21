@@ -89,26 +89,26 @@ namespace PlantGuessingGame.Interfaces
         IList<PlantType> GetItemTypes();
 
         /// <summary>
-        /// gets all of the available plant groups
+        /// gets all of the available plant Phylum
         /// </summary>
         /// <returns></returns>
-        PlantGroup GetMedium(string name);
+        Phylum GetPhylum(string name);
 
         /// <summary>
         /// gets all of the available PlantGroups
         /// </summary>
         /// <returns></returns>
-        IList<PlantGroup> GetPlantGroups();
+        IList<Phylum> GetPhyla();
 
         /// <summary>
-        /// gets all of the available PlantGroup for a specific plant type
+        /// gets all of the available Phyla for a specific plant type
         /// </summary>
         /// <param name="itemType"></param>
         /// <returns></returns>
-        IList<PlantGroup> GetPlantGroups(PlantType itemType);
+        IList<Phylum> GetPhyla(PlantType itemType);
 
         /// <summary>
-        /// gets all of the available location types
+        /// gets all of the available PlantClassification
         /// </summary>
         /// <returns></returns>
         IList<PlantClassification> GetPlantClassifications();

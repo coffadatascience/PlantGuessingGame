@@ -50,7 +50,7 @@
             <TextBox
                 Grid.Column="1"
                 Style="{StaticResource AttributeValueStyle}"
-                Text="{x:Bind ViewModel.SelectedPlant.FamilyName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                Text="{x:Bind ViewModel.SelectedPlant.Family, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                 IsReadOnly="True"/>
 
             <!-- Genus -->
@@ -95,7 +95,7 @@
                 Grid.Row="5"
                 Grid.Column="1"
                 Style="{StaticResource AttributeValueStyle}"
-                Text="{x:Bind ViewModel.SelectedPlant.Picture, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                Text="{x:Bind ViewModel.SelectedPlant.ImagePath, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                 IsReadOnly="True"/>
         </Grid>
 

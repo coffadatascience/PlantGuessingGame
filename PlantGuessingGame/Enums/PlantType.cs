@@ -17,23 +17,23 @@ namespace PlantGuessingGame.Enums
         /// <summary>
         /// Herbs
         /// </summary>
-        Herbs,
+        Herb,
         /// <summary>
         /// Shrubs
         /// </summary>
-        Shrubs,
+        Shrub,
         /// <summary>
         /// Trees
         /// </summary>
-        Trees,
+        Tree,
         /// <summary>
         /// Climbers
         /// </summary>
-        Climbers,
+        Climber,
         /// <summary>
         /// Creepers
         /// </summary>
-        Creepers
+        Creeper
 
     }
 }
