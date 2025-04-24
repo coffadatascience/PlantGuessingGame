@@ -25,6 +25,10 @@ namespace PlantGuessingGame.DataModels
         /// type of the plant
         /// </summary>
         public required PlantType PlantType { get; set; }
+
+        /// <summary>
+        /// description of the phylum (general descriptoin of the phylum)
+        /// </summary>
         public string Description { get; internal set; }
     }
 

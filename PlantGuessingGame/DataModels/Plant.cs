@@ -7,6 +7,7 @@ using System;
 using System.ComponentModel.DataAnnotations;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolTip;
 using Dapper.Contrib.Extensions;
+using PlantGuessingGame.Enums;
 
 namespace PlantGuessingGame.DataModels
 {
@@ -53,12 +54,22 @@ namespace PlantGuessingGame.DataModels
         /// </summary>
         public string ImagePath { get; set; } // Can store file path or URL
 
-
         /// <summary>
         /// medium info
         /// </summary>
         [Computed]
         public Phylum PhylumInfo { get; set; }
+
+        /// <summary>
+        /// type of the Plant
+        /// </summary>
+        public PlantType PlantType { get; set; }
+
+
+        /// <summary>
+        /// Classification of the Plant
+        /// </summary>
+        public PlantClassification PlantClassification { get; set; }
 
         /// <summary>
         /// id of phylum
