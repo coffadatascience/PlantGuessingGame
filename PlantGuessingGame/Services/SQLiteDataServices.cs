@@ -15,7 +15,7 @@ namespace PlantGuessingGame.Services
     public class SQLiteDataService : IDataService
     {
         /// <summary>
-        /// Local variable to store the connection string
+        /// Local variable to store the connection strding
         /// </summary>
         private const string DbName = "PlantCollectionData.db";
 
@@ -23,6 +23,11 @@ namespace PlantGuessingGame.Services
         /// list with plant types
         /// </summary>
         private IList<PlantType> _plantTypes;
+
+        /// <summary>
+        /// list with phyla (note this is a known list that can be filled at start)
+        /// </summary>
+        private IList<Phylum> _phyla;
 
         /// <summary>
         /// list with plant classifications
@@ -38,7 +43,9 @@ namespace PlantGuessingGame.Services
         }
 
 
-        #region Methods SQL (test to create)
+
+        #region Public Methods
+
 
         /// <summary>
         /// initialisation of database
@@ -56,11 +63,157 @@ namespace PlantGuessingGame.Services
 
                 //add enums
                 PopulateItemTypes();
+                await PopulatePhylaAsync(db);
                 PopulateLocationTypes();
 
-                //await PopulateMediumsAsync(db);
             }
         }
+
+
+        /// <summary>
+        /// public method to add a new item to the database
+        /// </summary>
+        /// <param name="item"></param>
+        /// <returns></returns>
+        public async Task<int> AddItemAsync(Plant item)
+        {
+            using (var db = await GetSqliteConnectionAsync())
+            {
+                return await InsertPlantAsync(db, item);
+            }
+        }
+
+        #endregion
+
+        #region Methods SQL
+
+
+        /// <summary>
+        /// method to insert a new media item into the database
+        ///  SQL dapper code:
+        ///         1. Insert into the MediaItems table 
+        ///         2. the values are inserted by the VALUES statement and the parameters are added by the @nameof(item) and @nameof(item)
+        ///         3. each value is taken from the item object media item and is referred by @ and variable name this refers to the parameter of the command
+        ///         --> So note well, the first names are the names as given to the tables, the values are the names of the variables in the object
+        /// </summary>
+        /// <param name="db"></param>
+        /// <param name="item"></param>
+        /// <returns></returns>
+        private async Task<int> InsertPlantAsync(SqliteConnection db, Plant item)
+        {
+            var newIds = await db.QueryAsync<long>(
+                    @"INSERT INTO Plants
+                    (CommonName, Genus, Species, Family, Description, ImagePath, PhylumId, PlantType, PlantClassification)
+                    VALUES
+                    (@Name, @MediaType, @MediumId, @Location);
+                    SELECT last_insert_rowid()", item);
+
+            return (int)newIds.First();
+        }
+
+
+        /// <summary>
+        /// this method is used to insert a new phylum into the database
+        ///  SQL dapper code:
+        ///         1. Insert into the Phyla table the name and plant type
+        ///         2. the values are inserted by the VALUES statement and the parameters are added by the @nameof(phylum.Name) and @nameof(phylum.PlantType)
+        ///            @ here is used to indicate that it is a parameter of the command and the nameof() method is used to get the name of the properties
+        ///         3. Select the last inserted row id
+        ///         4. This is done by the SELECT last_insert_rowid() statement
+        ///         
+        /// </summary>
+        /// <param name="db"></param>
+        /// <param name="medium"></param>
+        /// <returns></returns>
+        private async Task InsertPhylumAsync(SqliteConnection db, Phylum phylum)
+        {
+            //insert the Phylum into the database
+            var newIds = await db.QueryAsync<long>(
+                $@"INSERT INTO Phyla ({nameof(phylum.Name)}, PlantType, {nameof(phylum.Description)}) 
+                    VALUES 
+                    (@{nameof(phylum.Name)}, @{nameof(phylum.PlantType)}, @{nameof(phylum.Description)});
+                    SELECT last_insert_rowid()", phylum);
+
+            //set the id of the phylum
+            // This allows to get a values back from the database to know it completed successfully
+            phylum.Id = (int)newIds.First();
+        }
+
+
+
+
+        #endregion
+
+        #region Private Methods
+
+
+        /// <summary>
+        /// //method to create the Mediums table in the database
+        /// </summary>
+        /// <param name="db"></param>
+        /// <returns></returns>
+        private async Task PopulatePhylaAsync(SqliteConnection db)
+        {
+            _phyla = await GetAllPhylaAsync(db);
+
+            //if the database has no info, then add the default list
+            if (_phyla.Count == 0)
+            {
+                //add default phyla
+                var Anthocerotophyta = new Phylum { Id = 1, Name = "Anthocerotophyta", PlantType = PlantType.Shrub, Description = "Horn-shaped sporophytes, no vascular system" };
+                var Bryophyta = new Phylum { Id = 2, Name = "Bryophyta", PlantType = PlantType.Shrub, Description = "Persistent unbranched sporophytes, no vascular system" };
+
+                //create new list list
+                var phyla = new List<Phylum>
+                {
+                    Anthocerotophyta,
+                    Bryophyta,
+                };
+                
+                //add the list 
+                foreach (var phylum in phyla)
+                {
+                    await InsertPhylumAsync(db, phylum);
+                }
+
+                //add to local var
+                _phyla = await GetAllPhylaAsync(db);
+            }
+        }
+
+        /// <summary>
+        /// method to create the Mediums table in the database
+        /// </summary>
+        private void PopulateItemTypes()
+        {
+            _plantTypes = new List<PlantType>
+            {
+                PlantType.Climber,
+                PlantType.Tree,
+                PlantType.Herb,
+                PlantType.Creeper,
+                PlantType.Shrub
+            };
+        }
+
+        private void PopulateLocationTypes()
+        {
+            _plantClassifications = new List<PlantClassification>
+            {
+                PlantClassification.Gymnosperms,
+                PlantClassification.Angiosperms,
+                PlantClassification.Bryophyta,
+                PlantClassification.Pteridophyta,
+                PlantClassification.Thallophyta
+
+            };
+        }
+
+
+        #endregion
+
+
+        #region Methods SQL (test to create)
 
 
         /// <summary>
@@ -140,10 +293,15 @@ namespace PlantGuessingGame.Services
         {
             string tableCommand = @"CREATE TABLE IF NOT EXISTS 
                 Plants (Id INTEGER PRIMARY KEY AUTOINCREMENT, 
-                Name NVARCHAR(1000) NOT NULL, 
-                PlantType INTEGER NOT NULL, 
+                CommonName NVARCHAR(1000) NOT NULL, 
+                Genus NVARCHAR(1000), 
+                Species NVARCHAR(1000), 
+                Family NVARCHAR(1000), 
+                Description NVARCHAR(3000), 
+                ImagePath NVARCHAR(1000), 
                 PhylumId INTEGER NOT NULL, 
-                PlantType INTEGER, 
+                PlantType INTEGER NOT NULL, 
+                PlantClassification INTEGER, 
                 CONSTRAINT fk_phyla 
                 FOREIGN KEY(PhylumId) REFERENCES Phyla(Id))";
 
@@ -152,69 +310,39 @@ namespace PlantGuessingGame.Services
             await createTable.ExecuteNonQueryAsync();
         }
 
+
+
         /// <summary>
-        /// method to create the Mediums table in the database
+        /// method to get all of the phyla from the database using Dapper
+        ///  SQL dapper code:
+        ///         1. Select the Id, Name, PlantType and description from the Phyla table
+        ///         2. This is done by the SELECT statement
+        ///         3. the selected table is the Phyla table as noted by the FROM Phyla statement
+        ///         4. the results are returned as a list
         /// </summary>
-        private void PopulateItemTypes()
+        /// <param name="db"></param>
+        /// <returns></returns>
+        private async Task<IList<Phylum>> GetAllPhylaAsync(SqliteConnection db)
         {
-            _plantTypes = new List<PlantType>
-            {
-                PlantType.Climber,
-                PlantType.Tree,
-                PlantType.Herb,
-                PlantType.Creeper,
-                PlantType.Shrub
-            };
+            var mediums =
+                await db.QueryAsync<Phylum>(@"SELECT Id, 
+                                                     Name, 
+                                                     PlantType AS PlantType,
+                                                     Description
+                                                     FROM Phyla");
+
+            return mediums.ToList();
         }
 
-        private void PopulateLocationTypes()
-        {
-            _plantClassifications = new List<PlantClassification>
-            {
-                PlantClassification.Gymnosperms,
-                PlantClassification.Angiosperms,
-                PlantClassification.Bryophyta,
-                PlantClassification.Pteridophyta,
-                PlantClassification.Thallophyta
-
-            };
-        }
 
         #endregion
 
 
 
+
         #region Tasks
 
-        /// <summary>
-        /// 20250424 replaced by split commands
-        /// </summary>
-        /// <returns></returns>
-        public async Task InitializeDataAsyncBYGPT()
-        {
-            using (var connection = new SqliteConnection(_connectionString))
-            {
-                await connection.OpenAsync();
 
-                // Initialize database tables
-                var createTableQuery = @"
-                    CREATE TABLE IF NOT EXISTS Plants (
-                        Id INTEGER PRIMARY KEY AUTOINCREMENT,
-                        Name TEXT NOT NULL,
-                        Type TEXT,
-                        Phylum TEXT,
-                        Classification TEXT,
-                        Location TEXT);
-
-                    CREATE TABLE IF NOT EXISTS PlantLinks (
-                        Id INTEGER PRIMARY KEY AUTOINCREMENT,
-                        PlantId INTEGER,
-                        Link TEXT,
-                        FOREIGN KEY (PlantId) REFERENCES Plants(Id));";
-
-                await connection.ExecuteAsync(createTableQuery);
-            }
-        }
 
         public async Task<IList<Plant>> GetItemsAsync()
         {
@@ -247,7 +375,7 @@ namespace PlantGuessingGame.Services
             }
         }
 
-        public async Task<int> AddItemAsync(Plant item)
+        public async Task<int> AddItemAsyncByChatGPT(Plant item)
         {
             using (var connection = new SqliteConnection(_connectionString))
             {

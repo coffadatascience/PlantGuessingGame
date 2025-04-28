@@ -2,15 +2,15 @@
     x:Class="PlantGuessingGame.Views.PlantDetailPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:PlantGuessingGame.Views"
-    xmlns:viewModels="using:PlantGuessingGame.ViewModels"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:PlantGuessingGame.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    xmlns:viewModels="using:PlantGuessingGame.ViewModels"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    mc:Ignorable="d">
 
     <Page.Resources>
-        <!-- Define some styles for the grid and text blocks -->
+        <!--  Define some styles for the grid and text blocks  -->
         <Style x:Key="AttributeTitleStyle" TargetType="TextBlock">
             <Setter Property="HorizontalAlignment" Value="Right" />
             <Setter Property="VerticalAlignment" Value="Center" />
@@ -24,82 +24,111 @@
 
     <Grid Margin="10">
 
-        <!-- Title Section -->
-        <StackPanel Orientation="Horizontal" Margin="8">
-            <SymbolIcon Symbol="Edit" Margin="8"/>
-            <TextBlock Text="Plant Details" Style="{StaticResource SubheaderTextBlockStyle}" Margin="8"/>
+        <!--  Title Section  -->
+        <StackPanel Margin="8" Orientation="Horizontal">
+            <SymbolIcon Margin="8" Symbol="Edit" />
+            <TextBlock
+                Margin="8"
+                Style="{StaticResource SubheaderTextBlockStyle}"
+                Text="Plant Details" />
         </StackPanel>
 
-        <!-- Plant Details Section -->
-        <Grid Margin="4,0,4,8" BorderBrush="{ThemeResource SystemAccentColor}" BorderThickness="0,1,0,1">
+        <!--  Plant Details Section  -->
+        <Grid
+            Margin="4,0,4,8"
+            BorderBrush="{ThemeResource SystemAccentColor}"
+            BorderThickness="0,1,0,1">
             <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="200"/>
-                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="200" />
+                <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-            <!-- Family -->
-            <TextBlock Style="{StaticResource AttributeTitleStyle}" Text="Family:" VerticalAlignment="Center"/>
+            <!--  Family  -->
+            <TextBlock
+                VerticalAlignment="Center"
+                Style="{StaticResource AttributeTitleStyle}"
+                Text="Family:" />
             <TextBox
                 Grid.Column="1"
+                IsReadOnly="True"
                 Style="{StaticResource AttributeValueStyle}"
-                Text="{x:Bind ViewModel.SelectedPlant.Family, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                IsReadOnly="True"/>
+                Text="{x:Bind ViewModel.SelectedPlant.Family, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
-            <!-- Genus -->
-            <TextBlock Grid.Row="1" Style="{StaticResource AttributeTitleStyle}" Text="Genus:" VerticalAlignment="Center"/>
+            <!--  Genus  -->
+            <TextBlock
+                Grid.Row="1"
+                VerticalAlignment="Center"
+                Style="{StaticResource AttributeTitleStyle}"
+                Text="Genus:" />
             <TextBox
                 Grid.Row="1"
                 Grid.Column="1"
+                IsReadOnly="True"
                 Style="{StaticResource AttributeValueStyle}"
-                Text="{x:Bind ViewModel.SelectedPlant.Genus, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                IsReadOnly="True"/>
+                Text="{x:Bind ViewModel.SelectedPlant.Genus, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
-            <!-- Species -->
-            <TextBlock Grid.Row="2" Style="{StaticResource AttributeTitleStyle}" Text="Species:" VerticalAlignment="Center"/>
+            <!--  Species  -->
+            <TextBlock
+                Grid.Row="2"
+                VerticalAlignment="Center"
+                Style="{StaticResource AttributeTitleStyle}"
+                Text="Species:" />
             <TextBox
                 Grid.Row="2"
                 Grid.Column="1"
+                IsReadOnly="True"
                 Style="{StaticResource AttributeValueStyle}"
-                Text="{x:Bind ViewModel.SelectedPlant.Species, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                IsReadOnly="True"/>
+                Text="{x:Bind ViewModel.SelectedPlant.Species, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
-            <!-- Common Name -->
-            <TextBlock Grid.Row="3" Style="{StaticResource AttributeTitleStyle}" Text="Common Name:" VerticalAlignment="Center"/>
+            <!--  Common Name  -->
+            <TextBlock
+                Grid.Row="3"
+                VerticalAlignment="Center"
+                Style="{StaticResource AttributeTitleStyle}"
+                Text="Common Name:" />
             <TextBox
                 Grid.Row="3"
                 Grid.Column="1"
+                IsReadOnly="True"
                 Style="{StaticResource AttributeValueStyle}"
-                Text="{x:Bind ViewModel.SelectedPlant.CommonName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                IsReadOnly="True"/>
+                Text="{x:Bind ViewModel.SelectedPlant.CommonName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
-            <!-- Description -->
-            <TextBlock Grid.Row="4" Style="{StaticResource AttributeTitleStyle}" Text="Description:" VerticalAlignment="Center"/>
+            <!--  Description  -->
+            <TextBlock
+                Grid.Row="4"
+                VerticalAlignment="Center"
+                Style="{StaticResource AttributeTitleStyle}"
+                Text="Description:" />
             <TextBox
                 Grid.Row="4"
                 Grid.Column="1"
+                IsReadOnly="True"
                 Style="{StaticResource AttributeValueStyle}"
-                Text="{x:Bind ViewModel.SelectedPlant.Description, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                IsReadOnly="True"/>
+                Text="{x:Bind ViewModel.SelectedPlant.Description, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
-            <!-- Picture -->
-            <TextBlock Grid.Row="5" Style="{StaticResource AttributeTitleStyle}" Text="Picture:" VerticalAlignment="Center"/>
+            <!--  Picture  -->
+            <TextBlock
+                Grid.Row="5"
+                VerticalAlignment="Center"
+                Style="{StaticResource AttributeTitleStyle}"
+                Text="Picture:" />
             <TextBox
                 Grid.Row="5"
                 Grid.Column="1"
+                IsReadOnly="True"
                 Style="{StaticResource AttributeValueStyle}"
-                Text="{x:Bind ViewModel.SelectedPlant.ImagePath, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                IsReadOnly="True"/>
+                Text="{x:Bind ViewModel.SelectedPlant.ImagePath, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
         </Grid>
 
-        <!-- Button to navigate or save -->
+        <!--  Button to navigate or save  -->
         <StackPanel
             Grid.Row="6"
             HorizontalAlignment="Right"
@@ -107,8 +136,8 @@
 
             <Button
                 Margin="8"
-                Content="Back"
-                Command="{x:Bind ViewModel.NavigateBackCommand}"/>
+                Command="{x:Bind ViewModel.NavigateBackCommand}"
+                Content="Back" />
         </StackPanel>
     </Grid>
 </Page>

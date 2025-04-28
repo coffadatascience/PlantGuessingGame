@@ -25,9 +25,9 @@ namespace PlantGuessingGame.DataModels
         public int Id { get; set; }
 
         /// <summary>
-        /// family name as being used in denotation of species
+        /// common name as in general usage
         /// </summary>
-        public string Family { get; set; }
+        public string CommonName { get; set; }
 
         /// <summary>
         /// genus, as we use for denotation and recognition
@@ -40,9 +40,9 @@ namespace PlantGuessingGame.DataModels
         public string Species { get; set; }
 
         /// <summary>
-        /// common name as in general usage
+        /// family name as being used in denotation of species
         /// </summary>
-        public string CommonName { get; set; }
+        public string Family { get; set; }
 
         /// <summary>
         /// desription of type of plant
@@ -61,21 +61,19 @@ namespace PlantGuessingGame.DataModels
         public Phylum PhylumInfo { get; set; }
 
         /// <summary>
+        /// id of phylum
+        /// </summary>
+        public int PhylumId => PhylumInfo.Id;
+
+        /// <summary>
         /// type of the Plant
         /// </summary>
         public PlantType PlantType { get; set; }
-
 
         /// <summary>
         /// Classification of the Plant
         /// </summary>
         public PlantClassification PlantClassification { get; set; }
-
-        /// <summary>
-        /// id of phylum
-        /// </summary>
-        public int PhylumId => PhylumInfo.Id;
-
 
         //--------------------------------------
         // other relevant information
@@ -160,6 +158,16 @@ namespace PlantGuessingGame.DataModels
         public List<string> Pictures { get; set; } = new List<string>();
 
         //--------------------------------------
+
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="commonName"></param>
+
+        public Plant(string commonName)
+        {
+            CommonName = commonName;
+        }
 
 
         /// <summary>

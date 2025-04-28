@@ -29,7 +29,7 @@ namespace PlantGuessingGame.DataModels
         /// <summary>
         /// description of the phylum (general descriptoin of the phylum)
         /// </summary>
-        public string Description { get; internal set; }
+        public string? Description { get; internal set; }
     }
 
 
