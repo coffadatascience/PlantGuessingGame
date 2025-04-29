@@ -163,9 +163,10 @@ namespace PlantGuessingGame.DataModels
         /// Constructor
         /// </summary>
         /// <param name="commonName"></param>
-
-        public Plant(string commonName)
+        public Plant() {}
+        public Plant(int id, string commonName)
         {
+            Id = id;
             CommonName = commonName;
         }
 

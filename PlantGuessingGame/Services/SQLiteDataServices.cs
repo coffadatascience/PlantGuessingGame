@@ -33,8 +33,15 @@ namespace PlantGuessingGame.Services
         /// list with plant classifications
         /// </summary>
         private IList<PlantClassification> _plantClassifications;
+        
+        /// <summary>
+        /// list with plants (used for examples)
+        /// </summary>
+        private IList<Plant> _plants;
 
-
+        /// <summary>
+        /// connection string
+        /// </summary>
         private readonly string _connectionString;
 
         public SQLiteDataService(string connectionString = null)
@@ -65,6 +72,7 @@ namespace PlantGuessingGame.Services
                 PopulateItemTypes();
                 await PopulatePhylaAsync(db);
                 PopulateLocationTypes();
+                await PopulateExamplePLantsAsync(db);
 
             }
         }
@@ -105,7 +113,7 @@ namespace PlantGuessingGame.Services
                     @"INSERT INTO Plants
                     (CommonName, Genus, Species, Family, Description, ImagePath, PhylumId, PlantType, PlantClassification)
                     VALUES
-                    (@Name, @MediaType, @MediumId, @Location);
+                    (@CommonName, @Genus, @Species, @Family, @Description, @ImagePath, @PhylumId, @PlantType, @PlantClassification);
                     SELECT last_insert_rowid()", item);
 
             return (int)newIds.First();
@@ -148,7 +156,7 @@ namespace PlantGuessingGame.Services
 
 
         /// <summary>
-        /// //method to create the Mediums table in the database
+        /// //method to create the PHylum table in the database
         /// </summary>
         /// <param name="db"></param>
         /// <returns></returns>
@@ -162,12 +170,14 @@ namespace PlantGuessingGame.Services
                 //add default phyla
                 var Anthocerotophyta = new Phylum { Id = 1, Name = "Anthocerotophyta", PlantType = PlantType.Shrub, Description = "Horn-shaped sporophytes, no vascular system" };
                 var Bryophyta = new Phylum { Id = 2, Name = "Bryophyta", PlantType = PlantType.Shrub, Description = "Persistent unbranched sporophytes, no vascular system" };
+                var Embryophyta = new Phylum { Id = 3, Name = "Embryophyta", PlantType = PlantType.Tree, Description = "" };
 
                 //create new list list
                 var phyla = new List<Phylum>
                 {
                     Anthocerotophyta,
                     Bryophyta,
+                    Embryophyta
                 };
                 
                 //add the list 
@@ -179,6 +189,55 @@ namespace PlantGuessingGame.Services
                 //add to local var
                 _phyla = await GetAllPhylaAsync(db);
             }
+        }
+
+        /// <summary>
+        /// //method to create the Plants table in the database
+        /// </summary>
+        /// <param name="db"></param>
+        /// <returns></returns>
+        private async Task PopulateExamplePLantsAsync(SqliteConnection db)
+        {
+            _plants = await GetAllPlantsAsync(db);
+
+            //if the database has no info, then add the default list
+            if (_plants.Count == 0)
+            {
+                //add default plants
+                //01
+                var Haagbeuk = new Plant
+                {
+                    Id = 1,
+                    CommonName = "Haagbeuk",
+                    //set phylum
+                    PhylumInfo = _phyla[2]
+                };
+                //02
+                var BeukenHaag = new Plant
+                {
+                    Id = 1,
+                    CommonName = "BeukenHaag",
+                    PhylumInfo = _phyla[2]
+                };
+
+
+                //create new list list
+                var plants = new List<Plant>
+                {
+                    Haagbeuk,
+                    BeukenHaag
+                };
+
+                //add the list 
+                foreach (var plant in plants)
+                {
+                    await InsertPlantAsync(db, plant);
+                }
+
+                //add to local var
+                _plants = await GetAllPlantsAsync(db);
+            }
+
         }
 
         /// <summary>
@@ -334,6 +393,28 @@ namespace PlantGuessingGame.Services
             return mediums.ToList();
         }
 
+        /// <summary>
+        /// get list with all plants
+        /// </summary>
+        /// <param name="db"></param>
+        /// <returns></returns>
+        private async Task<IList<Plant>> GetAllPlantsAsync(SqliteConnection db)
+        {
+            var plants =
+                await db.QueryAsync<Plant>(@"SELECT Id, 
+                                                     CommonName,
+                                                     Genus,
+                                                     Species,
+                                                     Family,
+                                                     Description,
+                                                     ImagePath,
+                                                     PhylumId,
+                                                     PlantType AS PlantType,
+                                                     PlantClassification as PlantClassification                                                     FROM Plants");
+
+            return plants.ToList();
+        }
+
 
         #endregion
 
@@ -443,6 +524,7 @@ namespace PlantGuessingGame.Services
         }
 
         #endregion
+
 
         #region Synchronous Methods
 
