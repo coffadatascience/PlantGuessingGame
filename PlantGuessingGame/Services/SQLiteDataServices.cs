@@ -91,10 +91,25 @@ namespace PlantGuessingGame.Services
             }
         }
 
+
+        /// <summary>
+        /// public method to update an item in the database
+        /// </summary>
+        /// <param name="item"></param>
+        /// <returns></returns>
+        public async Task UpdateItemAsync(Plant item)
+        {
+            using (var db = await GetSqliteConnectionAsync())
+            {
+                await UpdatePlantAsync(db, item);
+            }
+        }
+
         #endregion
 
-        #region Methods SQL
 
+
+        #region Methods SQL
 
         /// <summary>
         /// method to insert a new media item into the database
@@ -415,6 +430,35 @@ namespace PlantGuessingGame.Services
             return plants.ToList();
         }
 
+        /// <summary>
+        /// method to update a plant in the database
+        ///  SQL dapper code:
+        ///         1. Update the plant table with the CommonName, Genus, Species, Family, Description, ImagePath, PhylumId, PlantType and PlantClassification.
+        ///         2. the values are updated by the SET statement and the parameters are added by the @nameof(item) and @nameof(item)
+        ///         3. each value is taken from the item object media item and is referred by @ and variable name this refers to the parameter of the command
+        ///         4. the item is updated where the Id is the same as the item id
+        ///         5. this is done by the WHERE Id = @Id statement, @id refers to the item id this auto references 
+        /// </summary>
+        /// <param name="db"></param>
+        /// <param name="item"></param>
+        /// <returns></returns>
+        private async Task UpdatePlantAsync(SqliteConnection db, Plant plant)
+        {
+            await db.QueryAsync(
+                    @"UPDATE Plants
+                    SET 
+                      CommonName = @CommonName,
+                      Genus = @Genus,
+                      Species = @Species,
+                      Family = @Family
+                      Description = @Description
+                      ImagePath = @ImagePath
+                      PhylumId = @PhylumId
+                      PlantType = @PlantType
+                  WHERE Id = @Id;", plant);
+        }
+
+
 
         #endregion
 
@@ -481,33 +525,33 @@ namespace PlantGuessingGame.Services
             }
         }
 
-        public async Task UpdateItemAsync(Plant item)
-        {
-            using (var connection = new SqliteConnection(_connectionString))
-            {
-                await connection.OpenAsync();
+        //public async Task UpdateItemAsync(Plant item)
+        //{
+        //    using (var connection = new SqliteConnection(_connectionString))
+        //    {
+        //        await connection.OpenAsync();
 
-                var updateQuery = @"UPDATE Plants 
-                                    SET Name = @Name, Type = @Type, Phylum = @Phylum, 
-                                        Classification = @Classification, Location = @Location
-                                    WHERE Id = @Id";
+        //        var updateQuery = @"UPDATE Plants 
+        //                            SET Name = @Name, Type = @Type, Phylum = @Phylum, 
+        //                                Classification = @Classification, Location = @Location
+        //                            WHERE Id = @Id";
 
-                await connection.ExecuteAsync(updateQuery, item);
+        //        await connection.ExecuteAsync(updateQuery, item);
 
-                // Optionally update associated links
-                if (item.Pictures != null && item.Pictures.Any())
-                {
-                    var deleteLinksQuery = @"DELETE FROM PlantLinks WHERE PlantId = @PlantId";
-                    await connection.ExecuteAsync(deleteLinksQuery, new { PlantId = item.Id });
+        //        // Optionally update associated links
+        //        if (item.Pictures != null && item.Pictures.Any())
+        //        {
+        //            var deleteLinksQuery = @"DELETE FROM PlantLinks WHERE PlantId = @PlantId";
+        //            await connection.ExecuteAsync(deleteLinksQuery, new { PlantId = item.Id });
 
-                    foreach (var link in item.Pictures)
-                    {
-                        var insertLinkQuery = @"INSERT INTO PlantLinks (PlantId, Link) VALUES (@PlantId, @Link)";
-                        await connection.ExecuteAsync(insertLinkQuery, new { PlantId = item.Id, Link = link });
-                    }
-                }
-            }
-        }
+        //            foreach (var link in item.Pictures)
+        //            {
+        //                var insertLinkQuery = @"INSERT INTO PlantLinks (PlantId, Link) VALUES (@PlantId, @Link)";
+        //                await connection.ExecuteAsync(insertLinkQuery, new { PlantId = item.Id, Link = link });
+        //            }
+        //        }
+        //    }
+        //}
 
         public async Task DeleteItemAsync(Plant item)
         {

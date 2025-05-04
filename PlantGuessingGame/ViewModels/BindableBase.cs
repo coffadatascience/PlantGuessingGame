@@ -42,7 +42,7 @@ namespace PlantGuessingGame.ViewModels
         /// protected properties for the navigation service and the data service
         /// --> these are protected properties, so they can be accessed by the view models
         /// </summary>
-        //protected IDataService _dataService;
+        protected IDataService _dataService;
 
         /// <summary>
         /// event handler for the DataErrorsChangedEventArgs event

@@ -21,6 +21,7 @@ namespace PlantGuessingGame
     /// </summary>
     public partial class App : Application
     {
+
         #region App-wide fields and properties
 
         private Window? m_window;
@@ -33,6 +34,9 @@ namespace PlantGuessingGame
 
         #endregion
 
+        /// <summary>
+        /// initialize app
+        /// </summary>
         public App()
         {
             this.InitializeComponent();
@@ -49,6 +53,10 @@ namespace PlantGuessingGame
             }
         }
 
+        /// <summary>
+        /// overwrites on launched event
+        /// </summary>
+        /// <param name="args"></param>
         protected override async void OnLaunched(Microsoft.UI.Xaml.LaunchActivatedEventArgs args)
         {
             // Register services
@@ -72,6 +80,11 @@ namespace PlantGuessingGame
             m_window.Activate();
         }
 
+        /// <summary>
+        /// when susupending
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OnSuspending(object sender, SuspendingEventArgs e)
         {
             var deferral = e.SuspendingOperation.GetDeferral();
@@ -79,11 +92,21 @@ namespace PlantGuessingGame
             deferral.Complete();
         }
 
+        /// <summary>
+        /// when navigation failed
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        /// <exception cref="Exception"></exception>
         private void OnNavigationFailed(object sender, NavigationFailedEventArgs e)
         {
             throw new Exception("Failed to load Page " + e.SourcePageType.FullName);
         }
 
+        /// <summary>
+        /// registration of service
+        /// </summary>
+        /// <returns></returns>
         private IServiceProvider RegisterServices()
         {
             var services = new ServiceCollection();

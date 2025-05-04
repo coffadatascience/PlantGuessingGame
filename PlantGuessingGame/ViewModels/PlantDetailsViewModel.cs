@@ -1,4 +1,5 @@
 ﻿using PlantGuessingGame.DataModels;
+using PlantGuessingGame.Enums;
 using PlantGuessingGame.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -20,14 +21,18 @@ namespace PlantGuessingGame.ViewModels
 
         #region private fields
 
-        private ObservableCollection<string> _locationTypes = new ObservableCollection<string>();
-        private ObservableCollection<string> _mediums = new ObservableCollection<string>();
-        private ObservableCollection<string> _itemTypes = new ObservableCollection<string>();
+        /// <summary>
+        /// Observable collections
+        /// </summary>
+        private ObservableCollection<string> _plantTypes = new ObservableCollection<string>();
+        private ObservableCollection<string> _plantClassifications = new ObservableCollection<string>();
+        private ObservableCollection<string> _phyla = new ObservableCollection<string>();
+
+
         private int _itemId;
-        private string _itemName;
-        private string _selectedMedium;
-        private string _selectedItemType;
-        private string _selectedLocation;
+        private string _itemCommonName;
+        private string _selectedPlantClassification;
+        private string _selectedPlantType;
         private bool _isDirty;
         private int _selectedItemId = -1;
 
@@ -37,9 +42,9 @@ namespace PlantGuessingGame.ViewModels
         private System.Windows.Media.Brush _selectedItemNameColor;
 
         /// <summary>
-        /// selected item in the list
+        /// selected phylum in the list
         /// </summary>
-        private Plant _selectedPlant;
+        private string _selectedPhylum;
 
 
         #endregion
@@ -88,15 +93,16 @@ namespace PlantGuessingGame.ViewModels
 
         /// <summary>
         /// property for the item name
+        /// --> Note JCO; the extensive set here is to demonstrate the use of validation and color to provide user feedback
         /// </summary>
         [MinLength(2, ErrorMessage = "Item name must be at least 2 characters.")]
         [MaxLength(100, ErrorMessage = "Item name must be 100 characters or less.")]
-        public string ItemName
+        public string ItemCommonName
         {
-            get => _itemName;
+            get => _itemCommonName;
             set
             {
-                if (!SetProperty(ref _itemName, value, nameof(ItemName)))
+                if (!SetProperty(ref _itemCommonName, value, nameof(ItemCommonName)))
                     return;
 
 
@@ -124,7 +130,7 @@ namespace PlantGuessingGame.ViewModels
                 //-----------------------------------
 
                 // -- 20250124 Note we currently do nothing with this actively, we can add a list somewhere, or return the necessity to play to the rule and deactivate dirty so saving is disabled.
-                var errors = GetErrors(nameof(ItemName));
+                var errors = GetErrors(nameof(ItemCommonName));
 
                 //print to debug if there are errors.
                 if (errors != null)
@@ -154,23 +160,21 @@ namespace PlantGuessingGame.ViewModels
             }
         }
 
-
         /// <summary>
-        /// The SelectedPlant property, which will hold the plant details.
+        /// The SelectedPhylum property, which will hold the plant details.
         /// </summary>
-        public Plant SelectedPlant
+        public string SelectedPhylum
         {
-            get { return _selectedPlant; }
+            get { return _selectedPhylum; }
             set
             {
-                if (_selectedPlant != value)
+                if (_selectedPhylum != value)
                 {
-                    _selectedPlant = value;
+                    _selectedPhylum = value;
                     OnPropertyChanged();
                 }
             }
         }
-
 
         /// <summary>
         /// color label for ItemName combox
@@ -189,14 +193,14 @@ namespace PlantGuessingGame.ViewModels
         }
 
         /// <summary>
-        /// property for the selected medium
+        /// property for the Selected Plant Classification
         /// </summary>
-        public string SelectedMedium
+        public string SelectedPlantClassification
         {
-            get => _selectedMedium;
+            get => _selectedPlantClassification;
             set
             {
-                if (!SetProperty(ref _selectedMedium, value, nameof(SelectedMedium)))
+                if (!SetProperty(ref _selectedPlantClassification, value, nameof(SelectedPlantClassification)))
                     return;
 
                 IsDirty = true;
@@ -204,19 +208,19 @@ namespace PlantGuessingGame.ViewModels
         }
 
         /// <summary>
-        /// property for the selected item type
+        /// property for the selected plant type
         /// </summary>
-        public string SelectedItemType
+        public string SelectedPlantType
         {
-            get => _selectedItemType;
+            get => _selectedPlantType;
             set
             {
-                if (!SetProperty(ref _selectedItemType, value, nameof(SelectedItemType)))
+                if (!SetProperty(ref _selectedPlantType, value, nameof(SelectedPlantType)))
                     return;
 
                 IsDirty = true;
 
-                Mediums.Clear();
+                PlantTypes.Clear();
 
                 if (!string.IsNullOrWhiteSpace(value))
                 {
@@ -227,34 +231,20 @@ namespace PlantGuessingGame.ViewModels
         }
 
         /// <summary>
-        /// property for the selected location
+        /// observable collection of plant types
         /// </summary>
-        public string SelectedLocation
-        {
-            get => _selectedLocation;
-            set
-            {
-                if (!SetProperty(ref _selectedLocation, value, nameof(SelectedLocation)))
-                    return;
-
-                IsDirty = true;
-            }
-        }
+        public ObservableCollection<string> PlantTypes { get => _plantTypes; set => SetProperty(ref _plantTypes, value, nameof(PlantTypes)); }
 
         /// <summary>
-        /// observable collection of location types
+        /// observable collection of plant classifications
         /// </summary>
-        public ObservableCollection<string> LocationTypes { get => _locationTypes; set => SetProperty(ref _locationTypes, value, nameof(LocationTypes)); }
+        public ObservableCollection<string> PlantClassifications { get => _plantClassifications; set => SetProperty(ref _plantTypes, value, nameof(PlantClassifications)); }
 
         /// <summary>
-        /// observable collection of mediums
+        /// phyla
         /// </summary>
-        public ObservableCollection<string> Mediums { get => _mediums; set => SetProperty(ref _mediums, value, nameof(Mediums)); }
+        public ObservableCollection<string> Phyla { get => _phyla; set => SetProperty(ref _phyla, value, nameof(Phyla)); }
 
-        /// <summary>
-        /// observable collection of item types
-        /// </summary>
-        public ObservableCollection<string> ItemTypes { get => _itemTypes; set => SetProperty(ref _itemTypes, value, nameof(ItemTypes)); }
 
         /// <summary>
         /// property to determine if the item is dirty
@@ -280,10 +270,9 @@ namespace PlantGuessingGame.ViewModels
         {
             await SaveItemAsync();
             _itemId = 0;
-            ItemName = string.Empty;
-            SelectedMedium = string.Empty;
-            SelectedItemType = string.Empty;
-            SelectedLocation = string.Empty;
+            ItemCommonName = string.Empty;
+            SelectedPlantType = string.Empty;
+            SelectedPlantClassification = string.Empty;
             IsDirty = false;
         }
 
@@ -370,15 +359,16 @@ namespace PlantGuessingGame.ViewModels
         /// </summary>
         private void PopulateLists()
         {
-            //ItemTypes.Clear();
-            //foreach (string iType in Enum.GetNames(typeof(ItemType)))
-            //    ItemTypes.Add(iType);
+            PlantTypes.Clear();
+            foreach (string iType in Enum.GetNames(typeof(PlantType)))
+                PlantTypes.Add(iType);
 
-            //LocationTypes.Clear();
-            //foreach (string lType in Enum.GetNames(typeof(LocationType)))
-            //    LocationTypes.Add(lType);
+            PlantClassifications.Clear();
+            foreach (string lType in Enum.GetNames(typeof(PlantClassification)))
+                PlantClassifications.Add(lType);
 
-            //Mediums = new ObservableCollection<string>();
+            //Phyla has to be filled via data service
+            _phyla = new ObservableCollection<string>();
         }
 
         /// <summary>
@@ -386,33 +376,38 @@ namespace PlantGuessingGame.ViewModels
         /// </summary>
         private async Task SaveItemAsync()
         {
-            //MediaItem item;
+            //new
+            Plant item;
 
-            //if (_itemId > 0)
-            //{
-            //    item = await _dataService.GetItemAsync(_itemId);
+            if (_itemId > 0)
+            {
+                //get item by id from DB
+                item = await _dataService.GetItemAsync(_itemId);
 
-            //    item.Name = ItemName;
-            //    item.Location = (LocationType)Enum.Parse(typeof(LocationType), SelectedLocation);
-            //    item.MediaType = (ItemType)Enum.Parse(typeof(ItemType), SelectedItemType);
-            //    item.MediumInfo = _dataService.GetMedium(SelectedMedium);
+                //set values
+                item.CommonName = ItemCommonName;
+                item.PlantType = (PlantType)Enum.Parse(typeof(PlantType), SelectedPlantType);
+                item.PlantClassification = (PlantClassification)Enum.Parse(typeof(PlantClassification), SelectedPlantClassification);
+                item.PhylumInfo = _dataService.GetPhylum(SelectedPhylum);
 
-            //    await _dataService.UpdateItemAsync(item);
-            //}
-            //else
-            //{
-            //    item = new MediaItem
-            //    {
-            //        Name = ItemName,
-            //        Location = (LocationType)Enum.Parse(typeof(LocationType), SelectedLocation),
-            //        MediaType = (ItemType)Enum.Parse(typeof(ItemType), SelectedItemType),
-            //        MediumInfo = _dataService.GetMedium(SelectedMedium)
-            //    };
+                //update item
+                await _dataService.UpdateItemAsync(item);
+            }
+            else
+            {
+                item = new Plant
+                {
+                    CommonName = ItemCommonName,
+                    PlantType = (PlantType)Enum.Parse(typeof(PlantType), SelectedPlantType),
+                    PlantClassification = (PlantClassification)Enum.Parse(typeof(PlantClassification), SelectedPlantClassification),
+                    PhylumInfo = _dataService.GetPhylum(SelectedPhylum)
+                };
+                
+                //add item
+                await _dataService.AddItemAsync(item);
+            }
 
-            //    await _dataService.AddItemAsync(item);
-            //}
-
-            //_navigationServices.GoBack();
+            _navigationServices.GoBack();
         }
 
         /// <summary>
