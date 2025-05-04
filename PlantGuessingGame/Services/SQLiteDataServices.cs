@@ -105,6 +105,59 @@ namespace PlantGuessingGame.Services
             }
         }
 
+        /// <summary>
+        /// public method to get a plant from the database
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public async Task<Plant> GetItemAsync(int id)
+        {
+            IList<Plant> plantItems;
+
+            using (var db = await GetSqliteConnectionAsync())
+            {
+                plantItems = await GetAllPlantsAsync(db);
+            }
+
+            // Filter the list to get the item for our Id.
+            return plantItems.FirstOrDefault(i => i.Id == id);
+        }
+
+        /// <summary>
+        /// public method to get all of the plants from the database
+        /// </summary>
+        /// <returns></returns>
+        public async Task<IList<Plant>> GetItemsAsync()
+        {
+            using (var db = await GetSqliteConnectionAsync())
+            {
+                return await GetAllPlantsAsync(db);
+            }
+        }
+
+
+
+        /// <summary>
+        /// public method to get all of the available phyla
+        /// </summary>
+        /// <returns></returns>
+        public IList<Phylum> GetPhyla()
+        {
+            return _phyla;
+        }
+
+        /// <summary>
+        /// public method to get all of the available phyla for a specific plant type
+        /// </summary>
+        /// <param name="itemType"></param>
+        /// <returns></returns>
+        public IList<Phylum> GetPhyla(PlantType plantType)
+        {
+            return _phyla
+                .Where(m => m.PlantType == plantType)
+                .ToList();
+        }
+
         #endregion
 
 
@@ -469,37 +522,6 @@ namespace PlantGuessingGame.Services
 
 
 
-        public async Task<IList<Plant>> GetItemsAsync()
-        {
-            using (var connection = new SqliteConnection(_connectionString))
-            {
-                await connection.OpenAsync();
-
-                // Fetch plants with linked data (if any)
-                var plants = await connection.QueryAsync<Plant>(
-                    @"SELECT * FROM Plants p
-                      LEFT JOIN PlantLinks l ON p.Id = l.PlantId");
-
-                return plants.ToList();
-            }
-        }
-
-        public async Task<Plant> GetItemAsync(int id)
-        {
-            using (var connection = new SqliteConnection(_connectionString))
-            {
-                await connection.OpenAsync();
-
-                // Fetch specific plant and its associated links
-                var plant = await connection.QueryFirstOrDefaultAsync<Plant>(
-                    @"SELECT * FROM Plants p
-                      LEFT JOIN PlantLinks l ON p.Id = l.PlantId
-                      WHERE p.Id = @Id", new { Id = id });
-
-                return plant;
-            }
-        }
-
         public async Task<int> AddItemAsyncByChatGPT(Plant item)
         {
             using (var connection = new SqliteConnection(_connectionString))
@@ -524,34 +546,6 @@ namespace PlantGuessingGame.Services
                 return plantId;
             }
         }
-
-        //public async Task UpdateItemAsync(Plant item)
-        //{
-        //    using (var connection = new SqliteConnection(_connectionString))
-        //    {
-        //        await connection.OpenAsync();
-
-        //        var updateQuery = @"UPDATE Plants 
-        //                            SET Name = @Name, Type = @Type, Phylum = @Phylum, 
-        //                                Classification = @Classification, Location = @Location
-        //                            WHERE Id = @Id";
-
-        //        await connection.ExecuteAsync(updateQuery, item);
-
-        //        // Optionally update associated links
-        //        if (item.Pictures != null && item.Pictures.Any())
-        //        {
-        //            var deleteLinksQuery = @"DELETE FROM PlantLinks WHERE PlantId = @PlantId";
-        //            await connection.ExecuteAsync(deleteLinksQuery, new { PlantId = item.Id });
-
-        //            foreach (var link in item.Pictures)
-        //            {
-        //                var insertLinkQuery = @"INSERT INTO PlantLinks (PlantId, Link) VALUES (@PlantId, @Link)";
-        //                await connection.ExecuteAsync(insertLinkQuery, new { PlantId = item.Id, Link = link });
-        //            }
-        //        }
-        //    }
-        //}
 
         public async Task DeleteItemAsync(Plant item)
         {
@@ -583,24 +577,6 @@ namespace PlantGuessingGame.Services
             {
                 connection.Open();
                 return connection.QueryFirstOrDefault<Phylum>("SELECT * FROM Phyla WHERE Name = @Name", new { Name = name });
-            }
-        }
-
-        public IList<Phylum> GetPhyla()
-        {
-            using (var connection = new SqliteConnection(_connectionString))
-            {
-                connection.Open();
-                return connection.Query<Phylum>("SELECT * FROM Phyla").ToList();
-            }
-        }
-
-        public IList<Phylum> GetPhyla(PlantType itemType)
-        {
-            using (var connection = new SqliteConnection(_connectionString))
-            {
-                connection.Open();
-                return connection.Query<Phylum>("SELECT * FROM Phyla WHERE ItemType = @ItemType", new { ItemType = itemType }).ToList();
             }
         }
 

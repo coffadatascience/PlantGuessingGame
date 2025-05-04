@@ -180,8 +180,9 @@ namespace PlantGuessingGame.DataModels
         /// <param name="commonName"></param>
         /// <param name="description"></param>
         /// <param name="picture"></param>
-        public Plant(string family, string genus, string species, string commonName, string description, string imagePath = null)
+        public Plant(int id, string family, string genus, string species, string commonName, string description, string imagePath = null)
         {
+            Id = id;
             Family = family;
             Genus = genus;
             Species = species;

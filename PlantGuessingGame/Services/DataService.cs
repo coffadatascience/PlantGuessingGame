@@ -66,7 +66,7 @@
 
             private void PopulatePlants()
             {
-                var fern = new Plant("Polypodiaceae", "Pteridium", "aquilinum", "Bracken Fern", "A large fern commonly found in temperate forests.", "fern.jpg")
+                var fern = new Plant(1, "Polypodiaceae", "Pteridium", "aquilinum", "Bracken Fern", "A large fern commonly found in temperate forests.", "fern.jpg")
                 {
                     Id = 1,
                     PhylumInfo = _phyla.First(p => p.Name == "Pteridophyta"),
@@ -85,7 +85,7 @@
                     Pictures = new List<string> { "fern1.jpg", "fern2.jpg" }
                 };
 
-                var sunflower = new Plant("Asteraceae", "Helianthus", "annuus", "Sunflower", "Tall, bright flower turning toward the sun.", "sunflower.jpg")
+                var sunflower = new Plant(2, "Asteraceae", "Helianthus", "annuus", "Sunflower", "Tall, bright flower turning toward the sun.", "sunflower.jpg")
                 {
                     Id = 2,
                     PhylumInfo = _phyla.First(p => p.Name == "Angiosperms"),

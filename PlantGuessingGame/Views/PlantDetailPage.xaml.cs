@@ -76,7 +76,7 @@ namespace PlantGuessingGame.Views
             var selectedItemId = (int)e.Parameter;
 
             // check if the selected item id is greater than 0
-            if (selectedItemId > 0)
+            if (selectedItemId >= 0)
             {
                 await ViewModel.InitializeItemDetailDataAsync(selectedItemId);
             }

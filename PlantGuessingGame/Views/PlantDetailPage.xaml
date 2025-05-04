@@ -9,8 +9,8 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     mc:Ignorable="d">
 
-    
-    
+
+
     <Page.Resources>
         <!--  Define some styles for the grid and text blocks  -->
         <Style x:Key="AttributeTitleStyle" TargetType="TextBlock">
@@ -24,8 +24,8 @@
         </Style>
     </Page.Resources>
 
-    
-    
+
+
     <Grid Margin="10">
 
         <!--  Title Section  -->
@@ -35,17 +35,24 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
-        <!--title for page in a stackpanel with a symbol icon and a textblock-->
+        <!--  title for page in a stackpanel with a symbol icon and a textblock  -->
         <StackPanel Orientation="Horizontal">
-            <SymbolIcon Symbol="Edit" Margin="8"/>
-            <TextBlock Text="Plant Details" Style="{StaticResource SubheaderTextBlockStyle}" Margin="8"/>
+            <SymbolIcon Margin="8" Symbol="Edit" />
+            <TextBlock
+                Margin="8"
+                Style="{StaticResource SubheaderTextBlockStyle}"
+                Text="Plant Details" />
         </StackPanel>
 
         <!--  Plant Details Section  -->
-        <Grid Grid.Row="1" BorderBrush="{ThemeResource SystemAccentColor}" BorderThickness="0,1,0,1" Margin="4,0,4,8">
+        <Grid
+            Grid.Row="1"
+            Margin="4,0,4,8"
+            BorderBrush="{ThemeResource SystemAccentColor}"
+            BorderThickness="0,1,0,1">
 
-             
-            <!-- grid definitions for the details of the selected plant -->
+
+            <!--  grid definitions for the details of the selected plant  -->
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
@@ -59,7 +66,7 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-            <!--  commons name - note that these have update source triggers via the bindable base -->
+            <!--  commons name - note that these have update source triggers via the bindable base  -->
             <TextBlock
                 VerticalAlignment="Center"
                 Style="{StaticResource AttributeTitleStyle}"
@@ -109,7 +116,8 @@
                 Style="{StaticResource AttributeValueStyle}"
                 Text="{x:Bind ViewModel.SelectedPhylum, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
-            <!--  Description  --><!--
+            <!--  Description  -->
+            <!--
             <TextBlock
                 Grid.Row="4"
                 VerticalAlignment="Center"
@@ -122,7 +130,9 @@
                 Style="{StaticResource AttributeValueStyle}"
                 Text="{x:Bind ViewModel.Description, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
-            --><!--  Picture  --><!--
+            -->
+            <!--  Picture  -->
+            <!--
             <TextBlock
                 Grid.Row="5"
                 VerticalAlignment="Center"
@@ -147,6 +157,6 @@
                 Command="{x:Bind ViewModel.NavigateBackCommand}"
                 Content="Back" />
         </StackPanel>
-        
+
     </Grid>
 </Page>

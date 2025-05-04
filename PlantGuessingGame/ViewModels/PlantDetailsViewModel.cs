@@ -64,10 +64,10 @@ namespace PlantGuessingGame.ViewModels
         /// </summary>
         /// <param name="navigationService"></param>
         /// <param name="dataService"></param>
-        public PlantDetailsViewModel(INavigationService navigationService) //, IDataService dataService)
+        public PlantDetailsViewModel(INavigationService navigationService, IDataService dataService)
         {
             _navigationServices = navigationService;
-            //_dataService = dataService;
+            _dataService = dataService;
 
             PopulateLists();
 
@@ -307,7 +307,7 @@ namespace PlantGuessingGame.ViewModels
             //populate the existing item
             if (_selectedItemId > 0)
             {
-                //await PopulateExistingItemAsync(_dataService);
+                await PopulateExistingItemAsync(_dataService);
             }
 
             //set the is dirty to false

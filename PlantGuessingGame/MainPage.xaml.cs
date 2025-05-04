@@ -26,10 +26,7 @@ namespace PlantGuessingGame
     public sealed partial class MainPage : Page
     {
 
-
-        public MainViewModel ViewModel { get; } = (Application.Current as App).Container.GetService<MainViewModel>();
-
-        public PlantViewModel PlantViewModel { get; } = (Application.Current as App).Container.GetService<PlantViewModel>();
+        public PlantViewModel ViewModel { get; } = (Application.Current as App).Container.GetService<PlantViewModel>();
 
 
         public MainPage()

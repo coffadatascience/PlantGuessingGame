@@ -30,20 +30,10 @@ namespace PlantGuessingGame.ViewModels
         private const string AllMediums = "All";
 
         /// <summary>
-        /// selected item in the list
-        /// </summary>
-        private Plant selectedPlantItem;
-
-        /// <summary>
         /// Temp var for number of items added to the list
         /// </summary>
         private int additionalItemCount;
 
-
-        /// <summary>
-        /// List of Plant items
-        /// </summary>
-        private string selectedPlant;
 
         ///// <summary>
         ///// List of media items
@@ -105,63 +95,6 @@ namespace PlantGuessingGame.ViewModels
         /// </summary>
         public RelayCommand DeleteCommand { get; set; }
 
-        /// <summary>
-        /// public property for the selected medium
-        /// --> this property is used to filter the items
-        /// note that the set method calls the OnPropertyChanged method
-        /// </summary>
-        public IList<string> Mediums
-        {
-            get { return mediums; }
-            set { SetProperty(ref mediums, value); }
-        }
-
-
-        /// <summary>
-        /// public property for the selected medium
-        /// </summary>
-        //public ObservableCollection<MediaItem> Items
-        //{
-        //    get
-        //    {
-        //        return items;
-        //    }
-        //    set
-        //    {
-        //        SetProperty(ref items, value);
-        //    }
-        //}
-
-        /// <summary>
-        /// public property for the selected plant
-        /// </summary>
-        public string SelectedPlant
-        {
-            get
-            {
-                return selectedPlant;
-            }
-            set
-            {
-                //set the value
-                SetProperty(ref selectedPlant, value);
-
-                ////call the filter method
-                //Items.Clear();
-
-                ////filter the items
-                //foreach (var item in allItems)
-                //{
-                //    //check if the selected medium is all or the same as the item
-                //    if (string.IsNullOrWhiteSpace(selectedMedium) ||
-                //        selectedMedium == "All" ||
-                //        selectedMedium == item.MediaType.ToString())
-                //    {
-                //        Items.Add(item);
-                //    }
-                //}
-            }
-        }
 
 
 
@@ -194,7 +127,7 @@ namespace PlantGuessingGame.ViewModels
             //DeleteCommand = new RelayCommand2(async() => await DeleteItemAsync(), CanDeleteItem);
 
             //add edit (note that we can always add, but cant alway delete)
-            AddEditCommand = new RelayCommand(AddOrEditItem);
+            //AddEditCommand = new RelayCommand(AddOrEditItem);
 
             //populate with some data (this normally would come from a DB)
             PopulateDataAsync();
@@ -228,20 +161,7 @@ namespace PlantGuessingGame.ViewModels
 
         #region events
 
-        /// <summary>
-        /// event for double tapping the list view
-        /// --> note here we have an event, in the ViewModel that we can now link via X:Bind to the ListView action
-        /// --> Its binding is still loose, but we can now link the event to the ListView
-        /// --> the ViewModel is now linked to the View but does not know about the View (dependency is minimal) 
-        ///     The view in this case depends on the ViewModel, but the ViewModel does not depend on the View
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        public void ListViewDoubleTapped(object sender, DoubleTappedRoutedEventArgs e)
-        {
-            //add or edit item
-            AddOrEditItem();
-        }
+
 
 
         #endregion
@@ -275,42 +195,6 @@ namespace PlantGuessingGame.ViewModels
         /// <returns></returns>
         //private bool CanDeleteItem() => selectedMediaItem != null;
 
-        /// <summary>
-        /// add or edit (test function to add an item)
-        /// </summary>
-        public void AddOrEditItem()
-        {
-
-            ////test for editing items
-            //const int startingItemCount = 3;
-            //var newItem = new MediaItem
-            //{
-            //    Id = startingItemCount + additionalItemCount,
-            //    Location = LocationType.InCollection,
-            //    MediaType = ItemType.Music,
-            //    MediumInfo = new Medium { Id = 1, MediaType = ItemType.Music, Name = "CD" },
-            //    Name = $"CD {additionalItemCount}"
-            //};
-
-            ////add new item
-            //allItems.Add(newItem);
-            ////add item also to item list
-            //items.Add(newItem);
-            ////count
-            //additionalItemCount++;
-
-
-            //rather than having here a mockup add, we will get the selected item and navigate to the items details pages
-            var selectedItemId = -1;
-            if (selectedPlantItem != null)
-            {
-                selectedItemId = selectedPlantItem.Id;
-            }
-
-            //navigate to the edit page by passing the selected item (therefore the item detail page should process the selected item and load the content)
-            _navigationServices.NavigateTo("PlantDetailPage", selectedItemId);
-
-        }
 
         public void NavigateToDetailsPage(object sender, DoubleTappedRoutedEventArgs e)
         {
