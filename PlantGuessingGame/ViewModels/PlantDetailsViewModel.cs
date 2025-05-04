@@ -30,9 +30,15 @@ namespace PlantGuessingGame.ViewModels
 
 
         private int _itemId;
+
+        //list of local variables that we place here that are observed and serve for user / dataservice (database) interaction via their public related vars
         private string _itemCommonName;
+
+        //setup enums
         private string _selectedPlantClassification;
         private string _selectedPlantType;
+
+        //vars used to keeop up tabs
         private bool _isDirty;
         private int _selectedItemId = -1;
 
@@ -312,47 +318,50 @@ namespace PlantGuessingGame.ViewModels
         /// <summary>
         /// method to populate the existing item
         /// --> main method that based on the selected item (passed as parameter filled the fields with the item data)
-        /// --> Note that here the selected fileds are set (such as selected medium, location and item type)
-        /// --> Also note here that we only use the Name of MediumInfo and that these two object are repsented here as a flat table
+        /// --> Note that here the selected fileds are set 
+        /// --> Also note here that we only use the Name of Plant and that these two object are repsented here as a flat table
         /// </summary>
         /// <param name="dataService"></param>
-        //private async Task PopulateExistingItemAsync(IDataService dataService)
-        //{
+        private async Task PopulateExistingItemAsync(IDataService dataService)
+        {
+
+            //when we open the page we should pass an id, this may then be used to obtain the relevant data item from the service
+            if (_selectedItemId > 0)
+            {
+                var item = await _dataService.GetItemAsync(_selectedItemId);
+
+                //clear Phyla
+                Phyla.Clear();
+
+                //add phyla based on plant type
+                foreach (string phylum in dataService.GetPhyla(item.PlantType).Select(m => m.Name))
+                    Phyla.Add(phylum);
 
 
-        //    if (_selectedItemId > 0)
-        //    {
-        //        var item = await _dataService.GetItemAsync(_selectedItemId);
-        //        Mediums.Clear();
+                //!!! Note on the IProperty Changed the first time will be Change is true because the original values are not set yet.
+                //    --> therefore like IsDirty, any color codings indicating changes need to be set afterwards and not by reactiveness to the change from nothing to default
+                _itemId = item.Id;
+                ItemCommonName = item.CommonName;
+                SelectedPlantType = item.PlantType.ToString();
+                SelectedPlantClassification = item.PlantClassification.ToString();
 
-        //        foreach (string medium in dataService.GetMediums(item.MediaType).Select(m => m.Name))
-        //            Mediums.Add(medium);
+                //NOTE --> its essential that setting the selected medium is done after the mediums are populated
+                //         else the selected medium will not be set due the fact that setting itemtype will clear the mediums
+                SelectedPhylum = item.PhylumInfo.Name;
 
-
-        //        //!!! Note on the IProperty Changed the first time will be Change is true because the original values are not set yet.
-        //        //    --> therefore like IsDirty, any color codings indicating changes need to be set afterwards and not by reactiveness to the change from nothing to default
-        //        _itemId = item.Id;
-        //        ItemName = item.Name;
-        //        SelectedLocation = item.Location.ToString();
-        //        SelectedItemType = item.MediaType.ToString();
-
-        //        //NOTE --> its essential that setting the selected medium is done after the mediums are populated
-        //        //         else the selected medium will not be set due the fact that setting itemtype will clear the mediums
-        //        SelectedMedium = item.MediumInfo.Name;
-
-        //        //-----------------------------------
-        //        //!!!! --> note that the color setting must be after settting the trigger value of name
-        //        //     --> Note that we merely implemented this here to evaluate reactivity and that this is not a logical place to implement this
-        //        //     --> we are better of having a dedicated method that checks the validity of the data and sets the color accordingly
-        //        //         However functionally it is a good example of how to set the color of a label based on the value of a field, as well as disabling the saving option
-        //        //-----------------------------------
-        //        //Set color before itemname (or block the change edit of name to color)
-        //        //create new brush that is white
-        //        SolidColorBrush Brush = new SolidColorBrush(Colors.White);
-        //        //set color to white
-        //        SelectedItemNameColor = Brush;
-        //    }
-        //}
+                //-----------------------------------
+                //!!!! --> note that the color setting must be after settting the trigger value of name
+                //     --> Note that we merely implemented this here to evaluate reactivity and that this is not a logical place to implement this
+                //     --> we are better of having a dedicated method that checks the validity of the data and sets the color accordingly
+                //         However functionally it is a good example of how to set the color of a label based on the value of a field, as well as disabling the saving option
+                //-----------------------------------
+                //Set color before itemname (or block the change edit of name to color)
+                //create new brush that is white
+                SolidColorBrush Brush = new SolidColorBrush(Colors.White);
+                //set color to white
+                SelectedItemNameColor = Brush;
+            }
+        }
 
         /// <summary>
         /// method to populate the lists
