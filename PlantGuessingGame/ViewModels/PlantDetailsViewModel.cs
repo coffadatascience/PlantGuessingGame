@@ -305,7 +305,7 @@ namespace PlantGuessingGame.ViewModels
             _selectedItemId = selectedItemId;
 
             //populate the existing item
-            if (_selectedItemId > 0)
+            if (_selectedItemId >= 0)
             {
                 await PopulateExistingItemAsync(_dataService);
             }
@@ -326,40 +326,46 @@ namespace PlantGuessingGame.ViewModels
         {
 
             //when we open the page we should pass an id, this may then be used to obtain the relevant data item from the service
-            if (_selectedItemId > 0)
+            if (_selectedItemId >= 0)
             {
                 var item = await _dataService.GetItemAsync(_selectedItemId);
 
                 //clear Phyla
                 Phyla.Clear();
 
-                //add phyla based on plant type
-                foreach (string phylum in dataService.GetPhyla(item.PlantType).Select(m => m.Name))
-                    Phyla.Add(phylum);
+                //check if we have the item
+                if (item is null == false)
+                {
+
+                    //add phyla based on plant type
+                    foreach (string phylum in dataService.GetPhyla(item.PlantType).Select(m => m.Name))
+                        Phyla.Add(phylum);
 
 
-                //!!! Note on the IProperty Changed the first time will be Change is true because the original values are not set yet.
-                //    --> therefore like IsDirty, any color codings indicating changes need to be set afterwards and not by reactiveness to the change from nothing to default
-                _itemId = item.Id;
-                ItemCommonName = item.CommonName;
-                SelectedPlantType = item.PlantType.ToString();
-                SelectedPlantClassification = item.PlantClassification.ToString();
+                    //!!! Note on the IProperty Changed the first time will be Change is true because the original values are not set yet.
+                    //    --> therefore like IsDirty, any color codings indicating changes need to be set afterwards and not by reactiveness to the change from nothing to default
+                    _itemId = item.Id;
+                    ItemCommonName = item.CommonName;
+                    SelectedPlantType = item.PlantType.ToString();
+                    SelectedPlantClassification = item.PlantClassification.ToString();
 
-                //NOTE --> its essential that setting the selected medium is done after the mediums are populated
-                //         else the selected medium will not be set due the fact that setting itemtype will clear the mediums
-                SelectedPhylum = item.PhylumInfo.Name;
+                    //NOTE --> its essential that setting the selected medium is done after the mediums are populated
+                    //         else the selected medium will not be set due the fact that setting itemtype will clear the mediums
+                    if (item.PhylumInfo is null == false) SelectedPhylum = item.PhylumInfo.Name;
 
-                //-----------------------------------
-                //!!!! --> note that the color setting must be after settting the trigger value of name
-                //     --> Note that we merely implemented this here to evaluate reactivity and that this is not a logical place to implement this
-                //     --> we are better of having a dedicated method that checks the validity of the data and sets the color accordingly
-                //         However functionally it is a good example of how to set the color of a label based on the value of a field, as well as disabling the saving option
-                //-----------------------------------
-                //Set color before itemname (or block the change edit of name to color)
-                //create new brush that is white
-                SolidColorBrush Brush = new SolidColorBrush(Colors.White);
-                //set color to white
-                SelectedItemNameColor = Brush;
+                    //-----------------------------------
+                    //!!!! --> note that the color setting must be after settting the trigger value of name
+                    //     --> Note that we merely implemented this here to evaluate reactivity and that this is not a logical place to implement this
+                    //     --> we are better of having a dedicated method that checks the validity of the data and sets the color accordingly
+                    //         However functionally it is a good example of how to set the color of a label based on the value of a field, as well as disabling the saving option
+                    //-----------------------------------
+                    //Set color before itemname (or block the change edit of name to color)
+                    //create new brush that is white
+                    SolidColorBrush Brush = new SolidColorBrush(Colors.White);
+                    //set color to white
+                    SelectedItemNameColor = Brush;
+
+                }
             }
         }
 
