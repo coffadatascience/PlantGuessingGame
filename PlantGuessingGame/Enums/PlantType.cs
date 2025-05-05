@@ -33,7 +33,11 @@ namespace PlantGuessingGame.Enums
         /// <summary>
         /// Creepers
         /// </summary>
-        Creeper
+        Creeper,
+        /// <summary>
+        /// other (none of the above)
+        /// </summary>
+        Other
 
     }
 }

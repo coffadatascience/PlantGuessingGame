@@ -48,7 +48,7 @@ namespace PlantGuessingGame.Views
 
         }
 
-        public PlantDetailPage(PlantViewModel plantViewModel)
+        public PlantDetailPage(PlantOverviewViewModel plantViewModel)
         {
             this.InitializeComponent();
             this.DataContext = plantViewModel;  // Set the DataContext to the injected PlantViewModel

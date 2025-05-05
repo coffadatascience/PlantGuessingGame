@@ -14,16 +14,27 @@ namespace PlantGuessingGame.ViewModels
     /// <summary>
     /// view model for plant
     /// </summary>
-    public class PlantViewModel : BindableBase
+    public class PlantOverviewViewModel : BindableBase
     {
 
 
         #region private variables
 
+
+        /// <summary>
+        /// constant for all phyla
+        /// </summary>
+        private const string AllPhyla = "All";
+
         /// <summary>
         /// local selected plant variable
         /// </summary>
         private Plant selectedPlant;
+
+        /// <summary>
+        /// selected phylum
+        /// </summary>
+        private string selectedPhylum;
 
         /// <summary>
         /// observable collection to display list of plants (private)
@@ -34,6 +45,11 @@ namespace PlantGuessingGame.ViewModels
         /// Ilist for Plant types for the combo box
         /// </summary>
         private ObservableCollection<Plant> allPlants;
+
+        /// <summary>
+        /// Ilist for phyla for the combo box
+        /// </summary>
+        private IList<string> phyla;
 
         #endregion
 
@@ -79,6 +95,17 @@ namespace PlantGuessingGame.ViewModels
         }
 
         /// <summary>
+        /// public property for the selected phyla
+        /// --> this property is used to filter the items
+        /// note that the set method calls the OnPropertyChanged method
+        /// </summary>
+        public IList<string> Phyla
+        {
+            get { return phyla; }
+            set { SetProperty(ref phyla, value); }
+        }
+
+        /// <summary>
         /// Command to add a new plant
         /// </summary>
         public ICommand AddEditCommand { get; set; }
@@ -93,6 +120,37 @@ namespace PlantGuessingGame.ViewModels
         /// </summary>
         public ICommand DeleteCommand { get; set; }
 
+        /// <summary>
+        /// public property for the selected phylum
+        /// </summary>
+        public string SelectedPhylum
+        {
+            get
+            {
+                return selectedPhylum;
+            }
+            set
+            {
+                //set the value
+                SetProperty(ref selectedPhylum, value);
+
+                //call the filter method
+                plants.Clear();
+
+                //filter the items
+                foreach (var item in allPlants)
+                {
+                    //check if the selected medium is all or the same as the item
+                    if (string.IsNullOrWhiteSpace(selectedPhylum) ||
+                        selectedPhylum == "All" ||
+                        selectedPhylum == item.PhylumInfo.Name)
+                    {
+                        plants.Add(item);
+                    }
+                }
+            }
+        }
+
         #endregion
 
 
@@ -105,10 +163,11 @@ namespace PlantGuessingGame.ViewModels
         /// --> add list of default plant information (we will make these collection later in a data service)
         /// </summary>
         /// <param name="navigationService"></param>
-        public PlantViewModel(INavigationService navigationService)
+        public PlantOverviewViewModel(INavigationService navigationService, IDataService dataService)
         {
             //set nav
             _navigationServices = navigationService;
+            _dataService = dataService;
 
             // Initialize the plant collection
             Plants = [];
@@ -120,8 +179,12 @@ namespace PlantGuessingGame.ViewModels
             //delete command
             DeleteCommand = new RelayCommand(async () => await DeleteItemAsync(), CanDeleteItem);
 
+
+            //20250405 --> replace this for a population of the local items using the data serice
+            // ---> we also do the intial data population via the service (not in the viewmodel)
+
             // Add plants on initialization
-            AddPlant();
+            PopulateDataAsync();
         }
 
         #endregion
@@ -176,7 +239,39 @@ namespace PlantGuessingGame.ViewModels
             }
         }
 
+        /// <summary>
+        /// retrieves list of plants from data service
+        /// </summary>
+        /// <returns></returns>
+        private async Task PopulateDataAsync()
+        {
 
+            //clear the items
+            plants.Clear();
+            foreach (var item in await _dataService.GetItemsAsync())
+            {
+                plants.Add(item);
+            }
+
+            //new observable collection with all items
+            allPlants = new ObservableCollection<Plant>(plants);
+
+            //create a list with mediums and add "All" to it
+            phyla = new ObservableCollection<string>
+            {
+                AllPhyla
+            };
+
+            //add the rest of the items
+            foreach (var itemType in _dataService.GetPhyla())
+            {
+                phyla.Add(itemType.ToString());
+            }
+
+            //set selected phylum
+            SelectedPhylum = Phyla[0];
+
+        }
 
         /// <summary>
         /// Method to handle the logic of navigating back

@@ -25,7 +25,12 @@ namespace PlantGuessingGame.DataModels
         public int Id { get; set; }
 
         /// <summary>
-        /// common name as in general usage
+        /// name as used in local language
+        /// </summary>
+        public string LocalName { get; set; }
+
+        /// <summary>
+        /// common name as in general usage (international)
         /// </summary>
         public string CommonName { get; set; }
 
@@ -180,13 +185,14 @@ namespace PlantGuessingGame.DataModels
         /// <param name="commonName"></param>
         /// <param name="description"></param>
         /// <param name="picture"></param>
-        public Plant(int id, string family, string genus, string species, string commonName, string description, string imagePath = null)
+        public Plant(int id, string localName, string commonName, string family, string genus, string species,  string description, string imagePath = null)
         {
             Id = id;
+            LocalName = localName;
+            CommonName = commonName;
             Family = family;
             Genus = genus;
             Species = species;
-            CommonName = commonName;
             Description = description;
             ImagePath = imagePath;
         }

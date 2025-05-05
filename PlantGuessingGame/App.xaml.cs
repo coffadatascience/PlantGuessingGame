@@ -123,7 +123,7 @@ namespace PlantGuessingGame
 
             // ViewModels
             services.AddTransient<MainViewModel>();
-            services.AddTransient<PlantViewModel>();
+            services.AddTransient<PlantOverviewViewModel>();
             services.AddTransient<PlantDetailsViewModel>();
 
             return services.BuildServiceProvider();

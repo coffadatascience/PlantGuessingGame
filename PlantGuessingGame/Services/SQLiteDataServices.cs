@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Security.AccessControl;
 using System.Threading.Tasks;
 using Dapper;
 using Microsoft.Data.Sqlite;
@@ -236,16 +237,127 @@ namespace PlantGuessingGame.Services
             if (_phyla.Count == 0)
             {
                 //add default phyla
-                var Anthocerotophyta = new Phylum { Id = 1, Name = "Anthocerotophyta", PlantType = PlantType.Shrub, Description = "Horn-shaped sporophytes, no vascular system" };
-                var Bryophyta = new Phylum { Id = 2, Name = "Bryophyta", PlantType = PlantType.Shrub, Description = "Persistent unbranched sporophytes, no vascular system" };
-                var Embryophyta = new Phylum { Id = 3, Name = "Embryophyta", PlantType = PlantType.Tree, Description = "" };
+                var Anthocerotophyta = new Phylum 
+                { 
+                    Id = 1, 
+                    Name = "Anthocerotophyta", 
+                    CommonName = "Hornworts",
+                    PlantType = PlantType.Shrub, 
+                    Description = "Horn-shaped sporophytes, no vascular system" 
+                };
+                var Bryophyta = new Phylum 
+                { 
+                    Id = 2, 
+                    Name = "Bryophyta", 
+                    CommonName = "Moss",
+                    PlantType = PlantType.Shrub, 
+                    Description = "Persistent unbranched sporophytes, no vascular system" 
+                };
+                var Charophyta = new Phylum
+                {
+                    Id = 3,
+                    Name = "Charophyta",
+                    CommonName = "Charophytes",
+                    PlantType = PlantType.Other,
+                    Description = "mainly autotrophs with exceptions and have the same chlorophyll a and b pigments as \"higher\" plant divisions"
+                };
+                var Chlorophyta = new Phylum 
+                { 
+                    Id = 4, 
+                    Name = "Chlorophyta",
+                    CommonName = "Chlorophytes",
+                    PlantType = PlantType.Other, 
+                    Description = "" 
+                };
+                var Cycadophyta = new Phylum
+                {
+                    Id = 5,
+                    Name = "Cycadophyta",
+                    CommonName = "Cycads",
+                    PlantType = PlantType.Tree,
+                    Description = "Seeds, crown of compound leaves"
+                };
+                var Ginkgophyta = new Phylum
+                {
+                    Id = 6,
+                    Name = "Ginkgophyta",
+                    CommonName = "Ginkgo",
+                    PlantType = PlantType.Tree,
+                    Description = "Seeds not protected by fruit"
+                }; 
+                var Glaucophyta = new Phylum
+                {
+                    Id = 7,
+                    Name = "Glaucophyta",
+                    CommonName = "Glaucophytes",
+                    PlantType = PlantType.Other,
+                    Description = "XXX"
+                }; 
+                var Gnetophyta = new Phylum
+                {
+                    Id = 8,
+                    Name = "Gnetophyta",
+                    CommonName = "Gnetophytes",
+                    PlantType = PlantType.Shrub,
+                    Description = "Seeds and woody vascular system with vessels"
+                }; 
+                var Lycopodiophyta = new Phylum
+                {
+                    Id = 9,
+                    Name = "Lycopodiophyta",
+                    CommonName = "Clubmosses",
+                    PlantType = PlantType.Creeper,
+                    Description = "Microphyll leaves, vascular system"
+                }; 
+                var Magnoliophyta = new Phylum
+                {
+                    Id = 10,
+                    Name = "Magnoliophyta",
+                    CommonName = "Flowering plants, angiosperms",
+                    PlantType = PlantType.Shrub,
+                    Description = "Flowers and fruit, vascular system with vessels"
+                }; 
+                var Marchantiophyta = new Phylum
+                {
+                    Id = 11,
+                    Name = "Marchantiophyta",
+                    CommonName = "Liverworts",
+                    PlantType = PlantType.Creeper,
+                    Description = "Ephemeral unbranched sporophytes, no vascular system"
+                }; 
+                var Pinophyta = new Phylum
+                {
+                    Id = 12,
+                    Name = "Pinophyta",
+                    CommonName = "Conifers",
+                    PlantType = PlantType.Shrub,
+                    Description = "Cones containing seeds and wood composed of tracheids"
+                }; 
+                var Polypodiophyta = new Phylum
+                {
+                    Id = 13,
+                    Name = "Polypodiophyta",
+                    CommonName = "ferns, horsetails",
+                    PlantType = PlantType.Tree,
+                    Description = "Prothallus gametophytes and vascular system"
+                }; 
 
                 //create new list list
                 var phyla = new List<Phylum>
                 {
                     Anthocerotophyta,
                     Bryophyta,
-                    Embryophyta
+                    Charophyta,
+                    Chlorophyta,
+                    Cycadophyta,
+                    Ginkgophyta,
+                    Glaucophyta,
+                    Gnetophyta,
+                    Lycopodiophyta,
+                    Magnoliophyta,
+                    Marchantiophyta,
+                    Pinophyta,
+                    Polypodiophyta
                 };
                 
                 //add the list 
@@ -271,12 +383,45 @@ namespace PlantGuessingGame.Services
             //if the database has no info, then add the default list
             if (_plants.Count == 0)
             {
+
+
+                new Plant(1, "HaagBeuk", "Carpinus", "betulus", "European Hornbeam", "A tree often used for hedging, with a dense, narrow crown.", "path_to_picture.jpg"),
+                new Plant(2, "BeukHaag", "Carpinus", "betulus", "European Hornbeam", "A tree commonly used for hedges with small, serrated leaves.", "path_to_picture.jpg"),
+                new Plant(3, "Hortensia", "Hydrangea", "macrophylla", "Bigleaf Hydrangea", "A flowering shrub with large, colorful blooms.", "path_to_picture.jpg"),
+                new Plant(4, "Plataan", "Platanus", "acerifolia", "London Plane", "A large deciduous tree with exfoliating bark.", "path_to_picture.jpg"),
+                new Plant(6, "Appeltree", "Malus", "domestica", "Apple Tree", "A deciduous tree known for producing apples.", "path_to_picture.jpg"),
+                new Plant(7, "Els", "Alnus", "glutinosa", "Black Alder", "A tree that thrives in wet soils and has a dark bark.", "path_to_picture.jpg"),
+                new Plant(8, "Tulip", "Tulipa", "spp.", "Tulip", "A bulbous spring-flowering plant, known for its vibrant flowers.", "path_to_picture.jpg"),
+                new Plant(9, "Narcis", "Narcissus", "spp.", "Daffodil", "A spring perennial with trumpet-shaped flowers.", "path_to_picture.jpg"),
+                new Plant(10, "Korkus", "Quercus", "robur", "English Oak", "A large deciduous tree known for its strong wood and acorns.", "path_to_picture.jpg"),
+                new Plant(11, "Aardbei", "Fragaria", "x ananassa", "Strawberry", "A low-growing plant with sweet, red, edible fruit.", "path_to_picture.jpg")
+
                 //add default plants
+                //00 Nandina
+                var Nandina = new Plant
+                {
+                    Id = 0,
+                    LocalName = "Nandina",
+                    CommonName = "Heavenly Bamboo",
+                    Family = "Berberidaceae",
+                    Genus = "Nandina",
+                    Species = "domestica",
+                    Description = "A popular ornamental shrub with beautiful red berries.",
+                    ImagePath = "path_to_picture.jpg",
+                    //set phylum
+                    PhylumInfo = _phyla[2]
+                };
                 //01
                 var Haagbeuk = new Plant
                 {
                     Id = 1,
-                    CommonName = "Haagbeuk",
+                    LocalName = "HaagBeuk",
+                    CommonName = "European Hornbeam",
+                    Family = "Betulaceae",
+                    Genus = "Carpinus",
+                    Species = "betulus",
+                    Description = "A tree often used for hedging, with a dense, narrow crown.",
+                    ImagePath = "path_to_picture.jpg",
                     //set phylum
                     PhylumInfo = _phyla[2]
                 };

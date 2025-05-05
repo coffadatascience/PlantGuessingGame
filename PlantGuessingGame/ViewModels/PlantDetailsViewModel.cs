@@ -69,6 +69,7 @@ namespace PlantGuessingGame.ViewModels
             _navigationServices = navigationService;
             _dataService = dataService;
 
+            //fille lists
             PopulateLists();
 
             //SaveCommand = new RelayCommand2(SaveItem, CanSaveItem);

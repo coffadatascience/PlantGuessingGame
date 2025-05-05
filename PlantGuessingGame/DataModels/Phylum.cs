@@ -22,6 +22,11 @@ namespace PlantGuessingGame.DataModels
         public required string Name { get; set; }
 
         /// <summary>
+        /// common name
+        /// </summary>
+        public required string CommonName { get; set; }
+
+        /// <summary>
         /// type of the plant
         /// </summary>
         public required PlantType PlantType { get; set; }
