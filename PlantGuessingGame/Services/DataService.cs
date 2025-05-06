@@ -33,7 +33,7 @@
                 _classifications = new List<PlantClassification>();
 
                 PopulatePlantTypes();
-                PopulatePhyla();
+                //PopulatePhyla();
                 PopulateClassifications();
                 PopulatePlants();
             }
@@ -47,17 +47,17 @@
                 _plantTypes = Enum.GetValues(typeof(PlantType)).Cast<PlantType>().ToList();
             }
 
-            private void PopulatePhyla()
-            {
-                _phyla = new List<Phylum>
-            {
-                new Phylum { Id = 1, Name = "Thallophyta", Description = "Simple plants like algae and fungi.", PlantType = PlantType.Herb },
-                new Phylum { Id = 2, Name = "Bryophyta", Description = "Non-vascular plants like mosses.", PlantType = PlantType.Shrub },
-                new Phylum { Id = 3, Name = "Pteridophyta", Description = "Ferns and their relatives.", PlantType = PlantType.Tree },
-                new Phylum { Id = 4, Name = "Gymnosperms", Description = "Seed-producing plants like pines.", PlantType = PlantType.Climber },
-                new Phylum { Id = 5, Name = "Angiosperms", Description = "Flowering plants.", PlantType = PlantType.Creeper }
-            };
-            }
+            //private void PopulatePhyla()
+            //{
+            //    _phyla = new List<Phylum>
+            //    {
+            //        new Phylum { Id = 1, Name = "Thallophyta", Description = "Simple plants like algae and fungi.", PlantType = PlantType.Herb },
+            //        new Phylum { Id = 2, Name = "Bryophyta", Description = "Non-vascular plants like mosses.", PlantType = PlantType.Shrub },
+            //        new Phylum { Id = 3, Name = "Pteridophyta", Description = "Ferns and their relatives.", PlantType = PlantType.Tree },
+            //        new Phylum { Id = 4, Name = "Gymnosperms", Description = "Seed-producing plants like pines.", PlantType = PlantType.Climber },
+            //        new Phylum { Id = 5, Name = "Angiosperms", Description = "Flowering plants.", PlantType = PlantType.Creeper }
+            //    };
+            //}
 
             private void PopulateClassifications()
             {

@@ -159,6 +159,24 @@ namespace PlantGuessingGame.Services
                 .ToList();
         }
 
+        /// <summary>
+        /// find phylum by name
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
+        public Phylum GetPhylumByName(string name)
+        {
+            //loop phyla
+            foreach (var item in _phyla)
+            {
+                //match name
+                if (item.Name.ToUpper() == name.ToUpper()) return item;
+
+            }
+            //return null
+            return null;
+        }
+
         #endregion
 
 
@@ -340,7 +358,23 @@ namespace PlantGuessingGame.Services
                     CommonName = "ferns, horsetails",
                     PlantType = PlantType.Tree,
                     Description = "Prothallus gametophytes and vascular system"
-                }; 
+                };
+                var Embryophyta = new Phylum
+                {
+                    Id = 14,
+                    Name = "Embryophyta",
+                    CommonName = "land plants",
+                    PlantType = PlantType.Tree,
+                    Description = "Embryophytes are complex multicellular eukaryotes with specialized reproductive organs."
+                };
+                var Tracheophyta = new Phylum
+                {
+                    Id = 15,
+                    Name = "Tracheophyta",
+                    CommonName = "Vascular plants",
+                    PlantType = PlantType.Other,
+                    Description = "Magnoliophyta – Cycadophyta – Ginkgophyta – Gnetophyta – Lycopodiophyta – Pinophyta – Pteridophyta – †Aneurophytophyta – †Asteroxylophyta – †Botryopteridiophyta – †Cladoxylophyta – †Cycadeoideophyta – †Lyginopteridophyta – †Moresnetiophyta – †Peltaspermophyta – †Psilophytophyta – †Rhyniophyta"
+                };
 
                 //create new list list
                 var phyla = new List<Phylum>
@@ -357,7 +391,9 @@ namespace PlantGuessingGame.Services
                     Magnoliophyta,
                     Marchantiophyta,
                     Pinophyta,
-                    Polypodiophyta
+                    Polypodiophyta,
+                    Embryophyta,
+                    Tracheophyta
                 };
                 
                 //add the list 
@@ -384,18 +420,6 @@ namespace PlantGuessingGame.Services
             if (_plants.Count == 0)
             {
 
-
-                new Plant(1, "HaagBeuk", "Carpinus", "betulus", "European Hornbeam", "A tree often used for hedging, with a dense, narrow crown.", "path_to_picture.jpg"),
-                new Plant(2, "BeukHaag", "Carpinus", "betulus", "European Hornbeam", "A tree commonly used for hedges with small, serrated leaves.", "path_to_picture.jpg"),
-                new Plant(3, "Hortensia", "Hydrangea", "macrophylla", "Bigleaf Hydrangea", "A flowering shrub with large, colorful blooms.", "path_to_picture.jpg"),
-                new Plant(4, "Plataan", "Platanus", "acerifolia", "London Plane", "A large deciduous tree with exfoliating bark.", "path_to_picture.jpg"),
-                new Plant(6, "Appeltree", "Malus", "domestica", "Apple Tree", "A deciduous tree known for producing apples.", "path_to_picture.jpg"),
-                new Plant(7, "Els", "Alnus", "glutinosa", "Black Alder", "A tree that thrives in wet soils and has a dark bark.", "path_to_picture.jpg"),
-                new Plant(8, "Tulip", "Tulipa", "spp.", "Tulip", "A bulbous spring-flowering plant, known for its vibrant flowers.", "path_to_picture.jpg"),
-                new Plant(9, "Narcis", "Narcissus", "spp.", "Daffodil", "A spring perennial with trumpet-shaped flowers.", "path_to_picture.jpg"),
-                new Plant(10, "Korkus", "Quercus", "robur", "English Oak", "A large deciduous tree known for its strong wood and acorns.", "path_to_picture.jpg"),
-                new Plant(11, "Aardbei", "Fragaria", "x ananassa", "Strawberry", "A low-growing plant with sweet, red, edible fruit.", "path_to_picture.jpg")
-
                 //add default plants
                 //00 Nandina
                 var Nandina = new Plant
@@ -409,8 +433,10 @@ namespace PlantGuessingGame.Services
                     Description = "A popular ornamental shrub with beautiful red berries.",
                     ImagePath = "path_to_picture.jpg",
                     //set phylum
-                    PhylumInfo = _phyla[2]
+                    PhylumInfo = GetPhylumByName("Embryophyta")
+                    //error if phylum not found
                 };
+
                 //01
                 var Haagbeuk = new Plant
                 {
@@ -423,22 +449,158 @@ namespace PlantGuessingGame.Services
                     Description = "A tree often used for hedging, with a dense, narrow crown.",
                     ImagePath = "path_to_picture.jpg",
                     //set phylum
-                    PhylumInfo = _phyla[2]
-                };
-                //02
-                var BeukenHaag = new Plant
-                {
-                    Id = 1,
-                    CommonName = "BeukenHaag",
-                    PhylumInfo = _phyla[2]
+                    PhylumInfo = GetPhylumByName("Magnoliophyta")
                 };
 
+                //Beech
+                var BeukenHaag = new Plant
+                {
+                    Id = 2,
+                    LocalName = "BeukenHaag",
+                    CommonName = "Beech",
+                    Family = "Fagaceae",
+                    Genus = "Fagus",
+                    Species = "sylvatica",
+                    Description = "A tree commonly used for hedges with small, serrated leaves.",
+                    ImagePath = "path_to_picture.jpg",
+                    //set phylum
+                    PhylumInfo = GetPhylumByName("Magnoliophyta")
+                };
+
+                //Hortensia flower
+                var Hortensia = new Plant
+                {
+                    Id = 3,
+                    LocalName = "Hortensia",
+                    CommonName = "Hortensia",
+                    Family = "Saxifragaceae", //steenbreekachtigen
+                    Genus = "Hydrangea", //(Hydran = water / Angeion = vaatje / Gea = schip).
+                    Species = "macrophylla",
+                    Description = "The French hydrangea, or hortensia (H. macrophylla), is widely cultivated in many varieties for its large globular flower clusters in colours of rose, lavender, blue, and, rarely, white.",
+                    ImagePath = "path_to_picture.jpg",
+                    //set phylum
+                    PhylumInfo = GetPhylumByName("Embryophyta")
+                };
+
+                //Plane Tree
+                var Plane = new Plant
+                {
+                    Id = 4,
+                    LocalName = "Plataan",
+                    CommonName = "Plane tree",
+                    Family = "Platanaceae",
+                    Genus = "Platanus",
+                    Species = "acerifolia",
+                    Description = "A large deciduous tree with exfoliating bark.",
+                    ImagePath = "path_to_picture.jpg",
+                    //set phylum
+                    PhylumInfo = GetPhylumByName("Embryophyta")
+                };
+
+                //Apple tree
+                var Apple = new Plant
+                {
+                    Id = 5,
+                    LocalName = "Appel tree",
+                    CommonName = "Apple Tree",
+                    Family = "Rosaceae",
+                    Genus = "Malus",
+                    Species = "domestica",
+                    Description = "A deciduous tree known for producing apples.\"",
+                    ImagePath = "path_to_picture.jpg",
+                    //set phylum
+                    PhylumInfo = GetPhylumByName("Tracheophyta")
+                };
+
+                //Alder
+                var Alder = new Plant
+                {
+                    Id = 6,
+                    LocalName = "Els",
+                    CommonName = "Alder",
+                    Family = "Betulaceae",
+                    Genus = "Alnus",
+                    Species = "glutinosa",
+                    Description = "A tree that thrives in wet soils and has a dark bark.",
+                    ImagePath = "path_to_picture.jpg",
+                    //set phylum
+                    PhylumInfo = GetPhylumByName("Tracheophyta")
+                };
+
+                //Tulip
+                var Tulip = new Plant
+                {
+                    Id = 7,
+                    LocalName = "Tulip",
+                    CommonName = "Tulip",
+                    Family = "Liliaceae",
+                    Genus = "Tulipa",
+                    Species = "spp (gesneriana)",
+                    Description = "A bulbous spring-flowering plant, known for its vibrant flowers.",
+                    ImagePath = "path_to_picture.jpg",
+                    //set phylum
+                    PhylumInfo = GetPhylumByName("Tracheophyta")
+                };
+
+                //Narcis
+                var Narcis = new Plant
+                {
+                    Id = 8,
+                    LocalName = "Narcis",
+                    CommonName = "Narcis",
+                    Family = "Amaryllidaceae",
+                    Genus = "Narcissus",
+                    Species = "spp (pseudonarcissus)",
+                    Description = "A spring perennial with trumpet-shaped flowers.",
+                    ImagePath = "path_to_picture.jpg",
+                    //set phylum
+                    PhylumInfo = GetPhylumByName("Embryophyta")
+                };
+
+                //English Oak"
+                var EnglishOak = new Plant
+                {
+                    Id = 0,
+                    LocalName = "Zomereik",
+                    CommonName = "English Oak",
+                    Family = "Fagaceae",
+                    Genus = "Quercus",
+                    Species = "robur",
+                    Description = "A large deciduous tree known for its strong wood and acorns",
+                    ImagePath = "path_to_picture.jpg",
+                    //set phylum
+                    PhylumInfo = GetPhylumByName("Embryophyta")
+                };
+
+                //Strawberry
+                var Strawberry = new Plant
+                {
+                    Id = 0,
+                    LocalName = "Aardbei",
+                    CommonName = "Strawberry",
+                    Family = "Rosaceae",
+                    Genus = "Fragaria",
+                    Species = "ananassa",
+                    Description = "A low-growing plant with sweet, red, edible fruit.",
+                    ImagePath = "path_to_picture.jpg",
+                    //set phylum
+                    PhylumInfo = GetPhylumByName("Embryophyta")
+                };
 
                 //create new list list
                 var plants = new List<Plant>
                 {
+                    Nandina,
                     Haagbeuk,
-                    BeukenHaag
+                    BeukenHaag,
+                    Hortensia,
+                    Plane,
+                    Apple,
+                    Alder,
+                    Tulip,
+                    Narcis,
+                    EnglishOak,
+                    Strawberry
                 };
 
                 //add the list 
@@ -480,6 +642,7 @@ namespace PlantGuessingGame.Services
 
             };
         }
+
 
 
         #endregion
