@@ -32,6 +32,7 @@ namespace PlantGuessingGame.ViewModels
         private int _itemId;
 
         //list of local variables that we place here that are observed and serve for user / dataservice (database) interaction via their public related vars
+        private string _itemLocalName;
         private string _itemCommonName;
 
         //setup enums
@@ -52,9 +53,7 @@ namespace PlantGuessingGame.ViewModels
         /// </summary>
         private string _selectedPhylum;
 
-
         #endregion
-
 
 
         #region constructor
@@ -168,20 +167,25 @@ namespace PlantGuessingGame.ViewModels
         }
 
         /// <summary>
-        /// The SelectedPhylum property, which will hold the plant details.
+        /// name in local language
         /// </summary>
-        public string SelectedPhylum
+        [MinLength(2, ErrorMessage = "Item name must be at least 2 characters.")]
+        [MaxLength(100, ErrorMessage = "Item name must be 100 characters or less.")]
+        public string ItemLocalName
         {
-            get { return _selectedPhylum; }
+            get => _itemLocalName;
             set
             {
-                if (_selectedPhylum != value)
-                {
-                    _selectedPhylum = value;
-                    OnPropertyChanged();
-                }
+                if (!SetProperty(ref _itemLocalName, value, nameof(ItemLocalName)))
+                    return;
+
+
+                //set to dirty cause we changed a value
+                IsDirty = true;
+
             }
         }
+
 
         /// <summary>
         /// color label for ItemName combox
@@ -233,6 +237,22 @@ namespace PlantGuessingGame.ViewModels
                 {
                     //foreach (string med in _dataService.GetMediums((ItemType)Enum.Parse(typeof(ItemType), SelectedItemType)).Select(m => m.Name))
                     //    Mediums.Add(med);
+                }
+            }
+        }
+
+        /// <summary>
+        /// The SelectedPhylum property, which will hold the plant details.
+        /// </summary>
+        public string SelectedPhylum
+        {
+            get { return _selectedPhylum; }
+            set
+            {
+                if (_selectedPhylum != value)
+                {
+                    _selectedPhylum = value;
+                    OnPropertyChanged();
                 }
             }
         }
@@ -339,13 +359,14 @@ namespace PlantGuessingGame.ViewModels
                 {
 
                     //add phyla based on plant type
-                    foreach (string phylum in dataService.GetPhyla(item.PlantType).Select(m => m.Name))
+                    foreach (string phylum in dataService.GetPhyla().Select(m => m.Name))
                         Phyla.Add(phylum);
 
 
                     //!!! Note on the IProperty Changed the first time will be Change is true because the original values are not set yet.
                     //    --> therefore like IsDirty, any color codings indicating changes need to be set afterwards and not by reactiveness to the change from nothing to default
                     _itemId = item.Id;
+                    ItemLocalName = item.LocalName;
                     ItemCommonName = item.CommonName;
                     SelectedPlantType = item.PlantType.ToString();
                     SelectedPlantClassification = item.PlantClassification.ToString();

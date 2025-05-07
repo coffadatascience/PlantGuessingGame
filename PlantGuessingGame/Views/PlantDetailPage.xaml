@@ -59,6 +59,7 @@
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
@@ -66,12 +67,25 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-            <!--  commons name - note that these have update source triggers via the bindable base  -->
+            <!-- name in local language-->
             <TextBlock
                 VerticalAlignment="Center"
                 Style="{StaticResource AttributeTitleStyle}"
-                Text="Family:" />
+                Text="Local Name:" />
             <TextBox
+                Grid.Column="1"
+                IsReadOnly="True"
+                Style="{StaticResource AttributeValueStyle}"
+                Text="{x:Bind ViewModel.ItemLocalName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+            
+            <!--  commons name - note that these have update source triggers via the bindable base  -->
+            <TextBlock
+                Grid.Row="1"
+                VerticalAlignment="Center"
+                Style="{StaticResource AttributeTitleStyle}"
+                Text="Common Name:" />
+            <TextBox
+                Grid.Row="1"
                 Grid.Column="1"
                 IsReadOnly="True"
                 Style="{StaticResource AttributeValueStyle}"
@@ -79,12 +93,12 @@
 
             <!--  plant type  -->
             <TextBlock
-                Grid.Row="1"
+                Grid.Row="2"
                 VerticalAlignment="Center"
                 Style="{StaticResource AttributeTitleStyle}"
                 Text="Type:" />
             <TextBox
-                Grid.Row="1"
+                Grid.Row="2"
                 Grid.Column="1"
                 IsReadOnly="True"
                 Style="{StaticResource AttributeValueStyle}"
@@ -92,12 +106,12 @@
 
             <!--  Plant Classification  -->
             <TextBlock
-                Grid.Row="2"
+                Grid.Row="3"
                 VerticalAlignment="Center"
                 Style="{StaticResource AttributeTitleStyle}"
                 Text="Classification:" />
             <TextBox
-                Grid.Row="2"
+                Grid.Row="3"
                 Grid.Column="1"
                 IsReadOnly="True"
                 Style="{StaticResource AttributeValueStyle}"
@@ -105,12 +119,12 @@
 
             <!--  Common Name  -->
             <TextBlock
-                Grid.Row="3"
+                Grid.Row="4"
                 VerticalAlignment="Center"
                 Style="{StaticResource AttributeTitleStyle}"
                 Text="Phylum:" />
             <TextBox
-                Grid.Row="3"
+                Grid.Row="4"
                 Grid.Column="1"
                 IsReadOnly="True"
                 Style="{StaticResource AttributeValueStyle}"

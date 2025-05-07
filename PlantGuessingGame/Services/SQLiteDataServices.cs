@@ -34,7 +34,7 @@ namespace PlantGuessingGame.Services
         /// list with plant classifications
         /// </summary>
         private IList<PlantClassification> _plantClassifications;
-        
+
         /// <summary>
         /// list with plants (used for examples)
         /// </summary>
@@ -198,9 +198,9 @@ namespace PlantGuessingGame.Services
         {
             var newIds = await db.QueryAsync<long>(
                     @"INSERT INTO Plants
-                    (CommonName, Genus, Species, Family, Description, ImagePath, PhylumId, PlantType, PlantClassification)
+                    (LocalName, CommonName, Genus, Species, Family, Description, ImagePath, PhylumId, PlantType, PlantClassification)
                     VALUES
-                    (@CommonName, @Genus, @Species, @Family, @Description, @ImagePath, @PhylumId, @PlantType, @PlantClassification);
+                    (@LocalName, @CommonName, @Genus, @Species, @Family, @Description, @ImagePath, @PhylumId, @PlantType, @PlantClassification);
                     SELECT last_insert_rowid()", item);
 
             return (int)newIds.First();
@@ -255,21 +255,21 @@ namespace PlantGuessingGame.Services
             if (_phyla.Count == 0)
             {
                 //add default phyla
-                var Anthocerotophyta = new Phylum 
-                { 
-                    Id = 1, 
-                    Name = "Anthocerotophyta", 
+                var Anthocerotophyta = new Phylum
+                {
+                    Id = 1,
+                    Name = "Anthocerotophyta",
                     CommonName = "Hornworts",
-                    PlantType = PlantType.Shrub, 
-                    Description = "Horn-shaped sporophytes, no vascular system" 
+                    PlantType = PlantType.Shrub,
+                    Description = "Horn-shaped sporophytes, no vascular system"
                 };
-                var Bryophyta = new Phylum 
-                { 
-                    Id = 2, 
-                    Name = "Bryophyta", 
+                var Bryophyta = new Phylum
+                {
+                    Id = 2,
+                    Name = "Bryophyta",
                     CommonName = "Moss",
-                    PlantType = PlantType.Shrub, 
-                    Description = "Persistent unbranched sporophytes, no vascular system" 
+                    PlantType = PlantType.Shrub,
+                    Description = "Persistent unbranched sporophytes, no vascular system"
                 };
                 var Charophyta = new Phylum
                 {
@@ -279,13 +279,13 @@ namespace PlantGuessingGame.Services
                     PlantType = PlantType.Other,
                     Description = "mainly autotrophs with exceptions and have the same chlorophyll a and b pigments as \"higher\" plant divisions"
                 };
-                var Chlorophyta = new Phylum 
-                { 
-                    Id = 4, 
+                var Chlorophyta = new Phylum
+                {
+                    Id = 4,
                     Name = "Chlorophyta",
                     CommonName = "Chlorophytes",
-                    PlantType = PlantType.Other, 
-                    Description = "" 
+                    PlantType = PlantType.Other,
+                    Description = ""
                 };
                 var Cycadophyta = new Phylum
                 {
@@ -302,7 +302,7 @@ namespace PlantGuessingGame.Services
                     CommonName = "Ginkgo",
                     PlantType = PlantType.Tree,
                     Description = "Seeds not protected by fruit"
-                }; 
+                };
                 var Glaucophyta = new Phylum
                 {
                     Id = 7,
@@ -310,7 +310,7 @@ namespace PlantGuessingGame.Services
                     CommonName = "Glaucophytes",
                     PlantType = PlantType.Other,
                     Description = "XXX"
-                }; 
+                };
                 var Gnetophyta = new Phylum
                 {
                     Id = 8,
@@ -318,7 +318,7 @@ namespace PlantGuessingGame.Services
                     CommonName = "Gnetophytes",
                     PlantType = PlantType.Shrub,
                     Description = "Seeds and woody vascular system with vessels"
-                }; 
+                };
                 var Lycopodiophyta = new Phylum
                 {
                     Id = 9,
@@ -326,7 +326,7 @@ namespace PlantGuessingGame.Services
                     CommonName = "Clubmosses",
                     PlantType = PlantType.Creeper,
                     Description = "Microphyll leaves, vascular system"
-                }; 
+                };
                 var Magnoliophyta = new Phylum
                 {
                     Id = 10,
@@ -334,7 +334,7 @@ namespace PlantGuessingGame.Services
                     CommonName = "Flowering plants, angiosperms",
                     PlantType = PlantType.Shrub,
                     Description = "Flowers and fruit, vascular system with vessels"
-                }; 
+                };
                 var Marchantiophyta = new Phylum
                 {
                     Id = 11,
@@ -342,7 +342,7 @@ namespace PlantGuessingGame.Services
                     CommonName = "Liverworts",
                     PlantType = PlantType.Creeper,
                     Description = "Ephemeral unbranched sporophytes, no vascular system"
-                }; 
+                };
                 var Pinophyta = new Phylum
                 {
                     Id = 12,
@@ -350,7 +350,7 @@ namespace PlantGuessingGame.Services
                     CommonName = "Conifers",
                     PlantType = PlantType.Shrub,
                     Description = "Cones containing seeds and wood composed of tracheids"
-                }; 
+                };
                 var Polypodiophyta = new Phylum
                 {
                     Id = 13,
@@ -395,7 +395,7 @@ namespace PlantGuessingGame.Services
                     Embryophyta,
                     Tracheophyta
                 };
-                
+
                 //add the list 
                 foreach (var phylum in phyla)
                 {
@@ -685,7 +685,7 @@ namespace PlantGuessingGame.Services
         }
 
 
-   
+
 
         /// <summary>
         /// sql method to create the Phylum table in the database
@@ -728,6 +728,7 @@ namespace PlantGuessingGame.Services
         {
             string tableCommand = @"CREATE TABLE IF NOT EXISTS 
                 Plants (Id INTEGER PRIMARY KEY AUTOINCREMENT, 
+                LocalName NVARCHAR(1000) NOT NULL, 
                 CommonName NVARCHAR(1000) NOT NULL, 
                 Genus NVARCHAR(1000), 
                 Species NVARCHAR(1000), 
@@ -744,8 +745,6 @@ namespace PlantGuessingGame.Services
 
             await createTable.ExecuteNonQueryAsync();
         }
-
-
 
         /// <summary>
         /// method to get all of the phyla from the database using Dapper
@@ -776,20 +775,60 @@ namespace PlantGuessingGame.Services
         /// <returns></returns>
         private async Task<IList<Plant>> GetAllPlantsAsync(SqliteConnection db)
         {
-            var plants =
-                await db.QueryAsync<Plant>(@"SELECT Id, 
-                                                     CommonName,
-                                                     Genus,
-                                                     Species,
-                                                     Family,
-                                                     Description,
-                                                     ImagePath,
-                                                     PhylumId,
-                                                     PlantType AS PlantType,
-                                                     PlantClassification as PlantClassification                                                     FROM Plants");
 
+            //---> SQL to only get the plant table
+            //var plants =
+            //    await db.QueryAsync<Plant>(@"SELECT Id, 
+            //                                         CommonName,
+            //                                         Genus,
+            //                                         Species,
+            //                                         Family,
+            //                                         Description,
+            //                                         ImagePath,
+            //                                         PhylumId,
+            //                                         PlantType AS PlantType,
+            //                                         PlantClassification as PlantClassification                                                     FROM Plants");
+
+            //-->  Get plant table but join Phylum table as well based on ID
+            var plants = await db.QueryAsync<Plant, Phylum, Plant>
+            (
+                @"SELECT
+                                        [Plants].[Id],
+                                        [Plants].[LocalName],
+                                        [Plants].[CommonName],
+                                        [Plants].[Genus],
+                                        [Plants].[Species],
+                                        [Plants].[Family],
+                                        [Plants].[Description],
+                                        [Plants].[ImagePath],
+                                        [Plants].[PlantType] AS PlantType,
+                                        [Plants].[PlantClassification] AS PlantClassification,
+                                        [Phyla].[Id],
+                                        [Phyla].[Name],
+                                        [Phyla].[PlantType] AS PlantType
+                                    FROM
+                                        [Plants]
+                                    JOIN
+                                        [Phyla]
+                                    ON
+                                        [Phyla].[Id] = [Plants].[PhylumId]",
+                (item, phylum) =>
+                {
+                    //set inside table
+                    item.PhylumInfo = phylum;
+
+                    //return item
+                    return item;
+                }
+            );
+
+            //return list
             return plants.ToList();
         }
+
+
+
+
 
         /// <summary>
         /// method to update a plant in the database
@@ -808,6 +847,7 @@ namespace PlantGuessingGame.Services
             await db.QueryAsync(
                     @"UPDATE Plants
                     SET 
+                      LocalName = @LocalName,
                       CommonName = @CommonName,
                       Genus = @Genus,
                       Species = @Species,
@@ -828,32 +868,6 @@ namespace PlantGuessingGame.Services
 
         #region Tasks
 
-
-
-        public async Task<int> AddItemAsyncByChatGPT(Plant item)
-        {
-            using (var connection = new SqliteConnection(_connectionString))
-            {
-                await connection.OpenAsync();
-
-                var insertQuery = @"INSERT INTO Plants (Name, Type, Phylum, Classification, Location) 
-                                    VALUES (@Name, @Type, @Phylum, @Classification, @Location)";
-
-                var plantId = await connection.ExecuteAsync(insertQuery, item);
-
-                // Optionally add associated links
-                if (item.Pictures != null && item.Pictures.Any())
-                {
-                    foreach (var link in item.Pictures)
-                    {
-                        var linkQuery = @"INSERT INTO PlantLinks (PlantId, Link) VALUES (@PlantId, @Link)";
-                        await connection.ExecuteAsync(linkQuery, new { PlantId = plantId, Link = link });
-                    }
-                }
-
-                return plantId;
-            }
-        }
 
         public async Task DeleteItemAsync(Plant item)
         {

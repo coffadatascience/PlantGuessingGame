@@ -213,6 +213,8 @@ namespace PlantGuessingGame.ViewModels
 
         /// <summary>
         /// Method to add a plant to the collection
+        /// --> Change this for an edit, or an add but awaits the return info
+        /// JCO --> we can create a relay command here that is passed with an update of the screen via an delegate
         /// </summary>
         private void AddPlant()
         {
