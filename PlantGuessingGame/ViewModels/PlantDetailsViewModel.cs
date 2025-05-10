@@ -31,9 +31,24 @@ namespace PlantGuessingGame.ViewModels
 
         private int _itemId;
 
+        //----------------------------
+        // NOTE: We apply here loose variables for the different plant properties as it will allow updating using the base class
+        // --> this in turn allows a regulated saving / comparing system to the database when a user saves or cancels as well as individual valiation checks in the filled data types
+        //     These checks may be implemented using attributes (that decorate the variables)
+        // --> these in turn should match our database limitations
+        //----------------------------
+
         //list of local variables that we place here that are observed and serve for user / dataservice (database) interaction via their public related vars
         private string _itemLocalName;
         private string _itemCommonName;
+
+        //other relevant variables
+        private string _itemGenus;
+        private string _itemSpecies;
+        private string _itemFamily;
+        private string _itemDescription;
+
+
 
         //setup enums
         private string _selectedPlantClassification;
@@ -186,6 +201,77 @@ namespace PlantGuessingGame.ViewModels
             }
         }
 
+        /// <summary>
+        /// public field for genus
+        /// </summary>
+        public string ItemGenus
+        {
+            get => _itemGenus;
+            set
+            {
+                if (!SetProperty(ref _itemGenus, value, nameof(ItemGenus)))
+                    return;
+
+
+                //set to dirty cause we changed a value
+                IsDirty = true;
+
+            }
+        }
+
+        /// <summary>
+        /// field for species
+        /// </summary>
+        public string ItemSpecies
+        {
+            get => _itemSpecies;
+            set
+            {
+                if (!SetProperty(ref _itemSpecies, value, nameof(ItemSpecies)))
+                    return;
+
+
+                //set to dirty cause we changed a value
+                IsDirty = true;
+
+            }
+        }
+
+        /// <summary>
+        /// public field for family
+        /// </summary>
+        public string ItemFamily
+        {
+            get => _itemFamily;
+            set
+            {
+                if (!SetProperty(ref _itemFamily, value, nameof(ItemFamily)))
+                    return;
+
+
+                //set to dirty cause we changed a value
+                IsDirty = true;
+
+            }
+        }
+
+        /// <summary>
+        /// field for description
+        /// </summary>
+        public string ItemDescription
+        {
+            get => _itemDescription;
+            set
+            {
+                if (!SetProperty(ref _itemDescription, value, nameof(ItemDescription)))
+                    return;
+
+
+                //set to dirty cause we changed a value
+                IsDirty = true;
+
+            }
+        }
 
         /// <summary>
         /// color label for ItemName combox
@@ -368,6 +454,14 @@ namespace PlantGuessingGame.ViewModels
                     _itemId = item.Id;
                     ItemLocalName = item.LocalName;
                     ItemCommonName = item.CommonName;
+
+                    //set other variables
+                    ItemGenus = item.Genus;
+                    ItemSpecies = item.Species;
+                    ItemFamily = item.Family;
+                    ItemDescription = item.Description;
+
+                    //set enums
                     SelectedPlantType = item.PlantType.ToString();
                     SelectedPlantClassification = item.PlantClassification.ToString();
 

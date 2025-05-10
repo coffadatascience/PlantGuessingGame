@@ -37,7 +37,11 @@ namespace PlantGuessingGame.Enums
         /// <summary>
         /// other (none of the above)
         /// </summary>
-        Other
+        Other,
+        /// <summary>
+        /// Unknown 
+        /// </summary>
+        Unknown
 
     }
 }

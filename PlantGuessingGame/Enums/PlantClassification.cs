@@ -40,7 +40,12 @@ namespace PlantGuessingGame.Enums
         /// <summary>
         /// Angiosperms
         /// </summary>
-        Angiosperms
+        Angiosperms,
+        /// <summary>
+        /// Unknown
+        /// </summary>
+        Unknown,
+
 
     }
 }

@@ -10,7 +10,6 @@
     mc:Ignorable="d">
 
 
-
     <Page.Resources>
         <!--  Define some styles for the grid and text blocks  -->
         <Style x:Key="AttributeTitleStyle" TargetType="TextBlock">
@@ -24,114 +23,176 @@
         </Style>
     </Page.Resources>
 
-
-
+    <!-- grid to divide page -->
     <Grid Margin="10">
 
-        <!--  Title Section  -->
+        <!-- divide page into 3 rows  -->
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
-        <!--  title for page in a stackpanel with a symbol icon and a textblock  -->
-        <StackPanel Orientation="Horizontal">
+        <!--  row 0: title for page in a stackpanel with a symbol icon and a textblock  -->
+        <StackPanel Grid.Row="0" Orientation="Horizontal" >
+            
             <SymbolIcon Margin="8" Symbol="Edit" />
             <TextBlock
                 Margin="8"
                 Style="{StaticResource SubheaderTextBlockStyle}"
-                Text="Plant Details" />
+                Text="General Information" />
+
         </StackPanel>
 
-        <!--  Plant Details Section  -->
-        <Grid
-            Grid.Row="1"
-            Margin="4,0,4,8"
-            BorderBrush="{ThemeResource SystemAccentColor}"
-            BorderThickness="0,1,0,1">
+        <!-- split the second part of the page in two more sections (general info and details))  -->
+        <StackPanel  Grid.Row="1"  Orientation="Vertical">
+
+            <!--  Plant general info -->
+            <Grid
+                Margin="4,0,4,8"
+                BorderBrush="{ThemeResource SystemAccentColor}"
+                BorderThickness="0,1,0,1">
 
 
-            <!--  grid definitions for the details of the selected plant  -->
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="*" />
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="200" />
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
+                <!--  grid definitions for the details of the selected plant  -->
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
 
-            <!-- name in local language-->
-            <TextBlock
+                <!--  2 columns per item (title and field)  -->
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="200" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <!-- name in local language-->
+                <TextBlock
                 VerticalAlignment="Center"
                 Style="{StaticResource AttributeTitleStyle}"
                 Text="Local Name:" />
-            <TextBox
+                <TextBox
                 Grid.Column="1"
                 IsReadOnly="True"
                 Style="{StaticResource AttributeValueStyle}"
                 Text="{x:Bind ViewModel.ItemLocalName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-            
-            <!--  commons name - note that these have update source triggers via the bindable base  -->
-            <TextBlock
+
+                <!--  commons name - note that these have update source triggers via the bindable base  -->
+                <TextBlock
                 Grid.Row="1"
                 VerticalAlignment="Center"
                 Style="{StaticResource AttributeTitleStyle}"
                 Text="Common Name:" />
-            <TextBox
+                <TextBox
                 Grid.Row="1"
                 Grid.Column="1"
                 IsReadOnly="True"
                 Style="{StaticResource AttributeValueStyle}"
                 Text="{x:Bind ViewModel.ItemCommonName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
-            <!--  plant type  -->
-            <TextBlock
+
+                <!--  genus  -->
+                <TextBlock
                 Grid.Row="2"
                 VerticalAlignment="Center"
                 Style="{StaticResource AttributeTitleStyle}"
-                Text="Type:" />
-            <TextBox
+                Text="Genus:" />
+                <TextBox
                 Grid.Row="2"
+                Grid.Column="1"
+                IsReadOnly="True"
+                Style="{StaticResource AttributeValueStyle}"
+                Text="{x:Bind ViewModel.ItemGenus, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+
+                <!--  species  -->
+                <TextBlock
+                Grid.Row="3"
+                VerticalAlignment="Center"
+                Style="{StaticResource AttributeTitleStyle}"
+                Text="Species:" />
+                <TextBox
+                Grid.Row="3"
+                Grid.Column="1"
+                IsReadOnly="True"
+                Style="{StaticResource AttributeValueStyle}"
+                Text="{x:Bind ViewModel.ItemSpecies, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+
+                <!--  family  -->
+                <TextBlock
+                Grid.Row="4"
+                VerticalAlignment="Center"
+                Style="{StaticResource AttributeTitleStyle}"
+                Text="Family:" />
+                <TextBox
+                Grid.Row="4"
+                Grid.Column="1"
+                IsReadOnly="True"
+                Style="{StaticResource AttributeValueStyle}"
+                Text="{x:Bind ViewModel.ItemFamily, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+
+                <!--  description  -->
+                <TextBlock
+                Grid.Row="5"
+                VerticalAlignment="Center"
+                Style="{StaticResource AttributeTitleStyle}"
+                Text="Description:" />
+                <TextBox
+                Grid.Row="5"
+                Grid.Column="1"
+                IsReadOnly="True"
+                Style="{StaticResource AttributeValueStyle}"
+                Text="{x:Bind ViewModel.ItemDescription, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+
+                <!--  plant type  -->
+                <TextBlock
+                Grid.Row="6"
+                VerticalAlignment="Center"
+                Style="{StaticResource AttributeTitleStyle}"
+                Text="Type:" />
+                <TextBox
+                Grid.Row="6"
                 Grid.Column="1"
                 IsReadOnly="True"
                 Style="{StaticResource AttributeValueStyle}"
                 Text="{x:Bind ViewModel.SelectedPlantType, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
-            <!--  Plant Classification  -->
-            <TextBlock
-                Grid.Row="3"
+                <!--  Plant Classification  -->
+                <TextBlock
+                Grid.Row="7"
                 VerticalAlignment="Center"
                 Style="{StaticResource AttributeTitleStyle}"
                 Text="Classification:" />
-            <TextBox
-                Grid.Row="3"
+                <TextBox
+                Grid.Row="7"
                 Grid.Column="1"
                 IsReadOnly="True"
                 Style="{StaticResource AttributeValueStyle}"
                 Text="{x:Bind ViewModel.SelectedPlantClassification, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
-            <!--  Common Name  -->
-            <TextBlock
-                Grid.Row="4"
+                <!--  SelectedPhylum  -->
+                <TextBlock
+                Grid.Row="8"
                 VerticalAlignment="Center"
                 Style="{StaticResource AttributeTitleStyle}"
                 Text="Phylum:" />
-            <TextBox
-                Grid.Row="4"
+                <TextBox
+                Grid.Row="8"
                 Grid.Column="1"
                 IsReadOnly="True"
                 Style="{StaticResource AttributeValueStyle}"
                 Text="{x:Bind ViewModel.SelectedPhylum, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
-            <!--  Description  -->
-            <!--
+                <!--  Description  -->
+                <!--
             <TextBlock
                 Grid.Row="4"
                 VerticalAlignment="Center"
@@ -145,8 +206,8 @@
                 Text="{x:Bind ViewModel.Description, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
             -->
-            <!--  Picture  -->
-            <!--
+                <!--  Picture  -->
+                <!--
             <TextBlock
                 Grid.Row="5"
                 VerticalAlignment="Center"
@@ -158,11 +219,55 @@
                 IsReadOnly="True"
                 Style="{StaticResource AttributeValueStyle}"
                 Text="{x:Bind ViewModel.ImagePath, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />-->
-        </Grid>
+            </Grid>
+
+            <!--  Plant details title section-->
+            <StackPanel Orientation="Horizontal" >
+
+                <SymbolIcon Margin="8" Symbol="Edit" />
+                <TextBlock
+                Margin="8"
+                Style="{StaticResource SubheaderTextBlockStyle}"
+                Text="Plant Details" />
+
+            </StackPanel>
+            
+            <!--  Plant details-->
+            <Grid
+                Margin="4,0,4,8"
+                BorderBrush="{ThemeResource SystemAccentColor}"
+                BorderThickness="0,1,0,1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="200" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+
+                <!-- name in local language-->
+                <TextBlock
+                VerticalAlignment="Center"
+                Style="{StaticResource AttributeTitleStyle}"
+                Text="Local Name:" />
+                <TextBox
+                Grid.Column="1"
+                IsReadOnly="True"
+                Style="{StaticResource AttributeValueStyle}"
+                Text="{x:Bind ViewModel.ItemLocalName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                
+            </Grid>
+
+        </StackPanel>
+
 
         <!--  Button to navigate or save  -->
         <StackPanel
-            Grid.Row="6"
+            Grid.Row="2"
             HorizontalAlignment="Right"
             Orientation="Horizontal">
 
@@ -170,7 +275,9 @@
                 Margin="8"
                 Command="{x:Bind ViewModel.NavigateBackCommand}"
                 Content="Back" />
+            
         </StackPanel>
 
     </Grid>
+    
 </Page>

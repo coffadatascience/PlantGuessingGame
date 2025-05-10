@@ -432,6 +432,10 @@ namespace PlantGuessingGame.Services
                     Species = "domestica",
                     Description = "A popular ornamental shrub with beautiful red berries.",
                     ImagePath = "path_to_picture.jpg",
+                    //type
+                    PlantType = PlantType.Unknown,
+                    //classification
+                    PlantClassification = PlantClassification.Unknown,
                     //set phylum
                     PhylumInfo = GetPhylumByName("Embryophyta")
                     //error if phylum not found
@@ -448,6 +452,10 @@ namespace PlantGuessingGame.Services
                     Species = "betulus",
                     Description = "A tree often used for hedging, with a dense, narrow crown.",
                     ImagePath = "path_to_picture.jpg",
+                    //type
+                    PlantType = PlantType.Unknown,
+                    //classification
+                    PlantClassification = PlantClassification.Unknown,
                     //set phylum
                     PhylumInfo = GetPhylumByName("Magnoliophyta")
                 };
@@ -463,6 +471,10 @@ namespace PlantGuessingGame.Services
                     Species = "sylvatica",
                     Description = "A tree commonly used for hedges with small, serrated leaves.",
                     ImagePath = "path_to_picture.jpg",
+                    //type
+                    PlantType = PlantType.Unknown,
+                    //classification
+                    PlantClassification = PlantClassification.Unknown,
                     //set phylum
                     PhylumInfo = GetPhylumByName("Magnoliophyta")
                 };
@@ -478,6 +490,10 @@ namespace PlantGuessingGame.Services
                     Species = "macrophylla",
                     Description = "The French hydrangea, or hortensia (H. macrophylla), is widely cultivated in many varieties for its large globular flower clusters in colours of rose, lavender, blue, and, rarely, white.",
                     ImagePath = "path_to_picture.jpg",
+                    //type
+                    PlantType = PlantType.Unknown,
+                    //classification
+                    PlantClassification = PlantClassification.Unknown,
                     //set phylum
                     PhylumInfo = GetPhylumByName("Embryophyta")
                 };
@@ -493,6 +509,10 @@ namespace PlantGuessingGame.Services
                     Species = "acerifolia",
                     Description = "A large deciduous tree with exfoliating bark.",
                     ImagePath = "path_to_picture.jpg",
+                    //type
+                    PlantType = PlantType.Unknown,
+                    //classification
+                    PlantClassification = PlantClassification.Unknown,
                     //set phylum
                     PhylumInfo = GetPhylumByName("Embryophyta")
                 };
@@ -508,6 +528,10 @@ namespace PlantGuessingGame.Services
                     Species = "domestica",
                     Description = "A deciduous tree known for producing apples.\"",
                     ImagePath = "path_to_picture.jpg",
+                    //type
+                    PlantType = PlantType.Unknown,
+                    //classification
+                    PlantClassification = PlantClassification.Unknown,
                     //set phylum
                     PhylumInfo = GetPhylumByName("Tracheophyta")
                 };
@@ -523,6 +547,10 @@ namespace PlantGuessingGame.Services
                     Species = "glutinosa",
                     Description = "A tree that thrives in wet soils and has a dark bark.",
                     ImagePath = "path_to_picture.jpg",
+                    //type
+                    PlantType = PlantType.Unknown,
+                    //classification
+                    PlantClassification = PlantClassification.Unknown,
                     //set phylum
                     PhylumInfo = GetPhylumByName("Tracheophyta")
                 };
@@ -538,6 +566,10 @@ namespace PlantGuessingGame.Services
                     Species = "spp (gesneriana)",
                     Description = "A bulbous spring-flowering plant, known for its vibrant flowers.",
                     ImagePath = "path_to_picture.jpg",
+                    //type
+                    PlantType = PlantType.Unknown,
+                    //classification
+                    PlantClassification = PlantClassification.Unknown,
                     //set phylum
                     PhylumInfo = GetPhylumByName("Tracheophyta")
                 };
@@ -553,6 +585,10 @@ namespace PlantGuessingGame.Services
                     Species = "spp (pseudonarcissus)",
                     Description = "A spring perennial with trumpet-shaped flowers.",
                     ImagePath = "path_to_picture.jpg",
+                    //type
+                    PlantType = PlantType.Unknown,
+                    //classification
+                    PlantClassification = PlantClassification.Unknown,
                     //set phylum
                     PhylumInfo = GetPhylumByName("Embryophyta")
                 };
@@ -568,6 +604,10 @@ namespace PlantGuessingGame.Services
                     Species = "robur",
                     Description = "A large deciduous tree known for its strong wood and acorns",
                     ImagePath = "path_to_picture.jpg",
+                    //type
+                    PlantType = PlantType.Unknown,
+                    //classification
+                    PlantClassification = PlantClassification.Unknown,
                     //set phylum
                     PhylumInfo = GetPhylumByName("Embryophyta")
                 };
@@ -583,6 +623,10 @@ namespace PlantGuessingGame.Services
                     Species = "ananassa",
                     Description = "A low-growing plant with sweet, red, edible fruit.",
                     ImagePath = "path_to_picture.jpg",
+                    //type
+                    PlantType = PlantType.Unknown,
+                    //classification
+                    PlantClassification = PlantClassification.Unknown,
                     //set phylum
                     PhylumInfo = GetPhylumByName("Embryophyta")
                 };
