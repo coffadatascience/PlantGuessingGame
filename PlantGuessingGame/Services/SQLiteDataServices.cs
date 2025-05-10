@@ -790,6 +790,55 @@ namespace PlantGuessingGame.Services
             await createTable.ExecuteNonQueryAsync();
         }
 
+        //-------------------------------------
+        // Create extended table
+        // Includes also: IsEatable (bool), Color (string), IsFlowering (bool), IsEvergreen (bool),
+        // TrimmingInstructions (string), TrimmingPeriod (string), TemperatureRangeMinimum (int),TemperatureRangeMaximum (int), IsPoisonous (bool)
+        // FertilizationMethod (string), Shape (string), FullGrownHeight (int), FullGrownWidth (int)
+        // Pictures (list<>string>) locations
+        //-------------------------------------
+        // --> NOte:In SQLite, boolean values are typically stored as integers (0 for false, 1 for true), which is reflected in the IsActive property of the Product class.
+        // SQLite does not support array or list types directly as a column type. However, you can store a list of strings in a single column by using a string representation, such as a comma-separated list. When you retrieve the data, you can then split the string back into a list.
+        //-------------------------------------
+        private async Task CreateExtendedPlantTableAsync(SqliteConnection db)
+        {
+
+            db.Open();
+
+            string tableCommand = @"CREATE TABLE IF NOT EXISTS 
+                Plants (Id INTEGER PRIMARY KEY AUTOINCREMENT, 
+                LocalName NVARCHAR(1000) NOT NULL, 
+                CommonName NVARCHAR(1000) NOT NULL, 
+                Genus NVARCHAR(1000), 
+                Species NVARCHAR(1000), 
+                Family NVARCHAR(1000), 
+                Description NVARCHAR(3000), 
+                ImagePath NVARCHAR(1000), 
+                PhylumId INTEGER, 
+                PlantType INTEGER, 
+                PlantClassification INTEGER, 
+				IsEatable INTEGER,
+                Color NVARCHAR(100), 
+				IsFlowering INTEGER,
+				IsEvergreen INTEGER,
+                TrimmingInstructions NVARCHAR(1000), 
+                TrimmingPeriod NVARCHAR(100), 
+				TemperatureRangeMinimum INTEGER,
+				TemperatureRangeMaximum INTEGER,
+				IsPoisonous INTEGER,
+                FertilizationMethod NVARCHAR(1000), 
+                Shape NVARCHAR(100), 
+				FullGrownHeight INTEGER,
+				FullGrownWidth INTEGER,
+				Pictures TEXT NOT NULL,
+                CONSTRAINT fk_phyla 
+                FOREIGN KEY(PhylumId) REFERENCES Phyla(Id))";
+
+            var createTable = new SqliteCommand(tableCommand, db);
+
+            await createTable.ExecuteNonQueryAsync();
+        }
+
         /// <summary>
         /// method to get all of the phyla from the database using Dapper
         ///  SQL dapper code:

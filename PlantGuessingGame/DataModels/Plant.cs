@@ -130,7 +130,8 @@ namespace PlantGuessingGame.DataModels
         /// <summary>
         /// Ideal temperature range for the plant (e.g., "10-30°C")
         /// </summary>
-        public string TemperatureRange { get; set; }
+        public int TemperatureRangeMinimum { get; set; }
+        public int TemperatureRangeMaximum { get; set; }
 
         /// <summary>
         /// Indicates if the plant is poisonous
@@ -150,12 +151,12 @@ namespace PlantGuessingGame.DataModels
         /// <summary>
         /// Full-grown height of the plant (e.g., in cm or m)
         /// </summary>
-        public string FullGrownHeight { get; set; }
+        public int FullGrownHeight { get; set; }
 
         /// <summary>
         /// Full-grown width of the plant (e.g., in cm or m)
         /// </summary>
-        public string FullGrownWidth { get; set; }
+        public int FullGrownWidth { get; set; }
 
         /// <summary>
         /// List of additional pictures (URLs or file paths)
