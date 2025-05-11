@@ -35,6 +35,10 @@ namespace PlantGuessingGame.Enums
         /// </summary>
         Creeper,
         /// <summary>
+        /// Bulb
+        /// </summary>
+        Bulb,    
+        /// <summary>
         /// other (none of the above)
         /// </summary>
         Other,

@@ -249,16 +249,29 @@
                 </Grid.ColumnDefinitions>
 
 
-                <!-- name in local language-->
+                <!-- ItemIsEatable -->
                 <TextBlock
                 VerticalAlignment="Center"
                 Style="{StaticResource AttributeTitleStyle}"
-                Text="Local Name:" />
+                Text="Is Eatable:" />
                 <TextBox
                 Grid.Column="1"
                 IsReadOnly="True"
                 Style="{StaticResource AttributeValueStyle}"
-                Text="{x:Bind ViewModel.ItemLocalName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                Text="{x:Bind ViewModel.ItemIsEatable, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+
+                <!-- ItemColor -->
+                <TextBlock
+                Grid.Row="1"
+                VerticalAlignment="Center"
+                Style="{StaticResource AttributeTitleStyle}"
+                Text="Color:" />
+                <TextBox
+                Grid.Row="1"
+                Grid.Column="1"
+                IsReadOnly="True"
+                Style="{StaticResource AttributeValueStyle}"
+                Text="{x:Bind ViewModel.ItemColor, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                 
             </Grid>
 

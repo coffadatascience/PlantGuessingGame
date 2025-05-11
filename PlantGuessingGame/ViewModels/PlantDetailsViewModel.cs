@@ -49,6 +49,37 @@ namespace PlantGuessingGame.ViewModels
         private string _itemDescription;
 
 
+        //--------------------------------------
+        // other relevant information
+        //--------------------------------------
+        //  1.	Eatable / non-eatable
+        //  2.	Color
+        //  3.	Flowering
+        //  4.	Leaves all year / loses leaves 
+        //  5.	Trimming instructions and period
+        //  6.	Temperature range
+        //  7.	Poisonous
+        //  8.	Eatable
+        //  9.	Fertilization method
+        //  10.	Shape
+        //  11.	Height(full grown)
+        //  12.	Width(full grown)
+        //--------------------------------------
+        private bool _itemIsEatable;
+        private string _itemColor;
+        private bool _itemIsFlowering;
+        private bool _itemIsEvergreen;
+        private string _itemTrimmingInstructions;
+        private string _itemTrimmingPeriod;
+        private int _itemTemperatureRangeMinimum;
+        private int _itemTemperatureRangeMaximum;
+        private bool _itemIsPoisonous;
+        private string _itemFertilizationMethod;
+        private string _itemShape;
+        private int _itemFullGrownHeight;
+        private int _itemFullGrownWidth;
+        private string _itemPictureStringList;
+
 
         //setup enums
         private string _selectedPlantClassification;
@@ -359,6 +390,216 @@ namespace PlantGuessingGame.ViewModels
         public ObservableCollection<string> Phyla { get => _phyla; set => SetProperty(ref _phyla, value, nameof(Phyla)); }
 
 
+        public bool ItemIsEatable
+        {
+            get => _itemIsEatable;
+            set
+            {
+                if (!SetProperty(ref _itemIsEatable, value, nameof(ItemIsEatable)))
+                    return;
+
+
+                //set to dirty cause we changed a value
+                IsDirty = true;
+
+            }
+        }
+
+        public string ItemColor
+        {
+            get => _itemColor;
+            set
+            {
+                if (!SetProperty(ref _itemColor, value, nameof(ItemColor)))
+                    return;
+
+
+                //set to dirty cause we changed a value
+                IsDirty = true;
+
+            }
+        }
+
+        public bool ItemIsFlowering
+        {
+            get => _itemIsFlowering;
+            set
+            {
+                if (!SetProperty(ref _itemIsFlowering, value, nameof(ItemIsFlowering)))
+                    return;
+
+
+                //set to dirty cause we changed a value
+                IsDirty = true;
+
+            }
+        }
+
+        public bool ItemIsEvergreen
+        {
+            get => _itemIsFlowering;
+            set
+            {
+                if (!SetProperty(ref _itemIsEvergreen, value, nameof(ItemIsEvergreen)))
+                    return;
+
+
+                //set to dirty cause we changed a value
+                IsDirty = true;
+
+            }
+        }
+
+        public string ItemTrimmingInstructions
+        {
+            get => _itemTrimmingInstructions;
+            set
+            {
+                if (!SetProperty(ref _itemTrimmingInstructions, value, nameof(ItemTrimmingInstructions)))
+                    return;
+
+
+                //set to dirty cause we changed a value
+                IsDirty = true;
+
+            }
+        }
+
+        public string ItemTrimmingPeriod
+        {
+            get => _itemTrimmingPeriod;
+            set
+            {
+                if (!SetProperty(ref _itemTrimmingPeriod, value, nameof(ItemTrimmingPeriod)))
+                    return;
+
+
+                //set to dirty cause we changed a value
+                IsDirty = true;
+
+            }
+        }
+
+        public int ItemTemperatureRangeMinimum
+        {
+            get => _itemTemperatureRangeMinimum;
+            set
+            {
+                if (!SetProperty(ref _itemTemperatureRangeMinimum, value, nameof(ItemTemperatureRangeMinimum)))
+                    return;
+
+
+                //set to dirty cause we changed a value
+                IsDirty = true;
+
+            }
+        }
+
+        public int ItemTemperatureRangeMaximum
+        {
+            get => _itemTemperatureRangeMaximum;
+            set
+            {
+                if (!SetProperty(ref _itemTemperatureRangeMaximum, value, nameof(ItemTemperatureRangeMaximum)))
+                    return;
+
+
+                //set to dirty cause we changed a value
+                IsDirty = true;
+
+            }
+        }
+
+        public bool ItemIsPoisonous
+        {
+            get => _itemIsPoisonous;
+            set
+            {
+                if (!SetProperty(ref _itemIsPoisonous, value, nameof(ItemIsPoisonous)))
+                    return;
+
+
+                //set to dirty cause we changed a value
+                IsDirty = true;
+
+            }
+        }
+
+        public string ItemFertilizationMethod
+        {
+            get => _itemFertilizationMethod;
+            set
+            {
+                if (!SetProperty(ref _itemFertilizationMethod, value, nameof(ItemFertilizationMethod)))
+                    return;
+
+
+                //set to dirty cause we changed a value
+                IsDirty = true;
+
+            }
+        }
+
+        public string ItemShape
+        {
+            get => _itemShape;
+            set
+            {
+                if (!SetProperty(ref _itemShape, value, nameof(ItemShape)))
+                    return;
+
+
+                //set to dirty cause we changed a value
+                IsDirty = true;
+
+            }
+        }
+
+        public int ItemFullGrownHeight
+        {
+            get => _itemFullGrownHeight;
+            set
+            {
+                if (!SetProperty(ref _itemFullGrownHeight, value, nameof(ItemFullGrownHeight)))
+                    return;
+
+
+                //set to dirty cause we changed a value
+                IsDirty = true;
+
+            }
+        }
+
+        public int ItemFullGrownWidth
+        {
+            get => _itemFullGrownWidth;
+            set
+            {
+                if (!SetProperty(ref _itemFullGrownWidth, value, nameof(ItemFullGrownWidth)))
+                    return;
+
+
+                //set to dirty cause we changed a value
+                IsDirty = true;
+
+            }
+        }
+
+        public string ItemPictureStringList
+        {
+            get => _itemPictureStringList;
+            set
+            {
+                if (!SetProperty(ref _itemPictureStringList, value, nameof(ItemPictureStringList)))
+                    return;
+
+
+                //set to dirty cause we changed a value
+                IsDirty = true;
+
+            }
+        }
+
         /// <summary>
         /// property to determine if the item is dirty
         /// </summary>
@@ -465,6 +706,22 @@ namespace PlantGuessingGame.ViewModels
                     SelectedPlantType = item.PlantType.ToString();
                     SelectedPlantClassification = item.PlantClassification.ToString();
 
+                    //set plant details
+                    ItemIsEatable = item.IsEatable;
+                    ItemColor = item.Color;
+                    ItemIsFlowering = item.IsFlowering;
+                    ItemIsEvergreen = item.IsEvergreen;
+                    ItemTrimmingInstructions = item.TrimmingInstructions;
+                    ItemTrimmingPeriod = item.TrimmingPeriod;
+                    ItemTemperatureRangeMinimum = item.TemperatureRangeMinimum;
+                    ItemTemperatureRangeMaximum = item.TemperatureRangeMaximum;
+                    ItemIsPoisonous = item.IsPoisonous;
+                    ItemFertilizationMethod = item.FertilizationMethod;
+                    ItemShape = item.Shape;
+                    ItemFullGrownHeight = item.FullGrownHeight;
+                    ItemFullGrownWidth = item.FullGrownWidth;
+                    ItemPictureStringList = item.PictureStringList;
+                      
                     //NOTE --> its essential that setting the selected medium is done after the mediums are populated
                     //         else the selected medium will not be set due the fact that setting itemtype will clear the mediums
                     if (item.PhylumInfo is null == false) SelectedPhylum = item.PhylumInfo.Name;
