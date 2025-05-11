@@ -159,6 +159,13 @@ namespace PlantGuessingGame.DataModels
         public int FullGrownWidth { get; set; }
 
         /// <summary>
+        /// we cannot store pictures as a string list in SQL, but we can store a long string with comma separated addresses
+        /// NOTE JCO --> Its better to create a separate table for pictures of each plant
+        ///              Update this later, for now we will keep a simple string get setter
+        /// </summary>
+        public string PictureStringList { get; set; }
+
+        /// <summary>
         /// List of additional pictures (URLs or file paths)
         /// </summary>
         public List<string> Pictures { get; set; } = new List<string>();

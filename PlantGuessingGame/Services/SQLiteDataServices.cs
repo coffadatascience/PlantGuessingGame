@@ -194,13 +194,36 @@ namespace PlantGuessingGame.Services
         /// <param name="db"></param>
         /// <param name="item"></param>
         /// <returns></returns>
-        private async Task<int> InsertPlantAsync(SqliteConnection db, Plant item)
+        private async Task<int> InsertBasicPlantAsync(SqliteConnection db, Plant item)
         {
             var newIds = await db.QueryAsync<long>(
                     @"INSERT INTO Plants
                     (LocalName, CommonName, Genus, Species, Family, Description, ImagePath, PhylumId, PlantType, PlantClassification)
                     VALUES
                     (@LocalName, @CommonName, @Genus, @Species, @Family, @Description, @ImagePath, @PhylumId, @PlantType, @PlantClassification);
+                    SELECT last_insert_rowid()", item);
+
+            return (int)newIds.First();
+        }
+
+        //----------------------------------------------------------
+        // InsertPlantAsync Extended
+        // Includes also: IsEatable (bool), Color (string), IsFlowering (bool), IsEvergreen (bool),
+        // TrimmingInstructions (string), TrimmingPeriod (string), TemperatureRangeMinimum (int),TemperatureRangeMaximum (int), IsPoisonous (bool)
+        // FertilizationMethod (string), Shape (string), FullGrownHeight (int), FullGrownWidth (int)
+        // Pictures (list<>string>) 
+        //----------------------------------------------------------
+        private async Task<int> InsertPlantAsync(SqliteConnection db, Plant item)
+        {
+            var newIds = await db.QueryAsync<long>(
+                    @"INSERT INTO Plants
+                    (LocalName, CommonName, Genus, Species, Family, Description, ImagePath, PhylumId, PlantType, PlantClassification,
+                    IsEatable, Color, IsFlowering, IsEvergreen, TrimmingInstructions, TrimmingPeriod, TemperatureRangeMinimum, TemperatureRangeMaximum,
+                    IsPoisonous, FertilizationMethod, Shape, FullGrownHeight, FullGrownWidth, PictureStringList)
+                    VALUES
+                    (@LocalName, @CommonName, @Genus, @Species, @Family, @Description, @ImagePath, @PhylumId, @PlantType, @PlantClassification,
+                     @IsEatable, @Color, @IsFlowering, @IsEvergreen, @TrimmingInstructions, @TrimmingPeriod, @TemperatureRangeMinimum, @TemperatureRangeMaximum,
+                    @IsPoisonous, @FertilizationMethod, @Shape, @FullGrownHeight, @FullGrownWidth, @Pictures);
                     SELECT last_insert_rowid()", item);
 
             return (int)newIds.First();
@@ -419,9 +442,6 @@ namespace PlantGuessingGame.Services
             //if the database has no info, then add the default list
             if (_plants.Count == 0)
             {
-
-                //add default plants
-                //00 Nandina
                 var Nandina = new Plant
                 {
                     Id = 0,
@@ -430,16 +450,52 @@ namespace PlantGuessingGame.Services
                     Family = "Berberidaceae",
                     Genus = "Nandina",
                     Species = "domestica",
-                    Description = "A popular ornamental shrub with beautiful red berries.",
+                    Description = "A popular ornamental, upright evergreen shrub with beautiful red berries and colorful foliage. Native to eastern Asia, widely grown for its ornamental value. Leaves are purplish in spring and winter, green in summer, and red in autumn. Small white flowers in summer, followed by bright red berries that persist into winter.",
                     ImagePath = "path_to_picture.jpg",
-                    //type
-                    PlantType = PlantType.Unknown,
-                    //classification
-                    PlantClassification = PlantClassification.Unknown,
-                    //set phylum
-                    PhylumInfo = GetPhylumByName("Embryophyta")
-                    //error if phylum not found
+                    PictureStringList = "path_to_picture.jpg",
+                    //set picturestringlist by converting the pictures to a single string
+                    PlantType = PlantType.Shrub, // Broadleaf evergreen shrub[1][5][6]
+                    PlantClassification = PlantClassification.Angiosperms, // Flowering plant[3]
+                    PhylumInfo = GetPhylumByName("Embryophyta"), // Land plants
+                                                                 // PhylumId will be set automatically if PhylumInfo is not null
+
+                    // Eatable / non-eatable
+                    IsEatable = false, // Not edible, berries are toxic[3][6]
+
+                    // Color
+                    Color = "Purple (spring/winter), Green (summer), Red (autumn), White (flowers), Red (berries)",
+
+                    // Flowering
+                    IsFlowering = true, // Yes, flowers in summer[6]
+
+                    // Leaves all year / loses leaves
+                    IsEvergreen = true, // Evergreen shrub[1][5][6]
+
+                    // Trimming instructions and period
+                    TrimmingInstructions = "Thin out old stems to maintain density and shape. Remove dead or damaged wood.",
+                    TrimmingPeriod = "Late winter to early spring, after risk of frost[5]",
+
+                    // Temperature range
+                    TemperatureRangeMinimum = -18, // Hardy to USDA Zone 6, which is about -18°C[5]
+                    TemperatureRangeMaximum = 35,  // Tolerates summer heat but prefers moderate climates (estimate based on general cultivation)
+
+                    // Poisonous
+                    IsPoisonous = true, // Berries are toxic to birds and mammals if ingested in quantity[3][5][6]
+
+                    // Fertilization method
+                    FertilizationMethod = "General-purpose fertilizer in spring. Not heavy feeders; avoid over-fertilization.",
+
+                    // Shape
+                    Shape = "Upright, bushy shrub with bamboo-like appearance[6]",
+
+                    // Height(full grown)
+                    FullGrownHeight = 200, // 2 meters (can reach up to 2.5 m)[6]
+
+                    // Width(full grown)
+                    FullGrownWidth = 150, // 1.5 meters[6]
                 };
+
+
 
                 //01
                 var Haagbeuk = new Plant
@@ -768,7 +824,7 @@ namespace PlantGuessingGame.Services
         /// </summary>
         /// <param name="db"></param>
         /// <returns></returns>
-        private async Task CreatePlantTableAsync(SqliteConnection db)
+        private async Task CreateBasicPlantTableAsync(SqliteConnection db)
         {
             string tableCommand = @"CREATE TABLE IF NOT EXISTS 
                 Plants (Id INTEGER PRIMARY KEY AUTOINCREMENT, 
@@ -795,12 +851,12 @@ namespace PlantGuessingGame.Services
         // Includes also: IsEatable (bool), Color (string), IsFlowering (bool), IsEvergreen (bool),
         // TrimmingInstructions (string), TrimmingPeriod (string), TemperatureRangeMinimum (int),TemperatureRangeMaximum (int), IsPoisonous (bool)
         // FertilizationMethod (string), Shape (string), FullGrownHeight (int), FullGrownWidth (int)
-        // Pictures (list<>string>) locations
+        // Pictures (list<>string>) 
         //-------------------------------------
         // --> NOte:In SQLite, boolean values are typically stored as integers (0 for false, 1 for true), which is reflected in the IsActive property of the Product class.
         // SQLite does not support array or list types directly as a column type. However, you can store a list of strings in a single column by using a string representation, such as a comma-separated list. When you retrieve the data, you can then split the string back into a list.
         //-------------------------------------
-        private async Task CreateExtendedPlantTableAsync(SqliteConnection db)
+        private async Task CreatePlantTableAsync(SqliteConnection db)
         {
 
             db.Open();
@@ -830,7 +886,7 @@ namespace PlantGuessingGame.Services
                 Shape NVARCHAR(100), 
 				FullGrownHeight INTEGER,
 				FullGrownWidth INTEGER,
-				Pictures TEXT NOT NULL,
+				PictureStringList TEXT,
                 CONSTRAINT fk_phyla 
                 FOREIGN KEY(PhylumId) REFERENCES Phyla(Id))";
 
@@ -866,7 +922,7 @@ namespace PlantGuessingGame.Services
         /// </summary>
         /// <param name="db"></param>
         /// <returns></returns>
-        private async Task<IList<Plant>> GetAllPlantsAsync(SqliteConnection db)
+        private async Task<IList<Plant>> GetAllPlantsBasicAsync(SqliteConnection db)
         {
 
             //---> SQL to only get the plant table
@@ -919,7 +975,81 @@ namespace PlantGuessingGame.Services
             return plants.ToList();
         }
 
+        /// <summary>
+        /// get list with all plants (extended info)
+        // Includes also: IsEatable (bool), Color (string), IsFlowering (bool), IsEvergreen (bool),
+        // TrimmingInstructions (string), TrimmingPeriod (string), TemperatureRangeMinimum (int),TemperatureRangeMaximum (int), IsPoisonous (bool)
+        // FertilizationMethod (string), Shape (string), FullGrownHeight (int), FullGrownWidth (int)
+        // Pictures (list<>string>) 
+        /// </summary>
+        /// <param name="db"></param>
+        /// <returns></returns>
+        private async Task<IList<Plant>> GetAllPlantsAsync(SqliteConnection db)
+        {
 
+            //---> SQL to only get the plant table
+            //var plants =
+            //    await db.QueryAsync<Plant>(@"SELECT Id, 
+            //                                         CommonName,
+            //                                         Genus,
+            //                                         Species,
+            //                                         Family,
+            //                                         Description,
+            //                                         ImagePath,
+            //                                         PhylumId,
+            //                                         PlantType AS PlantType,
+            //                                         PlantClassification as PlantClassification                                                     FROM Plants");
+
+            //-->  Get plant table but join Phylum table as well based on ID
+            var plants = await db.QueryAsync<Plant, Phylum, Plant>
+            (
+                @"SELECT
+                                        [Plants].[Id],
+                                        [Plants].[LocalName],
+                                        [Plants].[CommonName],
+                                        [Plants].[Genus],
+                                        [Plants].[Species],
+                                        [Plants].[Family],
+                                        [Plants].[Description],
+                                        [Plants].[ImagePath],
+                                        [Plants].[PlantType] AS PlantType,
+                                        [Plants].[PlantClassification] AS PlantClassification,
+                                        [Plants].[IsEatable],
+                                        [Plants].[Color],
+                                        [Plants].[IsFlowering],
+                                        [Plants].[IsEvergreen],
+                                        [Plants].[TrimmingInstructions],
+                                        [Plants].[TrimmingPeriod],
+                                        [Plants].[TemperatureRangeMinimum],
+                                        [Plants].[TemperatureRangeMaximum],
+                                        [Plants].[IsPoisonous],
+                                        [Plants].[FertilizationMethod],
+                                        [Plants].[Shape],
+                                        [Plants].[FullGrownHeight],
+                                        [Plants].[FullGrownWidth],
+                                        [Plants].[PictureStringList],
+                                        [Phyla].[Id],
+                                        [Phyla].[Name],
+                                        [Phyla].[PlantType] AS PlantType
+                                    FROM
+                                        [Plants]
+                                    JOIN
+                                        [Phyla]
+                                    ON
+                                        [Phyla].[Id] = [Plants].[PhylumId]",
+                (item, phylum) =>
+                {
+                    //set inside table
+                    item.PhylumInfo = phylum;
+
+                    //return item
+                    return item;
+                }
+            );
+
+            //return list
+            return plants.ToList();
+        }
 
 
 
@@ -935,6 +1065,31 @@ namespace PlantGuessingGame.Services
         /// <param name="db"></param>
         /// <param name="item"></param>
         /// <returns></returns>
+        private async Task UpdateBasicPlantAsync(SqliteConnection db, Plant plant)
+        {
+            await db.QueryAsync(
+                    @"UPDATE Plants
+                    SET 
+                      LocalName = @LocalName,
+                      CommonName = @CommonName,
+                      Genus = @Genus,
+                      Species = @Species,
+                      Family = @Family,
+                      Description = @Description,
+                      ImagePath = @ImagePath,
+                      PhylumId = @PhylumId,
+                      PlantType = @PlantType
+                  WHERE Id = @Id;", plant);
+        }
+
+        //--------------------------------------------
+        // UpdatePlantAsync Extended
+        //--------------------------------------------
+        // Includes also: IsEatable (bool), Color (string), IsFlowering (bool), IsEvergreen (bool),
+        // TrimmingInstructions (string), TrimmingPeriod (string), TemperatureRangeMinimum (int),TemperatureRangeMaximum (int), IsPoisonous (bool)
+        // FertilizationMethod (string), Shape (string), FullGrownHeight (int), FullGrownWidth (int)
+        // Pictures (list<>string>) 
+        //--------------------------------------------
         private async Task UpdatePlantAsync(SqliteConnection db, Plant plant)
         {
             await db.QueryAsync(
@@ -944,15 +1099,27 @@ namespace PlantGuessingGame.Services
                       CommonName = @CommonName,
                       Genus = @Genus,
                       Species = @Species,
-                      Family = @Family
-                      Description = @Description
-                      ImagePath = @ImagePath
-                      PhylumId = @PhylumId
-                      PlantType = @PlantType
+                      Family = @Family,
+                      Description = @Description,
+                      ImagePath = @ImagePath,
+                      PhylumId = @PhylumId,
+                      PlantType = @PlantType,
+                      IsEatable = @IsEatable,
+                      Color = @Color,
+                      IsFlowering = @IsFlowering,
+                      IsEvergreen = @IsEvergreen,
+                      TrimmingInstructions = @TrimmingInstructions,
+                      TrimmingPeriod = @TrimmingPeriod,
+                      TemperatureRangeMinimum = @TemperatureRangeMinimum,
+                      TemperatureRangeMaximum = @TemperatureRangeMaximum,
+                      IsPoisonous = @IsPoisonous,
+                      FertilizationMethod = @FertilizationMethod,
+                      Shape = @Shape,
+                      FullGrownHeight = @FullGrownHeight,
+                      FullGrownWidth = @FullGrownWidth,
+                      PictureStringList = @PictureStringList
                   WHERE Id = @Id;", plant);
         }
-
-
 
         #endregion
 
