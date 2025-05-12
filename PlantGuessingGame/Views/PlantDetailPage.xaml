@@ -22,6 +22,7 @@
             <Setter Property="Margin" Value="8" />
         </Style>
     </Page.Resources>
+    
 
     <!-- grid to divide page -->
     <Grid Margin="10">
@@ -143,11 +144,13 @@
                 <TextBlock
                 Grid.Row="5"
                 VerticalAlignment="Center"
+                TextWrapping="Wrap"
                 Style="{StaticResource AttributeTitleStyle}"
                 Text="Description:" />
                 <TextBox
                 Grid.Row="5"
                 Grid.Column="1"
+                TextWrapping="Wrap"
                 IsReadOnly="True"
                 Style="{StaticResource AttributeValueStyle}"
                 Text="{x:Bind ViewModel.ItemDescription, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
@@ -240,6 +243,18 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
                 
@@ -272,7 +287,165 @@
                 IsReadOnly="True"
                 Style="{StaticResource AttributeValueStyle}"
                 Text="{x:Bind ViewModel.ItemColor, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-                
+
+                <!-- ItemIsFlowering -->
+                <TextBlock
+                Grid.Row="2"
+                VerticalAlignment="Center"
+                Style="{StaticResource AttributeTitleStyle}"
+                Text="Flowers:" />
+                <TextBox
+                Grid.Row="2"
+                Grid.Column="1"
+                IsReadOnly="True"
+                Style="{StaticResource AttributeValueStyle}"
+                Text="{x:Bind ViewModel.ItemIsFlowering, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+
+                <!-- Evergreen -->
+                <TextBlock
+                Grid.Row="3"
+                VerticalAlignment="Center"
+                Style="{StaticResource AttributeTitleStyle}"
+                Text="Evergreen:" />
+                <TextBox
+                Grid.Row="3"
+                Grid.Column="1"
+                IsReadOnly="True"
+                Style="{StaticResource AttributeValueStyle}"
+                Text="{x:Bind ViewModel.ItemIsEvergreen, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+
+                <!-- TrimmingInstructions -->
+                <TextBlock
+                Grid.Row="4"
+                VerticalAlignment="Center"
+                TextWrapping="Wrap"
+                Style="{StaticResource AttributeTitleStyle}"
+                Text="Trimming Instructions:" />
+                <TextBox
+                Grid.Row="4"
+                Grid.Column="1"
+                IsReadOnly="True"
+                TextWrapping="Wrap"
+                Style="{StaticResource AttributeValueStyle}"
+                Text="{x:Bind ViewModel.ItemTrimmingInstructions, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+
+                <!-- TrimmingPeriod -->
+                <TextBlock
+                Grid.Row="5"
+                VerticalAlignment="Center"
+                Style="{StaticResource AttributeTitleStyle}"
+                Text="Trimming Period:" />
+                <TextBox
+                Grid.Row="5"
+                Grid.Column="1"
+                IsReadOnly="True"
+                Style="{StaticResource AttributeValueStyle}"
+                Text="{x:Bind ViewModel.ItemTrimmingPeriod, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+
+                <!-- TemperatureRangeMinimum -->
+                <TextBlock
+                Grid.Row="6"
+                VerticalAlignment="Center"
+                Style="{StaticResource AttributeTitleStyle}"
+                Text="Temperature Minimum:" />
+                <TextBox
+                Grid.Row="6"
+                Grid.Column="1"
+                IsReadOnly="True"
+                Style="{StaticResource AttributeValueStyle}"
+                Text="{x:Bind ViewModel.ItemTemperatureRangeMinimum, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+
+                <!-- TemperatureRangeMaximum -->
+                <TextBlock
+                Grid.Row="7"
+                VerticalAlignment="Center"
+                Style="{StaticResource AttributeTitleStyle}"
+                Text="Temperature Maximum:" />
+                <TextBox
+                Grid.Row="7"
+                Grid.Column="1"
+                IsReadOnly="True"
+                Style="{StaticResource AttributeValueStyle}"
+                Text="{x:Bind ViewModel.ItemTemperatureRangeMaximum, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+
+                <!-- IsPoisonous; -->
+                <TextBlock
+                Grid.Row="8"
+                VerticalAlignment="Center"
+                Style="{StaticResource AttributeTitleStyle}"
+                Text="Is Poisonous:" />
+                <TextBox
+                Grid.Row="8"
+                Grid.Column="1"
+                IsReadOnly="True"
+                Style="{StaticResource AttributeValueStyle}"
+                Text="{x:Bind ViewModel.ItemIsPoisonous, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+
+                <!-- ItemFertilizationMethod; -->
+                <TextBlock
+                Grid.Row="9"
+                VerticalAlignment="Center"
+                Style="{StaticResource AttributeTitleStyle}"
+                Text="Fertilization Method:" />
+                <TextBox
+                Grid.Row="9"
+                Grid.Column="1"
+                IsReadOnly="True"
+                Style="{StaticResource AttributeValueStyle}"
+                Text="{x:Bind ViewModel.ItemFertilizationMethod, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+
+                <!-- ItemShape; -->
+                <TextBlock
+                Grid.Row="10"
+                VerticalAlignment="Center"
+                Style="{StaticResource AttributeTitleStyle}"
+                Text="Shape:" />
+                <TextBox
+                Grid.Row="10"
+                Grid.Column="1"
+                IsReadOnly="True"
+                Style="{StaticResource AttributeValueStyle}"
+                Text="{x:Bind ViewModel.ItemShape, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+
+                <!-- ItemFullGrownHeight; -->
+                <TextBlock
+                Grid.Row="11"
+                VerticalAlignment="Center"
+                Style="{StaticResource AttributeTitleStyle}"
+                Text="Full Grown Height:" />
+                <TextBox
+                Grid.Row="11"
+                Grid.Column="1"
+                IsReadOnly="True"
+                Style="{StaticResource AttributeValueStyle}"
+                Text="{x:Bind ViewModel.ItemFullGrownHeight, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+
+                <!-- ItemFullGrownWidth; -->
+                <TextBlock
+                Grid.Row="12"
+                VerticalAlignment="Center"
+                Style="{StaticResource AttributeTitleStyle}"
+                Text="Full Grown Width:" />
+                <TextBox
+                Grid.Row="12"
+                Grid.Column="1"
+                IsReadOnly="True"
+                Style="{StaticResource AttributeValueStyle}"
+                Text="{x:Bind ViewModel.ItemFullGrownWidth, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+
+                <!-- ItemPictureStringList; -->
+                <TextBlock
+                Grid.Row="13"
+                VerticalAlignment="Center"
+                Style="{StaticResource AttributeTitleStyle}"
+                Text="Picture List:" />
+                <TextBox
+                Grid.Row="13"
+                Grid.Column="1"
+                IsReadOnly="True"
+                Style="{StaticResource AttributeValueStyle}"
+                Text="{x:Bind ViewModel.ItemPictureStringList, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                                           
             </Grid>
 
         </StackPanel>

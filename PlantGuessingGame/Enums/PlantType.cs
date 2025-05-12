@@ -37,7 +37,11 @@ namespace PlantGuessingGame.Enums
         /// <summary>
         /// Bulb
         /// </summary>
-        Bulb,    
+        Bulb,
+        /// <summary>
+        /// other (none of the above)
+        /// </summary>
+        Grass,    
         /// <summary>
         /// other (none of the above)
         /// </summary>
