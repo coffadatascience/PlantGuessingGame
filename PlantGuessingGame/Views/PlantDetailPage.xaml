@@ -83,7 +83,6 @@
                 Text="Local Name:" />
                 <TextBox
                 Grid.Column="1"
-                IsReadOnly="True"
                 Style="{StaticResource AttributeValueStyle}"
                 Text="{x:Bind ViewModel.ItemLocalName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
@@ -96,7 +95,6 @@
                 <TextBox
                 Grid.Row="1"
                 Grid.Column="1"
-                IsReadOnly="True"
                 Style="{StaticResource AttributeValueStyle}"
                 Text="{x:Bind ViewModel.ItemCommonName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
@@ -110,7 +108,6 @@
                 <TextBox
                 Grid.Row="2"
                 Grid.Column="1"
-                IsReadOnly="True"
                 Style="{StaticResource AttributeValueStyle}"
                 Text="{x:Bind ViewModel.ItemGenus, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
@@ -123,7 +120,6 @@
                 <TextBox
                 Grid.Row="3"
                 Grid.Column="1"
-                IsReadOnly="True"
                 Style="{StaticResource AttributeValueStyle}"
                 Text="{x:Bind ViewModel.ItemSpecies, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
@@ -136,7 +132,6 @@
                 <TextBox
                 Grid.Row="4"
                 Grid.Column="1"
-                IsReadOnly="True"
                 Style="{StaticResource AttributeValueStyle}"
                 Text="{x:Bind ViewModel.ItemFamily, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
@@ -151,7 +146,6 @@
                 Grid.Row="5"
                 Grid.Column="1"
                 TextWrapping="Wrap"
-                IsReadOnly="True"
                 Style="{StaticResource AttributeValueStyle}"
                 Text="{x:Bind ViewModel.ItemDescription, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
@@ -164,7 +158,6 @@
                 <TextBox
                 Grid.Row="6"
                 Grid.Column="1"
-                IsReadOnly="True"
                 Style="{StaticResource AttributeValueStyle}"
                 Text="{x:Bind ViewModel.SelectedPlantType, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
@@ -177,7 +170,6 @@
                 <TextBox
                 Grid.Row="7"
                 Grid.Column="1"
-                IsReadOnly="True"
                 Style="{StaticResource AttributeValueStyle}"
                 Text="{x:Bind ViewModel.SelectedPlantClassification, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
@@ -190,7 +182,6 @@
                 <TextBox
                 Grid.Row="8"
                 Grid.Column="1"
-                IsReadOnly="True"
                 Style="{StaticResource AttributeValueStyle}"
                 Text="{x:Bind ViewModel.SelectedPhylum, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
@@ -271,7 +262,6 @@
                 Text="Is Eatable:" />
                 <TextBox
                 Grid.Column="1"
-                IsReadOnly="True"
                 Style="{StaticResource AttributeValueStyle}"
                 Text="{x:Bind ViewModel.ItemIsEatable, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
@@ -284,7 +274,6 @@
                 <TextBox
                 Grid.Row="1"
                 Grid.Column="1"
-                IsReadOnly="True"
                 Style="{StaticResource AttributeValueStyle}"
                 Text="{x:Bind ViewModel.ItemColor, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
@@ -297,7 +286,6 @@
                 <TextBox
                 Grid.Row="2"
                 Grid.Column="1"
-                IsReadOnly="True"
                 Style="{StaticResource AttributeValueStyle}"
                 Text="{x:Bind ViewModel.ItemIsFlowering, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
@@ -310,7 +298,6 @@
                 <TextBox
                 Grid.Row="3"
                 Grid.Column="1"
-                IsReadOnly="True"
                 Style="{StaticResource AttributeValueStyle}"
                 Text="{x:Bind ViewModel.ItemIsEvergreen, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
@@ -324,7 +311,6 @@
                 <TextBox
                 Grid.Row="4"
                 Grid.Column="1"
-                IsReadOnly="True"
                 TextWrapping="Wrap"
                 Style="{StaticResource AttributeValueStyle}"
                 Text="{x:Bind ViewModel.ItemTrimmingInstructions, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
@@ -338,7 +324,6 @@
                 <TextBox
                 Grid.Row="5"
                 Grid.Column="1"
-                IsReadOnly="True"
                 Style="{StaticResource AttributeValueStyle}"
                 Text="{x:Bind ViewModel.ItemTrimmingPeriod, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
@@ -351,7 +336,6 @@
                 <TextBox
                 Grid.Row="6"
                 Grid.Column="1"
-                IsReadOnly="True"
                 Style="{StaticResource AttributeValueStyle}"
                 Text="{x:Bind ViewModel.ItemTemperatureRangeMinimum, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
@@ -364,7 +348,6 @@
                 <TextBox
                 Grid.Row="7"
                 Grid.Column="1"
-                IsReadOnly="True"
                 Style="{StaticResource AttributeValueStyle}"
                 Text="{x:Bind ViewModel.ItemTemperatureRangeMaximum, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
@@ -377,7 +360,6 @@
                 <TextBox
                 Grid.Row="8"
                 Grid.Column="1"
-                IsReadOnly="True"
                 Style="{StaticResource AttributeValueStyle}"
                 Text="{x:Bind ViewModel.ItemIsPoisonous, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
@@ -390,7 +372,6 @@
                 <TextBox
                 Grid.Row="9"
                 Grid.Column="1"
-                IsReadOnly="True"
                 Style="{StaticResource AttributeValueStyle}"
                 Text="{x:Bind ViewModel.ItemFertilizationMethod, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
@@ -403,7 +384,6 @@
                 <TextBox
                 Grid.Row="10"
                 Grid.Column="1"
-                IsReadOnly="True"
                 Style="{StaticResource AttributeValueStyle}"
                 Text="{x:Bind ViewModel.ItemShape, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
@@ -416,7 +396,6 @@
                 <TextBox
                 Grid.Row="11"
                 Grid.Column="1"
-                IsReadOnly="True"
                 Style="{StaticResource AttributeValueStyle}"
                 Text="{x:Bind ViewModel.ItemFullGrownHeight, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
@@ -429,7 +408,6 @@
                 <TextBox
                 Grid.Row="12"
                 Grid.Column="1"
-                IsReadOnly="True"
                 Style="{StaticResource AttributeValueStyle}"
                 Text="{x:Bind ViewModel.ItemFullGrownWidth, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
@@ -442,7 +420,6 @@
                 <TextBox
                 Grid.Row="13"
                 Grid.Column="1"
-                IsReadOnly="True"
                 Style="{StaticResource AttributeValueStyle}"
                 Text="{x:Bind ViewModel.ItemPictureStringList, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                                            
@@ -451,7 +428,7 @@
         </StackPanel>
 
 
-        <!--  Button to navigate or save  -->
+        <!--  Button to navigate or save  --><!--
         <StackPanel
             Grid.Row="2"
             HorizontalAlignment="Right"
@@ -462,8 +439,73 @@
                 Command="{x:Bind ViewModel.NavigateBackCommand}"
                 Content="Back" />
             
-        </StackPanel>
+        </StackPanel>-->
 
+
+
+        <StackPanel
+       Grid.Row="2"
+       HorizontalAlignment="Right"
+       Orientation="Horizontal">
+
+            <!--  implementation of a split button that will allow the user to save and item and return, or save and add another item  -->
+            <SplitButton
+           x:Name="SaveButton"
+           Margin="8,8,0,8"
+           Click="{x:Bind ViewModel.SaveItemAndReturnAsync}"
+           Content="Save and Return"
+           IsEnabled="{x:Bind ViewModel.IsDirty, Mode=OneWay}">
+
+                <SplitButton.Flyout>
+
+                    <Flyout>
+
+                        <!--  NOTE - we need a stackpanel to hold the buttons even in a flyout  -->
+                        <StackPanel>
+
+                            <!--  button to save and create a new item  -->
+                            <Button
+                           x:Name="SaveAndCreateNew"
+                           Background="Transparent"
+                           Click="{x:Bind ViewModel.SaveItemAndContinueAsync}"
+                           Content="Save and Create New"
+                           IsEnabled="{x:Bind ViewModel.IsDirty, Mode=OneWay}" />
+
+                            <!--  second button to cancel the save and return  -->
+                            <Button
+                           x:Name="CancelSaveAndReturn"
+                           Background="Transparent"
+                           Click="{x:Bind ViewModel.SaveItemAndReturnAsync}"
+                           Content="Save and Return"
+                           IsEnabled="{x:Bind ViewModel.IsDirty, Mode=OneWay}" />
+
+                        </StackPanel>
+
+                    </Flyout>
+
+                </SplitButton.Flyout>
+
+                <SplitButton.Resources>
+                    <TeachingTip
+                   x:Name="SavingTip"
+                   Title="Save and create new"
+                   Subtitle="Use the dropdown button option to save your item and create another."
+                   Target="{x:Bind SaveButton}" />
+                </SplitButton.Resources>
+                
+            </SplitButton>
+
+
+            <!--<Button Content="Save" Margin="8,8,0,8" Command="{x:Bind ViewModel.SaveCommand}"/>-->
+            <Button
+           Margin="8"
+           Command="{x:Bind ViewModel.CancelCommand}"
+           Content="Cancel" />
+
+
+        </StackPanel>
+        
+        
     </Grid>
     
 </Page>

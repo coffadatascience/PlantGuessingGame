@@ -617,17 +617,20 @@ namespace PlantGuessingGame.ViewModels
 
         #region public methods
 
+
         /// <summary>
         /// method for save item and continue (this is for implementation of a split button that can replace the Icommand SaveCommand)
         /// </summary>
         public async Task SaveItemAndContinueAsync()
-        {
+        {           
+
             await SaveItemAsync();
             _itemId = 0;
             ItemCommonName = string.Empty;
             SelectedPlantType = string.Empty;
             SelectedPlantClassification = string.Empty;
             IsDirty = false;
+
         }
 
         /// <summary>
@@ -769,34 +772,52 @@ namespace PlantGuessingGame.ViewModels
 
             if (_itemId > 0)
             {
-                //get item by id from DB
                 item = await _dataService.GetItemAsync(_itemId);
-
-                //set values
-                item.CommonName = ItemCommonName;
-                item.PlantType = (PlantType)Enum.Parse(typeof(PlantType), SelectedPlantType);
-                item.PlantClassification = (PlantClassification)Enum.Parse(typeof(PlantClassification), SelectedPlantClassification);
-                item.PhylumInfo = _dataService.GetPhylum(SelectedPhylum);
-
-                //update item
+                MapViewModelToPlant(item);
                 await _dataService.UpdateItemAsync(item);
             }
             else
             {
-                item = new Plant
-                {
-                    CommonName = ItemCommonName,
-                    PlantType = (PlantType)Enum.Parse(typeof(PlantType), SelectedPlantType),
-                    PlantClassification = (PlantClassification)Enum.Parse(typeof(PlantClassification), SelectedPlantClassification),
-                    PhylumInfo = _dataService.GetPhylum(SelectedPhylum)
-                };
-                
-                //add item
+                item = new Plant();
+                MapViewModelToPlant(item);
                 await _dataService.AddItemAsync(item);
             }
 
+
             _navigationServices.GoBack();
         }
+
+        /// <summary>
+        /// map view to model 
+        /// </summary>
+        /// <param name="item"></param>
+        private void MapViewModelToPlant(Plant item)
+        {
+            item.LocalName = ItemLocalName;
+            item.CommonName = ItemCommonName;
+            item.Genus = ItemGenus;
+            item.Species = ItemSpecies;
+            item.Family = ItemFamily;
+            item.Description = ItemDescription;
+            item.PlantType = (PlantType)Enum.Parse(typeof(PlantType), SelectedPlantType);
+            item.PlantClassification = (PlantClassification)Enum.Parse(typeof(PlantClassification), SelectedPlantClassification);
+            item.PhylumInfo = _dataService.GetPhylum(SelectedPhylum);
+            item.IsEatable = ItemIsEatable;
+            item.Color = ItemColor;
+            item.IsFlowering = ItemIsFlowering;
+            item.IsEvergreen = ItemIsEvergreen;
+            item.TrimmingInstructions = ItemTrimmingInstructions;
+            item.TrimmingPeriod = ItemTrimmingPeriod;
+            item.TemperatureRangeMinimum = ItemTemperatureRangeMinimum;
+            item.TemperatureRangeMaximum = ItemTemperatureRangeMaximum;
+            item.IsPoisonous = ItemIsPoisonous;
+            item.FertilizationMethod = ItemFertilizationMethod;
+            item.Shape = ItemShape;
+            item.FullGrownHeight = ItemFullGrownHeight;
+            item.FullGrownWidth = ItemFullGrownWidth;
+            item.PictureStringList = ItemPictureStringList;
+        }
+
 
         /// <summary>
         /// method to determine if the item can be saved
