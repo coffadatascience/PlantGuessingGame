@@ -10,6 +10,12 @@
 
     namespace PlantGuessingGame.Services
     {
+
+        /// <summary>
+        /// Data service class
+        /// --->? Note we may not need this class anymore as it is replaced by an SQL service
+        /// --> we will keep for now and see how it may have a future function or serve as an extra layer.
+        /// </summary>
         public class DataService : IDataService
         {
             #region Fields

@@ -683,20 +683,19 @@ namespace PlantGuessingGame.ViewModels
             //when we open the page we should pass an id, this may then be used to obtain the relevant data item from the service
             if (_selectedItemId >= 0)
             {
+                //get item
                 var item = await _dataService.GetItemAsync(_selectedItemId);
-
-                //clear Phyla
-                Phyla.Clear();
 
                 //check if we have the item
                 if (item is null == false)
                 {
+
+                    //clear Phyla
+                    //Phyla.Clear();
                     //--> can we limit on type?
                     ////add phyla based on plant type
                     //foreach (string phylum in dataService.GetPhyla(item.PlantType).Select(m => m.Name))
                     //    Phyla.Add(phylum);
-
-
 
                     //!!! Note on the IProperty Changed the first time will be Change is true because the original values are not set yet.
                     //    --> therefore like IsDirty, any color codings indicating changes need to be set afterwards and not by reactiveness to the change from nothing to default
@@ -734,8 +733,6 @@ namespace PlantGuessingGame.ViewModels
                     ItemFullGrownWidth = item.FullGrownWidth;
                     ItemPictureStringList = item.PictureStringList;
                       
-
-
                     //-----------------------------------
                     //!!!! --> note that the color setting must be after settting the trigger value of name
                     //     --> Note that we merely implemented this here to evaluate reactivity and that this is not a logical place to implement this
