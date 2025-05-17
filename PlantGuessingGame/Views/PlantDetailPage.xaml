@@ -11,18 +11,19 @@
 
 
     <Page.Resources>
-        <!--  Define some styles for the grid and text blocks  -->
         <Style x:Key="AttributeTitleStyle" TargetType="TextBlock">
             <Setter Property="HorizontalAlignment" Value="Right" />
             <Setter Property="VerticalAlignment" Value="Center" />
         </Style>
-
         <Style x:Key="AttributeValueStyle" TargetType="TextBox">
             <Setter Property="HorizontalAlignment" Value="Stretch" />
             <Setter Property="Margin" Value="8" />
         </Style>
+        <Style x:Key="AttributeComboxValueStyle" TargetType="ComboBox">
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="Margin" Value="8" />
+        </Style>
     </Page.Resources>
-    
 
     <!-- grid to divide page -->
     <Grid Margin="10">
@@ -79,7 +80,7 @@
                 <!-- name in local language-->
                 <TextBlock
                 VerticalAlignment="Center"
-                Style="{StaticResource AttributeTitleStyle}"
+                Style="{StaticResource DefaultTextBoxStyle}"
                 Text="Local Name:" />
                 <TextBox
                 Grid.Column="1"
@@ -90,7 +91,7 @@
                 <TextBlock
                 Grid.Row="1"
                 VerticalAlignment="Center"
-                Style="{StaticResource AttributeTitleStyle}"
+                Style="{StaticResource DefaultTextBoxStyle}"
                 Text="Common Name:" />
                 <TextBox
                 Grid.Row="1"
@@ -98,12 +99,11 @@
                 Style="{StaticResource AttributeValueStyle}"
                 Text="{x:Bind ViewModel.ItemCommonName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
-
                 <!--  genus  -->
                 <TextBlock
                 Grid.Row="2"
                 VerticalAlignment="Center"
-                Style="{StaticResource AttributeTitleStyle}"
+                Style="{StaticResource DefaultTextBoxStyle}"
                 Text="Genus:" />
                 <TextBox
                 Grid.Row="2"
@@ -115,7 +115,7 @@
                 <TextBlock
                 Grid.Row="3"
                 VerticalAlignment="Center"
-                Style="{StaticResource AttributeTitleStyle}"
+                Style="{StaticResource DefaultTextBoxStyle}"
                 Text="Species:" />
                 <TextBox
                 Grid.Row="3"
@@ -127,7 +127,7 @@
                 <TextBlock
                 Grid.Row="4"
                 VerticalAlignment="Center"
-                Style="{StaticResource AttributeTitleStyle}"
+                Style="{StaticResource DefaultTextBoxStyle}"
                 Text="Family:" />
                 <TextBox
                 Grid.Row="4"
@@ -140,7 +140,7 @@
                 Grid.Row="5"
                 VerticalAlignment="Center"
                 TextWrapping="Wrap"
-                Style="{StaticResource AttributeTitleStyle}"
+                Style="{StaticResource DefaultTextBoxStyle}"
                 Text="Description:" />
                 <TextBox
                 Grid.Row="5"
@@ -149,70 +149,49 @@
                 Style="{StaticResource AttributeValueStyle}"
                 Text="{x:Bind ViewModel.ItemDescription, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
-                <!--  plant type  -->
+                <!--  plant type: Note links to an observeable collection and a selected type that has a set property -->
+                <!--  Style: note that the style AttributeComboxValueStyle needs to be available in the resources, page or app wide -->
                 <TextBlock
                 Grid.Row="6"
-                VerticalAlignment="Center"
-                Style="{StaticResource AttributeTitleStyle}"
-                Text="Type:" />
-                <TextBox
+                Style="{StaticResource DefaultTextBoxStyle}"
+                Text="Type:" 
+                VerticalAlignment="Center"/>
+                <ComboBox
                 Grid.Row="6"
                 Grid.Column="1"
-                Style="{StaticResource AttributeValueStyle}"
-                Text="{x:Bind ViewModel.SelectedPlantType, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                ItemsSource="{x:Bind ViewModel.PlantTypes}"
+                SelectedValue="{x:Bind ViewModel.SelectedPlantType, Mode=TwoWay}"
+                Style="{StaticResource AttributeComboxValueStyle}" />
 
+                
                 <!--  Plant Classification  -->
                 <TextBlock
                 Grid.Row="7"
-                VerticalAlignment="Center"
-                Style="{StaticResource AttributeTitleStyle}"
-                Text="Classification:" />
-                <TextBox
+                Style="{StaticResource DefaultTextBoxStyle}"
+                Text="Classification:" 
+                VerticalAlignment="Center"/>
+                <ComboBox
                 Grid.Row="7"
                 Grid.Column="1"
-                Style="{StaticResource AttributeValueStyle}"
-                Text="{x:Bind ViewModel.SelectedPlantClassification, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-
+                ItemsSource="{x:Bind ViewModel.PlantClassifications}"
+                SelectedValue="{x:Bind ViewModel.SelectedPlantClassification, Mode=TwoWay}"
+                Style="{StaticResource AttributeComboxValueStyle}" />
+                
+                
                 <!--  SelectedPhylum  -->
                 <TextBlock
                 Grid.Row="8"
-                VerticalAlignment="Center"
-                Style="{StaticResource AttributeTitleStyle}"
-                Text="Phylum:" />
-                <TextBox
+                Style="{StaticResource DefaultTextBoxStyle}"
+                Text="Phylum:" 
+                VerticalAlignment="Center"/>
+                <ComboBox
                 Grid.Row="8"
                 Grid.Column="1"
-                Style="{StaticResource AttributeValueStyle}"
-                Text="{x:Bind ViewModel.SelectedPhylum, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-
-                <!--  Description  -->
-                <!--
-            <TextBlock
-                Grid.Row="4"
-                VerticalAlignment="Center"
-                Style="{StaticResource AttributeTitleStyle}"
-                Text="Description:" />
-            <TextBox
-                Grid.Row="4"
-                Grid.Column="1"
-                IsReadOnly="True"
-                Style="{StaticResource AttributeValueStyle}"
-                Text="{x:Bind ViewModel.Description, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-
-            -->
-                <!--  Picture  -->
-                <!--
-            <TextBlock
-                Grid.Row="5"
-                VerticalAlignment="Center"
-                Style="{StaticResource AttributeTitleStyle}"
-                Text="Picture:" />
-            <TextBox
-                Grid.Row="5"
-                Grid.Column="1"
-                IsReadOnly="True"
-                Style="{StaticResource AttributeValueStyle}"
-                Text="{x:Bind ViewModel.ImagePath, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />-->
+                ItemsSource="{x:Bind ViewModel.Phyla}"
+                SelectedValue="{x:Bind ViewModel.SelectedPhylum, Mode=TwoWay}"
+                Style="{StaticResource AttributeComboxValueStyle}" />
+                
+                
             </Grid>
 
             <!--  Plant details title section-->
@@ -258,7 +237,7 @@
                 <!-- ItemIsEatable -->
                 <TextBlock
                 VerticalAlignment="Center"
-                Style="{StaticResource AttributeTitleStyle}"
+                Style="{StaticResource DefaultTextBoxStyle}"
                 Text="Is Eatable:" />
                 <TextBox
                 Grid.Column="1"
@@ -269,7 +248,7 @@
                 <TextBlock
                 Grid.Row="1"
                 VerticalAlignment="Center"
-                Style="{StaticResource AttributeTitleStyle}"
+                Style="{StaticResource DefaultTextBoxStyle}"
                 Text="Color:" />
                 <TextBox
                 Grid.Row="1"
@@ -281,7 +260,7 @@
                 <TextBlock
                 Grid.Row="2"
                 VerticalAlignment="Center"
-                Style="{StaticResource AttributeTitleStyle}"
+                Style="{StaticResource DefaultTextBoxStyle}"
                 Text="Flowers:" />
                 <TextBox
                 Grid.Row="2"
@@ -293,7 +272,7 @@
                 <TextBlock
                 Grid.Row="3"
                 VerticalAlignment="Center"
-                Style="{StaticResource AttributeTitleStyle}"
+                Style="{StaticResource DefaultTextBoxStyle}"
                 Text="Evergreen:" />
                 <TextBox
                 Grid.Row="3"
@@ -306,7 +285,7 @@
                 Grid.Row="4"
                 VerticalAlignment="Center"
                 TextWrapping="Wrap"
-                Style="{StaticResource AttributeTitleStyle}"
+                Style="{StaticResource DefaultTextBoxStyle}"
                 Text="Trimming Instructions:" />
                 <TextBox
                 Grid.Row="4"
@@ -319,7 +298,7 @@
                 <TextBlock
                 Grid.Row="5"
                 VerticalAlignment="Center"
-                Style="{StaticResource AttributeTitleStyle}"
+                Style="{StaticResource DefaultTextBoxStyle}"
                 Text="Trimming Period:" />
                 <TextBox
                 Grid.Row="5"
@@ -331,7 +310,7 @@
                 <TextBlock
                 Grid.Row="6"
                 VerticalAlignment="Center"
-                Style="{StaticResource AttributeTitleStyle}"
+                Style="{StaticResource DefaultTextBoxStyle}"
                 Text="Temperature Minimum:" />
                 <TextBox
                 Grid.Row="6"
@@ -343,7 +322,7 @@
                 <TextBlock
                 Grid.Row="7"
                 VerticalAlignment="Center"
-                Style="{StaticResource AttributeTitleStyle}"
+                Style="{StaticResource DefaultTextBoxStyle}"
                 Text="Temperature Maximum:" />
                 <TextBox
                 Grid.Row="7"
@@ -355,7 +334,7 @@
                 <TextBlock
                 Grid.Row="8"
                 VerticalAlignment="Center"
-                Style="{StaticResource AttributeTitleStyle}"
+                Style="{StaticResource DefaultTextBoxStyle}"
                 Text="Is Poisonous:" />
                 <TextBox
                 Grid.Row="8"
@@ -367,7 +346,7 @@
                 <TextBlock
                 Grid.Row="9"
                 VerticalAlignment="Center"
-                Style="{StaticResource AttributeTitleStyle}"
+                Style="{StaticResource DefaultTextBoxStyle}"
                 Text="Fertilization Method:" />
                 <TextBox
                 Grid.Row="9"
@@ -379,7 +358,7 @@
                 <TextBlock
                 Grid.Row="10"
                 VerticalAlignment="Center"
-                Style="{StaticResource AttributeTitleStyle}"
+                Style="{StaticResource DefaultTextBoxStyle}"
                 Text="Shape:" />
                 <TextBox
                 Grid.Row="10"
@@ -391,7 +370,7 @@
                 <TextBlock
                 Grid.Row="11"
                 VerticalAlignment="Center"
-                Style="{StaticResource AttributeTitleStyle}"
+                Style="{StaticResource DefaultTextBoxStyle}"
                 Text="Full Grown Height:" />
                 <TextBox
                 Grid.Row="11"
@@ -403,7 +382,7 @@
                 <TextBlock
                 Grid.Row="12"
                 VerticalAlignment="Center"
-                Style="{StaticResource AttributeTitleStyle}"
+                Style="{StaticResource DefaultTextBoxStyle}"
                 Text="Full Grown Width:" />
                 <TextBox
                 Grid.Row="12"
@@ -415,7 +394,7 @@
                 <TextBlock
                 Grid.Row="13"
                 VerticalAlignment="Center"
-                Style="{StaticResource AttributeTitleStyle}"
+                Style="{StaticResource DefaultTextBoxStyle}"
                 Text="Picture List:" />
                 <TextBox
                 Grid.Row="13"

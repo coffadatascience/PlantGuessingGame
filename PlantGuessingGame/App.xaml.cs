@@ -111,6 +111,11 @@ namespace PlantGuessingGame
         {
             var services = new ServiceCollection();
 
+            //--------------------------------------
+            // TODO NOTE JCO --> we also want our commands to be regulated by the MEDIATR allowing sender and receiver to be anonymously linked
+            // -> also include the Ifactory models so we can produce different object types using a factory
+            //--------------------------------------
+
             // Navigation service
             var navigationService = new NavigationService();
             navigationService.Configure(nameof(MainWindow), typeof(MainWindow));

@@ -1,6 +1,7 @@
 ﻿using PlantGuessingGame.DataModels;
 using PlantGuessingGame.Enums;
 using PlantGuessingGame.Interfaces;
+using PlantGuessingGame.Services.PlantGuessingGame.Services;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -348,13 +349,16 @@ namespace PlantGuessingGame.ViewModels
 
                 IsDirty = true;
 
-                PlantTypes.Clear();
+                ////we probably need to limit Phyla, however, this relation may not be one to one and difficult to define
+                //Phyla.Clear();
 
-                if (!string.IsNullOrWhiteSpace(value))
-                {
-                    //foreach (string med in _dataService.GetMediums((ItemType)Enum.Parse(typeof(ItemType), SelectedItemType)).Select(m => m.Name))
-                    //    Mediums.Add(med);
-                }
+                //if (!string.IsNullOrWhiteSpace(value))
+                //{
+                //    //add phyla based on plant type
+                //    foreach (string med in _dataService.GetPhyla((PlantType)Enum.Parse(typeof(PlantType), SelectedPlantType)).Select(m => m.Name))
+                //        Phyla.Add(med);
+
+                //}
             }
         }
 
@@ -687,8 +691,11 @@ namespace PlantGuessingGame.ViewModels
                 //check if we have the item
                 if (item is null == false)
                 {
-
-                    //add phyla based on plant type
+                    //--> can we limit on type?
+                    ////add phyla based on plant type
+                    //foreach (string phylum in dataService.GetPhyla(item.PlantType).Select(m => m.Name))
+                    //    Phyla.Add(phylum);
+                    //add all
                     foreach (string phylum in dataService.GetPhyla().Select(m => m.Name))
                         Phyla.Add(phylum);
 
@@ -709,6 +716,10 @@ namespace PlantGuessingGame.ViewModels
                     SelectedPlantType = item.PlantType.ToString();
                     SelectedPlantClassification = item.PlantClassification.ToString();
 
+                    //NOTE --> its essential that setting the selected medium is done after the mediums are populated
+                    //         else the selected medium will not be set due the fact that setting itemtype will clear the mediums
+                    if (item.PhylumInfo is null == false) SelectedPhylum = item.PhylumInfo.Name;
+
                     //set plant details
                     ItemIsEatable = item.IsEatable;
                     ItemColor = item.Color;
@@ -725,9 +736,7 @@ namespace PlantGuessingGame.ViewModels
                     ItemFullGrownWidth = item.FullGrownWidth;
                     ItemPictureStringList = item.PictureStringList;
                       
-                    //NOTE --> its essential that setting the selected medium is done after the mediums are populated
-                    //         else the selected medium will not be set due the fact that setting itemtype will clear the mediums
-                    if (item.PhylumInfo is null == false) SelectedPhylum = item.PhylumInfo.Name;
+
 
                     //-----------------------------------
                     //!!!! --> note that the color setting must be after settting the trigger value of name
@@ -755,8 +764,8 @@ namespace PlantGuessingGame.ViewModels
                 PlantTypes.Add(iType);
 
             PlantClassifications.Clear();
-            foreach (string lType in Enum.GetNames(typeof(PlantClassification)))
-                PlantClassifications.Add(lType);
+            foreach (string CType in Enum.GetNames(typeof(PlantClassification)))
+                PlantClassifications.Add(CType);
 
             //Phyla has to be filled via data service
             _phyla = new ObservableCollection<string>();
