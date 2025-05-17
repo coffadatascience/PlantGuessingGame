@@ -5,6 +5,7 @@ using System.Linq;
 using System.Security.AccessControl;
 using System.Threading.Tasks;
 using Dapper;
+using Dapper.Contrib.Extensions;
 using Microsoft.Data.Sqlite;
 using PlantGuessingGame.DataModels;
 using PlantGuessingGame.Enums;
@@ -15,6 +16,8 @@ namespace PlantGuessingGame.Services
 {
     public class SQLiteDataService : IDataService
     {
+
+
         /// <summary>
         /// Local variable to store the connection strding
         /// </summary>
@@ -72,7 +75,7 @@ namespace PlantGuessingGame.Services
                 //add enums
                 PopulateItemTypes();
                 await PopulatePhylaAsync(db);
-                PopulateLocationTypes();
+                PopulateClassificationTypes();
                 await PopulateExamplePLantsAsync(db);
 
             }
@@ -103,6 +106,20 @@ namespace PlantGuessingGame.Services
             using (var db = await GetSqliteConnectionAsync())
             {
                 await UpdatePlantAsync(db, item);
+            }
+        }
+
+
+        /// <summary>
+        /// public method to delete an item from the database
+        /// </summary>
+        /// <param name="item"></param>
+        /// <returns></returns>
+        public async Task DeleteItemAsync(Plant item)
+        {
+            using (var db = await GetSqliteConnectionAsync())
+            {
+                await DeletePlantItemAsync(db, item.Id);
             }
         }
 
@@ -473,7 +490,10 @@ namespace PlantGuessingGame.Services
             };
         }
 
-        private void PopulateLocationTypes()
+        /// <summary>
+        /// add list of classificaitonss
+        /// </summary>
+        private void PopulateClassificationTypes()
         {
             _plantClassifications = new List<PlantClassification>
             {
@@ -484,6 +504,18 @@ namespace PlantGuessingGame.Services
                 PlantClassification.Thallophyta
 
             };
+        }
+
+
+        /// <summary>
+        /// method to delete a plant item from the database
+        /// </summary>
+        /// <param name="db"></param>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        private async Task DeletePlantItemAsync(SqliteConnection db, int id)
+        {
+            await db.DeleteAsync<Plant>(new Plant { Id = id });
         }
 
 
@@ -862,28 +894,6 @@ namespace PlantGuessingGame.Services
                       FullGrownWidth = @FullGrownWidth,
                       PictureStringList = @PictureStringList
                   WHERE Id = @Id;", plant);
-        }
-
-        #endregion
-
-
-
-
-        #region Tasks
-
-
-        public async Task DeleteItemAsync(Plant item)
-        {
-            using (var connection = new SqliteConnection(_connectionString))
-            {
-                await connection.OpenAsync();
-
-                var deleteQuery = @"DELETE FROM Plants WHERE Id = @Id";
-                await connection.ExecuteAsync(deleteQuery, new { Id = item.Id });
-
-                var deleteLinksQuery = @"DELETE FROM PlantLinks WHERE PlantId = @Id";
-                await connection.ExecuteAsync(deleteLinksQuery, new { Id = item.Id });
-            }
         }
 
         #endregion

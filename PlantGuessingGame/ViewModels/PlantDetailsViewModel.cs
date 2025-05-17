@@ -695,9 +695,7 @@ namespace PlantGuessingGame.ViewModels
                     ////add phyla based on plant type
                     //foreach (string phylum in dataService.GetPhyla(item.PlantType).Select(m => m.Name))
                     //    Phyla.Add(phylum);
-                    //add all
-                    foreach (string phylum in dataService.GetPhyla().Select(m => m.Name))
-                        Phyla.Add(phylum);
+
 
 
                     //!!! Note on the IProperty Changed the first time will be Change is true because the original values are not set yet.
@@ -769,6 +767,10 @@ namespace PlantGuessingGame.ViewModels
 
             //Phyla has to be filled via data service
             _phyla = new ObservableCollection<string>();
+            //add all
+            foreach (string phylum in _dataService.GetPhyla().Select(m => m.Name))
+                Phyla.Add(phylum);
+
         }
 
         /// <summary>

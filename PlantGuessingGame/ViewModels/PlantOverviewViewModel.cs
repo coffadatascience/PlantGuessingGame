@@ -218,27 +218,15 @@ namespace PlantGuessingGame.ViewModels
         /// </summary>
         private void AddPlant()
         {
-            // Sample plants with Dutch names as common names and full botanical information
-            var plantsToAdd = new List<Plant>
+            //rather than having here a mockup add, we will get the selected item and navigate to the items details pages
+            var selectedItemId = -1;
+            if (selectedPlant != null)
             {
-                new Plant(0, "Nandina", "Nandina", "domestica", "Heavenly Bamboo", "A popular ornamental shrub with beautiful red berries.", "path_to_picture.jpg"),
-                new Plant(1, "HaagBeuk", "Carpinus", "betulus", "European Hornbeam", "A tree often used for hedging, with a dense, narrow crown.", "path_to_picture.jpg"),
-                new Plant(2,"BeukHaag", "Carpinus", "betulus", "European Hornbeam", "A tree commonly used for hedges with small, serrated leaves.", "path_to_picture.jpg"),
-                new Plant(3, "Hortensia", "Hydrangea", "macrophylla", "Bigleaf Hydrangea", "A flowering shrub with large, colorful blooms.", "path_to_picture.jpg"),
-                new Plant(4,"Plataan", "Platanus", "acerifolia", "London Plane", "A large deciduous tree with exfoliating bark.", "path_to_picture.jpg"),
-                new Plant(6,"Appeltree", "Malus", "domestica", "Apple Tree", "A deciduous tree known for producing apples.", "path_to_picture.jpg"),
-                new Plant(7, "Els", "Alnus", "glutinosa", "Black Alder", "A tree that thrives in wet soils and has a dark bark.", "path_to_picture.jpg"),
-                new Plant(8, "Tulip", "Tulipa", "spp.", "Tulip", "A bulbous spring-flowering plant, known for its vibrant flowers.", "path_to_picture.jpg"),
-                new Plant(9, "Narcis", "Narcissus", "spp.", "Daffodil", "A spring perennial with trumpet-shaped flowers.", "path_to_picture.jpg"),
-                new Plant(10, "Korkus", "Quercus", "robur", "English Oak", "A large deciduous tree known for its strong wood and acorns.", "path_to_picture.jpg"),
-                new Plant(11, "Aardbei", "Fragaria", "x ananassa", "Strawberry", "A low-growing plant with sweet, red, edible fruit.", "path_to_picture.jpg")
-            };
-
-            // Add each plant to the collection
-            foreach (var plant in plantsToAdd)
-            {
-                Plants.Add(plant);
+                selectedItemId = selectedPlant.Id;
             }
+
+            //navigate to the edit page by passing the selected item
+            _navigationServices.NavigateTo("PlantDetailPage", selectedItemId);
         }
 
         /// <summary>

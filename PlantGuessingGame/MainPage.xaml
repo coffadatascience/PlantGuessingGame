@@ -165,11 +165,11 @@
                     Margin="8"
                     Command="{x:Bind ViewModel.DeleteCommand}"
                     Content="Delete Plant" />
-                <Button
+                <!--<Button
                     Margin="8"
                     HorizontalAlignment="Right"
                     Click="AddWindow_Click"
-                    Content="Add Window" />
+                    Content="Add Window" />-->
             </StackPanel>
         </Border>
 
