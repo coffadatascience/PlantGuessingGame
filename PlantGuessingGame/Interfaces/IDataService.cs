@@ -58,6 +58,20 @@ namespace PlantGuessingGame.Interfaces
         /// <returns></returns>
         Task DeleteItemAsync(Plant item);
 
+        /// <summary>
+        /// task to insert image
+        /// </summary>
+        /// <param name="item"></param>
+        /// <returns></returns>
+        Task<int> AddItemImageAsync(string imagePath);
+
+        /// <summary>
+        /// task to get the image by id (int)
+        /// </summary>
+        /// <param name="v"></param>
+        /// <returns></returns>
+        Task<byte[]> GetItemImageAsync(int v);
+
         #endregion
 
 

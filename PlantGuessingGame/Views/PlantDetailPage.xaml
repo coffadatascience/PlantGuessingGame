@@ -44,8 +44,10 @@
             <!--Note; if we add a column setup here we can limit the length, if we dont the column will space out by content, e.g. description, so by limiting description may become a word wrap
             this wwould also allow spacing in a second column for e.g. a picture or listivew with pictures-->
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1200"></ColumnDefinition>
-             </Grid.ColumnDefinitions>
+                <ColumnDefinition Width="800"></ColumnDefinition>
+                <!--second column we can add the images-->
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
 
 
                 <!--  row 0: title for page in a stackpanel with a symbol icon and a textblock  -->
@@ -504,6 +506,15 @@
                    Command="{x:Bind ViewModel.CancelCommand}"
                    Content="Cancel" />
 
+                <Button
+                   Margin="8"
+                   Command="{x:Bind ViewModel.ImportImageCommand}"
+                   Content="Import Image" />
+
+                <Button
+                   Margin="8"
+                   Command="{x:Bind ViewModel.ShowImageCommand}"
+                   Content="Show Image" />
 
             </StackPanel>
 

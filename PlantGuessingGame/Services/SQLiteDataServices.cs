@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection.Metadata;
 using System.Security.AccessControl;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using Dapper;
 using Dapper.Contrib.Extensions;
 using Microsoft.Data.Sqlite;
@@ -11,6 +13,7 @@ using PlantGuessingGame.DataModels;
 using PlantGuessingGame.Enums;
 using PlantGuessingGame.Interfaces;
 using Windows.Storage;
+using static System.Reflection.Metadata.BlobBuilder;
 
 namespace PlantGuessingGame.Services
 {
@@ -54,7 +57,6 @@ namespace PlantGuessingGame.Services
         }
 
 
-
         #region Public Methods
 
 
@@ -72,6 +74,10 @@ namespace PlantGuessingGame.Services
                 await CreatePhylumTableAsync(db);
                 await CreatePlantTableAsync(db);
 
+                //testing for images
+                await CreateBlobTable(db);
+
+               
                 //add enums
                 PopulateItemTypes();
                 await PopulatePhylaAsync(db);
@@ -80,7 +86,6 @@ namespace PlantGuessingGame.Services
 
             }
         }
-
 
         /// <summary>
         /// public method to add a new item to the database
@@ -95,7 +100,6 @@ namespace PlantGuessingGame.Services
             }
         }
 
-
         /// <summary>
         /// public method to update an item in the database
         /// </summary>
@@ -108,7 +112,6 @@ namespace PlantGuessingGame.Services
                 await UpdatePlantAsync(db, item);
             }
         }
-
 
         /// <summary>
         /// public method to delete an item from the database
@@ -153,8 +156,6 @@ namespace PlantGuessingGame.Services
             }
         }
 
-
-
         /// <summary>
         /// public method to get all of the available phyla
         /// </summary>
@@ -193,6 +194,9 @@ namespace PlantGuessingGame.Services
             //return null
             return null;
         }
+
+
+
 
         #endregion
 
@@ -246,7 +250,6 @@ namespace PlantGuessingGame.Services
             return (int)newIds.First();
         }
 
-
         /// <summary>
         /// this method is used to insert a new phylum into the database
         ///  SQL dapper code:
@@ -274,10 +277,8 @@ namespace PlantGuessingGame.Services
             phylum.Id = (int)newIds.First();
         }
 
-
-
-
         #endregion
+
 
         #region Private Methods
 
@@ -506,7 +507,6 @@ namespace PlantGuessingGame.Services
             };
         }
 
-
         /// <summary>
         /// method to delete a plant item from the database
         /// </summary>
@@ -518,12 +518,10 @@ namespace PlantGuessingGame.Services
             await db.DeleteAsync<Plant>(new Plant { Id = id });
         }
 
-
-
         #endregion
 
 
-        #region Methods SQL (test to create)
+        #region Methods SQL
 
 
         /// <summary>
@@ -559,6 +557,32 @@ namespace PlantGuessingGame.Services
             }
         }
 
+        /// <summary>
+        /// --> Updated example code for gettings a connection
+        ///     -->20250518  evaluate to replace code above
+        /// </summary>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+        private async Task<SqliteConnection> GetSqliteConnectionAsyncRefined()
+        {
+            try
+            {
+                await ApplicationData.Current.LocalFolder
+                    .CreateFileAsync(DbName, CreationCollisionOption.OpenIfExists)
+                    .AsTask().ConfigureAwait(false);
+
+                string dbPath = Path.Combine(ApplicationData.Current.LocalFolder.Path, DbName);
+                var cn = new SqliteConnection($"Filename={dbPath}");
+                cn.Open();
+                cn.Execute("PRAGMA journal_mode=WAL;"); // Optional: enables WAL mode
+                return cn;
+            }
+            catch (InvalidOperationException ex)
+            {
+                throw new Exception("Failed to access ApplicationData.Current", ex);
+            }
+            // Optionally catch SqliteException for DB errors
+        }
 
 
 
@@ -826,8 +850,6 @@ namespace PlantGuessingGame.Services
             return plants.ToList();
         }
 
-
-
         /// <summary>
         /// method to update a plant in the database
         ///  SQL dapper code:
@@ -923,5 +945,76 @@ namespace PlantGuessingGame.Services
         public int SelectedItemId { get; set; }
 
         #endregion
+
+
+        #region Methods for Blobbing
+
+        /// <summary>
+        /// -------------------------------------------------
+        /// create table for a blob (binary large objects)
+        /// --> creates table with an auto incremented integer id for the BLOBS
+        /// -------------------------------------------------
+        /// Considerations and Best Practices
+        // -->> Although storing images using the BLOB data type in SQL is possible, it may not always be the most efficient solution.Especially for numerous or large images, direct database storage could potentially impact performance and increase the database’s size significantly.In many cases, a more optimized approach involves storing images in a filesystem or cloud storage and maintaining database references(e.g., file paths or URLs).
+        /// </summary>
+        // / <param name="db"></param>
+        /// <returns></returns>
+        private async Task CreateBlobTable(SqliteConnection db)
+        {
+            //SQL command to create a table with an Id that can store images        
+            string tableCommand = @"CREATE TABLE IF NOT EXISTS ImageTable(
+                    ImageID INTEGER PRIMARY KEY AUTOINCREMENT,
+                    ImageData BLOB)";
+
+            //create command
+            var createTable = new SqliteCommand(tableCommand, db);
+
+            //execute
+            await createTable.ExecuteNonQueryAsync();
+        }
+
+        //----------------------------
+        // REFACTOR
+        // NOTE JCO --> adjust this with a private and public accessort
+        //----------------------------
+
+        /// <summary>
+        /// code to insert an image
+        /// --> auto increments from id = 1
+        /// --> imports the image and auto increments and then returns the id
+        /// </summary>
+        /// <param name="imagePath"></param>
+        /// <returns></returns>
+        public async Task<int> AddItemImageAsync(string imagePath)
+        {
+            byte[] imageBytes = await File.ReadAllBytesAsync(imagePath);
+
+            using (var connection = await GetSqliteConnectionAsync())
+            {
+                string sql = "INSERT INTO ImageTable (ImageData) VALUES (@ImageData); SELECT last_insert_rowid();";
+                var id = await connection.ExecuteScalarAsync<long>(sql, new { ImageData = imageBytes });
+                return (int)id;
+            }
+        }
+
+
+        /// <summary>
+        /// code to get an images by id
+        /// --> returns a data stream when asking for the image that belongs to the id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public async Task<byte[]> GetItemImageAsync(int id)
+        {
+            using (var connection = await GetSqliteConnectionAsync())
+            {
+                string sql = "SELECT ImageData FROM ImageTable WHERE ImageID = @Id";
+                return await connection.ExecuteScalarAsync<byte[]>(sql, new { Id = id });
+            }
+        }
+
+        #endregion
+
+
     }
 }

@@ -6,9 +6,11 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
 
@@ -122,6 +124,10 @@ namespace PlantGuessingGame.ViewModels
             CancelCommand = new RelayCommand(Cancel);
             NavigateBackCommand = new RelayCommand(NavigateBack);
 
+            //new command to import an image
+            ImportImageCommand = new RelayCommand(ImportImage);
+            ShowImageCommand = new RelayCommand(ShowImages);
+
         }
 
         #endregion
@@ -143,7 +149,15 @@ namespace PlantGuessingGame.ViewModels
         /// </summary>
         public ICommand NavigateBackCommand { get; set; }
 
+        /// <summary>
+        /// command to import and image
+        /// </summary>
+        public ICommand ImportImageCommand { get; set; }
 
+        /// <summary>
+        /// command to Show the image (only for testing imported images)
+        /// </summary>
+        public ICommand ShowImageCommand { get; set; }
         /// <summary>
         /// property for the item name
         /// --> Note JCO; the extensive set here is to demonstrate the use of validation and color to provide user feedback
@@ -826,7 +840,6 @@ namespace PlantGuessingGame.ViewModels
             item.PictureStringList = ItemPictureStringList;
         }
 
-
         /// <summary>
         /// method to determine if the item can be saved
         /// </summary>
@@ -845,12 +858,110 @@ namespace PlantGuessingGame.ViewModels
         }
 
 
-        // Method to handle the logic of navigating back
+        /// <summary>
+        /// Method to handle the logic of navigating back
+        /// </summary>
         private void NavigateBack()
         {
             // Call the navigation service to navigate back
             _navigationServices.GoBack();
         }
+
+        /// <summary>
+        /// task to import and image
+        /// </summary>
+        /// <exception cref="NotImplementedException"></exception>
+        private async void ImportImage()
+        {
+            // 1. Show file picker dialog
+            var openFileDialog = new Microsoft.Win32.OpenFileDialog
+            {
+                Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp;*.gif",
+                Title = "Select an Image"
+            };
+
+            if (openFileDialog.ShowDialog() == true)
+            {
+                string selectedFilePath = openFileDialog.FileName;
+
+                // 2. Call your SQL service to insert the image
+                try
+                {
+                    await _dataService.AddItemImageAsync(selectedFilePath);
+                    MessageBox.Show("Image imported successfully!");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error importing image: {ex.Message}");
+                }
+            }
+        }
+
+        /// <summary>
+        /// command that retrieves and show the relevant image
+        /// </summary>
+        private async void ShowImages()
+        {
+
+
+            //get and open
+            RetrieveAndOpenImageAsync(1);
+
+
+            // 1. Show file picker dialog
+            //var openFileDialog = new Microsoft.Win32.OpenFileDialog
+            //{
+            //    Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp;*.gif",
+            //    Title = "Select an Image"
+            //};
+
+            //if (openFileDialog.ShowDialog() == true)
+            //{
+            //    string selectedFilePath = openFileDialog.FileName;
+
+            //    // 2. Call your SQL service to insert the image
+            //    try
+            //    {
+            //        await _dataService.GetItemImageAsync(0);
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        MessageBox.Show($"Error importing image: {ex.Message}");
+            //    }
+            //}
+        }
+
+        public async Task RetrieveAndOpenImageAsync(int imageId)
+        {
+            try
+            {
+
+                // 1. Retrieve the image bytes from the DB
+                byte[] imageBytes = await _dataService.GetItemImageAsync(imageId);
+
+                if (imageBytes == null || imageBytes.Length == 0)
+                {
+                    MessageBox.Show("No image found for the specified ID.");
+                    return;
+                }
+
+                // 2. Save to a temporary file
+                string tempFile = Path.Combine(Path.GetTempPath(), $"dbimage_{imageId}.jpg");
+                await File.WriteAllBytesAsync(tempFile, imageBytes);
+
+                // 3. Open the image with the default viewer
+                System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo
+                {
+                    FileName = tempFile,
+                    UseShellExecute = true
+                });
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error retrieving or opening image: {ex.Message}");
+            }
+        }
+
 
         #endregion
 
