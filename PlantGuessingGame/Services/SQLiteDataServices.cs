@@ -3,9 +3,13 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection.Metadata;
+using System.Runtime.InteropServices;
 using System.Security.AccessControl;
 using System.Threading.Tasks;
+using System.Transactions;
+using System.Windows.Forms;
 using System.Windows.Input;
+using System.Xml.Linq;
 using Dapper;
 using Dapper.Contrib.Extensions;
 using Microsoft.Data.Sqlite;
@@ -14,9 +18,22 @@ using PlantGuessingGame.Enums;
 using PlantGuessingGame.Interfaces;
 using Windows.Storage;
 using static System.Reflection.Metadata.BlobBuilder;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolTip;
 
 namespace PlantGuessingGame.Services
 {
+
+    /// <summary>
+    /// Splitting your data access methods into public methods that manage the connection and private methods that perform the query/operation using an open connection is a widely recommended pattern in professional C# and database application development. Here’s why this pattern is preferred:
+
+    //------------------------------------------------------------
+    // NOTES ON 1. Connection Management and Reuse
+    //------------------------------------------------------------
+    // The public method is responsible for opening and closing the database connection(often via a using statement). This ensures that connections are always properly disposed of and returned to the connection pool, which is a best practice for performance and resource management.
+    // The private method assumes the connection is already open, allowing you to reuse the same connection for multiple operations within a transaction or batch, avoiding unnecessary open/close cycles.
+    //------------------------------------------------------------
+    /// </summary>
     public class SQLiteDataService : IDataService
     {
 
@@ -59,7 +76,6 @@ namespace PlantGuessingGame.Services
 
         #region Public Methods
 
-
         /// <summary>
         /// initialisation of database
         /// --> note how this initialisaiton is necessary and therefore also part of the interface
@@ -75,7 +91,7 @@ namespace PlantGuessingGame.Services
                 await CreatePlantTableAsync(db);
 
                 //testing for images
-                await CreateBlobTable(db);
+                await CreatePlantImageTable(db);
 
                
                 //add enums
@@ -195,8 +211,46 @@ namespace PlantGuessingGame.Services
             return null;
         }
 
+        /// <summary>
+        /// Public method to add a new image for a parent item.
+        /// </summary>
+        /// <param name="parentId">The ID of the parent item.</param>
+        /// <param name="imagePath">The file path of the image to add.</param>
+        /// <returns>The ID of the inserted image.</returns>
+        public async Task<int> AddItemImageAsync(int parentId, string imagePath)
+        {
+            byte[] imageBytes = await File.ReadAllBytesAsync(imagePath);
 
+            using (var db = await GetSqliteConnectionAsync())
+            {
+                return await InsertImageAsync(db, parentId, imageBytes);
+            }
+        }
+        /// <summary>
+        /// Public method to retrieve an image by its ID.
+        /// </summary>
+        /// <param name="id">The image ID.</param>
+        /// <returns>The image data as a byte array, or null if not found.</returns>
+        public async Task<byte[]> GetItemImageAsync(int id)
+        {
+            using (var db = await GetSqliteConnectionAsync())
+            {
+                return await GetItemImageAsync(db, id);
+            }
+        }
 
+        /// <summary>
+        /// Retrieves all images for a given parent ID.
+        /// </summary>
+        /// <param name="parentId">The ID of the parent entity.</param>
+        /// <returns>A list of image byte arrays.</returns>
+        public async Task<List<byte[]>> GetImagesForParentAsync(int parentId)
+        {
+            using (var db = await GetSqliteConnectionAsync())
+            {
+                return await GetImagesForParentAsync(db, parentId);
+            }
+        }
 
         #endregion
 
@@ -281,7 +335,6 @@ namespace PlantGuessingGame.Services
 
 
         #region Private Methods
-
 
         /// <summary>
         /// //method to create the PHylum table in the database
@@ -583,8 +636,6 @@ namespace PlantGuessingGame.Services
             }
             // Optionally catch SqliteException for DB errors
         }
-
-
 
         /// <summary>
         /// sql method to create the Phylum table in the database
@@ -949,6 +1000,30 @@ namespace PlantGuessingGame.Services
 
         #region Methods for Blobbing
 
+
+        /// -------------------------------------------------
+        /// ------   STORING A LIST OF INTTEGERS WITH IDS ---------
+        /// The best way to store a list of integers in a SQL (including SQLite) database is not to store them as a single value (e.g., comma-separated string, JSON, or BLOB), but rather to use a separate table where each integer in the list is stored as a row, linked to its parent entity via a foreign key. This is the standard relational approach and is both efficient and flexible.
+        /// -------------------------------------------------
+        //        CREATE TABLE Parent(
+        //    ParentId INTEGER PRIMARY KEY,
+        //    Name TEXT
+        //);
+
+        //        CREATE TABLE ParentIntList(
+        //        ParentId INTEGER NOT NULL,
+        //            Value INTEGER NOT NULL,
+        //            FOREIGN KEY (ParentId) REFERENCES Parent(ParentId)
+        //        );
+        //      
+        //  TO get all ids integers for a parten
+        //  SELECT Value FROM ParentIntList WHERE ParentId = 1;
+        //  To add an integers to a parents
+        // INSERT INTO ParentIntList(ParentId, Value) VALUES(1, 10);
+        /// -------------------------------------------------
+
+
+
         /// <summary>
         /// -------------------------------------------------
         /// create table for a blob (binary large objects)
@@ -959,59 +1034,75 @@ namespace PlantGuessingGame.Services
         /// </summary>
         // / <param name="db"></param>
         /// <returns></returns>
-        private async Task CreateBlobTable(SqliteConnection db)
-        {
-            //SQL command to create a table with an Id that can store images        
-            string tableCommand = @"CREATE TABLE IF NOT EXISTS ImageTable(
-                    ImageID INTEGER PRIMARY KEY AUTOINCREMENT,
-                    ImageData BLOB)";
 
-            //create command
+        private async Task CreatePlantImageTable(SqliteConnection db)
+        {
+            // SQL command to create a table with an ImageID and a foreign key to the parent table (e.g., Plant)
+            string tableCommand = @"
+                CREATE TABLE IF NOT EXISTS ImageTable (
+                    ImageID INTEGER PRIMARY KEY AUTOINCREMENT,
+                    ParentID INTEGER NOT NULL,
+                    ImageData BLOB,
+                    FOREIGN KEY (ParentID) REFERENCES ParentTable(ParentID)
+                )";
+
+            // create command
             var createTable = new SqliteCommand(tableCommand, db);
 
-            //execute
+            // execute
             await createTable.ExecuteNonQueryAsync();
         }
+
 
         //----------------------------
         // REFACTOR
         // NOTE JCO --> adjust this with a private and public accessort
         //----------------------------
 
-        /// <summary>
-        /// code to insert an image
-        /// --> auto increments from id = 1
-        /// --> imports the image and auto increments and then returns the id
-        /// </summary>
-        /// <param name="imagePath"></param>
-        /// <returns></returns>
-        public async Task<int> AddItemImageAsync(string imagePath)
-        {
-            byte[] imageBytes = await File.ReadAllBytesAsync(imagePath);
-
-            using (var connection = await GetSqliteConnectionAsync())
-            {
-                string sql = "INSERT INTO ImageTable (ImageData) VALUES (@ImageData); SELECT last_insert_rowid();";
-                var id = await connection.ExecuteScalarAsync<long>(sql, new { ImageData = imageBytes });
-                return (int)id;
-            }
-        }
-
 
         /// <summary>
-        /// code to get an images by id
-        /// --> returns a data stream when asking for the image that belongs to the id
+        /// Private helper to insert an image using an open database connection.
         /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
-        public async Task<byte[]> GetItemImageAsync(int id)
+        /// <param name="db">An open SqliteConnection.</param>
+        /// <param name="parentId">The ID of the parent item.</param>
+        /// <param name="imageBytes">The image data as a byte array.</param>
+        /// <returns>The ID of the inserted image.</returns>
+        private async Task<int> InsertImageAsync(SqliteConnection db, int parentId, byte[] imageBytes)
         {
-            using (var connection = await GetSqliteConnectionAsync())
-            {
-                string sql = "SELECT ImageData FROM ImageTable WHERE ImageID = @Id";
-                return await connection.ExecuteScalarAsync<byte[]>(sql, new { Id = id });
-            }
+            var ids = await db.QueryAsync<long>(
+                    @"INSERT INTO ImageTable (ParentID, ImageData) VALUES (@ParentID, @ImageData);
+              SELECT last_insert_rowid();",
+                new { ParentID = parentId, ImageData = imageBytes });
+
+            return (int)ids.First();
         }
+
+   
+        /// <summary>
+        /// Private helper to retrieve image data using an open database connection.
+        /// </summary>
+        /// <param name="db">An open SqliteConnection.</param>
+        /// <param name="id">The image ID.</param>
+        /// <returns>The image data as a byte array, or null if not found.</returns>
+        private async Task<byte[]> GetItemImageAsync(SqliteConnection db, int id)
+        {
+            string sql = "SELECT ImageData FROM ImageTable WHERE ImageID = @Id";
+            return await db.ExecuteScalarAsync<byte[]>(sql, new { Id = id });
+        }
+
+        /// <summary>
+        /// Helper to retrieve all images for a parent using an open connection.
+        /// </summary>
+        /// <param name="db">An open SqliteConnection.</param>
+        /// <param name="parentId">The parent ID.</param>
+        /// <returns>A list of image byte arrays.</returns>
+        private async Task<List<byte[]>> GetImagesForParentAsync(SqliteConnection db, int parentId)
+        {
+            string sql = "SELECT ImageData FROM ImageTable WHERE ParentID = @ParentID";
+            var images = await db.QueryAsync<byte[]>(sql, new { ParentID = parentId });
+            return images.ToList();
+        }
+
 
         #endregion
 

@@ -63,7 +63,7 @@ namespace PlantGuessingGame.Interfaces
         /// </summary>
         /// <param name="item"></param>
         /// <returns></returns>
-        Task<int> AddItemImageAsync(string imagePath);
+        Task<int> AddItemImageAsync(int parentId, string imagePath);
 
         /// <summary>
         /// task to get the image by id (int)

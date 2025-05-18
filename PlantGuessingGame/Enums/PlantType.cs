@@ -41,7 +41,15 @@ namespace PlantGuessingGame.Enums
         /// <summary>
         /// other (none of the above)
         /// </summary>
-        Grass,    
+        Grass,
+        /// <summary>
+        /// Palm
+        /// </summary>
+        Palm,
+        /// <summary>
+        /// Perennial
+        /// </summary>
+        Perennial, 
         /// <summary>
         /// other (none of the above)
         /// </summary>

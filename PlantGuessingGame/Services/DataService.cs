@@ -110,7 +110,7 @@
             /// </summary>
             /// <param name="imagePath"></param>
             /// <returns></returns>
-            public Task<int> AddItemImageAsync(string imagePath)
+            public Task<int> AddItemImageAsync(int parentId, string imagePath)
             {
                 throw new NotImplementedException("This method is not implemented in this class.");
             }

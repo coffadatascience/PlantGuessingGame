@@ -887,7 +887,8 @@ namespace PlantGuessingGame.ViewModels
                 // 2. Call your SQL service to insert the image
                 try
                 {
-                    await _dataService.AddItemImageAsync(selectedFilePath);
+                    //we add the parent id so the cross table contains the parent id (this will allow us to retrieve all images for one plant)
+                    await _dataService.AddItemImageAsync(_itemId, selectedFilePath);
                     MessageBox.Show("Image imported successfully!");
                 }
                 catch (Exception ex)
