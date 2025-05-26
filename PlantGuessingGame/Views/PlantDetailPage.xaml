@@ -519,6 +519,25 @@
             </StackPanel>
 
 
+            <GridView ItemsSource="{x:Bind ViewModel.SelectedPlantImages, Mode=OneWay}"
+                      Grid.Row="0"
+                      Grid.Column = "1" 
+                      IsItemClickEnabled="True"
+                      SelectionMode="Single"
+                      HorizontalAlignment="Stretch"
+                      Margin="12">
+                
+                <GridView.ItemTemplate>
+                    <DataTemplate>
+                        <Image Source="{Binding}" 
+                   Width="150" 
+                   Height="150" 
+                   Stretch="UniformToFill"/>
+                    </DataTemplate>
+                </GridView.ItemTemplate>
+                
+            </GridView>
+
         </Grid>
 
     </ScrollViewer >

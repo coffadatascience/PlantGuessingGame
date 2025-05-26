@@ -1,18 +1,18 @@
 ﻿using PlantGuessingGame.DataModels;
 using PlantGuessingGame.Enums;
 using PlantGuessingGame.Interfaces;
-using PlantGuessingGame.Services.PlantGuessingGame.Services;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
 using System.IO;
 using System.Linq;
-using System.Text;
+using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
+using Microsoft.UI.Xaml.Media.Imaging;
 
 namespace PlantGuessingGame.ViewModels
 {
@@ -31,6 +31,8 @@ namespace PlantGuessingGame.ViewModels
         private ObservableCollection<string> _plantClassifications = new ObservableCollection<string>();
         private ObservableCollection<string> _phyla = new ObservableCollection<string>();
 
+        //image source collection of images
+        public ObservableCollection<BitmapImage> SelectedPlantImages = new ObservableCollection<BitmapImage>();
 
         private int _itemId;
 
@@ -934,9 +936,13 @@ namespace PlantGuessingGame.ViewModels
 
         public async Task RetrieveAndOpenImageAsync(int imageId)
         {
+
             try
             {
 
+                //---------------
+                // add to observeable collection
+                //---------------
                 // 1. Retrieve the image bytes from the DB
                 byte[] imageBytes = await _dataService.GetItemImageAsync(imageId);
 
@@ -946,21 +952,48 @@ namespace PlantGuessingGame.ViewModels
                     return;
                 }
 
-                // 2. Save to a temporary file
-                string tempFile = Path.Combine(Path.GetTempPath(), $"dbimage_{imageId}.jpg");
-                await File.WriteAllBytesAsync(tempFile, imageBytes);
+                //add to observeable collection
+                await AddImageAsync(imageBytes);
+                //---------------
 
-                // 3. Open the image with the default viewer
-                System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo
-                {
-                    FileName = tempFile,
-                    UseShellExecute = true
-                });
+
+                //---------------
+                //ALT --> set to temp file and open
+                //---------------
+                // 2. Save to a temporary file
+                //string tempFile = Path.Combine(Path.GetTempPath(), $"dbimage_{imageId}.jpg");
+                //await File.WriteAllBytesAsync(tempFile, imageBytes);
+
+                //// 3. Open the image with the default viewer
+                //System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo
+                //{
+                //    FileName = tempFile,
+                //    UseShellExecute = true
+                //});
+                //---------------
+
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Error retrieving or opening image: {ex.Message}");
             }
+        }
+
+        /// <summary>
+        /// adds image
+        /// </summary>
+        /// <param name="imageBytes"></param>
+        /// <returns></returns>
+        public async Task AddImageAsync(byte[] imageBytes)
+        {
+            var bitmapImage = new Microsoft.UI.Xaml.Media.Imaging.BitmapImage();
+            using (var stream = new Windows.Storage.Streams.InMemoryRandomAccessStream())
+            {
+                await stream.WriteAsync(imageBytes.AsBuffer());
+                stream.Seek(0);
+                await bitmapImage.SetSourceAsync(stream);
+            }
+            SelectedPlantImages.Add(bitmapImage);
         }
 
 

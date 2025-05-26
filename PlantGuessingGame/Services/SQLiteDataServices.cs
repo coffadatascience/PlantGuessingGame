@@ -1043,8 +1043,14 @@ namespace PlantGuessingGame.Services
                     ImageID INTEGER PRIMARY KEY AUTOINCREMENT,
                     ParentID INTEGER NOT NULL,
                     ImageData BLOB,
-                    FOREIGN KEY (ParentID) REFERENCES ParentTable(ParentID)
+                    FOREIGN KEY (ParentID) REFERENCES Plants(Id) 
                 )";
+
+            //----------------------------------------------
+            // --> Note JCO --> we need to have the cross table reference here
+            // --> Note that we use the name of the table and the name of the ID in the parent table, this match the ParentID in the current table
+            //!!!!!! --> note that our images need to Reference the Plants table name and ID, to match all images to a specific plant
+            //----------------------------------------------
 
             // create command
             var createTable = new SqliteCommand(tableCommand, db);
@@ -1062,6 +1068,8 @@ namespace PlantGuessingGame.Services
 
         /// <summary>
         /// Private helper to insert an image using an open database connection.
+        /// --> note that the ImageID is autoincrement, and does not need to be passed
+        /// --> Parent ID is that of the plant, and needs to be passed and matched in the create Table code
         /// </summary>
         /// <param name="db">An open SqliteConnection.</param>
         /// <param name="parentId">The ID of the parent item.</param>
