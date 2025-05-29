@@ -72,6 +72,12 @@ namespace PlantGuessingGame.Interfaces
         /// <returns></returns>
         Task<byte[]> GetItemImageAsync(int v);
 
+        /// <summary>
+        /// task to get the images from the parent by parent id (int)
+        /// </summary>
+        /// <param name="v"></param>
+        Task<List<byte[]>> GetImagesForParentAsync(int parentId);
+
         #endregion
 
 
@@ -126,6 +132,7 @@ namespace PlantGuessingGame.Interfaces
         /// </summary>
         /// <returns></returns>
         IList<PlantClassification> GetPlantClassifications();
+
 
         /// <summary>
         /// gets all of the available location types for a specific item type

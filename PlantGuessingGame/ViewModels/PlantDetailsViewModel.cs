@@ -116,6 +116,7 @@ namespace PlantGuessingGame.ViewModels
         /// <param name="dataService"></param>
         public PlantDetailsViewModel(INavigationService navigationService, IDataService dataService)
         {
+            //set services
             _navigationServices = navigationService;
             _dataService = dataService;
 
@@ -133,6 +134,7 @@ namespace PlantGuessingGame.ViewModels
         }
 
         #endregion
+
 
         #region public properties
 
@@ -761,6 +763,10 @@ namespace PlantGuessingGame.ViewModels
                     //set color to white
                     SelectedItemNameColor = Brush;
 
+
+                    //get images
+                    ShowImages();
+
                 }
             }
         }
@@ -840,6 +846,7 @@ namespace PlantGuessingGame.ViewModels
             item.FullGrownHeight = ItemFullGrownHeight;
             item.FullGrownWidth = ItemFullGrownWidth;
             item.PictureStringList = ItemPictureStringList;
+
         }
 
         /// <summary>
@@ -875,30 +882,36 @@ namespace PlantGuessingGame.ViewModels
         /// <exception cref="NotImplementedException"></exception>
         private async void ImportImage()
         {
-            // 1. Show file picker dialog
+            // 1. Show file picker dialog with multiselect enabled
             var openFileDialog = new Microsoft.Win32.OpenFileDialog
             {
                 Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp;*.gif",
-                Title = "Select an Image"
+                Title = "Select Images",
+                Multiselect = true
             };
 
             if (openFileDialog.ShowDialog() == true)
             {
-                string selectedFilePath = openFileDialog.FileName;
+                string[] selectedFilePaths = openFileDialog.FileNames;
+                int successCount = 0;
 
-                // 2. Call your SQL service to insert the image
-                try
+                foreach (var filePath in selectedFilePaths)
                 {
-                    //we add the parent id so the cross table contains the parent id (this will allow us to retrieve all images for one plant)
-                    await _dataService.AddItemImageAsync(_itemId, selectedFilePath);
-                    MessageBox.Show("Image imported successfully!");
+                    try
+                    {
+                        await _dataService.AddItemImageAsync(_itemId, filePath);
+                        successCount++;
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Error importing image: {filePath}\n{ex.Message}");
+                    }
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Error importing image: {ex.Message}");
-                }
+
+                MessageBox.Show($"{successCount} image(s) imported successfully!");
             }
         }
+
 
         /// <summary>
         /// command that retrieves and show the relevant image
@@ -907,31 +920,51 @@ namespace PlantGuessingGame.ViewModels
         {
 
 
-            //get and open
-            RetrieveAndOpenImageAsync(1);
+            try
+            {
+
+                //---------------
+                // add to observeable collection
+                //---------------
+                // 1. Retrieve the image bytes from the DB
+                var ListImageBytes = await _dataService.GetImagesForParentAsync(_itemId);
+
+                //check if we have anything
+                if (ListImageBytes == null || ListImageBytes.Count == 0)
+                {
+                    MessageBox.Show("No image found for the specified ID.");
+                    return;
+                }
+
+                //loop the list
+                foreach (var ImageBytes in ListImageBytes)
+                {
+                    //add to observeable collection
+                    await AddImageAsync(ImageBytes);
+                }
+                //---------------
 
 
-            // 1. Show file picker dialog
-            //var openFileDialog = new Microsoft.Win32.OpenFileDialog
-            //{
-            //    Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp;*.gif",
-            //    Title = "Select an Image"
-            //};
+                //---------------
+                //ALT --> set to temp file and open
+                //---------------
+                // 2. Save to a temporary file
+                //string tempFile = Path.Combine(Path.GetTempPath(), $"dbimage_{imageId}.jpg");
+                //await File.WriteAllBytesAsync(tempFile, imageBytes);
 
-            //if (openFileDialog.ShowDialog() == true)
-            //{
-            //    string selectedFilePath = openFileDialog.FileName;
+                //// 3. Open the image with the default viewer
+                //System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo
+                //{
+                //    FileName = tempFile,
+                //    UseShellExecute = true
+                //});
+                //---------------
 
-            //    // 2. Call your SQL service to insert the image
-            //    try
-            //    {
-            //        await _dataService.GetItemImageAsync(0);
-            //    }
-            //    catch (Exception ex)
-            //    {
-            //        MessageBox.Show($"Error importing image: {ex.Message}");
-            //    }
-            //}
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error retrieving or opening image: {ex.Message}");
+            }
         }
 
         public async Task RetrieveAndOpenImageAsync(int imageId)

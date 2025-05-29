@@ -252,6 +252,7 @@ namespace PlantGuessingGame.Services
             }
         }
 
+
         #endregion
 
 
@@ -1110,6 +1111,8 @@ namespace PlantGuessingGame.Services
             var images = await db.QueryAsync<byte[]>(sql, new { ParentID = parentId });
             return images.ToList();
         }
+
+
 
 
         #endregion

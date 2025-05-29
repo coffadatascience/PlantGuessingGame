@@ -38,16 +38,22 @@ namespace PlantGuessingGame.Views
 
         #region constructors
 
+        /// <summary>
+        /// constructor
+        /// </summary>
         public PlantDetailPage()
         {
+            //initialize
             this.InitializeComponent();
 
             //execute add plant command
 
-
-
         }
 
+        /// <summary>
+        /// constructor with selected model
+        /// </summary>
+        /// <param name="plantViewModel"></param>
         public PlantDetailPage(PlantOverviewViewModel plantViewModel)
         {
             this.InitializeComponent();
@@ -56,6 +62,7 @@ namespace PlantGuessingGame.Views
         }
 
         #endregion
+
 
         #region procedures
 

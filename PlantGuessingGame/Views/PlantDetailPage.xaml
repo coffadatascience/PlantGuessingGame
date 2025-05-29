@@ -31,150 +31,154 @@
     <ScrollViewer HorizontalScrollBarVisibility="auto" VerticalScrollBarVisibility="auto">
 
 
-        <!-- grid to divide page -->
-        <Grid Margin="10">
+        <!--  row 0: title for page in a stackpanel with a symbol icon and a textblock  -->
+        <StackPanel Grid.Row="0" Orientation="Horizontal" >
 
-            <!-- divide page into 3 rows  -->
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="Auto" />
-            </Grid.RowDefinitions>
 
-            <!--Note; if we add a column setup here we can limit the length, if we dont the column will space out by content, e.g. description, so by limiting description may become a word wrap
+            <!-- grid to divide page -->
+            <Grid Margin="10">
+
+                <!-- divide page into 3 rows  -->
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <!--Note; if we add a column setup here we can limit the length, if we dont the column will space out by content, e.g. description, so by limiting description may become a word wrap
             this wwould also allow spacing in a second column for e.g. a picture or listivew with pictures-->
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="800"></ColumnDefinition>
-                <!--second column we can add the images-->
-                <ColumnDefinition Width="*"></ColumnDefinition>
-            </Grid.ColumnDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="800"></ColumnDefinition>
+                    <!--second column we can add the images-->
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
 
 
                 <!--  row 0: title for page in a stackpanel with a symbol icon and a textblock  -->
-            <StackPanel Grid.Row="0" Orientation="Horizontal" >
+                <StackPanel Grid.Row="0" Orientation="Horizontal" >
 
-                <SymbolIcon Margin="8" Symbol="Edit" />
-                <TextBlock
-                Margin="8"
-                Style="{StaticResource SubheaderTextBlockStyle}"
-                Text="General Information" />
+                    <SymbolIcon Margin="8" Symbol="Edit" />
+                    <TextBlock
+                        Margin="8"
+                        Style="{StaticResource SubheaderTextBlockStyle}"
+                        Text="General Information" />
 
-            </StackPanel>
-
-
-            <!-- split the second part of the page in two more sections (general info and details))  -->
-            <StackPanel  Grid.Row="1"  Orientation="Vertical">
+                </StackPanel>
 
 
-                <!--  Plant general info -->
-                <Grid
+                <!-- split the second part of the page in two more sections (general info and details))  -->
+                <StackPanel  Grid.Row="1"  Orientation="Vertical">
+
+
+                    <!--  Plant general info -->
+                    <Grid
                     Margin="4,0,4,8"
                     BorderBrush="{ThemeResource SystemAccentColor}"
                     BorderThickness="0,1,0,1"    
                     IsHitTestVisible="True">
 
 
-                    <!--  grid definitions for the details of the selected plant  -->
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="*" />
-                    </Grid.RowDefinitions>
+                        <!--  grid definitions for the details of the selected plant  -->
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
 
-                    <!--  2 columns per item (title and field)  -->
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="200" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
+                        <!--  2 columns per item (title and field)  -->
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="200" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
 
-                    <!-- name in local language-->
-                    <TextBlock
+                        <!-- name in local language-->
+                        <TextBlock
                 VerticalAlignment="Center"
                 Style="{StaticResource DefaultTextBoxStyle}"
                 Text="Local Name:" />
-                    <TextBox
+                        <TextBox
                 Grid.Column="1"
                 Style="{StaticResource AttributeValueStyle}"
                 Text="{x:Bind ViewModel.ItemLocalName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
-                    <!--  commons name - note that these have update source triggers via the bindable base  -->
-                    <TextBlock
+                        <!--  commons name - note that these have update source triggers via the bindable base  -->
+                        <TextBlock
                 Grid.Row="1"
                 VerticalAlignment="Center"
                 Style="{StaticResource DefaultTextBoxStyle}"
                 Text="Common Name:" />
-                    <TextBox
+                        <TextBox
                 Grid.Row="1"
                 Grid.Column="1"
                 Style="{StaticResource AttributeValueStyle}"
                 Text="{x:Bind ViewModel.ItemCommonName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
-                    <!--  genus  -->
-                    <TextBlock
+                        <!--  genus  -->
+                        <TextBlock
                 Grid.Row="2"
                 VerticalAlignment="Center"
                 Style="{StaticResource DefaultTextBoxStyle}"
                 Text="Genus:" />
-                    <TextBox
+                        <TextBox
                 Grid.Row="2"
                 Grid.Column="1"
                 Style="{StaticResource AttributeValueStyle}"
                 Text="{x:Bind ViewModel.ItemGenus, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
-                    <!--  species  -->
-                    <TextBlock
+                        <!--  species  -->
+                        <TextBlock
                 Grid.Row="3"
                 VerticalAlignment="Center"
                 Style="{StaticResource DefaultTextBoxStyle}"
                 Text="Species:" />
-                    <TextBox
+                        <TextBox
                 Grid.Row="3"
                 Grid.Column="1"
                 Style="{StaticResource AttributeValueStyle}"
                 Text="{x:Bind ViewModel.ItemSpecies, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
-                    <!--  family  -->
-                    <TextBlock
+                        <!--  family  -->
+                        <TextBlock
                 Grid.Row="4"
                 VerticalAlignment="Center"
                 Style="{StaticResource DefaultTextBoxStyle}"
                 Text="Family:" />
-                    <TextBox
+                        <TextBox
                 Grid.Row="4"
                 Grid.Column="1"
                 Style="{StaticResource AttributeValueStyle}"
                 Text="{x:Bind ViewModel.ItemFamily, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
-                    <!--  description  -->
-                    <TextBlock
+                        <!--  description  -->
+                        <TextBlock
                 Grid.Row="5"
                 VerticalAlignment="Center"
                 TextWrapping="Wrap"
                 Style="{StaticResource DefaultTextBoxStyle}"
                 Text="Description:" />
-                    <TextBox
+                        <TextBox
                 Grid.Row="5"
                 Grid.Column="1"
                 TextWrapping="Wrap"
                 Style="{StaticResource AttributeValueStyle}"
                 Text="{x:Bind ViewModel.ItemDescription, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
-                    <!--  plant type: Note links to an observeable collection and a selected type that has a set property -->
-                    <!--  Style: note that the style AttributeComboxValueStyle needs to be available in the resources, page or app wide -->
-                    <TextBlock
+                        <!--  plant type: Note links to an observeable collection and a selected type that has a set property -->
+                        <!--  Style: note that the style AttributeComboxValueStyle needs to be available in the resources, page or app wide -->
+                        <TextBlock
                 Grid.Row="6"
                 Style="{StaticResource DefaultTextBoxStyle}"
                 Text="Type:" 
                 VerticalAlignment="Center"/>
-                    <ComboBox
+                        <ComboBox
                 Grid.Row="6"
                 Grid.Column="1"
                 ItemsSource="{x:Bind ViewModel.PlantTypes}"
@@ -182,13 +186,13 @@
                 Style="{StaticResource AttributeComboxValueStyle}" />
 
 
-                    <!--  Plant Classification  -->
-                    <TextBlock
+                        <!--  Plant Classification  -->
+                        <TextBlock
                 Grid.Row="7"
                 Style="{StaticResource DefaultTextBoxStyle}"
                 Text="Classification:" 
                 VerticalAlignment="Center"/>
-                    <ComboBox
+                        <ComboBox
                 Grid.Row="7"
                 Grid.Column="1"
                 ItemsSource="{x:Bind ViewModel.PlantClassifications}"
@@ -196,13 +200,13 @@
                 Style="{StaticResource AttributeComboxValueStyle}" />
 
 
-                    <!--  SelectedPhylum  -->
-                    <TextBlock
+                        <!--  SelectedPhylum  -->
+                        <TextBlock
                 Grid.Row="8"
                 Style="{StaticResource DefaultTextBoxStyle}"
                 Text="Phylum:" 
                 VerticalAlignment="Center"/>
-                    <ComboBox
+                        <ComboBox
                 Grid.Row="8"
                 Grid.Column="1"
                 ItemsSource="{x:Bind ViewModel.Phyla}"
@@ -210,229 +214,229 @@
                 Style="{StaticResource AttributeComboxValueStyle}" />
 
 
-                </Grid>
+                    </Grid>
 
 
-                <!--  Plant details title section-->
-                <StackPanel Orientation="Horizontal" >
+                    <!--  Plant details title section-->
+                    <StackPanel Orientation="Horizontal" >
 
-                    <SymbolIcon Margin="8" Symbol="Edit" />
-                    <TextBlock
-                Margin="8"
-                Style="{StaticResource SubheaderTextBlockStyle}"
-                Text="Plant Details" />
+                        <SymbolIcon Margin="8" Symbol="Edit" />
+                        <TextBlock
+                            Margin="8"
+                            Style="{StaticResource SubheaderTextBlockStyle}"
+                            Text="Plant Details" />
 
-                </StackPanel>
+                    </StackPanel>
 
 
-                <!--  Plant details-->
-                <!--NOTE: we need to enable the hit test to have an active grid within a scrollable grid, else the selection fails-->
-                <Grid
+                    <!--  Plant details-->
+                    <!--NOTE: we need to enable the hit test to have an active grid within a scrollable grid, else the selection fails-->
+                    <Grid
                     Margin="4,0,4,8"
                     BorderBrush="{ThemeResource SystemAccentColor}"
                     BorderThickness="0,1,0,1"
                     IsHitTestVisible="True">
 
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="*" />
-                    </Grid.RowDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
 
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="200" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="200" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
 
 
-                    <!-- ItemIsEatable -->
-                    <TextBlock
+                        <!-- ItemIsEatable -->
+                        <TextBlock
                 VerticalAlignment="Center"
                 Style="{StaticResource DefaultTextBoxStyle}"
                 Text="Is Eatable:" />
-                    <TextBox
+                        <TextBox
                 Grid.Column="1"
                 Style="{StaticResource AttributeValueStyle}"
                 Text="{x:Bind ViewModel.ItemIsEatable, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
-                    <!-- ItemColor -->
-                    <TextBlock
+                        <!-- ItemColor -->
+                        <TextBlock
                 Grid.Row="1"
                 VerticalAlignment="Center"
                 Style="{StaticResource DefaultTextBoxStyle}"
                 Text="Color:" />
-                    <TextBox
+                        <TextBox
                 Grid.Row="1"
                 Grid.Column="1"
                 Style="{StaticResource AttributeValueStyle}"
                 Text="{x:Bind ViewModel.ItemColor, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
-                    <!-- ItemIsFlowering -->
-                    <TextBlock
+                        <!-- ItemIsFlowering -->
+                        <TextBlock
                 Grid.Row="2"
                 VerticalAlignment="Center"
                 Style="{StaticResource DefaultTextBoxStyle}"
                 Text="Flowers:" />
-                    <TextBox
+                        <TextBox
                 Grid.Row="2"
                 Grid.Column="1"
                 Style="{StaticResource AttributeValueStyle}"
                 Text="{x:Bind ViewModel.ItemIsFlowering, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
-                    <!-- Evergreen -->
-                    <TextBlock
+                        <!-- Evergreen -->
+                        <TextBlock
                 Grid.Row="3"
                 VerticalAlignment="Center"
                 Style="{StaticResource DefaultTextBoxStyle}"
                 Text="Evergreen:" />
-                    <TextBox
+                        <TextBox
                 Grid.Row="3"
                 Grid.Column="1"
                 Style="{StaticResource AttributeValueStyle}"
                 Text="{x:Bind ViewModel.ItemIsEvergreen, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
-                    <!-- TrimmingInstructions -->
-                    <TextBlock
+                        <!-- TrimmingInstructions -->
+                        <TextBlock
                 Grid.Row="4"
                 VerticalAlignment="Center"
                 TextWrapping="Wrap"
                 Style="{StaticResource DefaultTextBoxStyle}"
                 Text="Trimming Instructions:" />
-                    <TextBox
+                        <TextBox
                 Grid.Row="4"
                 Grid.Column="1"
                 TextWrapping="Wrap"
                 Style="{StaticResource AttributeValueStyle}"
                 Text="{x:Bind ViewModel.ItemTrimmingInstructions, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
-                    <!-- TrimmingPeriod -->
-                    <TextBlock
+                        <!-- TrimmingPeriod -->
+                        <TextBlock
                 Grid.Row="5"
                 VerticalAlignment="Center"
                 Style="{StaticResource DefaultTextBoxStyle}"
                 Text="Trimming Period:" />
-                    <TextBox
+                        <TextBox
                 Grid.Row="5"
                 Grid.Column="1"
                 Style="{StaticResource AttributeValueStyle}"
                 Text="{x:Bind ViewModel.ItemTrimmingPeriod, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
-                    <!-- TemperatureRangeMinimum -->
-                    <TextBlock
+                        <!-- TemperatureRangeMinimum -->
+                        <TextBlock
                 Grid.Row="6"
                 VerticalAlignment="Center"
                 Style="{StaticResource DefaultTextBoxStyle}"
                 Text="Temperature Minimum:" />
-                    <TextBox
+                        <TextBox
                 Grid.Row="6"
                 Grid.Column="1"
                 Style="{StaticResource AttributeValueStyle}"
                 Text="{x:Bind ViewModel.ItemTemperatureRangeMinimum, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
-                    <!-- TemperatureRangeMaximum -->
-                    <TextBlock
+                        <!-- TemperatureRangeMaximum -->
+                        <TextBlock
                 Grid.Row="7"
                 VerticalAlignment="Center"
                 Style="{StaticResource DefaultTextBoxStyle}"
                 Text="Temperature Maximum:" />
-                    <TextBox
+                        <TextBox
                 Grid.Row="7"
                 Grid.Column="1"
                 Style="{StaticResource AttributeValueStyle}"
                 Text="{x:Bind ViewModel.ItemTemperatureRangeMaximum, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
-                    <!-- IsPoisonous; -->
-                    <TextBlock
+                        <!-- IsPoisonous; -->
+                        <TextBlock
                 Grid.Row="8"
                 VerticalAlignment="Center"
                 Style="{StaticResource DefaultTextBoxStyle}"
                 Text="Is Poisonous:" />
-                    <TextBox
+                        <TextBox
                 Grid.Row="8"
                 Grid.Column="1"
                 Style="{StaticResource AttributeValueStyle}"
                 Text="{x:Bind ViewModel.ItemIsPoisonous, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
-                    <!-- ItemFertilizationMethod; -->
-                    <TextBlock
+                        <!-- ItemFertilizationMethod; -->
+                        <TextBlock
                 Grid.Row="9"
                 VerticalAlignment="Center"
                 Style="{StaticResource DefaultTextBoxStyle}"
                 Text="Fertilization Method:" />
-                    <TextBox
+                        <TextBox
                 Grid.Row="9"
                 Grid.Column="1"
                 Style="{StaticResource AttributeValueStyle}"
                 Text="{x:Bind ViewModel.ItemFertilizationMethod, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
-                    <!-- ItemShape; -->
-                    <TextBlock
+                        <!-- ItemShape; -->
+                        <TextBlock
                 Grid.Row="10"
                 VerticalAlignment="Center"
                 Style="{StaticResource DefaultTextBoxStyle}"
                 Text="Shape:" />
-                    <TextBox
+                        <TextBox
                 Grid.Row="10"
                 Grid.Column="1"
                 Style="{StaticResource AttributeValueStyle}"
                 Text="{x:Bind ViewModel.ItemShape, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
-                    <!-- ItemFullGrownHeight; -->
-                    <TextBlock
+                        <!-- ItemFullGrownHeight; -->
+                        <TextBlock
                 Grid.Row="11"
                 VerticalAlignment="Center"
                 Style="{StaticResource DefaultTextBoxStyle}"
                 Text="Full Grown Height:" />
-                    <TextBox
+                        <TextBox
                 Grid.Row="11"
                 Grid.Column="1"
                 Style="{StaticResource AttributeValueStyle}"
                 Text="{x:Bind ViewModel.ItemFullGrownHeight, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
-                    <!-- ItemFullGrownWidth; -->
-                    <TextBlock
+                        <!-- ItemFullGrownWidth; -->
+                        <TextBlock
                 Grid.Row="12"
                 VerticalAlignment="Center"
                 Style="{StaticResource DefaultTextBoxStyle}"
                 Text="Full Grown Width:" />
-                    <TextBox
+                        <TextBox
                 Grid.Row="12"
                 Grid.Column="1"
                 Style="{StaticResource AttributeValueStyle}"
                 Text="{x:Bind ViewModel.ItemFullGrownWidth, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
-                    <!-- ItemPictureStringList; -->
-                    <TextBlock
+                        <!-- ItemPictureStringList; -->
+                        <TextBlock
                 Grid.Row="13"
                 VerticalAlignment="Center"
                 Style="{StaticResource DefaultTextBoxStyle}"
                 Text="Picture List:" />
-                    <TextBox
+                        <TextBox
                 Grid.Row="13"
                 Grid.Column="1"
                 Style="{StaticResource AttributeValueStyle}"
                 Text="{x:Bind ViewModel.ItemPictureStringList, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
-                </Grid>
+                    </Grid>
 
 
-            </StackPanel>
+                </StackPanel>
 
 
-            <!--  Button to navigate or save  -->
-            <!--
+                <!--  Button to navigate or save  -->
+                <!--
         <StackPanel
             Grid.Row="2"
             HorizontalAlignment="Right"
@@ -447,98 +451,150 @@
 
 
 
-            <StackPanel
+                <StackPanel
                Grid.Row="2"
                HorizontalAlignment="Left"
                Orientation="Horizontal">
 
-                        <!--  implementation of a split button that will allow the user to save and item and return, or save and add another item  -->
-                   <SplitButton
+                    <!--  implementation of a split button that will allow the user to save and item and return, or save and add another item  -->
+                    <SplitButton
                        x:Name="SaveButton"
                        Margin="8,8,0,8"
                        Click="{x:Bind ViewModel.SaveItemAndReturnAsync}"
                        Content="Save and Return"
                        IsEnabled="{x:Bind ViewModel.IsDirty, Mode=OneWay}">
 
-                            <SplitButton.Flyout>
+                        <SplitButton.Flyout>
 
-                                <Flyout>
+                            <Flyout>
 
-                                    <!--  NOTE - we need a stackpanel to hold the buttons even in a flyout  -->
-                                    <StackPanel>
+                                <!--  NOTE - we need a stackpanel to hold the buttons even in a flyout  -->
+                                <StackPanel>
 
-                                        <!--  button to save and create a new item  -->
-                                        <Button
+                                    <!--  button to save and create a new item  -->
+                                    <Button
                                    x:Name="SaveAndCreateNew"
                                    Background="Transparent"
                                    Click="{x:Bind ViewModel.SaveItemAndContinueAsync}"
                                    Content="Save and Create New"
                                    IsEnabled="{x:Bind ViewModel.IsDirty, Mode=OneWay}" />
 
-                                        <!--  second button to cancel the save and return  -->
-                                        <Button
+                                    <!--  second button to cancel the save and return  -->
+                                    <Button
                                    x:Name="CancelSaveAndReturn"
                                    Background="Transparent"
                                    Click="{x:Bind ViewModel.SaveItemAndReturnAsync}"
                                    Content="Save and Return"
                                    IsEnabled="{x:Bind ViewModel.IsDirty, Mode=OneWay}" />
 
-                                    </StackPanel>
+                                </StackPanel>
 
-                                </Flyout>
+                            </Flyout>
 
-                            </SplitButton.Flyout>
+                        </SplitButton.Flyout>
 
-                            <SplitButton.Resources>
-                                <TeachingTip
+                        <SplitButton.Resources>
+                            <TeachingTip
                            x:Name="SavingTip"
                            Title="Save and create new"
                            Subtitle="Use the dropdown button option to save your item and create another."
                            Target="{x:Bind SaveButton}" />
-                            </SplitButton.Resources>
+                        </SplitButton.Resources>
 
-                        </SplitButton>
+                    </SplitButton>
 
 
-                        <!--<Button Content="Save" Margin="8,8,0,8" Command="{x:Bind ViewModel.SaveCommand}"/>-->
-                        <Button
+                    <!--<Button Content="Save" Margin="8,8,0,8" Command="{x:Bind ViewModel.SaveCommand}"/>-->
+                    <Button
                    Margin="8"
                    Command="{x:Bind ViewModel.CancelCommand}"
                    Content="Cancel" />
 
-                <Button
+                    <Button
                    Margin="8"
                    Command="{x:Bind ViewModel.ImportImageCommand}"
                    Content="Import Image" />
 
-                <Button
+                    <Button
                    Margin="8"
                    Command="{x:Bind ViewModel.ShowImageCommand}"
                    Content="Show Image" />
 
-            </StackPanel>
+                </StackPanel>
 
 
-            <GridView ItemsSource="{x:Bind ViewModel.SelectedPlantImages, Mode=OneWay}"
+                <!--<GridView ItemsSource="{x:Bind ViewModel.SelectedPlantImages, Mode=OneWay}"
                       Grid.Row="0"
                       Grid.Column = "1" 
                       IsItemClickEnabled="True"
                       SelectionMode="Single"
                       HorizontalAlignment="Stretch"
                       Margin="12">
-                
-                <GridView.ItemTemplate>
-                    <DataTemplate>
-                        <Image Source="{Binding}" 
+
+                    <GridView.ItemTemplate>
+                        <DataTemplate>
+                            <Image Source="{Binding}" 
                    Width="150" 
                    Height="150" 
                    Stretch="UniformToFill"/>
-                    </DataTemplate>
-                </GridView.ItemTemplate>
-                
-            </GridView>
+                        </DataTemplate>
+                    </GridView.ItemTemplate>
 
-        </Grid>
+                </GridView>-->
+
+            </Grid>
+
+
+            <!--  Plant details title section-->
+            <StackPanel Orientation="Vertical" >
+
+                <TextBlock
+                Margin="8"
+                Style="{StaticResource SubheaderTextBlockStyle}"
+                Text="Plant Images" />
+
+
+                <GridView ItemsSource="{x:Bind ViewModel.SelectedPlantImages, Mode=OneWay}"
+                          IsItemClickEnabled="True"
+                          SelectionMode="Single"
+                          HorizontalAlignment="Stretch"
+                          Margin="12">
+
+                    <!--Setup for container-->
+                    <GridView.ItemContainerStyle>
+                        <Style TargetType="GridViewItem" BasedOn="{StaticResource DefaultGridViewItemStyle}">
+                            <Setter Property="Margin" Value="5, 5, 5, 5"/>
+                        </Style>
+                    </GridView.ItemContainerStyle>
+
+                    <!-- An extra property also needs to be added to the GridView's ItemsWrapGrid.
+                    The following sets the maximum # of items to show before wrapping.-->
+                    <GridView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <ItemsWrapGrid x:Name="MaxItemsWrapGrid"
+                               MaximumRowsOrColumns="2"
+                               Orientation="Horizontal"/>
+                        </ItemsPanelTemplate>
+                    </GridView.ItemsPanel>
+
+                    <GridView.ItemTemplate>
+                        <DataTemplate>
+                            <Image Source="{Binding}" 
+                       Width="300" 
+                       Height="300" 
+                       Stretch="UniformToFill"/>
+                        </DataTemplate>
+
+                    </GridView.ItemTemplate>
+
+                </GridView>
+
+
+            </StackPanel>
+            
+            
+        </StackPanel>
+
 
     </ScrollViewer >
 

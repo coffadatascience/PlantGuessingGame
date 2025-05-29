@@ -150,6 +150,13 @@
                 return _classifications;
             }
 
+            public Task<List<byte[]>> GetImagesForParentAsync(int parentId)
+            {
+                throw new NotImplementedException();
+            }
+
+
+
 
 
             #endregion

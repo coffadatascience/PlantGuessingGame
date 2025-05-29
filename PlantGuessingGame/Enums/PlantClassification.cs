@@ -42,6 +42,10 @@ namespace PlantGuessingGame.Enums
         /// </summary>
         Angiosperms,
         /// <summary>
+        /// Angiosperms
+        /// </summary>
+        Pteridophytes,
+        /// <summary>
         /// Unknown
         /// </summary>
         Unknown,

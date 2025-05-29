@@ -49,7 +49,20 @@ namespace PlantGuessingGame.Enums
         /// <summary>
         /// Perennial
         /// </summary>
-        Perennial, 
+        Perennial,
+        /// <summary>
+        /// GroundCover
+        /// </summary>
+        GroundCover,
+        /// <summary>
+        /// Houseplant
+        /// </summary>
+        Houseplant,
+        /// <summary>
+        /// Fern
+        /// </summary>
+        /// 
+        Fern,
         /// <summary>
         /// other (none of the above)
         /// </summary>
