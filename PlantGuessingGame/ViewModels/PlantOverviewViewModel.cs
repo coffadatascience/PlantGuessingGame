@@ -7,6 +7,9 @@ using System.Collections.Generic;
 using PlantGuessingGame.Interfaces;
 using System.Threading.Tasks;
 using Microsoft.UI.Xaml.Input;
+using PlantGuessingGame.Enums;
+using System.Linq;
+using System;
 
 namespace PlantGuessingGame.ViewModels
 {
@@ -53,6 +56,45 @@ namespace PlantGuessingGame.ViewModels
 
         #endregion
 
+        #region "Filtering collections"
+
+        /// <summary>
+        /// observable collection of plant types that we can use for the combo box
+        /// </summary>
+        public ObservableCollection<PlantType> PlantTypes { get; } =
+            new ObservableCollection<PlantType>(Enum.GetValues(typeof(PlantType)).Cast<PlantType>());
+
+        private PlantType? _selectedPlantType;
+        public PlantType? SelectedPlantType
+        {
+            get => _selectedPlantType;
+            set => SetProperty(ref _selectedPlantType, value);
+        }
+
+        /// <summary>
+        /// filtered collectoin
+        /// </summary>
+        public ObservableCollection<Plant> FilteredPlants { get; set; } = new ObservableCollection<Plant>();
+
+        /// <summary>
+        /// command to filter
+        /// </summary>
+        public ICommand FilterPlantsCommand { get; }
+
+        /// <summary>
+        /// filter list function for command
+        /// </summary>
+        /// <param name="parameter"></param>
+        private void OnFilterPlants(object parameter)
+        {
+            var selectedType = SelectedPlantType ?? PlantType.Unknown;
+            var filtered = Plants.Where(p => p.PlantType == selectedType).ToList();
+            FilteredPlants.Clear();
+            foreach (var plant in filtered)
+                FilteredPlants.Add(plant);
+        }
+
+        #endregion
 
         #region public variables
 
@@ -179,6 +221,8 @@ namespace PlantGuessingGame.ViewModels
             //delete command
             DeleteCommand = new RelayCommand(async () => await DeleteItemAsync(), CanDeleteItem);
 
+            //command to filter base don plant type (this is a command with a parameter, and uses a different relay command class)
+            FilterPlantsCommand = new RelayCommand<object>(OnFilterPlants);
 
             //20250405 --> replace this for a population of the local items using the data serice
             // ---> we also do the intial data population via the service (not in the viewmodel)

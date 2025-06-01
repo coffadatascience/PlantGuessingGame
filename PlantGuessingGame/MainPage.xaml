@@ -48,19 +48,21 @@
                     Style="{StaticResource SubtitleTextBlockStyle}"
                     Text="Plant Type: " />
 
-                <!--<ComboBox Width="120"
-                          Margin="0,2,6,4"
-                          HorizontalAlignment="Right"
-                          VerticalAlignment="Bottom"
-                          ItemsSource="{x:Bind ViewModel.PlantTypes}"
-                          SelectedItem="{x:Bind ViewModel.SelectedPlantType, Mode=TwoWay}" />-->
+                <ComboBox Width="120"
+                      Margin="0,2,6,4"
+                      HorizontalAlignment="Right"
+                      VerticalAlignment="Bottom"
+                      ItemsSource="{x:Bind ViewModel.PlantTypes}"
+                      SelectedItem="{x:Bind ViewModel.SelectedPlantType, Mode=TwoWay}"
+                      SelectionChanged="ComboBox_SelectionChanged" />
+
             </StackPanel>
         </StackPanel>
 
         <ListView
             Grid.Row="1"
             DoubleTapped="{x:Bind ViewModel.ListViewDoubleTapped}"
-            ItemsSource="{x:Bind ViewModel.Plants}"
+            ItemsSource="{x:Bind ViewModel.FilteredPlants}"
             SelectedItem="{x:Bind ViewModel.SelectedPlant, Mode=TwoWay}">
 
             <ListView.HeaderTemplate>

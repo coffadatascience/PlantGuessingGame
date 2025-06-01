@@ -47,5 +47,22 @@ namespace PlantGuessingGame
         {
             throw new NotImplementedException();
         }
+
+
+        /// <summary>
+        /// NOTE ---> we now have the event here, and linked with the command
+        ///           The event command manager would be more applicable using behavior but it does not seem to work with a matched WINRT version that is curently reference
+        ///           --> as such we may need to first update our SDK, then we may use a newer version.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (ViewModel.FilterPlantsCommand.CanExecute(null))
+            {
+                ViewModel.FilterPlantsCommand.Execute(null);
+            }
+        }
+
     }
 }
