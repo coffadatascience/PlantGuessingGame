@@ -25,19 +25,9 @@ namespace PlantGuessingGame.ViewModels
 
 
         /// <summary>
-        /// constant for all phyla
-        /// </summary>
-        private const string AllPhyla = "All";
-
-        /// <summary>
         /// local selected plant variable
         /// </summary>
         private Plant selectedPlant;
-
-        /// <summary>
-        /// selected phylum
-        /// </summary>
-        private string selectedPhylum;
 
         /// <summary>
         /// observable collection to display list of plants (private)
@@ -50,51 +40,23 @@ namespace PlantGuessingGame.ViewModels
         private ObservableCollection<Plant> allPlants;
 
         /// <summary>
-        /// Ilist for phyla for the combo box
+        /// constant for all types
         /// </summary>
-        private IList<string> phyla;
+        private const string AllPlantTypes = "All";
+
+        /// <summary>
+        /// selected plant type
+        /// </summary>
+        private string selectedPlantType;
+
+        /// <summary>
+        /// Ilist for plant types for the combo box
+        /// --> we use an Ilist of strings so "All can also be part of it"
+        /// </summary>
+        private IList<string> plantTypes;
 
         #endregion
 
-        #region "Filtering collections"
-
-        /// <summary>
-        /// observable collection of plant types that we can use for the combo box
-        /// </summary>
-        public ObservableCollection<PlantType> PlantTypes { get; } =
-            new ObservableCollection<PlantType>(Enum.GetValues(typeof(PlantType)).Cast<PlantType>());
-
-        private PlantType? _selectedPlantType;
-        public PlantType? SelectedPlantType
-        {
-            get => _selectedPlantType;
-            set => SetProperty(ref _selectedPlantType, value);
-        }
-
-        /// <summary>
-        /// filtered collectoin
-        /// </summary>
-        public ObservableCollection<Plant> FilteredPlants { get; set; } = new ObservableCollection<Plant>();
-
-        /// <summary>
-        /// command to filter
-        /// </summary>
-        public ICommand FilterPlantsCommand { get; }
-
-        /// <summary>
-        /// filter list function for command
-        /// </summary>
-        /// <param name="parameter"></param>
-        private void OnFilterPlants(object parameter)
-        {
-            var selectedType = SelectedPlantType ?? PlantType.Unknown;
-            var filtered = Plants.Where(p => p.PlantType == selectedType).ToList();
-            FilteredPlants.Clear();
-            foreach (var plant in filtered)
-                FilteredPlants.Add(plant);
-        }
-
-        #endregion
 
         #region public variables
 
@@ -137,14 +99,62 @@ namespace PlantGuessingGame.ViewModels
         }
 
         /// <summary>
-        /// public property for the selected phyla
+        /// changes plant type placed filter
+        /// </summary>
+        public string? SelectedPlantType
+        {
+            get => selectedPlantType;
+            set
+            {
+                //set
+                SetProperty(ref selectedPlantType, value);
+
+                //call the filter method
+                plants.Clear();
+
+                //filter the items
+                foreach (var item in allPlants)
+                {
+                    //check if the selected medium is all or the same as the item
+                    if (string.IsNullOrWhiteSpace(selectedPlantType) ||
+                        selectedPlantType == "All" ||
+                        selectedPlantType == item.PlantType.ToString())
+                    {
+                        plants.Add(item);
+                    }
+                }
+            }
+
+        }
+
+        /// <summary>
+        /// public property for the selected plantType
         /// --> this property is used to filter the items
         /// note that the set method calls the OnPropertyChanged method
         /// </summary>
-        public IList<string> Phyla
+        public IList<string> PlantTypes
         {
-            get { return phyla; }
-            set { SetProperty(ref phyla, value); }
+            get { return plantTypes; }
+            set
+            {
+                //set the value
+                SetProperty(ref plantTypes, value); 
+
+                //call the filter method
+                plants.Clear();
+
+                //filter the items
+                foreach (var item in allPlants)
+                {
+                    //check if the selected medium is all or the same as the item
+                    if (string.IsNullOrWhiteSpace(selectedPlantType) ||
+                        selectedPlantType == "All" ||
+                        selectedPlantType == item.PlantType.ToString())
+                    {
+                        plants.Add(item);
+                    }
+                }
+            }
         }
 
         /// <summary>
@@ -161,37 +171,6 @@ namespace PlantGuessingGame.ViewModels
         /// command for delete
         /// </summary>
         public ICommand DeleteCommand { get; set; }
-
-        /// <summary>
-        /// public property for the selected phylum
-        /// </summary>
-        public string SelectedPhylum
-        {
-            get
-            {
-                return selectedPhylum;
-            }
-            set
-            {
-                //set the value
-                SetProperty(ref selectedPhylum, value);
-
-                //call the filter method
-                plants.Clear();
-
-                //filter the items
-                foreach (var item in allPlants)
-                {
-                    //check if the selected medium is all or the same as the item
-                    if (string.IsNullOrWhiteSpace(selectedPhylum) ||
-                        selectedPhylum == "All" ||
-                        selectedPhylum == item.PhylumInfo.Name)
-                    {
-                        plants.Add(item);
-                    }
-                }
-            }
-        }
 
         #endregion
 
@@ -220,12 +199,6 @@ namespace PlantGuessingGame.ViewModels
             AddEditCommand = new RelayCommand(AddPlant);
             //delete command
             DeleteCommand = new RelayCommand(async () => await DeleteItemAsync(), CanDeleteItem);
-
-            //command to filter base don plant type (this is a command with a parameter, and uses a different relay command class)
-            FilterPlantsCommand = new RelayCommand<object>(OnFilterPlants);
-
-            //20250405 --> replace this for a population of the local items using the data serice
-            // ---> we also do the intial data population via the service (not in the viewmodel)
 
             // Add plants on initialization
             PopulateDataAsync();
@@ -291,19 +264,19 @@ namespace PlantGuessingGame.ViewModels
             allPlants = new ObservableCollection<Plant>(plants);
 
             //create a list with mediums and add "All" to it
-            phyla = new ObservableCollection<string>
+            plantTypes = new ObservableCollection<string>
             {
-                AllPhyla
+                AllPlantTypes
             };
 
             //add the rest of the items
-            foreach (var itemType in _dataService.GetPhyla())
+            foreach (var itemType in _dataService.GetItemTypes())
             {
-                phyla.Add(itemType.ToString());
+                plantTypes.Add(itemType.ToString());
             }
 
             //set selected phylum
-            SelectedPhylum = Phyla[0];
+            selectedPlantType = plantTypes[0];
 
         }
 
@@ -352,25 +325,6 @@ namespace PlantGuessingGame.ViewModels
         /// </summary>
         public void AddOrEditItem()
         {
-
-            ////test for editing items
-            //const int startingItemCount = 3;
-            //var newItem = new MediaItem
-            //{
-            //    Id = startingItemCount + additionalItemCount,
-            //    Location = LocationType.InCollection,
-            //    MediaType = ItemType.Music,
-            //    MediumInfo = new Medium { Id = 1, MediaType = ItemType.Music, Name = "CD" },
-            //    Name = $"CD {additionalItemCount}"
-            //};
-
-            ////add new item
-            //allItems.Add(newItem);
-            ////add item also to item list
-            //items.Add(newItem);
-            ////count
-            //additionalItemCount++;
-
 
             //rather than having here a mockup add, we will get the selected item and navigate to the items details pages
             var selectedItemId = -1;

@@ -53,8 +53,7 @@
                       HorizontalAlignment="Right"
                       VerticalAlignment="Bottom"
                       ItemsSource="{x:Bind ViewModel.PlantTypes}"
-                      SelectedItem="{x:Bind ViewModel.SelectedPlantType, Mode=TwoWay}"
-                      SelectionChanged="ComboBox_SelectionChanged" />
+                      SelectedItem="{x:Bind ViewModel.SelectedPlantType, Mode=TwoWay}" />
 
             </StackPanel>
         </StackPanel>
@@ -62,7 +61,7 @@
         <ListView
             Grid.Row="1"
             DoubleTapped="{x:Bind ViewModel.ListViewDoubleTapped}"
-            ItemsSource="{x:Bind ViewModel.FilteredPlants}"
+            ItemsSource="{x:Bind ViewModel.Plants}"
             SelectedItem="{x:Bind ViewModel.SelectedPlant, Mode=TwoWay}">
 
             <ListView.HeaderTemplate>

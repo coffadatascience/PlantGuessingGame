@@ -522,6 +522,10 @@ namespace PlantGuessingGame.Services
                 foreach (var plant in plants)
                 {
                     await InsertPlantAsync(db, plant);
+
+                    //We should add the images here by a separate command using the base image location
+                    // ---> import image to byte stream, compress, insert into db
+                    // --> so we can have a complete seeding system
                 }
 
                 //add to local var
