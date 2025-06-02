@@ -20,6 +20,9 @@ using Windows.Storage;
 using static System.Reflection.Metadata.BlobBuilder;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolTip;
+using SixLabors.ImageSharp;
+using SixLabors.ImageSharp.Processing;
+using SixLabors.ImageSharp.Formats.Jpeg;
 
 namespace PlantGuessingGame.Services
 {
@@ -519,14 +522,81 @@ namespace PlantGuessingGame.Services
                 var plants = PlantSeedData.GetAllPlants(_phyla);
 
                 //add the list 
+                //foreach (var plant in plants)
+                //{
+                //    //inser the plant data
+                //    await InsertPlantAsync(db, plant);
+
+                //    //check if we 
+                //    //We should add the images here by a separate command using the base image location
+                //    // ---> import image to byte stream, compress, insert into db
+                //    // --> so we can have a complete seeding system
+                //    byte[] imageBytes = await File.ReadAllBytesAsync(plant.ImagePath);
+
+
+                //    await InsertImageAsync(db, plant.Id, imageBytes);
+                    
+
+                //}
+
+
+                // ...
+
                 foreach (var plant in plants)
                 {
-                    await InsertPlantAsync(db, plant);
 
-                    //We should add the images here by a separate command using the base image location
-                    // ---> import image to byte stream, compress, insert into db
-                    // --> so we can have a complete seeding system
+                    //NOTE --> the Plant ID list is autoincrement
+                    //         We thus need the return value of the inserted plant to make a match for the image if we want to match the inserted id of the plant
+                    var PlantID = -1;
+
+                    // Insert plant data first
+                    PlantID = await InsertPlantAsync(db, plant);
+
+                    // Skip if no image path provided
+                    if (string.IsNullOrEmpty(plant.ImagePath))
+                    {
+                        Console.WriteLine($"No image path for plant {plant.CommonName}");
+                        continue;
+                    }
+
+                    // 1. Check if image exists
+                    if (!File.Exists(plant.ImagePath))
+                    {
+                        Console.WriteLine($"Image not found: {plant.ImagePath}");
+                        continue;
+                    }
+
+                    try
+                    {
+                        // 2. Load and compress image
+                        using var image = await Image.LoadAsync(plant.ImagePath);
+
+                        // Resize to max 800px width while maintaining aspect ratio
+                        image.Mutate(x => x.Resize(new ResizeOptions
+                        {
+                            Size = new Size(800, 0), // 0 maintains aspect ratio
+                            Mode = ResizeMode.Max
+                        }));
+
+                        // 3. Convert to JPEG with 75% quality
+                        var encoder = new JpegEncoder
+                        {
+                            Quality = 75 // Medium quality (0-100)
+                        };
+
+                        using var memoryStream = new MemoryStream();
+                        await image.SaveAsync(memoryStream, encoder);
+                        byte[] compressedBytes = memoryStream.ToArray();
+
+                        // 4. Insert compressed image
+                        await InsertImageAsync(db, PlantID, compressedBytes);
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine($"Failed to process image {plant.ImagePath}: {ex.Message}");
+                    }
                 }
+
 
                 //add to local var
                 _plants = await GetAllPlantsAsync(db);

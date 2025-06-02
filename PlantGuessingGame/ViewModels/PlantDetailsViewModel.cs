@@ -932,7 +932,7 @@ namespace PlantGuessingGame.ViewModels
                 //check if we have anything
                 if (ListImageBytes == null || ListImageBytes.Count == 0)
                 {
-                    MessageBox.Show("No image found for the specified ID.");
+                    //MessageBox.Show("No image found for the specified ID.");
                     return;
                 }
 
