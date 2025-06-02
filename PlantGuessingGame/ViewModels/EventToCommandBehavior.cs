@@ -7,7 +7,7 @@ using System.Windows.Input;
 // NOTE JCO --> this package uses a newer version of WINRT runtime resulting in a assembly clash with the SDK version 
 //          -- Since this is known, we may not want to use the event command and stick to the relay command untill we need a more extensive package.
 //----------------------------------------------
-//using Microsoft.Xaml.Interactivity;
+using Microsoft.Xaml.Interactivity;
 
 namespace PlantGuessingGame.ViewModels
 {
@@ -22,6 +22,7 @@ namespace PlantGuessingGame.ViewModels
     ///     xmlns:behaviors="using:PlantGuessingGame.ViewModels"
     /// -----------------------------------------------------------------
     /*  EventToCommandBehavior for WinUI 3
+     *  NOTE --> this version below uses a different WINRT version leading to a conflict with other packages, the version below with a static method is acccepted and work with the rest
     ----------------------------------
 
     Purpose:
@@ -116,146 +117,146 @@ namespace PlantGuessingGame.ViewModels
     //    }
     //}
 
+
+
+
+
+    public static class EventToCommandBehavior
+    {
+        /// <summary>
+        ///  event
+        /// </summary>
+        public static readonly DependencyProperty EventProperty =
+            DependencyProperty.RegisterAttached(
+                "Event",
+                typeof(string),
+                typeof(EventToCommandBehavior),
+                new PropertyMetadata(null, OnEventChanged));
+
+        /// <summary>
+        /// command
+        /// </summary>
+        public static readonly DependencyProperty CommandProperty =
+            DependencyProperty.RegisterAttached(
+                "Command",
+                typeof(ICommand),
+                typeof(EventToCommandBehavior),
+                new PropertyMetadata(null));
+
+        /// <summary>
+        /// parameter for command
+        /// </summary>
+        public static readonly DependencyProperty CommandParameterProperty =
+            DependencyProperty.RegisterAttached(
+                "CommandParameter",
+                typeof(object),
+                typeof(EventToCommandBehavior),
+                new PropertyMetadata(null));
+
+        private static readonly DependencyProperty EventHandlerProperty =
+            DependencyProperty.RegisterAttached(
+                "EventHandler",
+                typeof(Delegate),
+                typeof(EventToCommandBehavior),
+                new PropertyMetadata(null));
+
+        /// <summary>
+        /// setter event
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <param name="value"></param>
+        public static void SetEvent(DependencyObject obj, string value) => obj.SetValue(EventProperty, value);
+        public static string GetEvent(DependencyObject obj) => (string)obj.GetValue(EventProperty);
+
+        /// <summary>
+        /// setter command
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <param name="value"></param>
+        public static void SetCommand(DependencyObject obj, ICommand value) => obj.SetValue(CommandProperty, value);
+        public static ICommand GetCommand(DependencyObject obj) => (ICommand)obj.GetValue(CommandProperty);
+
+        /// <summary>
+        /// setter parameter
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <param name="value"></param>
+        public static void SetCommandParameter(DependencyObject obj, object value) => obj.SetValue(CommandParameterProperty, value);
+        public static object GetCommandParameter(DependencyObject obj) => obj.GetValue(CommandParameterProperty);
+
+        /// <summary>
+        /// event changed 
+        /// </summary>
+        /// <param name="d"></param>
+        /// <param name="e"></param>
+        private static void OnEventChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            if (d is FrameworkElement element)
+            {
+                var oldEventName = e.OldValue as string;
+                var newEventName = e.NewValue as string;
+
+                if (!string.IsNullOrEmpty(oldEventName))
+                {
+                    RemoveEventHandler(element, oldEventName);
+                }
+                if (!string.IsNullOrEmpty(newEventName))
+                {
+                    AddEventHandler(element, newEventName);
+                }
+            }
+        }
+
+        /// <summary>
+        /// add handler
+        /// </summary>
+        /// <param name="element"></param>
+        /// <param name="eventName"></param>
+        /// <exception cref="ArgumentException"></exception>
+        private static void AddEventHandler(FrameworkElement element, string eventName)
+        {
+            var eventInfo = element.GetType().GetEvent(eventName);
+            if (eventInfo == null)
+                throw new ArgumentException($"Event '{eventName}' not found on type '{element.GetType().Name}'.");
+
+            // Create a delegate for the event handler
+            var handler = new EventHandler<object>((sender, args) =>
+            {
+                var command = GetCommand(element);
+                var parameter = GetCommandParameter(element) ?? args;
+                if (command?.CanExecute(parameter) == true)
+                {
+                    command.Execute(parameter);
+                }
+            });
+
+            // Convert the handler to the event's delegate type
+            var eventHandler = Delegate.CreateDelegate(eventInfo.EventHandlerType, handler.Target, handler.Method);
+
+            // Store the handler so it can be removed later
+            element.SetValue(EventHandlerProperty, eventHandler);
+
+            eventInfo.AddEventHandler(element, eventHandler);
+        }
+
+
+        /// <summary>
+        /// removes handler
+        /// </summary>
+        /// <param name="element"></param>
+        /// <param name="eventName"></param>
+        private static void RemoveEventHandler(FrameworkElement element, string eventName)
+        {
+            var eventInfo = element.GetType().GetEvent(eventName);
+            var eventHandler = element.GetValue(EventHandlerProperty) as Delegate;
+            if (eventInfo != null && eventHandler != null)
+            {
+                eventInfo.RemoveEventHandler(element, eventHandler);
+                element.ClearValue(EventHandlerProperty);
+            }
+        }
+    }
+
+
 }
-
-
-/*
-//public static class EventToCommandBehavior
-//{
-//    /// <summary>
-//    ///  event
-//    /// </summary>
-//    public static readonly DependencyProperty EventProperty =
-//        DependencyProperty.RegisterAttached(
-//            "Event",
-//            typeof(string),
-//            typeof(EventToCommandBehavior),
-//            new PropertyMetadata(null, OnEventChanged));
-
-//    /// <summary>
-//    /// command
-//    /// </summary>
-//    public static readonly DependencyProperty CommandProperty =
-//        DependencyProperty.RegisterAttached(
-//            "Command",
-//            typeof(ICommand),
-//            typeof(EventToCommandBehavior),
-//            new PropertyMetadata(null));
-
-//    /// <summary>
-//    /// parameter for command
-//    /// </summary>
-//    public static readonly DependencyProperty CommandParameterProperty =
-//        DependencyProperty.RegisterAttached(
-//            "CommandParameter",
-//            typeof(object),
-//            typeof(EventToCommandBehavior),
-//            new PropertyMetadata(null));
-
-//    private static readonly DependencyProperty EventHandlerProperty =
-//        DependencyProperty.RegisterAttached(
-//            "EventHandler",
-//            typeof(Delegate),
-//            typeof(EventToCommandBehavior),
-//            new PropertyMetadata(null));
-
-//    /// <summary>
-//    /// setter event
-//    /// </summary>
-//    /// <param name="obj"></param>
-//    /// <param name="value"></param>
-//    public static void SetEvent(DependencyObject obj, string value) => obj.SetValue(EventProperty, value);
-//    public static string GetEvent(DependencyObject obj) => (string)obj.GetValue(EventProperty);
-
-//    /// <summary>
-//    /// setter command
-//    /// </summary>
-//    /// <param name="obj"></param>
-//    /// <param name="value"></param>
-//    public static void SetCommand(DependencyObject obj, ICommand value) => obj.SetValue(CommandProperty, value);
-//    public static ICommand GetCommand(DependencyObject obj) => (ICommand)obj.GetValue(CommandProperty);
-
-//    /// <summary>
-//    /// setter parameter
-//    /// </summary>
-//    /// <param name="obj"></param>
-//    /// <param name="value"></param>
-//    public static void SetCommandParameter(DependencyObject obj, object value) => obj.SetValue(CommandParameterProperty, value);
-//    public static object GetCommandParameter(DependencyObject obj) => obj.GetValue(CommandParameterProperty);
-
-//    /// <summary>
-//    /// event changed 
-//    /// </summary>
-//    /// <param name="d"></param>
-//    /// <param name="e"></param>
-//    private static void OnEventChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
-//    {
-//        if (d is FrameworkElement element)
-//        {
-//            var oldEventName = e.OldValue as string;
-//            var newEventName = e.NewValue as string;
-
-//            if (!string.IsNullOrEmpty(oldEventName))
-//            {
-//                RemoveEventHandler(element, oldEventName);
-//            }
-//            if (!string.IsNullOrEmpty(newEventName))
-//            {
-//                AddEventHandler(element, newEventName);
-//            }
-//        }
-//    }
-
-//    /// <summary>
-//    /// add handler
-//    /// </summary>
-//    /// <param name="element"></param>
-//    /// <param name="eventName"></param>
-//    /// <exception cref="ArgumentException"></exception>
-//    private static void AddEventHandler(FrameworkElement element, string eventName)
-//    {
-//        var eventInfo = element.GetType().GetEvent(eventName);
-//        if (eventInfo == null)
-//            throw new ArgumentException($"Event '{eventName}' not found on type '{element.GetType().Name}'.");
-
-//        // Create a delegate for the event handler
-//        var handler = new EventHandler<object>((sender, args) =>
-//        {
-//            var command = GetCommand(element);
-//            var parameter = GetCommandParameter(element) ?? args;
-//            if (command?.CanExecute(parameter) == true)
-//            {
-//                command.Execute(parameter);
-//            }
-//        });
-
-//        // Convert the handler to the event's delegate type
-//        var eventHandler = Delegate.CreateDelegate(eventInfo.EventHandlerType, handler.Target, handler.Method);
-
-//        // Store the handler so it can be removed later
-//        element.SetValue(EventHandlerProperty, eventHandler);
-
-//        eventInfo.AddEventHandler(element, eventHandler);
-//    }
-
-
-//    /// <summary>
-//    /// removes handler
-//    /// </summary>
-//    /// <param name="element"></param>
-//    /// <param name="eventName"></param>
-//    private static void RemoveEventHandler(FrameworkElement element, string eventName)
-//    {
-//        var eventInfo = element.GetType().GetEvent(eventName);
-//        var eventHandler = element.GetValue(EventHandlerProperty) as Delegate;
-//        if (eventInfo != null && eventHandler != null)
-//        {
-//            eventInfo.RemoveEventHandler(element, eventHandler);
-//            element.ClearValue(EventHandlerProperty);
-//        }
-//    }
-//}
-
-
-}*/
 
