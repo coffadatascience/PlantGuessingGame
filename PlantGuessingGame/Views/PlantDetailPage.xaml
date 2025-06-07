@@ -27,35 +27,37 @@
 
 
 
-    <!-- NOTE: If we add a scroll bar here on auto we have the scrolling ability over the whole page or "outer grid"-->
+    <!--  NOTE: If we add a scroll bar here on auto we have the scrolling ability over the whole page or "outer grid"  -->
     <ScrollViewer HorizontalScrollBarVisibility="auto" VerticalScrollBarVisibility="auto">
 
 
         <!--  row 0: title for page in a stackpanel with a symbol icon and a textblock  -->
-        <StackPanel Grid.Row="0" Orientation="Horizontal" >
+        <StackPanel Grid.Row="0" Orientation="Horizontal">
 
 
-            <!-- grid to divide page -->
+            <!--  grid to divide page  -->
             <Grid Margin="10">
 
-                <!-- divide page into 3 rows  -->
+                <!--  divide page into 3 rows  -->
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="*" />
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
 
-                <!--Note; if we add a column setup here we can limit the length, if we dont the column will space out by content, e.g. description, so by limiting description may become a word wrap
-            this wwould also allow spacing in a second column for e.g. a picture or listivew with pictures-->
+                <!--
+                    Note; if we add a column setup here we can limit the length, if we dont the column will space out by content, e.g. description, so by limiting description may become a word wrap
+                    this wwould also allow spacing in a second column for e.g. a picture or listivew with pictures
+                -->
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="800"></ColumnDefinition>
-                    <!--second column we can add the images-->
-                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="800" />
+                    <!--  second column we can add the images  -->
+                    <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
 
 
                 <!--  row 0: title for page in a stackpanel with a symbol icon and a textblock  -->
-                <StackPanel Grid.Row="0" Orientation="Horizontal" >
+                <StackPanel Grid.Row="0" Orientation="Horizontal">
 
                     <SymbolIcon Margin="8" Symbol="Edit" />
                     <TextBlock
@@ -66,16 +68,16 @@
                 </StackPanel>
 
 
-                <!-- split the second part of the page in two more sections (general info and details))  -->
-                <StackPanel  Grid.Row="1"  Orientation="Vertical">
+                <!--  split the second part of the page in two more sections (general info and details))  -->
+                <StackPanel Grid.Row="1" Orientation="Vertical">
 
 
-                    <!--  Plant general info -->
+                    <!--  GRID1: Plant general info  -->
                     <Grid
-                    Margin="4,0,4,8"
-                    BorderBrush="{ThemeResource SystemAccentColor}"
-                    BorderThickness="0,1,0,1"    
-                    IsHitTestVisible="True">
+                        Margin="4,0,4,8"
+                        BorderBrush="{ThemeResource SystemAccentColor}"
+                        BorderThickness="0,1,0,1"
+                        IsHitTestVisible="True">
 
 
                         <!--  grid definitions for the details of the selected plant  -->
@@ -99,126 +101,270 @@
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
 
-                        <!-- name in local language-->
+                        <!--  name in local language  -->
                         <TextBlock
-                VerticalAlignment="Center"
-                Style="{StaticResource DefaultTextBoxStyle}"
-                Text="Local Name:" />
+                            VerticalAlignment="Center"
+                            Style="{StaticResource DefaultTextBoxStyle}"
+                            Text="Local Name:" />
                         <TextBox
-                Grid.Column="1"
-                Style="{StaticResource AttributeValueStyle}"
-                Text="{x:Bind ViewModel.ItemLocalName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                            Grid.Column="1"
+                            Style="{StaticResource AttributeValueStyle}"
+                            Text="{x:Bind ViewModel.ItemLocalName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
                         <!--  commons name - note that these have update source triggers via the bindable base  -->
                         <TextBlock
-                Grid.Row="1"
-                VerticalAlignment="Center"
-                Style="{StaticResource DefaultTextBoxStyle}"
-                Text="Common Name:" />
+                            Grid.Row="1"
+                            VerticalAlignment="Center"
+                            Style="{StaticResource DefaultTextBoxStyle}"
+                            Text="Common Name:" />
                         <TextBox
-                Grid.Row="1"
-                Grid.Column="1"
-                Style="{StaticResource AttributeValueStyle}"
-                Text="{x:Bind ViewModel.ItemCommonName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            Style="{StaticResource AttributeValueStyle}"
+                            Text="{x:Bind ViewModel.ItemCommonName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
                         <!--  genus  -->
                         <TextBlock
-                Grid.Row="2"
-                VerticalAlignment="Center"
-                Style="{StaticResource DefaultTextBoxStyle}"
-                Text="Genus:" />
+                            Grid.Row="2"
+                            VerticalAlignment="Center"
+                            Style="{StaticResource DefaultTextBoxStyle}"
+                            Text="Genus:" />
                         <TextBox
-                Grid.Row="2"
-                Grid.Column="1"
-                Style="{StaticResource AttributeValueStyle}"
-                Text="{x:Bind ViewModel.ItemGenus, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                            Grid.Row="2"
+                            Grid.Column="1"
+                            Style="{StaticResource AttributeValueStyle}"
+                            Text="{x:Bind ViewModel.ItemGenus, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
                         <!--  species  -->
                         <TextBlock
-                Grid.Row="3"
-                VerticalAlignment="Center"
-                Style="{StaticResource DefaultTextBoxStyle}"
-                Text="Species:" />
+                            Grid.Row="3"
+                            VerticalAlignment="Center"
+                            Style="{StaticResource DefaultTextBoxStyle}"
+                            Text="Species:" />
                         <TextBox
-                Grid.Row="3"
-                Grid.Column="1"
-                Style="{StaticResource AttributeValueStyle}"
-                Text="{x:Bind ViewModel.ItemSpecies, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                            Grid.Row="3"
+                            Grid.Column="1"
+                            Style="{StaticResource AttributeValueStyle}"
+                            Text="{x:Bind ViewModel.ItemSpecies, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
                         <!--  family  -->
                         <TextBlock
-                Grid.Row="4"
-                VerticalAlignment="Center"
-                Style="{StaticResource DefaultTextBoxStyle}"
-                Text="Family:" />
+                            Grid.Row="4"
+                            VerticalAlignment="Center"
+                            Style="{StaticResource DefaultTextBoxStyle}"
+                            Text="Family:" />
                         <TextBox
-                Grid.Row="4"
-                Grid.Column="1"
-                Style="{StaticResource AttributeValueStyle}"
-                Text="{x:Bind ViewModel.ItemFamily, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                            Grid.Row="4"
+                            Grid.Column="1"
+                            Style="{StaticResource AttributeValueStyle}"
+                            Text="{x:Bind ViewModel.ItemFamily, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
                         <!--  description  -->
                         <TextBlock
-                Grid.Row="5"
-                VerticalAlignment="Center"
-                TextWrapping="Wrap"
-                Style="{StaticResource DefaultTextBoxStyle}"
-                Text="Description:" />
+                            Grid.Row="5"
+                            VerticalAlignment="Center"
+                            Style="{StaticResource DefaultTextBoxStyle}"
+                            Text="Description:"
+                            TextWrapping="Wrap" />
                         <TextBox
-                Grid.Row="5"
-                Grid.Column="1"
-                TextWrapping="Wrap"
-                Style="{StaticResource AttributeValueStyle}"
-                Text="{x:Bind ViewModel.ItemDescription, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                            Grid.Row="5"
+                            Grid.Column="1"
+                            Style="{StaticResource AttributeValueStyle}"
+                            Text="{x:Bind ViewModel.ItemDescription, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                            TextWrapping="Wrap" />
 
-                        <!--  plant type: Note links to an observeable collection and a selected type that has a set property -->
-                        <!--  Style: note that the style AttributeComboxValueStyle needs to be available in the resources, page or app wide -->
+                        <!--  plant type: Note links to an observeable collection and a selected type that has a set property  -->
+                        <!--  Style: note that the style AttributeComboxValueStyle needs to be available in the resources, page or app wide  -->
                         <TextBlock
-                Grid.Row="6"
-                Style="{StaticResource DefaultTextBoxStyle}"
-                Text="Type:" 
-                VerticalAlignment="Center"/>
+                            Grid.Row="6"
+                            VerticalAlignment="Center"
+                            Style="{StaticResource DefaultTextBoxStyle}"
+                            Text="Type:" />
                         <ComboBox
-                Grid.Row="6"
-                Grid.Column="1"
-                ItemsSource="{x:Bind ViewModel.PlantTypes}"
-                SelectedValue="{x:Bind ViewModel.SelectedPlantType, Mode=TwoWay}"
-                Style="{StaticResource AttributeComboxValueStyle}" />
+                            Grid.Row="6"
+                            Grid.Column="1"
+                            ItemsSource="{x:Bind ViewModel.PlantTypes}"
+                            SelectedValue="{x:Bind ViewModel.SelectedPlantType, Mode=TwoWay}"
+                            Style="{StaticResource AttributeComboxValueStyle}" />
 
 
                         <!--  Plant Classification  -->
                         <TextBlock
-                Grid.Row="7"
-                Style="{StaticResource DefaultTextBoxStyle}"
-                Text="Classification:" 
-                VerticalAlignment="Center"/>
+                            Grid.Row="7"
+                            VerticalAlignment="Center"
+                            Style="{StaticResource DefaultTextBoxStyle}"
+                            Text="Classification:" />
                         <ComboBox
-                Grid.Row="7"
-                Grid.Column="1"
-                ItemsSource="{x:Bind ViewModel.PlantClassifications}"
-                SelectedValue="{x:Bind ViewModel.SelectedPlantClassification, Mode=TwoWay}"
-                Style="{StaticResource AttributeComboxValueStyle}" />
+                            Grid.Row="7"
+                            Grid.Column="1"
+                            ItemsSource="{x:Bind ViewModel.PlantClassifications}"
+                            SelectedValue="{x:Bind ViewModel.SelectedPlantClassification, Mode=TwoWay}"
+                            Style="{StaticResource AttributeComboxValueStyle}" />
 
 
                         <!--  SelectedPhylum  -->
                         <TextBlock
-                Grid.Row="8"
-                Style="{StaticResource DefaultTextBoxStyle}"
-                Text="Phylum:" 
-                VerticalAlignment="Center"/>
+                            Grid.Row="8"
+                            VerticalAlignment="Center"
+                            Style="{StaticResource DefaultTextBoxStyle}"
+                            Text="Phylum:" />
                         <ComboBox
-                Grid.Row="8"
-                Grid.Column="1"
-                ItemsSource="{x:Bind ViewModel.Phyla}"
-                SelectedValue="{x:Bind ViewModel.SelectedPhylum, Mode=TwoWay}"
-                Style="{StaticResource AttributeComboxValueStyle}" />
+                            Grid.Row="8"
+                            Grid.Column="1"
+                            ItemsSource="{x:Bind ViewModel.Phyla}"
+                            SelectedValue="{x:Bind ViewModel.SelectedPhylum, Mode=TwoWay}"
+                            Style="{StaticResource AttributeComboxValueStyle}" />
 
 
                     </Grid>
 
 
-                    <!--  Plant details title section-->
-                    <StackPanel Orientation="Horizontal" >
+                    <!--  Plant Care title section  -->
+                    <StackPanel Orientation="Horizontal">
+
+                        <SymbolIcon Margin="8" Symbol="Edit" />
+                        <TextBlock
+                            Margin="8"
+                            Style="{StaticResource SubheaderTextBlockStyle}"
+                            Text="Plant Care" />
+
+                    </StackPanel>
+
+
+                    <!--  GRID2:  Plant Care  -->
+                    <Grid
+                        Margin="4,0,4,8"
+                        BorderBrush="{ThemeResource SystemAccentColor}"
+                        BorderThickness="0,1,0,1"
+                        IsHitTestVisible="True">
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <!--  Light  -->
+                            <RowDefinition Height="Auto" />
+                            <!--  Water  -->
+                            <RowDefinition Height="Auto" />
+                            <!--  Soil  -->
+                            <RowDefinition Height="Auto" />
+                            <!--  Fertilization Method  -->
+                            <RowDefinition Height="Auto" />
+                            <!--  Trimming Instructions  -->
+                            <RowDefinition Height="Auto" />
+                            <!--  Trimming Period  -->
+                            <RowDefinition Height="Auto" />
+                            <!--  Temperature Minimum  -->
+                            <RowDefinition Height="Auto" />
+                            <!--  Temperature Maximum  -->
+                        </Grid.RowDefinitions>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="200" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <!--  Light  -->
+                        <TextBlock
+                            VerticalAlignment="Center"
+                            Style="{StaticResource DefaultTextBoxStyle}"
+                            Text="Light:" />
+                        <TextBox
+                            Grid.Column="1"
+                            Style="{StaticResource AttributeValueStyle}"
+                            Text="{x:Bind ViewModel.ItemLight, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+
+                        <!--  Water  -->
+                        <TextBlock
+                            Grid.Row="1"
+                            VerticalAlignment="Center"
+                            Style="{StaticResource DefaultTextBoxStyle}"
+                            Text="Water:" />
+                        <TextBox
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            Style="{StaticResource AttributeValueStyle}"
+                            Text="{x:Bind ViewModel.ItemWater, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+
+                        <!--  Soil  -->
+                        <TextBlock
+                            Grid.Row="2"
+                            VerticalAlignment="Center"
+                            Style="{StaticResource DefaultTextBoxStyle}"
+                            Text="Soil:" />
+                        <TextBox
+                            Grid.Row="2"
+                            Grid.Column="1"
+                            Style="{StaticResource AttributeValueStyle}"
+                            Text="{x:Bind ViewModel.ItemSoil, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+
+                        <!--  Fertilization Method  -->
+                        <TextBlock
+                            Grid.Row="3"
+                            VerticalAlignment="Center"
+                            Style="{StaticResource DefaultTextBoxStyle}"
+                            Text="Fertilization Method:" />
+                        <TextBox
+                            Grid.Row="3"
+                            Grid.Column="1"
+                            Style="{StaticResource AttributeValueStyle}"
+                            Text="{x:Bind ViewModel.ItemFertilizationMethod, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+
+                        <!--  Trimming Instructions  -->
+                        <TextBlock
+                            Grid.Row="4"
+                            VerticalAlignment="Center"
+                            Style="{StaticResource DefaultTextBoxStyle}"
+                            Text="Trimming Instructions:"
+                            TextWrapping="Wrap" />
+                        <TextBox
+                            Grid.Row="4"
+                            Grid.Column="1"
+                            Style="{StaticResource AttributeValueStyle}"
+                            Text="{x:Bind ViewModel.ItemTrimmingInstructions, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                            TextWrapping="Wrap" />
+
+                        <!--  Trimming Period  -->
+                        <TextBlock
+                            Grid.Row="5"
+                            VerticalAlignment="Center"
+                            Style="{StaticResource DefaultTextBoxStyle}"
+                            Text="Trimming Period:" />
+                        <TextBox
+                            Grid.Row="5"
+                            Grid.Column="1"
+                            Style="{StaticResource AttributeValueStyle}"
+                            Text="{x:Bind ViewModel.ItemTrimmingPeriod, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+
+                        <!--  Temperature Minimum  -->
+                        <TextBlock
+                            Grid.Row="6"
+                            VerticalAlignment="Center"
+                            Style="{StaticResource DefaultTextBoxStyle}"
+                            Text="Temperature Minimum:" />
+                        <TextBox
+                            Grid.Row="6"
+                            Grid.Column="1"
+                            Style="{StaticResource AttributeValueStyle}"
+                            Text="{x:Bind ViewModel.ItemTemperatureRangeMinimum, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+
+                        <!--  Temperature Maximum  -->
+                        <TextBlock
+                            Grid.Row="7"
+                            VerticalAlignment="Center"
+                            Style="{StaticResource DefaultTextBoxStyle}"
+                            Text="Temperature Maximum:" />
+                        <TextBox
+                            Grid.Row="7"
+                            Grid.Column="1"
+                            Style="{StaticResource AttributeValueStyle}"
+                            Text="{x:Bind ViewModel.ItemTemperatureRangeMaximum, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+
+                    </Grid>
+
+
+
+
+                    <!--  Plant details title section  -->
+                    <StackPanel Orientation="Horizontal">
 
                         <SymbolIcon Margin="8" Symbol="Edit" />
                         <TextBlock
@@ -229,29 +375,30 @@
                     </StackPanel>
 
 
-                    <!--  Plant details-->
-                    <!--NOTE: we need to enable the hit test to have an active grid within a scrollable grid, else the selection fails-->
+                    <!--  GRID3 Plant details  -->
                     <Grid
-                    Margin="4,0,4,8"
-                    BorderBrush="{ThemeResource SystemAccentColor}"
-                    BorderThickness="0,1,0,1"
-                    IsHitTestVisible="True">
+                        Margin="4,0,4,8"
+                        BorderBrush="{ThemeResource SystemAccentColor}"
+                        BorderThickness="0,1,0,1"
+                        IsHitTestVisible="True">
 
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto" />
+                            <!--  Is Eatable  -->
                             <RowDefinition Height="Auto" />
+                            <!--  Color  -->
                             <RowDefinition Height="Auto" />
+                            <!--  Flowers  -->
                             <RowDefinition Height="Auto" />
+                            <!--  Evergreen  -->
                             <RowDefinition Height="Auto" />
+                            <!--  Is Poisonous  -->
                             <RowDefinition Height="Auto" />
+                            <!--  Shape  -->
                             <RowDefinition Height="Auto" />
+                            <!--  Full Grown Height  -->
                             <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
+                            <!--  Full Grown Width  -->
                             <RowDefinition Height="*" />
                         </Grid.RowDefinitions>
 
@@ -260,209 +407,120 @@
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
 
-
-                        <!-- ItemIsEatable -->
+                        <!--  Is Eatable  -->
                         <TextBlock
-                VerticalAlignment="Center"
-                Style="{StaticResource DefaultTextBoxStyle}"
-                Text="Is Eatable:" />
+                            VerticalAlignment="Center"
+                            Style="{StaticResource DefaultTextBoxStyle}"
+                            Text="Is Eatable:" />
                         <TextBox
-                Grid.Column="1"
-                Style="{StaticResource AttributeValueStyle}"
-                Text="{x:Bind ViewModel.ItemIsEatable, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                            Grid.Column="1"
+                            Style="{StaticResource AttributeValueStyle}"
+                            Text="{x:Bind ViewModel.ItemIsEatable, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
-                        <!-- ItemColor -->
+                        <!--  Color  -->
                         <TextBlock
-                Grid.Row="1"
-                VerticalAlignment="Center"
-                Style="{StaticResource DefaultTextBoxStyle}"
-                Text="Color:" />
+                            Grid.Row="1"
+                            VerticalAlignment="Center"
+                            Style="{StaticResource DefaultTextBoxStyle}"
+                            Text="Color:" />
                         <TextBox
-                Grid.Row="1"
-                Grid.Column="1"
-                Style="{StaticResource AttributeValueStyle}"
-                Text="{x:Bind ViewModel.ItemColor, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            Style="{StaticResource AttributeValueStyle}"
+                            Text="{x:Bind ViewModel.ItemColor, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
-                        <!-- ItemIsFlowering -->
+                        <!--  Flowers  -->
                         <TextBlock
-                Grid.Row="2"
-                VerticalAlignment="Center"
-                Style="{StaticResource DefaultTextBoxStyle}"
-                Text="Flowers:" />
+                            Grid.Row="2"
+                            VerticalAlignment="Center"
+                            Style="{StaticResource DefaultTextBoxStyle}"
+                            Text="Flowers:" />
                         <TextBox
-                Grid.Row="2"
-                Grid.Column="1"
-                Style="{StaticResource AttributeValueStyle}"
-                Text="{x:Bind ViewModel.ItemIsFlowering, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                            Grid.Row="2"
+                            Grid.Column="1"
+                            Style="{StaticResource AttributeValueStyle}"
+                            Text="{x:Bind ViewModel.ItemIsFlowering, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
-                        <!-- Evergreen -->
+                        <!--  Evergreen  -->
                         <TextBlock
-                Grid.Row="3"
-                VerticalAlignment="Center"
-                Style="{StaticResource DefaultTextBoxStyle}"
-                Text="Evergreen:" />
+                            Grid.Row="3"
+                            VerticalAlignment="Center"
+                            Style="{StaticResource DefaultTextBoxStyle}"
+                            Text="Evergreen:" />
                         <TextBox
-                Grid.Row="3"
-                Grid.Column="1"
-                Style="{StaticResource AttributeValueStyle}"
-                Text="{x:Bind ViewModel.ItemIsEvergreen, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                            Grid.Row="3"
+                            Grid.Column="1"
+                            Style="{StaticResource AttributeValueStyle}"
+                            Text="{x:Bind ViewModel.ItemIsEvergreen, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
-                        <!-- TrimmingInstructions -->
+                        <!--  Is Poisonous  -->
                         <TextBlock
-                Grid.Row="4"
-                VerticalAlignment="Center"
-                TextWrapping="Wrap"
-                Style="{StaticResource DefaultTextBoxStyle}"
-                Text="Trimming Instructions:" />
+                            Grid.Row="4"
+                            VerticalAlignment="Center"
+                            Style="{StaticResource DefaultTextBoxStyle}"
+                            Text="Is Poisonous:" />
                         <TextBox
-                Grid.Row="4"
-                Grid.Column="1"
-                TextWrapping="Wrap"
-                Style="{StaticResource AttributeValueStyle}"
-                Text="{x:Bind ViewModel.ItemTrimmingInstructions, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                            Grid.Row="4"
+                            Grid.Column="1"
+                            Style="{StaticResource AttributeValueStyle}"
+                            Text="{x:Bind ViewModel.ItemIsPoisonous, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
-                        <!-- TrimmingPeriod -->
+                        <!--  Shape  -->
                         <TextBlock
-                Grid.Row="5"
-                VerticalAlignment="Center"
-                Style="{StaticResource DefaultTextBoxStyle}"
-                Text="Trimming Period:" />
+                            Grid.Row="5"
+                            VerticalAlignment="Center"
+                            Style="{StaticResource DefaultTextBoxStyle}"
+                            Text="Shape:" />
                         <TextBox
-                Grid.Row="5"
-                Grid.Column="1"
-                Style="{StaticResource AttributeValueStyle}"
-                Text="{x:Bind ViewModel.ItemTrimmingPeriod, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                            Grid.Row="5"
+                            Grid.Column="1"
+                            Style="{StaticResource AttributeValueStyle}"
+                            Text="{x:Bind ViewModel.ItemShape, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
-                        <!-- TemperatureRangeMinimum -->
+                        <!--  Full Grown Height  -->
                         <TextBlock
-                Grid.Row="6"
-                VerticalAlignment="Center"
-                Style="{StaticResource DefaultTextBoxStyle}"
-                Text="Temperature Minimum:" />
+                            Grid.Row="6"
+                            VerticalAlignment="Center"
+                            Style="{StaticResource DefaultTextBoxStyle}"
+                            Text="Full Grown Height:" />
                         <TextBox
-                Grid.Row="6"
-                Grid.Column="1"
-                Style="{StaticResource AttributeValueStyle}"
-                Text="{x:Bind ViewModel.ItemTemperatureRangeMinimum, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                            Grid.Row="6"
+                            Grid.Column="1"
+                            Style="{StaticResource AttributeValueStyle}"
+                            Text="{x:Bind ViewModel.ItemFullGrownHeight, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
-                        <!-- TemperatureRangeMaximum -->
+                        <!--  Full Grown Width  -->
                         <TextBlock
-                Grid.Row="7"
-                VerticalAlignment="Center"
-                Style="{StaticResource DefaultTextBoxStyle}"
-                Text="Temperature Maximum:" />
+                            Grid.Row="7"
+                            VerticalAlignment="Center"
+                            Style="{StaticResource DefaultTextBoxStyle}"
+                            Text="Full Grown Width:" />
                         <TextBox
-                Grid.Row="7"
-                Grid.Column="1"
-                Style="{StaticResource AttributeValueStyle}"
-                Text="{x:Bind ViewModel.ItemTemperatureRangeMaximum, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-
-                        <!-- IsPoisonous; -->
-                        <TextBlock
-                Grid.Row="8"
-                VerticalAlignment="Center"
-                Style="{StaticResource DefaultTextBoxStyle}"
-                Text="Is Poisonous:" />
-                        <TextBox
-                Grid.Row="8"
-                Grid.Column="1"
-                Style="{StaticResource AttributeValueStyle}"
-                Text="{x:Bind ViewModel.ItemIsPoisonous, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-
-                        <!-- ItemFertilizationMethod; -->
-                        <TextBlock
-                Grid.Row="9"
-                VerticalAlignment="Center"
-                Style="{StaticResource DefaultTextBoxStyle}"
-                Text="Fertilization Method:" />
-                        <TextBox
-                Grid.Row="9"
-                Grid.Column="1"
-                Style="{StaticResource AttributeValueStyle}"
-                Text="{x:Bind ViewModel.ItemFertilizationMethod, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-
-                        <!-- ItemShape; -->
-                        <TextBlock
-                Grid.Row="10"
-                VerticalAlignment="Center"
-                Style="{StaticResource DefaultTextBoxStyle}"
-                Text="Shape:" />
-                        <TextBox
-                Grid.Row="10"
-                Grid.Column="1"
-                Style="{StaticResource AttributeValueStyle}"
-                Text="{x:Bind ViewModel.ItemShape, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-
-                        <!-- ItemFullGrownHeight; -->
-                        <TextBlock
-                Grid.Row="11"
-                VerticalAlignment="Center"
-                Style="{StaticResource DefaultTextBoxStyle}"
-                Text="Full Grown Height:" />
-                        <TextBox
-                Grid.Row="11"
-                Grid.Column="1"
-                Style="{StaticResource AttributeValueStyle}"
-                Text="{x:Bind ViewModel.ItemFullGrownHeight, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-
-                        <!-- ItemFullGrownWidth; -->
-                        <TextBlock
-                Grid.Row="12"
-                VerticalAlignment="Center"
-                Style="{StaticResource DefaultTextBoxStyle}"
-                Text="Full Grown Width:" />
-                        <TextBox
-                Grid.Row="12"
-                Grid.Column="1"
-                Style="{StaticResource AttributeValueStyle}"
-                Text="{x:Bind ViewModel.ItemFullGrownWidth, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-
-                        <!-- ItemPictureStringList; -->
-                        <TextBlock
-                Grid.Row="13"
-                VerticalAlignment="Center"
-                Style="{StaticResource DefaultTextBoxStyle}"
-                Text="Picture List:" />
-                        <TextBox
-                Grid.Row="13"
-                Grid.Column="1"
-                Style="{StaticResource AttributeValueStyle}"
-                Text="{x:Bind ViewModel.ItemPictureStringList, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                            Grid.Row="7"
+                            Grid.Column="1"
+                            Style="{StaticResource AttributeValueStyle}"
+                            Text="{x:Bind ViewModel.ItemFullGrownWidth, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
                     </Grid>
+
 
 
                 </StackPanel>
 
 
-                <!--  Button to navigate or save  -->
-                <!--
-        <StackPanel
-            Grid.Row="2"
-            HorizontalAlignment="Right"
-            Orientation="Horizontal">
-
-            <Button
-                Margin="8"
-                Command="{x:Bind ViewModel.NavigateBackCommand}"
-                Content="Back" />
-            
-        </StackPanel>-->
-
-
 
                 <StackPanel
-               Grid.Row="2"
-               HorizontalAlignment="Left"
-               Orientation="Horizontal">
+                    Grid.Row="2"
+                    HorizontalAlignment="Left"
+                    Orientation="Horizontal">
 
                     <!--  implementation of a split button that will allow the user to save and item and return, or save and add another item  -->
                     <SplitButton
-                       x:Name="SaveButton"
-                       Margin="8,8,0,8"
-                       Click="{x:Bind ViewModel.SaveItemAndReturnAsync}"
-                       Content="Save and Return"
-                       IsEnabled="{x:Bind ViewModel.IsDirty, Mode=OneWay}">
+                        x:Name="SaveButton"
+                        Margin="8,8,0,8"
+                        Click="{x:Bind ViewModel.SaveItemAndReturnAsync}"
+                        Content="Save and Return"
+                        IsEnabled="{x:Bind ViewModel.IsDirty, Mode=OneWay}">
 
                         <SplitButton.Flyout>
 
@@ -473,19 +531,19 @@
 
                                     <!--  button to save and create a new item  -->
                                     <Button
-                                   x:Name="SaveAndCreateNew"
-                                   Background="Transparent"
-                                   Click="{x:Bind ViewModel.SaveItemAndContinueAsync}"
-                                   Content="Save and Create New"
-                                   IsEnabled="{x:Bind ViewModel.IsDirty, Mode=OneWay}" />
+                                        x:Name="SaveAndCreateNew"
+                                        Background="Transparent"
+                                        Click="{x:Bind ViewModel.SaveItemAndContinueAsync}"
+                                        Content="Save and Create New"
+                                        IsEnabled="{x:Bind ViewModel.IsDirty, Mode=OneWay}" />
 
                                     <!--  second button to cancel the save and return  -->
                                     <Button
-                                   x:Name="CancelSaveAndReturn"
-                                   Background="Transparent"
-                                   Click="{x:Bind ViewModel.SaveItemAndReturnAsync}"
-                                   Content="Save and Return"
-                                   IsEnabled="{x:Bind ViewModel.IsDirty, Mode=OneWay}" />
+                                        x:Name="CancelSaveAndReturn"
+                                        Background="Transparent"
+                                        Click="{x:Bind ViewModel.SaveItemAndReturnAsync}"
+                                        Content="Save and Return"
+                                        IsEnabled="{x:Bind ViewModel.IsDirty, Mode=OneWay}" />
 
                                 </StackPanel>
 
@@ -495,10 +553,10 @@
 
                         <SplitButton.Resources>
                             <TeachingTip
-                           x:Name="SavingTip"
-                           Title="Save and create new"
-                           Subtitle="Use the dropdown button option to save your item and create another."
-                           Target="{x:Bind SaveButton}" />
+                                x:Name="SavingTip"
+                                Title="Save and create new"
+                                Subtitle="Use the dropdown button option to save your item and create another."
+                                Target="{x:Bind SaveButton}" />
                         </SplitButton.Resources>
 
                     </SplitButton>
@@ -506,83 +564,70 @@
 
                     <!--<Button Content="Save" Margin="8,8,0,8" Command="{x:Bind ViewModel.SaveCommand}"/>-->
                     <Button
-                   Margin="8"
-                   Command="{x:Bind ViewModel.CancelCommand}"
-                   Content="Cancel" />
+                        Margin="8"
+                        Command="{x:Bind ViewModel.CancelCommand}"
+                        Content="Cancel" />
 
                     <Button
-                   Margin="8"
-                   Command="{x:Bind ViewModel.ImportImageCommand}"
-                   Content="Import Image" />
+                        Margin="8"
+                        Command="{x:Bind ViewModel.ImportImageCommand}"
+                        Content="Import Image" />
 
                     <Button
-                   Margin="8"
-                   Command="{x:Bind ViewModel.ShowImageCommand}"
-                   Content="Show Image" />
+                        Margin="8"
+                        Command="{x:Bind ViewModel.ShowImageCommand}"
+                        Content="Show Image" />
 
                 </StackPanel>
 
 
-                <!--<GridView ItemsSource="{x:Bind ViewModel.SelectedPlantImages, Mode=OneWay}"
-                      Grid.Row="0"
-                      Grid.Column = "1" 
-                      IsItemClickEnabled="True"
-                      SelectionMode="Single"
-                      HorizontalAlignment="Stretch"
-                      Margin="12">
-
-                    <GridView.ItemTemplate>
-                        <DataTemplate>
-                            <Image Source="{Binding}" 
-                   Width="150" 
-                   Height="150" 
-                   Stretch="UniformToFill"/>
-                        </DataTemplate>
-                    </GridView.ItemTemplate>
-
-                </GridView>-->
 
             </Grid>
 
 
-            <!--  Plant details title section-->
-            <StackPanel Orientation="Vertical" >
+            <!--  Plant details title section  -->
+            <StackPanel Orientation="Vertical">
 
                 <TextBlock
-                Margin="8"
-                Style="{StaticResource SubheaderTextBlockStyle}"
-                Text="Plant Images" />
+                    Margin="8"
+                    Style="{StaticResource SubheaderTextBlockStyle}"
+                    Text="Plant Images" />
 
 
-                <GridView ItemsSource="{x:Bind ViewModel.SelectedPlantImages, Mode=OneWay}"
-                          IsItemClickEnabled="True"
-                          SelectionMode="Single"
-                          HorizontalAlignment="Stretch"
-                          Margin="12">
+                <GridView
+                    Margin="12"
+                    HorizontalAlignment="Stretch"
+                    IsItemClickEnabled="True"
+                    ItemsSource="{x:Bind ViewModel.SelectedPlantImages, Mode=OneWay}"
+                    SelectionMode="Single">
 
-                    <!--Setup for container-->
+                    <!--  Setup for container  -->
                     <GridView.ItemContainerStyle>
-                        <Style TargetType="GridViewItem" BasedOn="{StaticResource DefaultGridViewItemStyle}">
-                            <Setter Property="Margin" Value="5, 5, 5, 5"/>
+                        <Style BasedOn="{StaticResource DefaultGridViewItemStyle}" TargetType="GridViewItem">
+                            <Setter Property="Margin" Value="5,5,5,5" />
                         </Style>
                     </GridView.ItemContainerStyle>
 
-                    <!-- An extra property also needs to be added to the GridView's ItemsWrapGrid.
-                    The following sets the maximum # of items to show before wrapping.-->
+                    <!--
+                        An extra property also needs to be added to the GridView's ItemsWrapGrid.
+                        The following sets the maximum # of items to show before wrapping.
+                    -->
                     <GridView.ItemsPanel>
                         <ItemsPanelTemplate>
-                            <ItemsWrapGrid x:Name="MaxItemsWrapGrid"
-                               MaximumRowsOrColumns="2"
-                               Orientation="Horizontal"/>
+                            <ItemsWrapGrid
+                                x:Name="MaxItemsWrapGrid"
+                                MaximumRowsOrColumns="2"
+                                Orientation="Horizontal" />
                         </ItemsPanelTemplate>
                     </GridView.ItemsPanel>
 
                     <GridView.ItemTemplate>
                         <DataTemplate>
-                            <Image Source="{Binding}" 
-                       Width="300" 
-                       Height="300" 
-                       Stretch="UniformToFill"/>
+                            <Image
+                                Width="300"
+                                Height="300"
+                                Source="{Binding}"
+                                Stretch="UniformToFill" />
                         </DataTemplate>
 
                     </GridView.ItemTemplate>
@@ -591,12 +636,12 @@
 
 
             </StackPanel>
-            
-            
+
+
         </StackPanel>
 
 
-    </ScrollViewer >
+    </ScrollViewer>
 
 
 </Page>

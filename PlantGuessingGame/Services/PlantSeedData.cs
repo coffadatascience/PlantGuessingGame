@@ -1163,7 +1163,6 @@ namespace PlantGuessingGame.Services
                     Species = "edulis",
                     Description = "A deciduous perennial peony native to China, known for its large, showy flowers that range in colors from white to pink. Prefers well-drained soil and a sunny to partially shaded location. Blooms in late spring to early summer.",
                     ImagePath = diskLocationImages + "Pioenroos_Paeonia_edulis_Base01.png",
-                    PictureStringList = "path_to_paeonia_edulis.jpg",
                     PlantType = PlantType.Perennial,
                     PlantClassification = PlantClassification.Angiosperms,
                     PhylumInfo = (Phylum)GetPhylumByName(phyla, "Magnoliophyta"),
@@ -1171,16 +1170,20 @@ namespace PlantGuessingGame.Services
                     Color = "Flower colors vary: white, pink, or red hues",
                     IsFlowering = true,
                     IsEvergreen = false,
+                    IsPoisonous = false,
+                    Shape = "Bushy herbaceous perennial with large, rounded flowers",
+                    FullGrownHeight = 80,
+                    FullGrownWidth = 70,
+                    Light = "Full sun to partial shade; best flowering with at least 6 hours of sunlight daily and shelter from strong winds.",
+                    Water = "Water deeply every 7–10 days during dry spells, especially in the first year. Keep soil moist but never soggy. Once established, water only during prolonged drought.",
+                    Soil = "Fertile, humus-rich, moist but well-drained soil with a slightly acidic to neutral pH (6.0–7.0). Avoid planting in heavy, waterlogged, or compacted soils.",
+                    FertilizationMethod = "Apply a balanced fertilizer in early spring and again after flowering to encourage strong growth. Avoid over-fertilizing; mature peonies generally need little feeding.",
                     TrimmingInstructions = "Cut back stems after flowering to ground level in late autumn. Remove dead foliage in early spring.",
                     TrimmingPeriod = "Late autumn and early spring",
-                    TemperatureRangeMinimum = -30, // Hardy to about -30°C
-                    TemperatureRangeMaximum = 30,
-                    IsPoisonous = false,
-                    FertilizationMethod = "Apply a balanced fertilizer in early spring and again after flowering to encourage strong growth.",
-                    Shape = "Bushy herbaceous perennial with large, rounded flowers",
-                    FullGrownHeight = 80, // Around 80 cm tall
-                    FullGrownWidth = 70,  // Spreads about 70 cm wide
-                },
+                    TemperatureRangeMinimum = -30,
+                    TemperatureRangeMaximum = 30
+                }
+,
 
                 // Lonicera nitida 'Maigrün'
               new Plant

@@ -294,16 +294,28 @@ namespace PlantGuessingGame.Services
         //----------------------------------------------------------
         private async Task<int> InsertPlantAsync(SqliteConnection db, Plant item)
         {
+            //var newIds = await db.QueryAsync<long>(
+            //        @"INSERT INTO Plants
+            //        (LocalName, CommonName, Genus, Species, Family, Description, ImagePath, PhylumId, PlantType, PlantClassification,
+            //        IsEatable, Color, IsFlowering, IsEvergreen, TrimmingInstructions, TrimmingPeriod, TemperatureRangeMinimum, TemperatureRangeMaximum,
+            //        IsPoisonous, FertilizationMethod, Shape, FullGrownHeight, FullGrownWidth, PictureStringList)
+            //        VALUES
+            //        (@LocalName, @CommonName, @Genus, @Species, @Family, @Description, @ImagePath, @PhylumId, @PlantType, @PlantClassification,
+            //         @IsEatable, @Color, @IsFlowering, @IsEvergreen, @TrimmingInstructions, @TrimmingPeriod, @TemperatureRangeMinimum, @TemperatureRangeMaximum,
+            //        @IsPoisonous, @FertilizationMethod, @Shape, @FullGrownHeight, @FullGrownWidth, @Pictures);
+            //        SELECT last_insert_rowid()", item);
+
             var newIds = await db.QueryAsync<long>(
-                    @"INSERT INTO Plants
-                    (LocalName, CommonName, Genus, Species, Family, Description, ImagePath, PhylumId, PlantType, PlantClassification,
-                    IsEatable, Color, IsFlowering, IsEvergreen, TrimmingInstructions, TrimmingPeriod, TemperatureRangeMinimum, TemperatureRangeMaximum,
-                    IsPoisonous, FertilizationMethod, Shape, FullGrownHeight, FullGrownWidth, PictureStringList)
-                    VALUES
-                    (@LocalName, @CommonName, @Genus, @Species, @Family, @Description, @ImagePath, @PhylumId, @PlantType, @PlantClassification,
-                     @IsEatable, @Color, @IsFlowering, @IsEvergreen, @TrimmingInstructions, @TrimmingPeriod, @TemperatureRangeMinimum, @TemperatureRangeMaximum,
-                    @IsPoisonous, @FertilizationMethod, @Shape, @FullGrownHeight, @FullGrownWidth, @Pictures);
-                    SELECT last_insert_rowid()", item);
+                @"INSERT INTO Plants
+                (LocalName, CommonName, Genus, Species, Family, Description, ImagePath, PhylumId, PlantType, PlantClassification,
+                 IsEatable, Color, IsFlowering, IsEvergreen, TrimmingInstructions, TrimmingPeriod, TemperatureRangeMinimum, TemperatureRangeMaximum,
+                 IsPoisonous, FertilizationMethod, Shape, FullGrownHeight, FullGrownWidth, Light, Water, Soil)
+                VALUES
+                (@LocalName, @CommonName, @Genus, @Species, @Family, @Description, @ImagePath, @PhylumId, @PlantType, @PlantClassification,
+                 @IsEatable, @Color, @IsFlowering, @IsEvergreen, @TrimmingInstructions, @TrimmingPeriod, @TemperatureRangeMinimum, @TemperatureRangeMaximum,
+                 @IsPoisonous, @FertilizationMethod, @Shape, @FullGrownHeight, @FullGrownWidth, @Light, @Water, @Soil);
+                SELECT last_insert_rowid()", item);
+
 
             return (int)newIds.First();
         }
@@ -735,41 +747,7 @@ namespace PlantGuessingGame.Services
             await createTable.ExecuteNonQueryAsync();
         }
 
-        /// <summary>
-        /// sql method to create the Plant table in the database
-        ///  SQL dapper code:
-        ///     1. Create table if not exist (so we can run this always)
-        ///     2. Table name is Plant and has autoincrement Id, which is the primary key
-        ///     3. the table has a name, item type, medium id and location type that are not null
-        ///     4. the item type, medium id and location type are integers, name is a string
-        ///     5. the medium id is a foreign key to the Mediums table, this is done by the CONSTRAINT fk_mediums and the FOREIGN KEY(MediumId) REFERENCES Mediums(Id)
-        ///        constraint is needed to make sure that the medium id is a valid id in the Mediums table, if not it will throw an error, this is a referential integrity constraint
-        ///        the foreign key field is the MediumId in the MediaItems table and the primary key field is the Id in the Mediums table
-        ///     
-        /// </summary>
-        /// <param name="db"></param>
-        /// <returns></returns>
-        private async Task CreateBasicPlantTableAsync(SqliteConnection db)
-        {
-            string tableCommand = @"CREATE TABLE IF NOT EXISTS 
-                Plants (Id INTEGER PRIMARY KEY AUTOINCREMENT, 
-                LocalName NVARCHAR(1000) NOT NULL, 
-                CommonName NVARCHAR(1000) NOT NULL, 
-                Genus NVARCHAR(1000), 
-                Species NVARCHAR(1000), 
-                Family NVARCHAR(1000), 
-                Description NVARCHAR(3000), 
-                ImagePath NVARCHAR(1000), 
-                PhylumId INTEGER NOT NULL, 
-                PlantType INTEGER NOT NULL, 
-                PlantClassification INTEGER, 
-                CONSTRAINT fk_phyla 
-                FOREIGN KEY(PhylumId) REFERENCES Phyla(Id))";
-
-            var createTable = new SqliteCommand(tableCommand, db);
-
-            await createTable.ExecuteNonQueryAsync();
-        }
+     
 
         //-------------------------------------
         // Create extended table
@@ -786,34 +764,69 @@ namespace PlantGuessingGame.Services
 
             db.Open();
 
+            //        string tableCommand = @"CREATE TABLE IF NOT EXISTS 
+            //            Plants (Id INTEGER PRIMARY KEY AUTOINCREMENT, 
+            //            LocalName NVARCHAR(1000) NOT NULL, 
+            //            CommonName NVARCHAR(1000) NOT NULL, 
+            //            Genus NVARCHAR(1000), 
+            //            Species NVARCHAR(1000), 
+            //            Family NVARCHAR(1000), 
+            //            Description NVARCHAR(3000), 
+            //            ImagePath NVARCHAR(1000), 
+            //            PhylumId INTEGER, 
+            //            PlantType INTEGER, 
+            //            PlantClassification INTEGER, 
+            //IsEatable INTEGER,
+            //            Color NVARCHAR(100), 
+            //IsFlowering INTEGER,
+            //IsEvergreen INTEGER,
+            //            TrimmingInstructions NVARCHAR(1000), 
+            //            TrimmingPeriod NVARCHAR(100), 
+            //TemperatureRangeMinimum INTEGER,
+            //TemperatureRangeMaximum INTEGER,
+            //IsPoisonous INTEGER,
+            //            FertilizationMethod NVARCHAR(1000), 
+            //            Shape NVARCHAR(100), 
+            //FullGrownHeight INTEGER,
+            //FullGrownWidth INTEGER,
+            //PictureStringList TEXT,
+            //            CONSTRAINT fk_phyla 
+            //            FOREIGN KEY(PhylumId) REFERENCES Phyla(Id))";
+
             string tableCommand = @"CREATE TABLE IF NOT EXISTS 
-                Plants (Id INTEGER PRIMARY KEY AUTOINCREMENT, 
-                LocalName NVARCHAR(1000) NOT NULL, 
-                CommonName NVARCHAR(1000) NOT NULL, 
-                Genus NVARCHAR(1000), 
-                Species NVARCHAR(1000), 
-                Family NVARCHAR(1000), 
-                Description NVARCHAR(3000), 
-                ImagePath NVARCHAR(1000), 
-                PhylumId INTEGER, 
-                PlantType INTEGER, 
-                PlantClassification INTEGER, 
-				IsEatable INTEGER,
-                Color NVARCHAR(100), 
-				IsFlowering INTEGER,
-				IsEvergreen INTEGER,
-                TrimmingInstructions NVARCHAR(1000), 
-                TrimmingPeriod NVARCHAR(100), 
-				TemperatureRangeMinimum INTEGER,
-				TemperatureRangeMaximum INTEGER,
-				IsPoisonous INTEGER,
-                FertilizationMethod NVARCHAR(1000), 
-                Shape NVARCHAR(100), 
-				FullGrownHeight INTEGER,
-				FullGrownWidth INTEGER,
-				PictureStringList TEXT,
-                CONSTRAINT fk_phyla 
-                FOREIGN KEY(PhylumId) REFERENCES Phyla(Id))";
+                Plants (
+                    Id INTEGER PRIMARY KEY AUTOINCREMENT, 
+                    LocalName NVARCHAR(1000) NOT NULL, 
+                    CommonName NVARCHAR(1000) NOT NULL, 
+                    Genus NVARCHAR(1000), 
+                    Species NVARCHAR(1000), 
+                    Family NVARCHAR(1000), 
+                    Description NVARCHAR(3000), 
+                    ImagePath NVARCHAR(1000), 
+                    PhylumId INTEGER, 
+                    PlantType INTEGER, 
+                    PlantClassification INTEGER,
+                    IsEatable INTEGER,
+                    Color NVARCHAR(100), 
+                    IsFlowering INTEGER,
+                    IsEvergreen INTEGER,
+                    TrimmingInstructions NVARCHAR(1000), 
+                    TrimmingPeriod NVARCHAR(100), 
+                    TemperatureRangeMinimum INTEGER,
+                    TemperatureRangeMaximum INTEGER,
+                    IsPoisonous INTEGER,
+                    FertilizationMethod NVARCHAR(1000), 
+                    Shape NVARCHAR(100), 
+                    FullGrownHeight INTEGER,
+                    FullGrownWidth INTEGER,
+                    Light NVARCHAR(500),
+                    Water NVARCHAR(500),
+                    Soil NVARCHAR(500),
+                    CONSTRAINT fk_phyla 
+                        FOREIGN KEY(PhylumId) REFERENCES Phyla(Id)
+                )";
+
+           
 
             var createTable = new SqliteCommand(tableCommand, db);
 
@@ -842,64 +855,7 @@ namespace PlantGuessingGame.Services
             return mediums.ToList();
         }
 
-        /// <summary>
-        /// get list with all plants
-        /// </summary>
-        /// <param name="db"></param>
-        /// <returns></returns>
-        private async Task<IList<Plant>> GetAllPlantsBasicAsync(SqliteConnection db)
-        {
-
-            //---> SQL to only get the plant table
-            //var plants =
-            //    await db.QueryAsync<Plant>(@"SELECT Id, 
-            //                                         CommonName,
-            //                                         Genus,
-            //                                         Species,
-            //                                         Family,
-            //                                         Description,
-            //                                         ImagePath,
-            //                                         PhylumId,
-            //                                         PlantType AS PlantType,
-            //                                         PlantClassification as PlantClassification                                                     FROM Plants");
-
-            //-->  Get plant table but join Phylum table as well based on ID
-            var plants = await db.QueryAsync<Plant, Phylum, Plant>
-            (
-                @"SELECT
-                                        [Plants].[Id],
-                                        [Plants].[LocalName],
-                                        [Plants].[CommonName],
-                                        [Plants].[Genus],
-                                        [Plants].[Species],
-                                        [Plants].[Family],
-                                        [Plants].[Description],
-                                        [Plants].[ImagePath],
-                                        [Plants].[PlantType] AS PlantType,
-                                        [Plants].[PlantClassification] AS PlantClassification,
-                                        [Phyla].[Id],
-                                        [Phyla].[Name],
-                                        [Phyla].[PlantType] AS PlantType
-                                    FROM
-                                        [Plants]
-                                    JOIN
-                                        [Phyla]
-                                    ON
-                                        [Phyla].[Id] = [Plants].[PhylumId]",
-                (item, phylum) =>
-                {
-                    //set inside table
-                    item.PhylumInfo = phylum;
-
-                    //return item
-                    return item;
-                }
-            );
-
-            //return list
-            return plants.ToList();
-        }
-
+      
         /// <summary>
         /// get list with all plants (extended info)
         // Includes also: IsEatable (bool), Color (string), IsFlowering (bool), IsEvergreen (bool),
@@ -926,84 +882,102 @@ namespace PlantGuessingGame.Services
             //                                         PlantClassification as PlantClassification                                                     FROM Plants");
 
             //-->  Get plant table but join Phylum table as well based on ID
+            //var plants = await db.QueryAsync<Plant, Phylum, Plant>
+            //(
+            //    @"SELECT
+            //                            [Plants].[Id],
+            //                            [Plants].[LocalName],
+            //                            [Plants].[CommonName],
+            //                            [Plants].[Genus],
+            //                            [Plants].[Species],
+            //                            [Plants].[Family],
+            //                            [Plants].[Description],
+            //                            [Plants].[ImagePath],
+            //                            [Plants].[PlantType] AS PlantType,
+            //                            [Plants].[PlantClassification] AS PlantClassification,
+            //                            [Plants].[IsEatable],
+            //                            [Plants].[Color],
+            //                            [Plants].[IsFlowering],
+            //                            [Plants].[IsEvergreen],
+            //                            [Plants].[TrimmingInstructions],
+            //                            [Plants].[TrimmingPeriod],
+            //                            [Plants].[TemperatureRangeMinimum],
+            //                            [Plants].[TemperatureRangeMaximum],
+            //                            [Plants].[IsPoisonous],
+            //                            [Plants].[FertilizationMethod],
+            //                            [Plants].[Shape],
+            //                            [Plants].[FullGrownHeight],
+            //                            [Plants].[FullGrownWidth],
+            //                            [Plants].[PictureStringList],
+            //                            [Phyla].[Id],
+            //                            [Phyla].[Name],
+            //                            [Phyla].[PlantType] AS PlantType
+            //                        FROM
+            //                            [Plants]
+            //                        JOIN
+            //                            [Phyla]
+            //                        ON
+            //                            [Phyla].[Id] = [Plants].[PhylumId]",
+            //    (item, phylum) =>
+            //    {
+            //        //set inside table
+            //        item.PhylumInfo = phylum;
+
+            //        //return item
+            //        return item;
+            //    }
+            //);
+
             var plants = await db.QueryAsync<Plant, Phylum, Plant>
             (
                 @"SELECT
-                                        [Plants].[Id],
-                                        [Plants].[LocalName],
-                                        [Plants].[CommonName],
-                                        [Plants].[Genus],
-                                        [Plants].[Species],
-                                        [Plants].[Family],
-                                        [Plants].[Description],
-                                        [Plants].[ImagePath],
-                                        [Plants].[PlantType] AS PlantType,
-                                        [Plants].[PlantClassification] AS PlantClassification,
-                                        [Plants].[IsEatable],
-                                        [Plants].[Color],
-                                        [Plants].[IsFlowering],
-                                        [Plants].[IsEvergreen],
-                                        [Plants].[TrimmingInstructions],
-                                        [Plants].[TrimmingPeriod],
-                                        [Plants].[TemperatureRangeMinimum],
-                                        [Plants].[TemperatureRangeMaximum],
-                                        [Plants].[IsPoisonous],
-                                        [Plants].[FertilizationMethod],
-                                        [Plants].[Shape],
-                                        [Plants].[FullGrownHeight],
-                                        [Plants].[FullGrownWidth],
-                                        [Plants].[PictureStringList],
-                                        [Phyla].[Id],
-                                        [Phyla].[Name],
-                                        [Phyla].[PlantType] AS PlantType
-                                    FROM
-                                        [Plants]
-                                    JOIN
-                                        [Phyla]
-                                    ON
-                                        [Phyla].[Id] = [Plants].[PhylumId]",
+                    [Plants].[Id],
+                    [Plants].[LocalName],
+                    [Plants].[CommonName],
+                    [Plants].[Genus],
+                    [Plants].[Species],
+                    [Plants].[Family],
+                    [Plants].[Description],
+                    [Plants].[ImagePath],
+                    [Plants].[PlantType] AS PlantType,
+                    [Plants].[PlantClassification] AS PlantClassification,
+                    [Plants].[IsEatable],
+                    [Plants].[Color],
+                    [Plants].[IsFlowering],
+                    [Plants].[IsEvergreen],
+                    [Plants].[TrimmingInstructions],
+                    [Plants].[TrimmingPeriod],
+                    [Plants].[TemperatureRangeMinimum],
+                    [Plants].[TemperatureRangeMaximum],
+                    [Plants].[IsPoisonous],
+                    [Plants].[FertilizationMethod],
+                    [Plants].[Shape],
+                    [Plants].[FullGrownHeight],
+                    [Plants].[FullGrownWidth],
+                    [Plants].[Light],
+                    [Plants].[Water],
+                    [Plants].[Soil],
+                    [Phyla].[Id],
+                    [Phyla].[Name],
+                    [Phyla].[PlantType] AS PlantType
+                FROM
+                    [Plants]
+                JOIN
+                    [Phyla]
+                ON
+                    [Phyla].[Id] = [Plants].[PhylumId]",
                 (item, phylum) =>
                 {
-                    //set inside table
                     item.PhylumInfo = phylum;
-
-                    //return item
                     return item;
                 }
             );
+
 
             //return list
             return plants.ToList();
         }
 
-        /// <summary>
-        /// method to update a plant in the database
-        ///  SQL dapper code:
-        ///         1. Update the plant table with the CommonName, Genus, Species, Family, Description, ImagePath, PhylumId, PlantType and PlantClassification.
-        ///         2. the values are updated by the SET statement and the parameters are added by the @nameof(item) and @nameof(item)
-        ///         3. each value is taken from the item object media item and is referred by @ and variable name this refers to the parameter of the command
-        ///         4. the item is updated where the Id is the same as the item id
-        ///         5. this is done by the WHERE Id = @Id statement, @id refers to the item id this auto references 
-        /// </summary>
-        /// <param name="db"></param>
-        /// <param name="item"></param>
-        /// <returns></returns>
-        private async Task UpdateBasicPlantAsync(SqliteConnection db, Plant plant)
-        {
-            await db.QueryAsync(
-                    @"UPDATE Plants
-                    SET 
-                      LocalName = @LocalName,
-                      CommonName = @CommonName,
-                      Genus = @Genus,
-                      Species = @Species,
-                      Family = @Family,
-                      Description = @Description,
-                      ImagePath = @ImagePath,
-                      PhylumId = @PhylumId,
-                      PlantType = @PlantType
-                  WHERE Id = @Id;", plant);
-        }
 
         //--------------------------------------------
         // UpdatePlantAsync Extended
@@ -1015,33 +989,65 @@ namespace PlantGuessingGame.Services
         //--------------------------------------------
         private async Task UpdatePlantAsync(SqliteConnection db, Plant plant)
         {
+            //await db.QueryAsync(
+            //        @"UPDATE Plants
+            //        SET 
+            //          LocalName = @LocalName,
+            //          CommonName = @CommonName,
+            //          Genus = @Genus,
+            //          Species = @Species,
+            //          Family = @Family,
+            //          Description = @Description,
+            //          ImagePath = @ImagePath,
+            //          PhylumId = @PhylumId,
+            //          PlantType = @PlantType,
+            //          IsEatable = @IsEatable,
+            //          Color = @Color,
+            //          IsFlowering = @IsFlowering,
+            //          IsEvergreen = @IsEvergreen,
+            //          TrimmingInstructions = @TrimmingInstructions,
+            //          TrimmingPeriod = @TrimmingPeriod,
+            //          TemperatureRangeMinimum = @TemperatureRangeMinimum,
+            //          TemperatureRangeMaximum = @TemperatureRangeMaximum,
+            //          IsPoisonous = @IsPoisonous,
+            //          FertilizationMethod = @FertilizationMethod,
+            //          Shape = @Shape,
+            //          FullGrownHeight = @FullGrownHeight,
+            //          FullGrownWidth = @FullGrownWidth,
+            //          PictureStringList = @PictureStringList
+            //      WHERE Id = @Id;", plant);
+
             await db.QueryAsync(
-                    @"UPDATE Plants
-                    SET 
-                      LocalName = @LocalName,
-                      CommonName = @CommonName,
-                      Genus = @Genus,
-                      Species = @Species,
-                      Family = @Family,
-                      Description = @Description,
-                      ImagePath = @ImagePath,
-                      PhylumId = @PhylumId,
-                      PlantType = @PlantType,
-                      IsEatable = @IsEatable,
-                      Color = @Color,
-                      IsFlowering = @IsFlowering,
-                      IsEvergreen = @IsEvergreen,
-                      TrimmingInstructions = @TrimmingInstructions,
-                      TrimmingPeriod = @TrimmingPeriod,
-                      TemperatureRangeMinimum = @TemperatureRangeMinimum,
-                      TemperatureRangeMaximum = @TemperatureRangeMaximum,
-                      IsPoisonous = @IsPoisonous,
-                      FertilizationMethod = @FertilizationMethod,
-                      Shape = @Shape,
-                      FullGrownHeight = @FullGrownHeight,
-                      FullGrownWidth = @FullGrownWidth,
-                      PictureStringList = @PictureStringList
-                  WHERE Id = @Id;", plant);
+                @"UPDATE Plants
+                SET 
+                    LocalName = @LocalName,
+                    CommonName = @CommonName,
+                    Genus = @Genus,
+                    Species = @Species,
+                    Family = @Family,
+                    Description = @Description,
+                    ImagePath = @ImagePath,
+                    PhylumId = @PhylumId,
+                    PlantType = @PlantType,
+                    PlantClassification = @PlantClassification,
+                    IsEatable = @IsEatable,
+                    Color = @Color,
+                    IsFlowering = @IsFlowering,
+                    IsEvergreen = @IsEvergreen,
+                    TrimmingInstructions = @TrimmingInstructions,
+                    TrimmingPeriod = @TrimmingPeriod,
+                    TemperatureRangeMinimum = @TemperatureRangeMinimum,
+                    TemperatureRangeMaximum = @TemperatureRangeMaximum,
+                    IsPoisonous = @IsPoisonous,
+                    FertilizationMethod = @FertilizationMethod,
+                    Shape = @Shape,
+                    FullGrownHeight = @FullGrownHeight,
+                    FullGrownWidth = @FullGrownWidth,
+                    Light = @Light,
+                    Water = @Water,
+                    Soil = @Soil
+                WHERE Id = @Id;", plant);
+
         }
 
         #endregion

@@ -13,6 +13,7 @@ using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
 using Microsoft.UI.Xaml.Media.Imaging;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Header;
 
 namespace PlantGuessingGame.ViewModels
 {
@@ -38,24 +39,23 @@ namespace PlantGuessingGame.ViewModels
 
         //----------------------------
         // NOTE: We apply here loose variables for the different plant properties as it will allow updating using the base class
-        // --> this in turn allows a regulated saving / comparing system to the database when a user saves or cancels as well as individual valiation checks in the filled data types
+        // --> this in turn allows a regulated saving / comparing system to the database when a user saves or cancels as well as individual validation checks in the filled data types
         //     These checks may be implemented using attributes (that decorate the variables)
         // --> these in turn should match our database limitations
         //----------------------------
 
-        //list of local variables that we place here that are observed and serve for user / dataservice (database) interaction via their public related vars
+        // List of local variables that we place here that are observed and serve for user / dataservice (database) interaction via their public related vars
         private string _itemLocalName;
         private string _itemCommonName;
 
-        //other relevant variables
+        // Other relevant variables
         private string _itemGenus;
         private string _itemSpecies;
         private string _itemFamily;
         private string _itemDescription;
 
-
         //--------------------------------------
-        // other relevant information
+        // Other relevant information
         //--------------------------------------
         //  1.	Eatable / non-eatable
         //  2.	Color
@@ -69,6 +69,9 @@ namespace PlantGuessingGame.ViewModels
         //  10.	Shape
         //  11.	Height(full grown)
         //  12.	Width(full grown)
+        //  13.   Light requirements
+        //  14.   Water requirements
+        //  15.   Soil requirements
         //--------------------------------------
         private bool _itemIsEatable;
         private string _itemColor;
@@ -80,11 +83,14 @@ namespace PlantGuessingGame.ViewModels
         private int _itemTemperatureRangeMaximum;
         private bool _itemIsPoisonous;
         private string _itemFertilizationMethod;
+
         private string _itemShape;
         private int _itemFullGrownHeight;
         private int _itemFullGrownWidth;
-        private string _itemPictureStringList;
-
+        // Removed: private string _itemPictureStringList;
+        private string _itemLight;
+        private string _itemWater;
+        private string _itemSoil;
 
         //setup enums
         private string _selectedPlantClassification;
@@ -472,6 +478,52 @@ namespace PlantGuessingGame.ViewModels
             }
         }
 
+        public string ItemShape
+        {
+            get => _itemShape;
+            set
+            {
+                if (!SetProperty(ref _itemShape, value, nameof(ItemShape)))
+                    return;
+
+
+                //set to dirty cause we changed a value
+                IsDirty = true;
+
+            }
+        }
+
+        public int ItemFullGrownHeight
+        {
+            get => _itemFullGrownHeight;
+            set
+            {
+                if (!SetProperty(ref _itemFullGrownHeight, value, nameof(ItemFullGrownHeight)))
+                    return;
+
+
+                //set to dirty cause we changed a value
+                IsDirty = true;
+
+            }
+        }
+
+        public int ItemFullGrownWidth
+        {
+            get => _itemFullGrownWidth;
+            set
+            {
+                if (!SetProperty(ref _itemFullGrownWidth, value, nameof(ItemFullGrownWidth)))
+                    return;
+
+
+                //set to dirty cause we changed a value
+                IsDirty = true;
+
+            }
+        }
+
+
         public string ItemTrimmingInstructions
         {
             get => _itemTrimmingInstructions;
@@ -561,64 +613,39 @@ namespace PlantGuessingGame.ViewModels
 
             }
         }
-
-        public string ItemShape
+        public string ItemLight
         {
-            get => _itemShape;
+            get => _itemLight;
             set
             {
-                if (!SetProperty(ref _itemShape, value, nameof(ItemShape)))
+                if (!SetProperty(ref _itemLight, value, nameof(ItemLight)))
                     return;
 
-
-                //set to dirty cause we changed a value
                 IsDirty = true;
-
             }
         }
 
-        public int ItemFullGrownHeight
+        public string ItemWater
         {
-            get => _itemFullGrownHeight;
+            get => _itemWater;
             set
             {
-                if (!SetProperty(ref _itemFullGrownHeight, value, nameof(ItemFullGrownHeight)))
+                if (!SetProperty(ref _itemWater, value, nameof(ItemWater)))
                     return;
 
-
-                //set to dirty cause we changed a value
                 IsDirty = true;
-
             }
         }
 
-        public int ItemFullGrownWidth
+        public string ItemSoil
         {
-            get => _itemFullGrownWidth;
+            get => _itemSoil;
             set
             {
-                if (!SetProperty(ref _itemFullGrownWidth, value, nameof(ItemFullGrownWidth)))
+                if (!SetProperty(ref _itemSoil, value, nameof(ItemSoil)))
                     return;
 
-
-                //set to dirty cause we changed a value
                 IsDirty = true;
-
-            }
-        }
-
-        public string ItemPictureStringList
-        {
-            get => _itemPictureStringList;
-            set
-            {
-                if (!SetProperty(ref _itemPictureStringList, value, nameof(ItemPictureStringList)))
-                    return;
-
-
-                //set to dirty cause we changed a value
-                IsDirty = true;
-
             }
         }
 
@@ -749,8 +776,12 @@ namespace PlantGuessingGame.ViewModels
                     ItemShape = item.Shape;
                     ItemFullGrownHeight = item.FullGrownHeight;
                     ItemFullGrownWidth = item.FullGrownWidth;
-                    ItemPictureStringList = item.PictureStringList;
-                      
+                    // New plant care properties
+                    ItemLight = item.Light;
+                    ItemWater = item.Water;
+                    ItemSoil = item.Soil;
+
+
                     //-----------------------------------
                     //!!!! --> note that the color setting must be after settting the trigger value of name
                     //     --> Note that we merely implemented this here to evaluate reactivity and that this is not a logical place to implement this
@@ -845,9 +876,12 @@ namespace PlantGuessingGame.ViewModels
             item.Shape = ItemShape;
             item.FullGrownHeight = ItemFullGrownHeight;
             item.FullGrownWidth = ItemFullGrownWidth;
-            item.PictureStringList = ItemPictureStringList;
-
+            // New plant care properties
+            item.Light = ItemLight;
+            item.Water = ItemWater;
+            item.Soil = ItemSoil;
         }
+
 
         /// <summary>
         /// method to determine if the item can be saved
