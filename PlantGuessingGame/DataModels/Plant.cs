@@ -17,6 +17,10 @@ namespace PlantGuessingGame.DataModels
     /// </summary>
     public class Plant
     {
+
+        //--------------------------------------
+        //  Plant Identification
+        //--------------------------------------
         // Properties
         /// <summary>
         /// Id of the plant for idenfication (used as key)
@@ -79,23 +83,23 @@ namespace PlantGuessingGame.DataModels
         /// Classification of the Plant
         /// </summary>
         public PlantClassification PlantClassification { get; set; }
+        //--------------------------------------
+        //  *Plant Identification
+        //--------------------------------------
+
 
         //--------------------------------------
-        // other relevant information
+        //  relevant information (Properties)
         //--------------------------------------
         //  1.	Eatable / non-eatable
         //  2.	Color
         //  3.	Flowering
         //  4.	Leaves all year / loses leaves 
-        //  5.	Trimming instructions and period
-        //  6.	Temperature range
-        //  7.	Poisonous
-        //  8.	Eatable
-        //  9.	Fertilization method
-        //  10.	Shape
-        //  11.	Height(full grown)
-        //  12.	Width(full grown)
-        //--------------------------------------
+        //  5.	Poisonous
+        //  6.	Eatable
+        //  7.	Shape
+        //  8.	Height(full grown)
+        //  9.	Width(full grown)
 
         /// <summary>
         /// Indicates if the plant is eatable or not
@@ -118,30 +122,9 @@ namespace PlantGuessingGame.DataModels
         public bool IsEvergreen { get; set; }
 
         /// <summary>
-        /// Trimming instructions
-        /// </summary>
-        public string TrimmingInstructions { get; set; }
-
-        /// <summary>
-        /// Best period for trimming
-        /// </summary>
-        public string TrimmingPeriod { get; set; }
-
-        /// <summary>
-        /// Ideal temperature range for the plant (e.g., "10-30°C")
-        /// </summary>
-        public int TemperatureRangeMinimum { get; set; }
-        public int TemperatureRangeMaximum { get; set; }
-
-        /// <summary>
         /// Indicates if the plant is poisonous
         /// </summary>
         public bool IsPoisonous { get; set; }
-
-        /// <summary>
-        /// Fertilization method for the plant
-        /// </summary>
-        public string FertilizationMethod { get; set; }
 
         /// <summary>
         /// Shape of the plant
@@ -157,21 +140,65 @@ namespace PlantGuessingGame.DataModels
         /// Full-grown width of the plant (e.g., in cm or m)
         /// </summary>
         public int FullGrownWidth { get; set; }
-
-        /// <summary>
-        /// we cannot store pictures as a string list in SQL, but we can store a long string with comma separated addresses
-        /// NOTE JCO --> Its better to create a separate table for pictures of each plant
-        ///              Update this later, for now we will keep a simple string get setter
-        /// </summary>
-        public string PictureStringList { get; set; }
-
-        /// <summary>
-        /// List of additional pictures (URLs or file paths)
-        /// </summary>
-        public List<string> Pictures { get; set; } = new List<string>();
-
+        //--------------------------------------
+        //  *relevant information (Properties)
         //--------------------------------------
 
+
+        //--------------------------------------
+        // Information (Plant care)
+        //--------------------------------------
+        //  1.	Light
+        //  2.  Water
+        //  3.  Soil
+        //  4.	Fertilization method (feeding)
+        //  5.  Trimming instructions and period (pruning)
+        //  6.	Temperature range (min max)
+
+        /// <summary>
+        /// Light
+        /// </summary>
+        public string Light { get; set; }
+
+        /// <summary>
+        /// Water
+        /// </summary>
+        public string Water { get; set; }
+
+        /// <summary>
+        /// Soil
+        /// </summary>
+        public string Soil { get; set; }
+
+        /// <summary>
+        /// Fertilization method for the plant
+        /// </summary>
+        public string FertilizationMethod { get; set; }
+
+        /// <summary>
+        /// Trimming instructions
+        /// </summary>
+        public string TrimmingInstructions { get; set; }
+
+        /// <summary>
+        /// Best period for trimming
+        /// </summary>
+        public string TrimmingPeriod { get; set; }
+
+        /// <summary>
+        /// Ideal temperature range for the plant (e.g., "10-30°C")
+        /// </summary>
+        public int TemperatureRangeMinimum { get; set; }
+        public int TemperatureRangeMaximum { get; set; }
+        //--------------------------------------
+        // *Information (Plant care)
+        //--------------------------------------
+
+
+        //--------------------------------------
+        //  Plant problems --> we will place the problems in a cross table that can be obtained by the plant ID
+        //--------------------------------------
+ 
         /// <summary>
         /// Constructor
         /// </summary>
