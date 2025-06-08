@@ -155,6 +155,11 @@
                 throw new NotImplementedException();
             }
 
+            public Task<List<PlantProblem>> GetProblemsForPlantAsync(int parentId)
+            {
+                throw new NotImplementedException();
+            }
+
 
 
 

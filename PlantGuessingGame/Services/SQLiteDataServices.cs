@@ -23,6 +23,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolTip;
 using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.Processing;
 using SixLabors.ImageSharp.Formats.Jpeg;
+using Catel.Collections;
 
 namespace PlantGuessingGame.Services
 {
@@ -67,6 +68,11 @@ namespace PlantGuessingGame.Services
         private IList<Plant> _plants;
 
         /// <summary>
+        /// list with problems (used for examples)
+        /// </summary>
+        private IList<PlantProblem> _problems;
+
+        /// <summary>
         /// connection string
         /// </summary>
         private readonly string _connectionString;
@@ -95,8 +101,9 @@ namespace PlantGuessingGame.Services
 
                 //testing for images
                 await CreatePlantImageTable(db);
+                await CreatePlantSpecificProblemsTableAsync(db);
 
-               
+
                 //add enums
                 PopulateItemTypes();
                 await PopulatePhylaAsync(db);
@@ -255,35 +262,26 @@ namespace PlantGuessingGame.Services
             }
         }
 
+        /// <summary>
+        /// get all problems
+        /// </summary>
+        /// <param name="plantId"></param>
+        /// <returns></returns>
+        public async Task<List<PlantProblem>> GetProblemsForPlantAsync(int parentId)
+        {
+            using (var db = await GetSqliteConnectionAsync())
+            {
+                return await GetProblemsForPlantAsync(db, parentId);
+            }
+        }
+
+
 
         #endregion
 
 
 
         #region Methods SQL
-
-        /// <summary>
-        /// method to insert a new media item into the database
-        ///  SQL dapper code:
-        ///         1. Insert into the MediaItems table 
-        ///         2. the values are inserted by the VALUES statement and the parameters are added by the @nameof(item) and @nameof(item)
-        ///         3. each value is taken from the item object media item and is referred by @ and variable name this refers to the parameter of the command
-        ///         --> So note well, the first names are the names as given to the tables, the values are the names of the variables in the object
-        /// </summary>
-        /// <param name="db"></param>
-        /// <param name="item"></param>
-        /// <returns></returns>
-        private async Task<int> InsertBasicPlantAsync(SqliteConnection db, Plant item)
-        {
-            var newIds = await db.QueryAsync<long>(
-                    @"INSERT INTO Plants
-                    (LocalName, CommonName, Genus, Species, Family, Description, ImagePath, PhylumId, PlantType, PlantClassification)
-                    VALUES
-                    (@LocalName, @CommonName, @Genus, @Species, @Family, @Description, @ImagePath, @PhylumId, @PlantType, @PlantClassification);
-                    SELECT last_insert_rowid()", item);
-
-            return (int)newIds.First();
-        }
 
         //----------------------------------------------------------
         // InsertPlantAsync Extended
@@ -294,16 +292,7 @@ namespace PlantGuessingGame.Services
         //----------------------------------------------------------
         private async Task<int> InsertPlantAsync(SqliteConnection db, Plant item)
         {
-            //var newIds = await db.QueryAsync<long>(
-            //        @"INSERT INTO Plants
-            //        (LocalName, CommonName, Genus, Species, Family, Description, ImagePath, PhylumId, PlantType, PlantClassification,
-            //        IsEatable, Color, IsFlowering, IsEvergreen, TrimmingInstructions, TrimmingPeriod, TemperatureRangeMinimum, TemperatureRangeMaximum,
-            //        IsPoisonous, FertilizationMethod, Shape, FullGrownHeight, FullGrownWidth, PictureStringList)
-            //        VALUES
-            //        (@LocalName, @CommonName, @Genus, @Species, @Family, @Description, @ImagePath, @PhylumId, @PlantType, @PlantClassification,
-            //         @IsEatable, @Color, @IsFlowering, @IsEvergreen, @TrimmingInstructions, @TrimmingPeriod, @TemperatureRangeMinimum, @TemperatureRangeMaximum,
-            //        @IsPoisonous, @FertilizationMethod, @Shape, @FullGrownHeight, @FullGrownWidth, @Pictures);
-            //        SELECT last_insert_rowid()", item);
+        
 
             var newIds = await db.QueryAsync<long>(
                 @"INSERT INTO Plants
@@ -346,6 +335,28 @@ namespace PlantGuessingGame.Services
             // This allows to get a values back from the database to know it completed successfully
             phylum.Id = (int)newIds.First();
         }
+
+
+        /// <summary>
+        /// code to insert a plant problem in the db
+        /// </summary>
+        /// <param name="db"></param>
+        /// <param name="item"></param>
+        /// <returns></returns>
+        private async Task<int> InsertPlantProblemAsync(SqliteConnection db, int parentId, PlantProblem item)
+        {
+            var newIds = await db.QueryAsync<long>(
+                @"INSERT INTO PlantSpecificProblems
+                    (PlantId, Name, Description, Symptoms, Causes, Solutions, Severity, Category)
+                    VALUES
+                    (@parentId, @Name, @Description, @Symptoms, @Causes, @Solutions, @Severity, @Category);
+                    SELECT last_insert_rowid()",
+                new { parentId, item.Name, item.Description, item.Symptoms, item.Causes, item.Solutions, item.Severity, item.Category });
+
+            return (int)newIds.First();
+        }
+
+
 
         #endregion
 
@@ -525,35 +536,18 @@ namespace PlantGuessingGame.Services
         private async Task PopulateExamplePLantsAsync(SqliteConnection db)
         {
             _plants = await GetAllPlantsAsync(db);
+            _problems = await GetAllPlantProblemsAsync(db);
 
             //if the database has no info, then add the default list
             if (_plants.Count == 0)
             {
 
+
                 //get list from seeder
                 var plants = PlantSeedData.GetAllPlants(_phyla);
 
-                //add the list 
-                //foreach (var plant in plants)
-                //{
-                //    //inser the plant data
-                //    await InsertPlantAsync(db, plant);
 
-                //    //check if we 
-                //    //We should add the images here by a separate command using the base image location
-                //    // ---> import image to byte stream, compress, insert into db
-                //    // --> so we can have a complete seeding system
-                //    byte[] imageBytes = await File.ReadAllBytesAsync(plant.ImagePath);
-
-
-                //    await InsertImageAsync(db, plant.Id, imageBytes);
-                    
-
-                //}
-
-
-                // ...
-
+                //loop plants and add known base images to the data base
                 foreach (var plant in plants)
                 {
 
@@ -564,6 +558,10 @@ namespace PlantGuessingGame.Services
                     // Insert plant data first
                     PlantID = await InsertPlantAsync(db, plant);
 
+
+                    //------------------------------------------
+                    // Get base images collection
+                    //------------------------------------------
                     // Skip if no image path provided
                     if (string.IsNullOrEmpty(plant.ImagePath))
                     {
@@ -602,16 +600,37 @@ namespace PlantGuessingGame.Services
 
                         // 4. Insert compressed image
                         await InsertImageAsync(db, PlantID, compressedBytes);
+
                     }
                     catch (Exception ex)
                     {
                         Console.WriteLine($"Failed to process image {plant.ImagePath}: {ex.Message}");
                     }
+                    //------------------------------------------
+
+                    //------------------------------------------
+                    // Get base problems collection
+                    //------------------------------------------
+
+                    //get problems for curent plant
+                    var CurrentPlantProblems = PlantSeedData.GetAllProblems(plant.Family, plant.Genus, plant.Species);
+
+                    //loop problems
+                    foreach (var Problem in CurrentPlantProblems)
+                    {
+                        // Insert problem data first
+                        var ProblemId = await InsertPlantProblemAsync(db, PlantID, Problem);
+                    }
+                    //------------------------------------------
+
                 }
+
 
 
                 //add to local var
                 _plants = await GetAllPlantsAsync(db);
+                _problems = await GetAllPlantProblemsAsync(db);
+
             }
 
         }
@@ -697,32 +716,6 @@ namespace PlantGuessingGame.Services
             }
         }
 
-        /// <summary>
-        /// --> Updated example code for gettings a connection
-        ///     -->20250518  evaluate to replace code above
-        /// </summary>
-        /// <returns></returns>
-        /// <exception cref="Exception"></exception>
-        private async Task<SqliteConnection> GetSqliteConnectionAsyncRefined()
-        {
-            try
-            {
-                await ApplicationData.Current.LocalFolder
-                    .CreateFileAsync(DbName, CreationCollisionOption.OpenIfExists)
-                    .AsTask().ConfigureAwait(false);
-
-                string dbPath = Path.Combine(ApplicationData.Current.LocalFolder.Path, DbName);
-                var cn = new SqliteConnection($"Filename={dbPath}");
-                cn.Open();
-                cn.Execute("PRAGMA journal_mode=WAL;"); // Optional: enables WAL mode
-                return cn;
-            }
-            catch (InvalidOperationException ex)
-            {
-                throw new Exception("Failed to access ApplicationData.Current", ex);
-            }
-            // Optionally catch SqliteException for DB errors
-        }
 
         /// <summary>
         /// sql method to create the Phylum table in the database
@@ -763,35 +756,6 @@ namespace PlantGuessingGame.Services
         {
 
             db.Open();
-
-            //        string tableCommand = @"CREATE TABLE IF NOT EXISTS 
-            //            Plants (Id INTEGER PRIMARY KEY AUTOINCREMENT, 
-            //            LocalName NVARCHAR(1000) NOT NULL, 
-            //            CommonName NVARCHAR(1000) NOT NULL, 
-            //            Genus NVARCHAR(1000), 
-            //            Species NVARCHAR(1000), 
-            //            Family NVARCHAR(1000), 
-            //            Description NVARCHAR(3000), 
-            //            ImagePath NVARCHAR(1000), 
-            //            PhylumId INTEGER, 
-            //            PlantType INTEGER, 
-            //            PlantClassification INTEGER, 
-            //IsEatable INTEGER,
-            //            Color NVARCHAR(100), 
-            //IsFlowering INTEGER,
-            //IsEvergreen INTEGER,
-            //            TrimmingInstructions NVARCHAR(1000), 
-            //            TrimmingPeriod NVARCHAR(100), 
-            //TemperatureRangeMinimum INTEGER,
-            //TemperatureRangeMaximum INTEGER,
-            //IsPoisonous INTEGER,
-            //            FertilizationMethod NVARCHAR(1000), 
-            //            Shape NVARCHAR(100), 
-            //FullGrownHeight INTEGER,
-            //FullGrownWidth INTEGER,
-            //PictureStringList TEXT,
-            //            CONSTRAINT fk_phyla 
-            //            FOREIGN KEY(PhylumId) REFERENCES Phyla(Id))";
 
             string tableCommand = @"CREATE TABLE IF NOT EXISTS 
                 Plants (
@@ -868,66 +832,6 @@ namespace PlantGuessingGame.Services
         private async Task<IList<Plant>> GetAllPlantsAsync(SqliteConnection db)
         {
 
-            //---> SQL to only get the plant table
-            //var plants =
-            //    await db.QueryAsync<Plant>(@"SELECT Id, 
-            //                                         CommonName,
-            //                                         Genus,
-            //                                         Species,
-            //                                         Family,
-            //                                         Description,
-            //                                         ImagePath,
-            //                                         PhylumId,
-            //                                         PlantType AS PlantType,
-            //                                         PlantClassification as PlantClassification                                                     FROM Plants");
-
-            //-->  Get plant table but join Phylum table as well based on ID
-            //var plants = await db.QueryAsync<Plant, Phylum, Plant>
-            //(
-            //    @"SELECT
-            //                            [Plants].[Id],
-            //                            [Plants].[LocalName],
-            //                            [Plants].[CommonName],
-            //                            [Plants].[Genus],
-            //                            [Plants].[Species],
-            //                            [Plants].[Family],
-            //                            [Plants].[Description],
-            //                            [Plants].[ImagePath],
-            //                            [Plants].[PlantType] AS PlantType,
-            //                            [Plants].[PlantClassification] AS PlantClassification,
-            //                            [Plants].[IsEatable],
-            //                            [Plants].[Color],
-            //                            [Plants].[IsFlowering],
-            //                            [Plants].[IsEvergreen],
-            //                            [Plants].[TrimmingInstructions],
-            //                            [Plants].[TrimmingPeriod],
-            //                            [Plants].[TemperatureRangeMinimum],
-            //                            [Plants].[TemperatureRangeMaximum],
-            //                            [Plants].[IsPoisonous],
-            //                            [Plants].[FertilizationMethod],
-            //                            [Plants].[Shape],
-            //                            [Plants].[FullGrownHeight],
-            //                            [Plants].[FullGrownWidth],
-            //                            [Plants].[PictureStringList],
-            //                            [Phyla].[Id],
-            //                            [Phyla].[Name],
-            //                            [Phyla].[PlantType] AS PlantType
-            //                        FROM
-            //                            [Plants]
-            //                        JOIN
-            //                            [Phyla]
-            //                        ON
-            //                            [Phyla].[Id] = [Plants].[PhylumId]",
-            //    (item, phylum) =>
-            //    {
-            //        //set inside table
-            //        item.PhylumInfo = phylum;
-
-            //        //return item
-            //        return item;
-            //    }
-            //);
-
             var plants = await db.QueryAsync<Plant, Phylum, Plant>
             (
                 @"SELECT
@@ -989,34 +893,7 @@ namespace PlantGuessingGame.Services
         //--------------------------------------------
         private async Task UpdatePlantAsync(SqliteConnection db, Plant plant)
         {
-            //await db.QueryAsync(
-            //        @"UPDATE Plants
-            //        SET 
-            //          LocalName = @LocalName,
-            //          CommonName = @CommonName,
-            //          Genus = @Genus,
-            //          Species = @Species,
-            //          Family = @Family,
-            //          Description = @Description,
-            //          ImagePath = @ImagePath,
-            //          PhylumId = @PhylumId,
-            //          PlantType = @PlantType,
-            //          IsEatable = @IsEatable,
-            //          Color = @Color,
-            //          IsFlowering = @IsFlowering,
-            //          IsEvergreen = @IsEvergreen,
-            //          TrimmingInstructions = @TrimmingInstructions,
-            //          TrimmingPeriod = @TrimmingPeriod,
-            //          TemperatureRangeMinimum = @TemperatureRangeMinimum,
-            //          TemperatureRangeMaximum = @TemperatureRangeMaximum,
-            //          IsPoisonous = @IsPoisonous,
-            //          FertilizationMethod = @FertilizationMethod,
-            //          Shape = @Shape,
-            //          FullGrownHeight = @FullGrownHeight,
-            //          FullGrownWidth = @FullGrownWidth,
-            //          PictureStringList = @PictureStringList
-            //      WHERE Id = @Id;", plant);
-
+           
             await db.QueryAsync(
                 @"UPDATE Plants
                 SET 
@@ -1050,6 +927,105 @@ namespace PlantGuessingGame.Services
 
         }
 
+
+        /// <summary>
+        /// code to make the problems table
+        /// </summary>
+        /// <param name="db"></param>
+        /// <returns></returns>
+        private async Task CreatePlantSpecificProblemsTableAsync(SqliteConnection db)
+        {
+            db.Open();
+
+            string tableCommand = @"CREATE TABLE IF NOT EXISTS 
+                PlantSpecificProblems (
+                    Id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    PlantId INTEGER NOT NULL,
+                    Name NVARCHAR(1000) NOT NULL,
+                    Description NVARCHAR(3000),
+                    Symptoms NVARCHAR(3000),
+                    Causes NVARCHAR(3000),
+                    Solutions NVARCHAR(3000),
+                    Severity NVARCHAR(100),
+                    Category NVARCHAR(100),
+                    FOREIGN KEY (PlantId) REFERENCES Plants(Id)
+                )";
+
+            var createTable = new SqliteCommand(tableCommand, db);
+
+            await createTable.ExecuteNonQueryAsync();
+        }
+
+        /// <summary>
+        /// get all plant problems
+        /// </summary>
+        /// <param name="db"></param>
+        /// <returns></returns>
+        private async Task<IList<PlantProblem>> GetAllPlantProblemsAsync(SqliteConnection db)
+        {
+            var problems = await db.QueryAsync<PlantProblem>(
+                @"SELECT
+            [Id],
+            [PlantId],
+            [Name],
+            [Description],
+            [Symptoms],
+            [Causes],
+            [Solutions],
+            [Severity],
+            [Category]
+        FROM
+            [PlantSpecificProblems]"
+            );
+
+            return problems.ToList();
+        }
+
+
+        //----------------------------------------------------------
+        //If you want to join to the Plants table to also get plant info (optional, and only if you need it):
+        //----------------------------------------------------------
+        //private async Task<IList<PlantProblemWithPlant>> GetAllPlantProblemsWithPlantInfoAsync(SqliteConnection db)
+        //{
+        //    var problems = await db.QueryAsync<PlantProblem, Plant, PlantProblemWithPlant>(
+        //        @"SELECT
+        //    [PlantSpecificProblems].[Id],
+        //    [PlantSpecificProblems].[PlantId],
+        //    [PlantSpecificProblems].[Name],
+        //    [PlantSpecificProblems].[Description],
+        //    [PlantSpecificProblems].[Symptoms],
+        //    [PlantSpecificProblems].[Causes],
+        //    [PlantSpecificProblems].[Solutions],
+        //    [PlantSpecificProblems].[Severity],
+        //    [PlantSpecificProblems].[Category],
+        //    [Plants].[Id],
+        //    [Plants].[LocalName],
+        //    [Plants].[CommonName],
+        //    [Plants].[Genus],
+        //    [Plants].[Species],
+        //    [Plants].[Family],
+        //    [Plants].[Description] AS PlantDescription,
+        //    [Plants].[ImagePath]
+        //FROM
+        //    [PlantSpecificProblems]
+        //JOIN
+        //    [Plants]
+        //ON
+        //    [Plants].[Id] = [PlantSpecificProblems].[PlantId]",
+        //        (problem, plant) =>
+        //        {
+        //            return new PlantProblemWithPlant
+        //            {
+        //                Problem = problem,
+        //                Plant = plant
+        //            };
+        //        }
+        //    );
+
+        //    return problems.ToList();
+        //}
+
+
         #endregion
 
 
@@ -1080,30 +1056,6 @@ namespace PlantGuessingGame.Services
 
 
         #region Methods for Blobbing
-
-
-        /// -------------------------------------------------
-        /// ------   STORING A LIST OF INTTEGERS WITH IDS ---------
-        /// The best way to store a list of integers in a SQL (including SQLite) database is not to store them as a single value (e.g., comma-separated string, JSON, or BLOB), but rather to use a separate table where each integer in the list is stored as a row, linked to its parent entity via a foreign key. This is the standard relational approach and is both efficient and flexible.
-        /// -------------------------------------------------
-        //        CREATE TABLE Parent(
-        //    ParentId INTEGER PRIMARY KEY,
-        //    Name TEXT
-        //);
-
-        //        CREATE TABLE ParentIntList(
-        //        ParentId INTEGER NOT NULL,
-        //            Value INTEGER NOT NULL,
-        //            FOREIGN KEY (ParentId) REFERENCES Parent(ParentId)
-        //        );
-        //      
-        //  TO get all ids integers for a parten
-        //  SELECT Value FROM ParentIntList WHERE ParentId = 1;
-        //  To add an integers to a parents
-        // INSERT INTO ParentIntList(ParentId, Value) VALUES(1, 10);
-        /// -------------------------------------------------
-
-
 
         /// <summary>
         /// -------------------------------------------------
@@ -1191,6 +1143,22 @@ namespace PlantGuessingGame.Services
             var images = await db.QueryAsync<byte[]>(sql, new { ParentID = parentId });
             return images.ToList();
         }
+
+
+        /// <summary>
+        /// Helper to retrieve all problems for a plant using an open connection.
+        /// </summary>
+        /// <param name="db">An open SqliteConnection.</param>
+        /// <param name="plantId">The plant ID (parent ID).</param>
+        /// <returns>A list of PlantProblem objects.</returns>
+        private async Task<List<PlantProblem>> GetProblemsForPlantAsync(SqliteConnection db, int plantId)
+        {
+            string sql = "SELECT * FROM PlantSpecificProblems WHERE PlantId = @PlantId";
+            var problems = await db.QueryAsync<PlantProblem>(sql, new { PlantId = plantId });
+            return problems.ToList();
+        }
+
+
 
 
 

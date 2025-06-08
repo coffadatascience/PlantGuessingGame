@@ -78,6 +78,12 @@ namespace PlantGuessingGame.Interfaces
         /// <param name="v"></param>
         Task<List<byte[]>> GetImagesForParentAsync(int parentId);
 
+        /// <summary>
+        /// taks ot get all problems for a parent3
+        /// </summary>
+        /// <returns></returns>
+        Task<List<PlantProblem>> GetProblemsForPlantAsync(int parentId);
+
         #endregion
 
 

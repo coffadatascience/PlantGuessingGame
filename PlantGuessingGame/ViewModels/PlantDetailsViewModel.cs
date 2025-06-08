@@ -798,6 +798,8 @@ namespace PlantGuessingGame.ViewModels
                     //get images
                     ShowImages();
 
+                    //test to collect problems
+                    ShowAllProblems();
                 }
             }
         }
@@ -1061,6 +1063,44 @@ namespace PlantGuessingGame.ViewModels
                 await bitmapImage.SetSourceAsync(stream);
             }
             SelectedPlantImages.Add(bitmapImage);
+        }
+
+
+        /// <summary>
+        /// Command that retrieves and shows all plant problems in the database.
+        /// </summary>
+        private async void ShowAllProblems()
+        {
+            try
+            {
+                // Retrieve all plant problems from the DB
+                var allProblems = await _dataService.GetProblemsForPlantAsync(_itemId);
+
+                // Check if we have any problems
+                if (allProblems == null || allProblems.Count() == 0)
+                {
+                    MessageBox.Show("No plant problems found in the database.");
+                    return;
+                }
+
+                // Build a string to display all problems
+                var message = new System.Text.StringBuilder();
+                foreach (var problem in allProblems)
+                {
+                    message.AppendLine($"Problem: {problem.Name}");
+                    message.AppendLine($"Description: {problem.Description}");
+                    message.AppendLine($"Severity: {problem.Severity}");
+                    message.AppendLine($"Category: {problem.Category}");
+                    message.AppendLine("---");
+                }
+
+                // Show all problems in a message box
+                MessageBox.Show(message.ToString(), "All Plant Problems");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error retrieving plant problems: {ex.Message}");
+            }
         }
 
 

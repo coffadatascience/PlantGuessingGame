@@ -13,30 +13,61 @@ namespace PlantGuessingGame.DataModels
     /// --> though with the limited range of type we want to focus upon, we may want that low level info as it would lead to learning as well
     /// --> generalisation may however ease learning (get more information to understand the best level for this).
     /// </summary>
-    public class PlantProblems
+    public class PlantProblem
     {
 
-
+        /// <summary>
+        /// id of problem
+        /// </summary>
         public int ProblemId { get; set; }
+
+        /// <summary>
+        /// name of problem
+        /// </summary>
         public string Name { get; set; }
+
+        /// <summary>
+        /// description of problem
+        /// </summary>
         public string Description { get; set; }
+
+        /// <summary>
+        /// symphoms as known
+        /// </summary>
         public string Symptoms { get; set; }
+
+        /// <summary>
+        /// causes known to problems
+        /// </summary>
         public string Causes { get; set; }
+
+        /// <summary>
+        /// solutions
+        /// </summary>
         public string Solutions { get; set; }
+
+        /// <summary>
+        /// severity
+        /// </summary>
         public string Severity { get; set; }
+
+
+        /// <summary>
+        /// category or type
+        /// </summary>
         public string Category { get; set; }
 
         /// <summary>
         /// Constructor
         /// </summary>
-        public PlantProblems() { }
+        public PlantProblem() { }
 
         /// <summary>
         /// Constructor
         /// </summary>
         /// <param name="problemId"></param>
         /// <param name="name"></param>
-        public PlantProblems(int problemId, string name)
+        public PlantProblem(int problemId, string name)
         {
             ProblemId = problemId;
             Name = name;
@@ -53,7 +84,7 @@ namespace PlantGuessingGame.DataModels
         /// <param name="solutions"></param>
         /// <param name="severity"></param>
         /// <param name="category"></param>
-        public PlantProblems(
+        public PlantProblem(
             int problemId,
             string name,
             string description,
