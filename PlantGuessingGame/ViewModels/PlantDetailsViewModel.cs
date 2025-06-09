@@ -1089,6 +1089,9 @@ namespace PlantGuessingGame.ViewModels
                 {
                     message.AppendLine($"Problem: {problem.Name}");
                     message.AppendLine($"Description: {problem.Description}");
+                    message.AppendLine($"Symptoms: {problem.Symptoms}");
+                    message.AppendLine($"Causes: {problem.Causes}");
+                    message.AppendLine($"Solutions: {problem.Solutions}");
                     message.AppendLine($"Severity: {problem.Severity}");
                     message.AppendLine($"Category: {problem.Category}");
                     message.AppendLine("---");
