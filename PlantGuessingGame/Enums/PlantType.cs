@@ -64,6 +64,11 @@ namespace PlantGuessingGame.Enums
         /// 
         Fern,
         /// <summary>
+        /// Biennial
+        /// </summary>
+        /// 
+        Biennial,
+        /// <summary>
         /// other (none of the above)
         /// </summary>
         Other,

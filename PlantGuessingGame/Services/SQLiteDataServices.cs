@@ -24,6 +24,8 @@ using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.Processing;
 using SixLabors.ImageSharp.Formats.Jpeg;
 using Catel.Collections;
+using System.Data;
+using System.Reflection;
 
 namespace PlantGuessingGame.Services
 {
@@ -668,6 +670,8 @@ namespace PlantGuessingGame.Services
 
         /// <summary>
         /// method to delete a plant item from the database
+        /// --> Note that we need to delete the children first.Else we error:Deleting a Parent Row with Existing Children: Attempting to delete a row from a parent table while there are still related rows in the child table, and the foreign key is not configured with ON DELETE CASCADE. For instance, deleting a department that still has employees referencing it, without proper cascading, will fail.
+        /// NOTEL: Dapper's DeleteAsync<T> does not cascade deletes to children by itself. Use ON DELETE CASCADE in your schema for automatic cascading, or implement manual deletion logic in your code if your schema does not support it.
         /// </summary>
         /// <param name="db"></param>
         /// <param name="id"></param>
@@ -676,6 +680,62 @@ namespace PlantGuessingGame.Services
         {
             await db.DeleteAsync<Plant>(new Plant { Id = id });
         }
+
+
+
+        //------------------------------------------------------------------
+        // We can create this code to delete a table and the children explicit
+        // --> for extensions it may be easier to enable the cascading option when creating the childrens tables so that the standard dapper functionality knows how to delete all children
+        //------------------------------------------------------------------
+        //--> Example on deleting usage
+        //        await connection.DeleteEntityWithChildrenAsync(
+        //    department,           // The parent entity to delete
+        //    "Employee",           // Child table name
+        //    "DepartmentId",       // Child table's foreign key column
+        //    "Id"                  // Parent table's key column
+        //);
+        //public static async Task<bool> DeleteEntityWithChildrenAsync<T>(
+        //    this IDbConnection connection,
+        //    T parentEntity,
+        //    string childTableName,
+        //    string childForeignKeyColumn,
+        //    string parentKeyColumn,
+        //    IDbTransaction transaction = null,
+        //    int? commandTimeout = null)
+        //    where T : class
+        //{
+        //    if (parentEntity == null)
+        //        throw new ArgumentException("Cannot delete null object", nameof(parentEntity));
+
+        //    // Get parent key value using reflection
+        //    var parentKeyValue = parentEntity.GetType().GetProperty(parentKeyColumn)?.GetValue(parentEntity);
+        //    if (parentKeyValue == null)
+        //        throw new ArgumentException($"Parent entity does not have key property '{parentKeyColumn}'.");
+
+        //    // Delete child rows first
+        //    var deleteChildrenSql = $"DELETE FROM {childTableName} WHERE {childForeignKeyColumn} = @ParentKey";
+        //    await connection.ExecuteAsync(deleteChildrenSql, new { ParentKey = parentKeyValue }, transaction, commandTimeout);
+
+        //    // Now delete the parent row
+        //    var parentTableName = GetTableName(typeof(T)); // Implement this according to your naming conventions
+        //    var deleteParentSql = $"DELETE FROM {parentTableName} WHERE {parentKeyColumn} = @ParentKey";
+        //    var deleted = await connection.ExecuteAsync(deleteParentSql, new { ParentKey = parentKeyValue }, transaction, commandTimeout);
+
+        //    return deleted > 0;
+        //}
+        //------------------------------------------------------------------
+
+        public static string GetTableName(Type type)
+        {
+            // Check for [Table] attribute
+            var tableAttribute = type.GetCustomAttribute<TableAttribute>();
+            if (tableAttribute != null)
+                return tableAttribute.Name;
+
+            // Fallback: use class name
+            return type.Name;
+        }
+
 
         #endregion
 
@@ -688,33 +748,68 @@ namespace PlantGuessingGame.Services
         /// --> creates a new file if it does not exist else opens the existing file
         /// </summary>
         /// <returns></returns>
+        //private async Task<SqliteConnection> GetSqliteConnectionAsync()
+        //{
+        //    try
+        //    {
+
+        //        //try to get ApplicationData.Current
+        //        await ApplicationData.Current.LocalFolder.CreateFileAsync(DbName, CreationCollisionOption.OpenIfExists).AsTask().ConfigureAwait(false);
+
+        //        //create the connection string
+        //        string dbPath = Path.Combine(ApplicationData.Current.LocalFolder.Path, DbName);
+
+        //        //create a new connection
+        //        var cn = new SqliteConnection($"Filename={dbPath}");
+
+        //        //open the connection
+        //        cn.Open();
+
+        //        //return the connection
+        //        return cn;
+
+
+
+
+        //    }
+        //    catch (InvalidOperationException ex)
+        //    {
+        //        // Handle the exception or log it
+        //        throw new Exception("Failed to access ApplicationData.Current", ex);
+        //    }
+        //}
+
+        /// --> Replace for code above that sets Pragma foreign keys on, so that all childrens rows are deleted when removing aplant
         private async Task<SqliteConnection> GetSqliteConnectionAsync()
         {
             try
             {
+                // Ensure the database file exists
+                await ApplicationData.Current.LocalFolder
+                    .CreateFileAsync(DbName, CreationCollisionOption.OpenIfExists)
+                    .AsTask()
+                    .ConfigureAwait(false);
 
-                //try to get ApplicationData.Current
-                await ApplicationData.Current.LocalFolder.CreateFileAsync(DbName, CreationCollisionOption.OpenIfExists).AsTask().ConfigureAwait(false);
-
-                //create the connection string
                 string dbPath = Path.Combine(ApplicationData.Current.LocalFolder.Path, DbName);
 
-                //create a new connection
                 var cn = new SqliteConnection($"Filename={dbPath}");
-
-                //open the connection
                 cn.Open();
 
-                //return the connection
-                return cn;
+                // Enable foreign key constraints for this connection
+                using (var cmd = cn.CreateCommand())
+                {
+                    cmd.CommandText = "PRAGMA foreign_keys = ON;";
+                    cmd.ExecuteNonQuery();
+                }
 
+                return cn;
             }
             catch (InvalidOperationException ex)
             {
-                // Handle the exception or log it
                 throw new Exception("Failed to access ApplicationData.Current", ex);
             }
         }
+
 
 
         /// <summary>
@@ -933,11 +1028,34 @@ namespace PlantGuessingGame.Services
         /// </summary>
         /// <param name="db"></param>
         /// <returns></returns>
+        //private async Task CreatePlantSpecificProblemsTableAsync(SqliteConnection db)
+        //{
+        //    db.Open();
+
+        //    string tableCommand = @"CREATE TABLE IF NOT EXISTS 
+        //        PlantSpecificProblems (
+        //            Id INTEGER PRIMARY KEY AUTOINCREMENT,
+        //            PlantId INTEGER NOT NULL,
+        //            Name NVARCHAR(1000) NOT NULL,
+        //            Description NVARCHAR(3000),
+        //            Symptoms NVARCHAR(3000),
+        //            Causes NVARCHAR(3000),
+        //            Solutions NVARCHAR(3000),
+        //            Severity NVARCHAR(100),
+        //            Category NVARCHAR(100),
+        //            FOREIGN KEY (PlantId) REFERENCES Plants(Id)
+        //        )";
+
+        //    var createTable = new SqliteCommand(tableCommand, db);
+
+        //    await createTable.ExecuteNonQueryAsync();
+        //}
+        /// --> Alternative create table function that also removes the rows of problems when deleting a plant
         private async Task CreatePlantSpecificProblemsTableAsync(SqliteConnection db)
         {
             db.Open();
 
-            string tableCommand = @"CREATE TABLE IF NOT EXISTS 
+                    string tableCommand = @"CREATE TABLE IF NOT EXISTS 
                 PlantSpecificProblems (
                     Id INTEGER PRIMARY KEY AUTOINCREMENT,
                     PlantId INTEGER NOT NULL,
@@ -948,13 +1066,14 @@ namespace PlantGuessingGame.Services
                     Solutions NVARCHAR(3000),
                     Severity NVARCHAR(100),
                     Category NVARCHAR(100),
-                    FOREIGN KEY (PlantId) REFERENCES Plants(Id)
+                    FOREIGN KEY (PlantId) REFERENCES Plants(Id) ON DELETE CASCADE
                 )";
 
             var createTable = new SqliteCommand(tableCommand, db);
 
             await createTable.ExecuteNonQueryAsync();
         }
+
 
         /// <summary>
         /// get all plant problems
@@ -1068,27 +1187,41 @@ namespace PlantGuessingGame.Services
         // / <param name="db"></param>
         /// <returns></returns>
 
+        //private async Task CreatePlantImageTable(SqliteConnection db)
+        //{
+        //    // SQL command to create a table with an ImageID and a foreign key to the parent table (e.g., Plant)
+        //    string tableCommand = @"
+        //        CREATE TABLE IF NOT EXISTS ImageTable (
+        //            ImageID INTEGER PRIMARY KEY AUTOINCREMENT,
+        //            ParentID INTEGER NOT NULL,
+        //            ImageData BLOB,
+        //            FOREIGN KEY (ParentID) REFERENCES Plants(Id) 
+        //        )";
+
+        //    //----------------------------------------------
+        //    // --> Note JCO --> we need to have the cross table reference here
+        //    // --> Note that we use the name of the table and the name of the ID in the parent table, this match the ParentID in the current table
+        //    //!!!!!! --> note that our images need to Reference the Plants table name and ID, to match all images to a specific plant
+        //    //----------------------------------------------
+
+        //    // create command
+        //    var createTable = new SqliteCommand(tableCommand, db);
+
+        //    // execute
+        //    await createTable.ExecuteNonQueryAsync();
+        //}
+        /// --> updated version that enables the delete cascade for the image rows
         private async Task CreatePlantImageTable(SqliteConnection db)
         {
-            // SQL command to create a table with an ImageID and a foreign key to the parent table (e.g., Plant)
-            string tableCommand = @"
-                CREATE TABLE IF NOT EXISTS ImageTable (
-                    ImageID INTEGER PRIMARY KEY AUTOINCREMENT,
-                    ParentID INTEGER NOT NULL,
-                    ImageData BLOB,
-                    FOREIGN KEY (ParentID) REFERENCES Plants(Id) 
-                )";
+                string tableCommand = @"
+            CREATE TABLE IF NOT EXISTS ImageTable (
+                ImageID INTEGER PRIMARY KEY AUTOINCREMENT,
+                ParentID INTEGER NOT NULL,
+                ImageData BLOB,
+                FOREIGN KEY (ParentID) REFERENCES Plants(Id) ON DELETE CASCADE
+            )";
 
-            //----------------------------------------------
-            // --> Note JCO --> we need to have the cross table reference here
-            // --> Note that we use the name of the table and the name of the ID in the parent table, this match the ParentID in the current table
-            //!!!!!! --> note that our images need to Reference the Plants table name and ID, to match all images to a specific plant
-            //----------------------------------------------
-
-            // create command
             var createTable = new SqliteCommand(tableCommand, db);
-
-            // execute
             await createTable.ExecuteNonQueryAsync();
         }
 

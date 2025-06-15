@@ -1318,6 +1318,337 @@ namespace PlantGuessingGame.Services
                     TemperatureRangeMinimum = -30,
                     TemperatureRangeMaximum = 35
                 }
+               ,
+               // Vicia villosa
+                new Plant
+                {
+                    Id = 36,
+                    LocalName = "Vicia villosa",
+                    CommonName = "Hairy Vetch",
+                    Family = "Fabaceae",
+                    Genus = "Vicia",
+                    Species = "villosa",
+                    Description = "A vigorous annual or biennial legume valued as a cover crop for its ability to fix nitrogen, improve soil structure, and suppress weeds. Recognized by its trailing, climbing habit and hairy stems and leaves. Produces purple to violet pea-like flowers.",
+                    ImagePath = diskLocationImages + "Vicia_villosa_Base01.png",
+                    PlantType = PlantType.Herb, // Annual/biennial legume
+                    PlantClassification = PlantClassification.Angiosperms,
+                    PhylumInfo = (Phylum)GetPhylumByName(phyla, "Magnoliophyta"),
+                    IsEatable = false, // Not typically eaten by humans; used as forage/green manure
+                    Color = "Purple to violet flowers; green hairy foliage",
+                    IsFlowering = true,
+                    IsEvergreen = false,
+                    IsPoisonous = false, // Generally safe for livestock, but excessive consumption can cause issues
+                    Shape = "Trailing or climbing vine, often sprawling over the ground or other plants",
+                    FullGrownHeight = 60, // Typically 30–90 cm, can climb higher if supported
+                    FullGrownWidth = 120, // Can spread widely as a ground cover
+                    // Plant care properties:
+                    Light = "Full sun to partial shade. Prefers open, sunny locations for best growth.",
+                    Water = "Prefers moist, well-drained soils but is drought-tolerant once established.",
+                    Soil = "Tolerates a range of soils, including sandy, loamy, and clay soils. Prefers neutral to slightly acidic pH.",
+                    FertilizationMethod = "Usually no fertilizer needed due to nitrogen fixation. In poor soils, a balanced starter fertilizer may help establishment.",
+                    TrimmingInstructions = "Mow or cut back before seed set to prevent self-seeding if used as a cover crop. Incorporate into soil as green manure at flowering.",
+                    TrimmingPeriod = "Late spring to early summer (at flowering stage for green manure)",
+                    TemperatureRangeMinimum = -20, // Hardy, tolerates frost
+                    TemperatureRangeMaximum = 30
+                }
+,
+                // Heuchera 'Mulberry'
+                new Plant
+                {
+                    Id = 38,
+                    LocalName = "Heuchera 'Mulberry'",
+                    CommonName = "Purperklokje Mulberry",
+                    Family = "Saxifragaceae",
+                    Genus = "Heuchera",
+                    Species = "Mulberry", // Cultivar
+                    Description = "Compacte, halfwintergroene vaste plant met opvallend glanzend paars blad en donkerpaarse nerven. In de zomer verschijnen op donkere stelen kleine, lichtroze bloemen. Ideaal voor borders, rotstuinen en potten.",
+                    ImagePath = diskLocationImages + "Heuchera_Mulberry_Base01.png",
+                    PlantType = PlantType.Perennial,
+                    PlantClassification = PlantClassification.Angiosperms,
+                    PhylumInfo = (Phylum)GetPhylumByName(phyla, "Magnoliophyta"),
+                    IsEatable = false,
+                    Color = "Paars blad met donkerpaarse nerven; lichtroze bloemen",
+                    IsFlowering = true,
+                    IsEvergreen = false, // Halfwintergroen: behoudt deels blad in milde winters[2][8]
+                    IsPoisonous = false,
+                    Shape = "Compacte, polvormende groei",
+                    FullGrownHeight = 40, // ca. 40 cm hoog[8]
+                    FullGrownWidth = 30,  // ca. 30 cm breed[8]
+                    // Plant care properties:
+                    Light = "Halfschaduw tot zon. Beste bladkleur in lichte schaduw.",
+                    Water = "Normale waterbehoefte; goed doorlatende, humusrijke grond. Niet te nat in de winter.",
+                    Soil = "Vochtige, goed doorlatende, humusrijke bodem. Verdraagt geen zware klei of natte voeten.",
+                    FertilizationMethod = "Voorzichtig bemesten in het voorjaar met organische mest.",
+                    TrimmingInstructions = "Verwijder uitgebloeide bloemstelen en lelijk blad om nieuwe groei te stimuleren.",
+                    TrimmingPeriod = "Voorjaar en na de bloei",
+                    TemperatureRangeMinimum = -20, // Winterhard tot ca. -20 °C[6]
+                    TemperatureRangeMaximum = 30
+                }
+                ,
+                // Sedum 'Crystal Pink'
+                new Plant
+                {
+                    Id = 39,
+                    LocalName = "Sedum 'Crystal Pink'",
+                    CommonName = "Crystal Pink Stonecrop",
+                    Family = "Crassulaceae",
+                    Genus = "Sedum",
+                    Species = "spectabile", // Cultivar: 'Crystal Pink'
+                    Description = "A low-growing, clump-forming, deciduous perennial with thick, fleshy, bright blue-green leaves. In late summer and fall, it produces large clusters of star-shaped icy pink flowers on sturdy stems. Drought-tolerant and highly attractive to butterflies, it is ideal for borders, rock gardens, and containers.",
+                    ImagePath = diskLocationImages + "Sedum_CrystalPink_Base01.png",
+                    PlantType = PlantType.Perennial,
+                    PlantClassification = PlantClassification.Angiosperms,
+                    PhylumInfo = (Phylum)GetPhylumByName(phyla, "Magnoliophyta"),
+                    IsEatable = false,
+                    Color = "Bright blue-green foliage; icy pink flowers",
+                    IsFlowering = true,
+                    IsEvergreen = false, // Deciduous perennial[1][7]
+                    IsPoisonous = false,
+                    Shape = "Low, mounding clump with upright, sturdy flowering stems",
+                    FullGrownHeight = 40, // 30-40 cm (12-16 inches)[1][3][5]
+                    FullGrownWidth = 40,  // 30-40 cm (12-16 inches)[1][3][5]
+                    // Plant care properties:
+                    Light = "Full sun. Tolerates some light shade but best flowering and color in full sun.",
+                    Water = "Low to moderate. Drought-tolerant once established. Requires well-drained soil.",
+                    Soil = "Chalk, loam, or sand; neutral to alkaline pH. Must be well-drained.",
+                    FertilizationMethod = "Generally not needed. If desired, apply a balanced, slow-release fertilizer in early spring.",
+                    TrimmingInstructions = "Remove spent flower heads and dead foliage in late fall or early spring to maintain appearance.",
+                    TrimmingPeriod = "Late fall or early spring",
+                    TemperatureRangeMinimum = -30, // USDA zone 4 hardy[1][3]
+                    TemperatureRangeMaximum = 35
+                }
+                ,
+                // Erica carnea (Winterheide)
+                new Plant
+                {
+                    Id = 40,
+                    LocalName = "Erica carnea",
+                    CommonName = "Winterheide, Schneeheide",
+                    Family = "Ericaceae",
+                    Genus = "Erica",
+                    Species = "carnea",
+                    Description = "Laagblijvende, wintergroene heester met naaldachtig blad en klokvormige bloemen. Bloeit van de winter tot het vroege voorjaar in kleuren van wit tot roze en paars. Geschikt als bodembedekker, voor rotstuinen en wintertuinen.",
+                    ImagePath = diskLocationImages + "Erica_carnea_Base01.png",
+                    PlantType = PlantType.Shrub,
+                    PlantClassification = PlantClassification.Angiosperms,
+                    PhylumInfo = (Phylum)GetPhylumByName(phyla, "Magnoliophyta"),
+                    IsEatable = false,
+                    Color = "Groen blad; bloemen wit, roze of paars",
+                    IsFlowering = true,
+                    IsEvergreen = true, // Wintergroen
+                    IsPoisonous = false,
+                    Shape = "Laag, kussenvormig, bodembedekkend",
+                    FullGrownHeight = 25, // 15-30 cm
+                    FullGrownWidth = 40,  // 30-50 cm
+                    // Plant care properties:
+                    Light = "Volle zon tot lichte schaduw; beste bloei in de zon.",
+                    Water = "Matig, bestand tegen droogte zodra gevestigd. Jonge planten regelmatig water geven.",
+                    Soil = "Goed doorlatende, bij voorkeur zure grond. Verdraagt lichte kalk.",
+                    FertilizationMethod = "Voorzichtig bemesten in het voorjaar met organische meststoffen.",
+                    TrimmingInstructions = "Na de bloei uitgebloeide bloemen en wildgroei wegknippen voor compacte groei.",
+                    TrimmingPeriod = "Direct na de bloei (lente)",
+                    TemperatureRangeMinimum = -20,
+                    TemperatureRangeMaximum = 30
+                 }
+                ,
+                // Carex morrowii (Japanse zegge)
+                new Plant
+                {
+                    Id = 41,
+                    LocalName = "Carex morrowii",
+                    CommonName = "Japanse zegge",
+                    Family = "Cyperaceae",
+                    Genus = "Carex",
+                    Species = "morrowii",
+                    Description = "Wintergroene, polvormende siergrasachtige plant met smal, overhangend blad. Populair vanwege het decoratieve, vaak bontgevlekte blad. Geschikt als bodembedekker, voor schaduwrijke borders en onderbeplanting.",
+                    ImagePath = diskLocationImages + "Carex_morrowii_Base01.png",
+                    PlantType = PlantType.Perennial,
+                    PlantClassification = PlantClassification.Angiosperms,
+                    PhylumInfo = (Phylum)GetPhylumByName(phyla, "Magnoliophyta"),
+                    IsEatable = false,
+                    Color = "Groen of groen-wit bont blad; onopvallende bruine bloeiaren",
+                    IsFlowering = true, // Bloeit met kleine aren, niet opvallend
+                    IsEvergreen = true, // Blad blijft in milde winters groen
+                    IsPoisonous = false,
+                    Shape = "Polvormend, overhangend blad, bodembedekkend",
+                    FullGrownHeight = 30, // 25-40 cm
+                    FullGrownWidth = 40,  // 30-50 cm
+                    // Plant care properties:
+                    Light = "Halfschaduw tot schaduw; verdraagt ook zon mits voldoende vochtig.",
+                    Water = "Vochtige, goed doorlatende grond. Verdraagt geen langdurige droogte.",
+                    Soil = "Humusrijk, vochthoudend, licht zuur tot neutraal.",
+                    FertilizationMethod = "Voorzichtig bemesten in het voorjaar met organische mest of compost.",
+                    TrimmingInstructions = "Verwijder in het voorjaar oud of lelijk blad om nieuwe groei te stimuleren.",
+                    TrimmingPeriod = "Vroege voorjaar",
+                    TemperatureRangeMinimum = -20,
+                    TemperatureRangeMaximum = 30
+                }
+                ,
+                // Campanula poscharskyana (Servisch klokje)
+                new Plant
+                {
+                    Id = 42,
+                    LocalName = "Campanula poscharskyana",
+                    CommonName = "Servisch klokje",
+                    Family = "Campanulaceae",
+                    Genus = "Campanula",
+                    Species = "poscharskyana",
+                    Description = "Laagblijvende, kruipende vaste plant met stervormige paarsblauwe bloemen. Ideaal als bodembedekker, voor rotstuinen, muurtjes of randen. Bloeit langdurig in de zomer en is zeer onderhoudsarm.",
+                    ImagePath = diskLocationImages + "Campanula_poscharskyana_Base01.png",
+                    PlantType = PlantType.Perennial,
+                    PlantClassification = PlantClassification.Angiosperms,
+                    PhylumInfo = (Phylum)GetPhylumByName(phyla, "Magnoliophyta"),
+                    IsEatable = false,
+                    Color = "Paarsblauwe bloemen; donkergroen blad",
+                    IsFlowering = true,
+                    IsEvergreen = false, // Half-wintergroen: blad blijft deels in milde winters[5][6]
+                    IsPoisonous = false,
+                    Shape = "Kruipende, bodembedekkende groei, vormt tapijt van bloemen",
+                    FullGrownHeight = 20, // 15-20 cm hoog[5][6]
+                    FullGrownWidth = 60,  // Kan breed uitlopen als bodembedekker
+                    // Plant care properties:
+                    Light = "Zon tot halfschaduw; groeit ook in lichte schaduw[2][5][6]",
+                    Water = "Vochtige, goed doorlatende bodem; droogtetolerant zodra gevestigd[1][5][7]",
+                    Soil = "Voedselrijke, humusrijke, kalkrijke, goed doorlatende grond[2][5][6]",
+                    FertilizationMethod = "In het voorjaar bemesten met organische meststof; op arme zandgrond eventueel herhalen tijdens de bloei[5].",
+                    TrimmingInstructions = "Na de bloei of in het najaar tot 20 cm boven de grond terugsnoeien voor verjonging en compacte groei[1][5][6].",
+                    TrimmingPeriod = "Najaar of direct na de bloei",
+                    TemperatureRangeMinimum = -20, // Goed winterhard[5][6]
+                    TemperatureRangeMaximum = 30
+                }
+                ,
+                // Campanula garganica (Gargano klokje)
+                new Plant
+                {
+                    Id = 43,
+                    LocalName = "Campanula garganica",
+                    CommonName = "Gargano klokje",
+                    Family = "Campanulaceae",
+                    Genus = "Campanula",
+                    Species = "garganica",
+                    Description = "Laagblijvende, bodembedekkende vaste plant met stervormige, lichtblauwe tot violetblauwe bloemen aan kruipende stengels. Ideaal voor rotstuinen, randen en potten. Bloeit rijk in de zomer en trekt bijen en vlinders aan.",
+                    ImagePath = diskLocationImages + "Campanula_garganica_Base01.png",
+                    PlantType = PlantType.Perennial,
+                    PlantClassification = PlantClassification.Angiosperms,
+                    PhylumInfo = (Phylum)GetPhylumByName(phyla, "Magnoliophyta"),
+                    IsEatable = false,
+                    Color = "Lichtblauwe tot violetblauwe bloemen; frisgroen blad",
+                    IsFlowering = true,
+                    IsEvergreen = true, // Bladhoudend in milde winters[2][5]
+                    IsPoisonous = false,
+                    Shape = "Laag, kruipend, bodembedekkend tapijt",
+                    FullGrownHeight = 20, // 10-25 cm[2][5]
+                    FullGrownWidth = 40,  // Kan breed uitlopen als bodembedekker
+                    // Plant care properties:
+                    Light = "Volle zon tot halfschaduw; beste bloei in de zon[1][2][4][5][6]",
+                    Water = "Regelmatig water geven, vooral bij droogte; verdraagt korte periodes van droogte maar niet natte grond in de winter[1][5][3]",
+                    Soil = "Voedselrijke, humusrijke, goed doorlatende grond; neutraal tot licht zuur[1][2][6]",
+                    FertilizationMethod = "Voorjaar licht bemesten met organische mest of compost; bij aanplant universele aanplantgrond gebruiken[1]",
+                    TrimmingInstructions = "Verwijder uitgebloeide bloemen voor een tweede bloei. Knip in het vroege voorjaar verdorde bladeren weg[1][5].",
+                    TrimmingPeriod = "Na de bloei en in het vroege voorjaar",
+                    TemperatureRangeMinimum = -25, // Goed winterhard[1][2]
+                    TemperatureRangeMaximum = 30
+                }
+                ,
+                // Fargesia rufa (Dragon Head Bamboo)
+                new Plant
+                {
+                    Id = 44,
+                    LocalName = "Fargesia rufa",
+                    CommonName = "Dragon Head Bamboo, Niet-woekerende bamboe",
+                    Family = "Poaceae",
+                    Genus = "Fargesia",
+                    Species = "rufa",
+                    Description = "Compacte, niet-woekerende bamboe met sierlijk, frisgroen blad en opgaande, licht overhangende stengels. Ideaal als haag, solitair of in pot. Zeer winterhard, snelgroeiend en bestand tegen ziekten. Geschikt voor zon, halfschaduw en schaduw.",
+                    ImagePath = diskLocationImages + "Fargesia_rufa_Base01.png",
+                    PlantType = PlantType.Shrub,
+                    PlantClassification = PlantClassification.Angiosperms,
+                    PhylumInfo = (Phylum)GetPhylumByName(phyla, "Magnoliophyta"),
+                    IsEatable = false,
+                    Color = "Frisgroen blad; groene tot roodachtige stengels",
+                    IsFlowering = false, // Bamboe bloeit zelden en sterft daarna vaak af
+                    IsEvergreen = true,
+                    IsPoisonous = false,
+                    Shape = "Polvormend, opgaand met licht overhangende stengels",
+                    FullGrownHeight = 300, // 2,5-3 meter[6]
+                    FullGrownWidth = 150,  // 1-1,5 meter[6]
+                    // Plant care properties:
+                    Light = "Volle zon tot schaduw; beste groei in halfschaduw tot lichte zon[1][3][6]",
+                    Water = "Regelmatig water geven, vooral bij droogte en in potten. Houd de grond vochtig maar niet nat.[3][5][7]",
+                    Soil = "Luchtige, vruchtbare, goed doorlatende grond. Voorkeur voor licht vochtige bodem, niet te nat of te droog.[1][3][6]",
+                    FertilizationMethod = "Bemest in het voorjaar en eventueel in de zomer met organische mest of speciale bamboemest.[3][5][6]",
+                    TrimmingInstructions = "Verwijder dode of beschadigde stengels in het voorjaar. Eventueel uitdunnen voor luchtigheid.[3][6]",
+                    TrimmingPeriod = "Vroege voorjaar of na de winter",
+                    TemperatureRangeMinimum = -25, // Zeer winterhard[1][6]
+                    TemperatureRangeMaximum = 35
+                }
+                ,
+                // Digitalis purpurea (Vingerhoedskruid, Foxglove)
+                new Plant
+                {
+                    Id = 45,
+                    LocalName = "Digitalis purpurea",
+                    CommonName = "Vingerhoedskruid, Foxglove",
+                    Family = "Plantaginaceae",
+                    Genus = "Digitalis",
+                    Species = "purpurea",
+                    Description = "Tweejarige of kortlevende vaste plant met een bladrozet in het eerste jaar en een hoge, opgaande bloeistengel in het tweede jaar. De buisvormige bloemen zijn meestal paars, maar kunnen ook roze, wit of geel zijn, vaak met opvallende vlekken aan de binnenzijde. Bekend als sierplant én als bron van de hartmedicatie digoxine. Alle delen zijn giftig.",
+                    ImagePath = diskLocationImages + "Digitalis_purpurea_Base01.png",
+                    PlantType = PlantType.Biennial, // Of Perennial voor sommige cultivars
+                    PlantClassification = PlantClassification.Angiosperms,
+                    PhylumInfo = (Phylum)GetPhylumByName(phyla, "Magnoliophyta"),
+                    IsEatable = false, // Zeer giftig!
+                    Color = "Paars, roze, wit, geel; bloemen met vlekken aan de binnenzijde",
+                    IsFlowering = true,
+                    IsEvergreen = false,
+                    IsPoisonous = true, // Alle delen zijn giftig[1][2][5][6]
+                    Shape = "Bladrozet in jaar één, daarna een hoge, opgaande bloeistengel (1–2 meter) met aarvormige bloeiwijze",
+                    FullGrownHeight = 150, // 100–200 cm[1][6]
+                    FullGrownWidth = 40,   // 30–50 cm
+                    // Plant care properties:
+                    Light = "Volle zon tot halfschaduw; beste bloei in gefilterd zonlicht[2][3]",
+                    Water = "Voorkeur voor gelijkmatig vochtige, goed doorlatende, humusrijke grond[2]",
+                    Soil = "Tolerant, maar liefst lichtzure, humusrijke, losse grond[2]",
+                    FertilizationMethod = "Matig bemesten in het voorjaar met organische meststof.",
+                    TrimmingInstructions = "Verwijder uitgebloeide bloemstengels om zaadzetting te voorkomen of laat staan voor natuurlijke uitzaaiing.",
+                    TrimmingPeriod = "Na de bloei (zomer)",
+                    TemperatureRangeMinimum = -25, // Winterhard tot ca. -25°C[2]
+                    TemperatureRangeMaximum = 30
+                }
+                ,
+                // Elaeagnus × ebbingei (Olijfwilg, Ebbing’s silverberry)
+                new Plant
+                {
+                    Id = 46,
+                    LocalName = "Elaeagnus × ebbingei",
+                    CommonName = "Olijfwilg, Ebbing’s silverberry",
+                    Family = "Elaeagnaceae",
+                    Genus = "Elaeagnus",
+                    Species = "ebbingei",
+                    Description = "Sterke, snelgroeiende, wintergroene struik of haagplant met glanzend donkergroen blad en zilvergrijze onderzijde. In het najaar verschijnen sterk geurende crèmekleurige bloemen, gevolgd door oranje tot roodbruine eetbare bessen in het voorjaar. Zeer geschikt voor hagen, windsingels en kusttuinen vanwege de hoge tolerantie voor wind, zout en arme grond.",
+                    ImagePath = diskLocationImages + "Elaeagnus_ebbingei_Base01.png",
+                    PlantType = PlantType.Shrub,
+                    PlantClassification = PlantClassification.Angiosperms,
+                    PhylumInfo = (Phylum)GetPhylumByName(phyla, "Magnoliophyta"),
+                    IsEatable = true, // Vruchten zijn eetbaar, maar met mate consumeren[1][3][6]
+                    Color = "Donkergroen blad met zilvergrijze onderzijde; crèmekleurige bloemen; oranje/roodbruine bessen",
+                    IsFlowering = true,
+                    IsEvergreen = true, // Wintergroen in milde winters, soms semi-wintergroen bij strenge vorst[1][3][6]
+                    IsPoisonous = false, // Niet giftig, maar bessen in grote hoeveelheden kunnen lichte maagklachten geven[2]
+                    Shape = "Breed, ovaal, dicht vertakt; geschikt als haag of solitair",
+                    FullGrownHeight = 400, // 3-4 meter, soms tot 5 meter[2][3][5][7]
+                    FullGrownWidth = 300,  // 2-3,5 meter[2][3][5][7]
+                    // Plant care properties:
+                    Light = "Volle zon tot halfschaduw; groeit ook in schaduw maar langzamer[2][3][5][6]",
+                    Water = "Drought-tolerant als volwassen, maar geef jonge planten regelmatig water tot ze goed geworteld zijn[2][3][5][6]",
+                    Soil = "Goed doorlatende grond; verdraagt arme, droge, zanderige, kalkrijke en zelfs zoute kustgrond[2][3][5][6]",
+                    FertilizationMethod = "Voorjaar bemesten met organische meststof of compost voor extra groei[2][3]",
+                    TrimmingInstructions = "Snoei in de zomer of na de winter om de vorm te behouden en wildgroei te voorkomen. Kan hard teruggesnoeid worden indien nodig[2][3][5]",
+                    TrimmingPeriod = "Zomer of direct na de winter",
+                    TemperatureRangeMinimum = -15, // Volledig winterhard in Nederland en UK[2][3][5][7]
+                    TemperatureRangeMaximum = 35
+                }
+
 
 
 
@@ -6835,6 +7166,876 @@ namespace PlantGuessingGame.Services
                 });
             }
 
+            //paarse wicka
+            if (genus == "Vicia" && species == "villosa")
+            {
+                ListProblems.Add(new PlantProblem
+                {
+                    ProblemId = 501,
+                    Name = "Root Rot",
+                    Description = "Fungal disease affecting roots, leading to poor emergence and establishment, especially under cold and wet conditions.",
+                    Symptoms = "Poor seedling emergence, yellowing leaves, wilting, stunted growth.",
+                    Causes = "Infection by soil-borne fungi in cold, wet, or waterlogged soils.",
+                    Solutions = "Ensure well-drained soil, avoid overwatering, use disease-free seed, rotate crops to reduce pathogen buildup.",
+                    Severity = "High",
+                    Category = "Disease"
+                });
+
+                ListProblems.Add(new PlantProblem
+                {
+                    ProblemId = 502,
+                    Name = "Anthracnose",
+                    Description = "Fungal disease causing dark lesions on stems and leaves.",
+                    Symptoms = "Dark, sunken lesions on stems and leaves, premature leaf drop.",
+                    Causes = "Fungal infection, often promoted by wet and humid conditions.",
+                    Solutions = "Use resistant varieties if available, practice crop rotation, remove and destroy infected plant material.",
+                    Severity = "Medium",
+                    Category = "Disease"
+                });
+
+                ListProblems.Add(new PlantProblem
+                {
+                    ProblemId = 503,
+                    Name = "Leaf Spot",
+                    Description = "Fungal or bacterial disease resulting in spots on leaves.",
+                    Symptoms = "Brown or black spots on leaves, possible yellowing and premature leaf drop.",
+                    Causes = "Fungal or bacterial pathogens, often in wet or humid conditions.",
+                    Solutions = "Improve air circulation, avoid overhead watering, remove infected leaves, apply fungicide if necessary.",
+                    Severity = "Medium",
+                    Category = "Disease"
+                });
+
+                ListProblems.Add(new PlantProblem
+                {
+                    ProblemId = 504,
+                    Name = "Rust",
+                    Description = "Fungal disease causing orange or brown pustules on leaf undersides.",
+                    Symptoms = "Orange or brown pustules on leaves, leaf yellowing, premature drop.",
+                    Causes = "Fungal infection, favored by humid conditions.",
+                    Solutions = "Remove affected leaves, improve air circulation, use resistant varieties if available.",
+                    Severity = "Medium",
+                    Category = "Disease"
+                });
+
+                ListProblems.Add(new PlantProblem
+                {
+                    ProblemId = 505,
+                    Name = "Downy Mildew",
+                    Description = "Fungal disease causing yellowing and mottling of leaves.",
+                    Symptoms = "Yellow spots or mottling on leaves, fuzzy growth on undersides.",
+                    Causes = "Fungal spores in humid, cool conditions.",
+                    Solutions = "Ensure good air flow, avoid overhead irrigation, remove affected foliage.",
+                    Severity = "Medium",
+                    Category = "Disease"
+                });
+
+                ListProblems.Add(new PlantProblem
+                {
+                    ProblemId = 506,
+                    Name = "Nematodes",
+                    Description = "Soil-dwelling roundworms (such as soybean cyst and root-knot nematodes) that damage roots.",
+                    Symptoms = "Stunted growth, yellowing leaves, poor vigor, root galls or cysts.",
+                    Causes = "Infestation by nematodes in the soil.",
+                    Solutions = "Rotate crops, use resistant varieties if available, solarize soil before planting.",
+                    Severity = "Medium",
+                    Category = "Pest"
+                });
+
+                ListProblems.Add(new PlantProblem
+                {
+                    ProblemId = 507,
+                    Name = "Weediness / Self-seeding",
+                    Description = "Hairy vetch can become a problematic weed in subsequent crops or open spaces due to its ability to self-seed and persist.",
+                    Symptoms = "Unwanted vetch growth in following crops or garden beds.",
+                    Causes = "Self-reseeding and persistence of hard seed in the soil.",
+                    Solutions = "Mow or incorporate before seed set, monitor and remove volunteers in following seasons.",
+                    Severity = "Low",
+                    Category = "Cultural"
+                });
+
+                ListProblems.Add(new PlantProblem
+                {
+                    ProblemId = 508,
+                    Name = "Toxicity to Livestock",
+                    Description = "Hairy vetch can cause toxicosis in horses and cattle, especially if large amounts are consumed.",
+                    Symptoms = "Weight loss, skin irritation, peeling skin, enlarged lymph nodes, swelling of lower limbs (in horses).",
+                    Causes = "Consumption of hairy vetch plants or seeds containing anti-nutritional compounds.",
+                    Solutions = "Prevent livestock access to vetch, especially horses; remove vetch from pastures and feed.",
+                    Severity = "High",
+                    Category = "Toxicity"
+                });
+            }
+
+            if (genus == "Heuchera" && species == "Mulberry")
+            {
+                ListProblems.Add(new PlantProblem
+                {
+                    ProblemId = 601,
+                    Name = "Vine Weevil (Taxuskever)",
+                    Description = "Larvae of the vine weevil feed on the roots, causing sudden wilting and plant collapse.",
+                    Symptoms = "Sudden wilting, stunted growth, roots with notched edges or missing sections.",
+                    Causes = "Infestation by vine weevil larvae, especially in pots or containers.",
+                    Solutions = "Remove and destroy affected plants, use nematodes (biological control), inspect roots regularly, use insecticide if needed.",
+                    Severity = "High",
+                    Category = "Pest"
+                });
+
+                ListProblems.Add(new PlantProblem
+                {
+                    ProblemId = 602,
+                    Name = "Powdery Mildew",
+                    Description = "Fungal disease causing a white, powdery coating on leaves, especially in humid conditions.",
+                    Symptoms = "White powdery patches on leaves, leaf distortion, reduced vigor.",
+                    Causes = "Fungal infection, often due to poor air circulation and damp weather.",
+                    Solutions = "Improve air circulation, avoid overhead watering, remove affected leaves, use fungicide if necessary.",
+                    Severity = "Medium",
+                    Category = "Disease"
+                });
+
+                ListProblems.Add(new PlantProblem
+                {
+                    ProblemId = 603,
+                    Name = "Rust",
+                    Description = "Fungal disease causing orange or brown pustules on the undersides of leaves.",
+                    Symptoms = "Orange or brown spots/pustules on leaves, premature leaf drop.",
+                    Causes = "Fungal spores, often spread in moist conditions.",
+                    Solutions = "Remove and destroy affected leaves, improve air movement, use fungicide if needed.",
+                    Severity = "Medium",
+                    Category = "Disease"
+                });
+
+                ListProblems.Add(new PlantProblem
+                {
+                    ProblemId = 604,
+                    Name = "Crown Rot / Root Rot",
+                    Description = "Rotting at the base or roots due to waterlogged soil or poor drainage.",
+                    Symptoms = "Yellowing leaves, wilting, blackened or mushy crown/roots, plant collapse.",
+                    Causes = "Overwatering, heavy or poorly drained soil, fungal pathogens.",
+                    Solutions = "Plant in well-drained soil, avoid overwatering, remove and destroy affected plants.",
+                    Severity = "High",
+                    Category = "Disease"
+                });
+
+                ListProblems.Add(new PlantProblem
+                {
+                    ProblemId = 605,
+                    Name = "Leaf Scorch or Sunburn",
+                    Description = "Leaf edges turn brown and crispy, especially in hot sun or dry winds.",
+                    Symptoms = "Brown, crispy leaf edges, leaf drop, faded foliage color.",
+                    Causes = "Excessive sun, hot dry winds, insufficient soil moisture.",
+                    Solutions = "Provide light shade in hottest part of day, ensure consistent moisture, mulch to retain soil moisture.",
+                    Severity = "Low",
+                    Category = "Cultural"
+                });
+
+                ListProblems.Add(new PlantProblem
+                {
+                    ProblemId = 606,
+                    Name = "Leggy Growth / Loss of Color",
+                    Description = "Plants become stretched with pale leaves due to too much shade or old foliage.",
+                    Symptoms = "Leggy stems, pale or dull leaf color, reduced vigor.",
+                    Causes = "Too much shade, aging foliage, overcrowding.",
+                    Solutions = "Move to a brighter spot, divide clumps every few years, prune old leaves in spring.",
+                    Severity = "Low",
+                    Category = "Cultural"
+                });
+            }
+
+            if (genus == "Sedum" && species == "spectabile")
+            {
+                ListProblems.Add(new PlantProblem
+                {
+                    ProblemId = 701,
+                    Name = "Root Rot",
+                    Description = "Fungal disease causing root decay, often due to overwatering or poorly drained soil.",
+                    Symptoms = "Yellowing leaves, wilting, mushy stems at soil level, plant collapse.",
+                    Causes = "Excess moisture, poor drainage, heavy soils.",
+                    Solutions = "Plant in well-drained soil, avoid overwatering, remove and destroy affected plants.",
+                    Severity = "High",
+                    Category = "Disease"
+                });
+
+                ListProblems.Add(new PlantProblem
+                {
+                    ProblemId = 702,
+                    Name = "Powdery Mildew",
+                    Description = "Fungal disease causing white, powdery coating on leaves and stems.",
+                    Symptoms = "White powdery patches on leaves and stems, leaf distortion, reduced vigor.",
+                    Causes = "Fungal spores, often in humid or crowded conditions.",
+                    Solutions = "Improve air circulation, avoid overhead watering, remove affected leaves, apply fungicide if necessary.",
+                    Severity = "Medium",
+                    Category = "Disease"
+                });
+
+                ListProblems.Add(new PlantProblem
+                {
+                    ProblemId = 703,
+                    Name = "Aphids",
+                    Description = "Sap-sucking insects that cluster on new growth, causing distortion and sticky residue.",
+                    Symptoms = "Distorted young shoots, sticky honeydew, possible sooty mold.",
+                    Causes = "Infestation by aphids, especially in spring and summer.",
+                    Solutions = "Spray with water, use insecticidal soap or neem oil, encourage natural predators like ladybugs.",
+                    Severity = "Low",
+                    Category = "Pest"
+                });
+
+                ListProblems.Add(new PlantProblem
+                {
+                    ProblemId = 704,
+                    Name = "Slugs and Snails",
+                    Description = "Mollusks that chew holes in leaves, particularly in wet weather or shady locations.",
+                    Symptoms = "Irregular holes in leaves, slime trails.",
+                    Causes = "Presence of slugs and snails, especially in damp conditions.",
+                    Solutions = "Hand-pick at dusk, use slug pellets or traps, keep area around plants clear of debris.",
+                    Severity = "Low",
+                    Category = "Pest"
+                });
+
+                ListProblems.Add(new PlantProblem
+                {
+                    ProblemId = 705,
+                    Name = "Leggy Growth / Flopping",
+                    Description = "Stems become weak and fall over, especially in too much shade or overly rich soil.",
+                    Symptoms = "Tall, weak stems that flop over, sparse growth.",
+                    Causes = "Too much shade, over-fertilization, overcrowding.",
+                    Solutions = "Grow in full sun, avoid excess fertilizer, divide clumps every few years.",
+                    Severity = "Low",
+                    Category = "Cultural"
+                });
+
+                ListProblems.Add(new PlantProblem
+                {
+                    ProblemId = 706,
+                    Name = "Leaf Spot",
+                    Description = "Fungal or bacterial disease causing brown or black spots on leaves.",
+                    Symptoms = "Spots on leaves, possible yellowing or premature leaf drop.",
+                    Causes = "Fungal or bacterial pathogens, often in wet or humid conditions.",
+                    Solutions = "Remove affected leaves, improve air circulation, avoid overhead watering, apply fungicide if needed.",
+                    Severity = "Low",
+                    Category = "Disease"
+                });
+
+                ListProblems.Add(new PlantProblem
+                {
+                    ProblemId = 707,
+                    Name = "Overwatering",
+                    Description = "Sedum is drought-tolerant and sensitive to excess moisture.",
+                    Symptoms = "Yellowing, mushy leaves, root rot.",
+                    Causes = "Watering too frequently or planting in heavy, poorly draining soil.",
+                    Solutions = "Allow soil to dry between waterings, plant in sandy or well-drained soil.",
+                    Severity = "Medium",
+                    Category = "Cultural"
+                });
+            }
+
+            if (genus == "Erica" && species == "carnea")
+            {
+                ListProblems.Add(new PlantProblem
+                {
+                    ProblemId = 801,
+                    Name = "Root Rot (Wortelrot)",
+                    Description = "Fungal disease causing decay of roots, often due to waterlogged or poorly drained soil.",
+                    Symptoms = "Gele bladeren, verwelking, plant sterft af, bruine of zwarte rotte wortels.",
+                    Causes = "Overbewatering, slechte drainage, zware kleigrond.",
+                    Solutions = "Plant in goed doorlatende, bij voorkeur zure grond. Vermijd overbewatering. Verwijder aangetaste planten.",
+                    Severity = "High",
+                    Category = "Disease"
+                });
+
+                ListProblems.Add(new PlantProblem
+                {
+                    ProblemId = 802,
+                    Name = "Leaf Spot (Bladvlekkenziekte)",
+                    Description = "Fungal or bacterial disease causing brown or black spots on leaves.",
+                    Symptoms = "Bruine of zwarte vlekken op bladeren, bladval.",
+                    Causes = "Schimmels of bacteriën, vaak bij nat weer of slechte luchtcirculatie.",
+                    Solutions = "Verwijder aangetaste bladeren, verbeter luchtcirculatie, vermijd natte bladeren, gebruik eventueel fungicide.",
+                    Severity = "Medium",
+                    Category = "Disease"
+                });
+
+                ListProblems.Add(new PlantProblem
+                {
+                    ProblemId = 803,
+                    Name = "Powdery Mildew (Meeldauw)",
+                    Description = "Fungal disease causing white, powdery coating on leaves and stems.",
+                    Symptoms = "Witte poederachtige aanslag op bladeren en stengels, groeiremming.",
+                    Causes = "Schimmelsporen, vaak bij vochtig en warm weer.",
+                    Solutions = "Verbeter luchtcirculatie, verwijder aangetaste delen, gebruik eventueel fungicide.",
+                    Severity = "Medium",
+                    Category = "Disease"
+                });
+
+                ListProblems.Add(new PlantProblem
+                {
+                    ProblemId = 804,
+                    Name = "Winter Damage (Vorstschade)",
+                    Description = "Damage to foliage and stems due to severe frost or drying winter winds.",
+                    Symptoms = "Bruine, verdroogde bladeren, afgestorven toppen.",
+                    Causes = "Strenge vorst, uitdrogende wind, onvoldoende bescherming.",
+                    Solutions = "Bescherm planten met vliesdoek bij strenge vorst, plant op beschutte plek.",
+                    Severity = "Low",
+                    Category = "Environmental"
+                });
+
+                ListProblems.Add(new PlantProblem
+                {
+                    ProblemId = 805,
+                    Name = "Yellowing Leaves (Verkleurde bladeren)",
+                    Description = "Leaves turn yellow, often due to unsuitable soil pH or nutrient deficiency.",
+                    Symptoms = "Gele bladeren, slechte groei.",
+                    Causes = "Te kalkrijke grond (niet zuur genoeg), ijzergebrek.",
+                    Solutions = "Plant in zure, humusrijke grond. Voeg turf of speciale heidegrond toe. Gebruik ijzermeststof indien nodig.",
+                    Severity = "Medium",
+                    Category = "Nutrient"
+                });
+
+                ListProblems.Add(new PlantProblem
+                {
+                    ProblemId = 806,
+                    Name = "Leggy Growth (Slappe groei)",
+                    Description = "Plants become leggy and sparse due to lack of pruning or too much shade.",
+                    Symptoms = "Lange, slappe stengels, weinig bloemen.",
+                    Causes = "Te weinig licht, geen jaarlijkse snoei.",
+                    Solutions = "Snoei na de bloei om compacte groei te stimuleren. Plant op lichte plek.",
+                    Severity = "Low",
+                    Category = "Cultural"
+                });
+
+                ListProblems.Add(new PlantProblem
+                {
+                    ProblemId = 807,
+                    Name = "Aphids (Bladluizen)",
+                    Description = "Small sap-sucking insects that can cause distorted growth and sticky residue.",
+                    Symptoms = "Kleine insecten op jonge scheuten, plakkerige honingdauw, misvormde bladeren.",
+                    Causes = "Bladluizen, vooral in het voorjaar.",
+                    Solutions = "Spoel af met water, gebruik natuurlijke vijanden (lieveheersbeestjes), eventueel insecticide.",
+                    Severity = "Low",
+                    Category = "Pest"
+                });
+            }
+
+            if (genus == "Carex" && species == "morrowii")
+            {
+                ListProblems.Add(new PlantProblem
+                {
+                    ProblemId = 901,
+                    Name = "Root Rot (Wortelrot)",
+                    Description = "Fungal disease causing root decay, especially in poorly drained or waterlogged soil.",
+                    Symptoms = "Gele bladeren, verwelking, plant sterft af, bruine of rotte wortels.",
+                    Causes = "Overbewatering, slechte drainage, zware grond.",
+                    Solutions = "Plant in goed doorlatende grond, vermijd overbewatering, verwijder aangetaste planten.",
+                    Severity = "High",
+                    Category = "Disease"
+                });
+
+                ListProblems.Add(new PlantProblem
+                {
+                    ProblemId = 902,
+                    Name = "Rust (Roest)",
+                    Description = "Fungal disease causing orange or brown pustules on leaves.",
+                    Symptoms = "Oranje of bruine vlekken/pustules op bladeren, bladval.",
+                    Causes = "Schimmelsporen, vooral bij vochtig weer.",
+                    Solutions = "Verwijder aangetaste bladeren, verbeter luchtcirculatie, gebruik eventueel fungicide.",
+                    Severity = "Medium",
+                    Category = "Disease"
+                });
+
+                ListProblems.Add(new PlantProblem
+                {
+                    ProblemId = 903,
+                    Name = "Leaf Spot (Bladvlekkenziekte)",
+                    Description = "Fungal or bacterial disease causing brown or black spots on leaves.",
+                    Symptoms = "Bruine of zwarte vlekken op bladeren, mogelijk bladval.",
+                    Causes = "Schimmels of bacteriën, vaak bij nat weer of slechte luchtcirculatie.",
+                    Solutions = "Verwijder aangetaste bladeren, verbeter luchtcirculatie, gebruik eventueel fungicide.",
+                    Severity = "Medium",
+                    Category = "Disease"
+                });
+
+                ListProblems.Add(new PlantProblem
+                {
+                    ProblemId = 904,
+                    Name = "Slugs and Snails (Slakken en naaktslakken)",
+                    Description = "Slugs and snails feed on young leaves, causing holes and ragged edges.",
+                    Symptoms = "Gaten in bladeren, rafelige bladranden, slijmsporen.",
+                    Causes = "Aanwezigheid van slakken, vooral bij vochtig weer.",
+                    Solutions = "Verwijder slakken handmatig, gebruik slakkenkorrels of biologische bestrijding.",
+                    Severity = "Low",
+                    Category = "Pest"
+                });
+
+                ListProblems.Add(new PlantProblem
+                {
+                    ProblemId = 905,
+                    Name = "Leaf Tip Browning (Bruine bladpunten)",
+                    Description = "Leaf tips turn brown due to drought, salt buildup, or inconsistent watering.",
+                    Symptoms = "Bruine bladpunten, soms uitdroging van hele bladeren.",
+                    Causes = "Te droge grond, te veel mest of zout, onregelmatig water geven.",
+                    Solutions = "Zorg voor gelijkmatige vochtigheid, spoel overtollige mest/zout uit de grond, vermijd uitdroging.",
+                    Severity = "Low",
+                    Category = "Cultural"
+                });
+
+                ListProblems.Add(new PlantProblem
+                {
+                    ProblemId = 906,
+                    Name = "Leggy Growth (Slappe groei)",
+                    Description = "Plants become leggy and sparse due to too much shade or overcrowding.",
+                    Symptoms = "Lange, slappe stengels, weinig blad.",
+                    Causes = "Te veel schaduw, te dicht op elkaar geplante pollen.",
+                    Solutions = "Verdeel pollen om de paar jaar, plant op een lichtere plek.",
+                    Severity = "Low",
+                    Category = "Cultural"
+                });
+            }
+
+            if (genus == "Campanula" && species == "poscharskyana")
+            {
+                ListProblems.Add(new PlantProblem
+                {
+                    ProblemId = 1001,
+                    Name = "Root Rot (Wortelrot)",
+                    Description = "Fungal disease causing root decay, especially in poorly drained or waterlogged soil.",
+                    Symptoms = "Gele bladeren, verwelking, plant sterft af, bruine of rotte wortels.",
+                    Causes = "Overbewatering, slechte drainage, zware grond.",
+                    Solutions = "Plant in goed doorlatende grond, vermijd overbewatering, verwijder aangetaste planten.",
+                    Severity = "High",
+                    Category = "Disease"
+                });
+
+                ListProblems.Add(new PlantProblem
+                {
+                    ProblemId = 1002,
+                    Name = "Powdery Mildew (Meeldauw)",
+                    Description = "Fungal disease causing a white, powdery coating on leaves and stems, especially in humid conditions.",
+                    Symptoms = "Witte poederachtige aanslag op bladeren en stengels, groeiremming.",
+                    Causes = "Schimmelsporen, vaak bij vochtig en warm weer.",
+                    Solutions = "Verbeter luchtcirculatie, verwijder aangetaste delen, gebruik eventueel fungicide.",
+                    Severity = "Medium",
+                    Category = "Disease"
+                });
+
+                ListProblems.Add(new PlantProblem
+                {
+                    ProblemId = 1003,
+                    Name = "Leaf Spot (Bladvlekkenziekte)",
+                    Description = "Fungal or bacterial disease causing brown or black spots on leaves.",
+                    Symptoms = "Bruine of zwarte vlekken op bladeren, mogelijk bladval.",
+                    Causes = "Schimmels of bacteriën, vaak bij nat weer of slechte luchtcirculatie.",
+                    Solutions = "Verwijder aangetaste bladeren, verbeter luchtcirculatie, gebruik eventueel fungicide.",
+                    Severity = "Medium",
+                    Category = "Disease"
+                });
+
+                ListProblems.Add(new PlantProblem
+                {
+                    ProblemId = 1004,
+                    Name = "Slugs and Snails (Slakken en naaktslakken)",
+                    Description = "Slugs and snails feed on young leaves and shoots, causing holes and ragged edges.",
+                    Symptoms = "Gaten in bladeren, rafelige bladranden, slijmsporen.",
+                    Causes = "Aanwezigheid van slakken, vooral bij vochtig weer.",
+                    Solutions = "Verwijder slakken handmatig, gebruik slakkenkorrels of biologische bestrijding.",
+                    Severity = "Low",
+                    Category = "Pest"
+                });
+
+                ListProblems.Add(new PlantProblem
+                {
+                    ProblemId = 1005,
+                    Name = "Aphids (Bladluizen)",
+                    Description = "Small sap-sucking insects that can cause distorted growth and sticky residue.",
+                    Symptoms = "Kleine insecten op jonge scheuten, plakkerige honingdauw, misvormde bladeren.",
+                    Causes = "Bladluizen, vooral in het voorjaar.",
+                    Solutions = "Spoel af met water, gebruik natuurlijke vijanden (lieveheersbeestjes), eventueel insecticide.",
+                    Severity = "Low",
+                    Category = "Pest"
+                });
+
+                ListProblems.Add(new PlantProblem
+                {
+                    ProblemId = 1006,
+                    Name = "Leggy Growth (Slappe groei)",
+                    Description = "Plants become leggy and sparse due to too much shade or overcrowding.",
+                    Symptoms = "Lange, slappe stengels, weinig bloemen.",
+                    Causes = "Te veel schaduw, te dicht op elkaar geplante pollen.",
+                    Solutions = "Verdeel pollen om de paar jaar, plant op een lichtere plek.",
+                    Severity = "Low",
+                    Category = "Cultural"
+                });
+
+                ListProblems.Add(new PlantProblem
+                {
+                    ProblemId = 1007,
+                    Name = "Winter Damage (Vorstschade)",
+                    Description = "Damage to foliage and stems due to severe frost or drying winter winds.",
+                    Symptoms = "Bruine, verdroogde bladeren, afgestorven toppen.",
+                    Causes = "Strenge vorst, uitdrogende wind, onvoldoende bescherming.",
+                    Solutions = "Bescherm planten met vliesdoek bij strenge vorst, plant op beschutte plek.",
+                    Severity = "Low",
+                    Category = "Environmental"
+                });
+            }
+
+            if (genus == "Campanula" && species == "garganica")
+            {
+                ListProblems.Add(new PlantProblem
+                {
+                    ProblemId = 1101,
+                    Name = "Root Rot (Wortelrot)",
+                    Description = "Fungal disease causing root decay, especially in poorly drained or waterlogged soil.",
+                    Symptoms = "Gele bladeren, verwelking, plant sterft af, bruine of rotte wortels.",
+                    Causes = "Overbewatering, slechte drainage, zware grond.",
+                    Solutions = "Plant in goed doorlatende grond, vermijd overbewatering, verwijder aangetaste planten.",
+                    Severity = "High",
+                    Category = "Disease"
+                });
+
+                ListProblems.Add(new PlantProblem
+                {
+                    ProblemId = 1102,
+                    Name = "Powdery Mildew (Meeldauw)",
+                    Description = "Fungal disease causing a white, powdery coating on leaves and stems, especially in humid conditions.",
+                    Symptoms = "Witte poederachtige aanslag op bladeren en stengels, groeiremming.",
+                    Causes = "Schimmelsporen, vaak bij vochtig en warm weer.",
+                    Solutions = "Verbeter luchtcirculatie, verwijder aangetaste delen, gebruik eventueel fungicide.",
+                    Severity = "Medium",
+                    Category = "Disease"
+                });
+
+                ListProblems.Add(new PlantProblem
+                {
+                    ProblemId = 1103,
+                    Name = "Leaf Spot (Bladvlekkenziekte)",
+                    Description = "Fungal or bacterial disease causing brown or black spots on leaves.",
+                    Symptoms = "Bruine of zwarte vlekken op bladeren, mogelijk bladval.",
+                    Causes = "Schimmels of bacteriën, vaak bij nat weer of slechte luchtcirculatie.",
+                    Solutions = "Verwijder aangetaste bladeren, verbeter luchtcirculatie, gebruik eventueel fungicide.",
+                    Severity = "Medium",
+                    Category = "Disease"
+                });
+
+                ListProblems.Add(new PlantProblem
+                {
+                    ProblemId = 1104,
+                    Name = "Slugs and Snails (Slakken en naaktslakken)",
+                    Description = "Slugs and snails feed on young leaves and shoots, causing holes and ragged edges.",
+                    Symptoms = "Gaten in bladeren, rafelige bladranden, slijmsporen.",
+                    Causes = "Aanwezigheid van slakken, vooral bij vochtig weer.",
+                    Solutions = "Verwijder slakken handmatig, gebruik slakkenkorrels of biologische bestrijding.",
+                    Severity = "Low",
+                    Category = "Pest"
+                });
+
+                ListProblems.Add(new PlantProblem
+                {
+                    ProblemId = 1105,
+                    Name = "Aphids (Bladluizen)",
+                    Description = "Small sap-sucking insects that can cause distorted growth and sticky residue.",
+                    Symptoms = "Kleine insecten op jonge scheuten, plakkerige honingdauw, misvormde bladeren.",
+                    Causes = "Bladluizen, vooral in het voorjaar.",
+                    Solutions = "Spoel af met water, gebruik natuurlijke vijanden (lieveheersbeestjes), eventueel insecticide.",
+                    Severity = "Low",
+                    Category = "Pest"
+                });
+
+                ListProblems.Add(new PlantProblem
+                {
+                    ProblemId = 1106,
+                    Name = "Leggy Growth (Slappe groei)",
+                    Description = "Plants become leggy and sparse due to too much shade or overcrowding.",
+                    Symptoms = "Lange, slappe stengels, weinig bloemen.",
+                    Causes = "Te veel schaduw, te dicht op elkaar geplante pollen.",
+                    Solutions = "Verdeel pollen om de paar jaar, plant op een lichtere plek.",
+                    Severity = "Low",
+                    Category = "Cultural"
+                });
+
+                ListProblems.Add(new PlantProblem
+                {
+                    ProblemId = 1107,
+                    Name = "Winter Damage (Vorstschade)",
+                    Description = "Damage to foliage and stems due to severe frost or drying winter winds.",
+                    Symptoms = "Bruine, verdroogde bladeren, afgestorven toppen.",
+                    Causes = "Strenge vorst, uitdrogende wind, onvoldoende bescherming.",
+                    Solutions = "Bescherm planten met vliesdoek bij strenge vorst, plant op beschutte plek.",
+                    Severity = "Low",
+                    Category = "Environmental"
+                });
+            }
+
+            if (genus == "Fargesia" && species == "rufa")
+            {
+                ListProblems.Add(new PlantProblem
+                {
+                    ProblemId = 1201,
+                    Name = "Leaf Curling and Browning",
+                    Description = "Leaves curl or develop brown edges/tips, often due to drought, wind, or strong sun.",
+                    Symptoms = "Opgerolde bladeren, bruine bladpunten of bladranden, soms bladval.",
+                    Causes = "Te droge grond, felle zon, uitdrogende wind, of te weinig water.",
+                    Solutions = "Zorg voor voldoende water, geef extra water bij droogte, plant op een beschutte plek of geef schaduw tijdens hete periodes.",
+                    Severity = "Medium",
+                    Category = "Environmental"
+                });
+
+                ListProblems.Add(new PlantProblem
+                {
+                    ProblemId = 1202,
+                    Name = "Yellowing Leaves (Chlorosis)",
+                    Description = "Leaves turn yellow, often due to nutrient deficiency, compacted soil, or poor drainage.",
+                    Symptoms = "Gele bladeren, soms slechte groei.",
+                    Causes = "Voedingsgebrek (vooral stikstof), slechte drainage, te natte of te compacte grond.",
+                    Solutions = "Verbeter de bodemstructuur, geef organische mest in het voorjaar, zorg voor goede drainage.",
+                    Severity = "Low",
+                    Category = "Nutrient"
+                });
+
+                ListProblems.Add(new PlantProblem
+                {
+                    ProblemId = 1203,
+                    Name = "Root Rot (Wortelrot)",
+                    Description = "Fungal disease causing root decay, especially in poorly drained or waterlogged soil.",
+                    Symptoms = "Gele bladeren, verwelking, plant sterft af, bruine of rotte wortels.",
+                    Causes = "Overbewatering, slechte drainage.",
+                    Solutions = "Plant in goed doorlatende grond, vermijd overbewatering, verwijder aangetaste planten.",
+                    Severity = "High",
+                    Category = "Disease"
+                });
+
+                ListProblems.Add(new PlantProblem
+                {
+                    ProblemId = 1204,
+                    Name = "Winter Damage (Vorstschade)",
+                    Description = "Damage to foliage and stems due to severe frost or drying winter winds.",
+                    Symptoms = "Bruine, verdroogde bladeren, afgestorven toppen na strenge vorst.",
+                    Causes = "Strenge vorst, uitdrogende wind, onvoldoende bescherming.",
+                    Solutions = "Bescherm planten met vliesdoek bij strenge vorst, plant op beschutte plek.",
+                    Severity = "Low",
+                    Category = "Environmental"
+                });
+
+                ListProblems.Add(new PlantProblem
+                {
+                    ProblemId = 1205,
+                    Name = "Spider Mites (Spint)",
+                    Description = "Tiny pests that cause stippling and yellowing of leaves, especially in hot, dry conditions.",
+                    Symptoms = "Gele stipjes op bladeren, fijne spinnenwebben, bladval.",
+                    Causes = "Spintmijt, vooral bij droge lucht en warmte.",
+                    Solutions = "Verhoog luchtvochtigheid, spoel bladeren af met water, gebruik biologische of chemische bestrijding indien nodig.",
+                    Severity = "Low",
+                    Category = "Pest"
+                });
+
+                ListProblems.Add(new PlantProblem
+                {
+                    ProblemId = 1206,
+                    Name = "Pale or Sparse Growth",
+                    Description = "Weak, pale, or sparse growth due to insufficient nutrients or light.",
+                    Symptoms = "Bleek, dun blad, trage groei.",
+                    Causes = "Te weinig voeding, te veel schaduw.",
+                    Solutions = "Geef organische mest in het voorjaar, plant op een lichtere plek indien mogelijk.",
+                    Severity = "Low",
+                    Category = "Cultural"
+                });
+            }
+
+            if (genus == "Digitalis" && species == "purpurea")
+            {
+                ListProblems.Add(new PlantProblem
+                {
+                    ProblemId = 1301,
+                    Name = "Crown Rot / Root Rot",
+                    Description = "Fungal disease causing decay at the base or roots, often due to waterlogged or poorly drained soil.",
+                    Symptoms = "Gele bladeren, verwelking, zwarte of slijmerige wortels, plant sterft af.",
+                    Causes = "Overbewatering, slechte drainage, zware grond.",
+                    Solutions = "Plant in goed doorlatende grond, vermijd overbewatering, verwijder aangetaste planten.",
+                    Severity = "High",
+                    Category = "Disease"
+                });
+
+                ListProblems.Add(new PlantProblem
+                {
+                    ProblemId = 1302,
+                    Name = "Powdery Mildew",
+                    Description = "Fungal disease causing a white, powdery coating on leaves and stems, especially in humid conditions.",
+                    Symptoms = "Witte poederachtige aanslag op bladeren en stengels, groeiremming.",
+                    Causes = "Schimmelsporen, vaak bij vochtig en warm weer.",
+                    Solutions = "Verbeter luchtcirculatie, verwijder aangetaste delen, gebruik eventueel fungicide.",
+                    Severity = "Medium",
+                    Category = "Disease"
+                });
+
+                ListProblems.Add(new PlantProblem
+                {
+                    ProblemId = 1303,
+                    Name = "Leaf Spot",
+                    Description = "Fungal or bacterial disease causing brown or black spots on leaves.",
+                    Symptoms = "Bruine of zwarte vlekken op bladeren, bladval.",
+                    Causes = "Schimmels of bacteriën, vaak bij nat weer of slechte luchtcirculatie.",
+                    Solutions = "Verwijder aangetaste bladeren, verbeter luchtcirculatie, gebruik eventueel fungicide.",
+                    Severity = "Medium",
+                    Category = "Disease"
+                });
+
+                ListProblems.Add(new PlantProblem
+                {
+                    ProblemId = 1304,
+                    Name = "Aphids (Bladluizen)",
+                    Description = "Small sap-sucking insects that can cause distorted growth and sticky residue.",
+                    Symptoms = "Kleine insecten op jonge scheuten, plakkerige honingdauw, misvormde bladeren.",
+                    Causes = "Bladluizen, vooral in het voorjaar.",
+                    Solutions = "Spoel af met water, gebruik natuurlijke vijanden (lieveheersbeestjes), eventueel insecticide.",
+                    Severity = "Low",
+                    Category = "Pest"
+                });
+
+                ListProblems.Add(new PlantProblem
+                {
+                    ProblemId = 1305,
+                    Name = "Slugs and Snails (Slakken en naaktslakken)",
+                    Description = "Slugs and snails feed on young leaves and shoots, causing holes and ragged edges.",
+                    Symptoms = "Gaten in bladeren, rafelige bladranden, slijmsporen.",
+                    Causes = "Aanwezigheid van slakken, vooral bij vochtig weer.",
+                    Solutions = "Verwijder slakken handmatig, gebruik slakkenkorrels of biologische bestrijding.",
+                    Severity = "Low",
+                    Category = "Pest"
+                });
+
+                ListProblems.Add(new PlantProblem
+                {
+                    ProblemId = 1306,
+                    Name = "Leggy Growth / Flopping",
+                    Description = "Stems become weak and fall over, especially in too much shade or overly rich soil.",
+                    Symptoms = "Lange, slappe stengels, weinig bloemen, planten vallen om.",
+                    Causes = "Te veel schaduw, overbemesting, te rijke grond.",
+                    Solutions = "Plant op een lichtere plek, vermijd overbemesting, geef steun indien nodig.",
+                    Severity = "Low",
+                    Category = "Cultural"
+                });
+
+                ListProblems.Add(new PlantProblem
+                {
+                    ProblemId = 1307,
+                    Name = "Toxicity to Humans and Animals",
+                    Description = "All parts of Digitalis purpurea are highly poisonous if ingested.",
+                    Symptoms = "Misselijkheid, braken, hartritmestoornissen, soms dodelijk bij inname.",
+                    Causes = "Inname van bladeren, bloemen of zaden door kinderen, huisdieren of vee.",
+                    Solutions = "Waarschuw voor giftigheid, plant buiten bereik van kinderen en dieren.",
+                    Severity = "High",
+                    Category = "Toxicity"
+                });
+            }
+
+            if (genus == "Elaeagnus" && species == "ebbingei")
+            {
+                ListProblems.Add(new PlantProblem
+                {
+                    ProblemId = 1401,
+                    Name = "Leaf Spot",
+                    Description = "Fungal or bacterial disease causing brown or black spots on leaves, sometimes leading to leaf drop.",
+                    Symptoms = "Bruine of zwarte vlekken op bladeren, soms bladval.",
+                    Causes = "Schimmels of bacteriën, vaak bij nat weer of slechte luchtcirculatie.",
+                    Solutions = "Verwijder aangetaste bladeren, verbeter luchtcirculatie, vermijd natte bladeren, gebruik eventueel fungicide.",
+                    Severity = "Medium",
+                    Category = "Disease"
+                });
+
+                ListProblems.Add(new PlantProblem
+                {
+                    ProblemId = 1402,
+                    Name = "Powdery Mildew",
+                    Description = "Fungal disease causing white, powdery coating on leaves and shoots.",
+                    Symptoms = "Witte poederachtige aanslag op bladeren en jonge scheuten.",
+                    Causes = "Schimmelsporen, vaak bij vochtig weer en slechte luchtcirculatie.",
+                    Solutions = "Verbeter luchtcirculatie, verwijder aangetaste delen, gebruik eventueel fungicide.",
+                    Severity = "Medium",
+                    Category = "Disease"
+                });
+
+                ListProblems.Add(new PlantProblem
+                {
+                    ProblemId = 1403,
+                    Name = "Root Rot",
+                    Description = "Fungal disease causing root decay, especially in poorly drained or waterlogged soil.",
+                    Symptoms = "Gele bladeren, verwelking, plant sterft af, bruine of rotte wortels.",
+                    Causes = "Overbewatering, slechte drainage, zware grond.",
+                    Solutions = "Plant in goed doorlatende grond, vermijd overbewatering, verwijder aangetaste planten.",
+                    Severity = "High",
+                    Category = "Disease"
+                });
+
+                ListProblems.Add(new PlantProblem
+                {
+                    ProblemId = 1404,
+                    Name = "Aphids (Bladluizen)",
+                    Description = "Small sap-sucking insects that can cause distorted growth and sticky residue.",
+                    Symptoms = "Kleine insecten op jonge scheuten, plakkerige honingdauw, misvormde bladeren.",
+                    Causes = "Bladluizen, vooral in het voorjaar.",
+                    Solutions = "Spoel af met water, gebruik natuurlijke vijanden (lieveheersbeestjes), eventueel insecticide.",
+                    Severity = "Low",
+                    Category = "Pest"
+                });
+
+                ListProblems.Add(new PlantProblem
+                {
+                    ProblemId = 1405,
+                    Name = "Scale Insects (Schildluizen)",
+                    Description = "Sap-sucking pests causing yellowing, leaf drop, and sticky residue.",
+                    Symptoms = "Bruine of witte bultjes op stengels en bladeren, plakkerige honingdauw, gele bladeren.",
+                    Causes = "Infestatie door schildluizen.",
+                    Solutions = "Verwijder met de hand, gebruik horticulturele olie of insecticide.",
+                    Severity = "Low",
+                    Category = "Pest"
+                });
+
+                ListProblems.Add(new PlantProblem
+                {
+                    ProblemId = 1406,
+                    Name = "Brown Leaf Tips",
+                    Description = "Leaf tips turn brown, often due to water stress or improper watering.",
+                    Symptoms = "Bruine bladpunten, bladval.",
+                    Causes = "Te veel of te weinig water, droogtestress.",
+                    Solutions = "Controleer bodemvocht, pas watergift aan, zorg voor gelijkmatige vochtigheid.",
+                    Severity = "Low",
+                    Category = "Cultural"
+                });
+
+                ListProblems.Add(new PlantProblem
+                {
+                    ProblemId = 1407,
+                    Name = "Leggy Growth or Leaf Scorch",
+                    Description = "Weak, elongated growth or scorched leaves due to improper light or water.",
+                    Symptoms = "Slappe, lange stengels, verbrande bladeren, verminderde groei.",
+                    Causes = "Onvoldoende of te veel licht, waterstress.",
+                    Solutions = "Pas lichtomstandigheden aan, geef gelijkmatig water, snoei indien nodig.",
+                    Severity = "Low",
+                    Category = "Cultural"
+                });
+
+                ListProblems.Add(new PlantProblem
+                {
+                    ProblemId = 1408,
+                    Name = "Chlorosis (Leaf Yellowing)",
+                    Description = "Yellowing leaves, often due to nutrient deficiency or unsuitable soil pH.",
+                    Symptoms = "Gele bladeren, soms slechte groei.",
+                    Causes = "Voedingsgebrek (vooral ijzer), te kalkrijke grond.",
+                    Solutions = "Voeg meststof toe, verbeter bodemstructuur, gebruik turf of heidegrond indien nodig.",
+                    Severity = "Medium",
+                    Category = "Nutrient"
+                });
+
+                ListProblems.Add(new PlantProblem
+                {
+                    ProblemId = 1409,
+                    Name = "Wind Damage",
+                    Description = "Leaves become torn, brown, or dry due to strong wind exposure.",
+                    Symptoms = "Beschadigde, bruine of droge bladeren, vooral aan de windzijde.",
+                    Causes = "Sterke wind, vooral in open of kustgebieden.",
+                    Solutions = "Plant op een beschutte plek of gebruik windschermen.",
+                    Severity = "Low",
+                    Category = "Environmental"
+                });
+            }
 
 
             //return list
