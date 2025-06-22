@@ -15,6 +15,7 @@
   <ItemGroup>
     <None Remove="MainPage.xaml" />
     <None Remove="Views\PlantDetailPage.xaml" />
+    <None Remove="Views\PlantProblemsPage.xaml" />
   </ItemGroup>
 
   <ItemGroup>
@@ -52,6 +53,11 @@
     <PackageReference Include="Microsoft.Xaml.Behaviors.WinUI.Managed" Version="3.0.0" />
     <PackageReference Include="SixLabors.ImageSharp" Version="3.1.8" />
     <PackageReference Include="SQLitePCLRaw.bundle_e_sqlite3" Version="2.1.11" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Views\PlantProblemsPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Page Update="MainPage.xaml">

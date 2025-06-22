@@ -1648,7 +1648,102 @@ namespace PlantGuessingGame.Services
                     TemperatureRangeMinimum = -15, // Volledig winterhard in Nederland en UK[2][3][5][7]
                     TemperatureRangeMaximum = 35
                 }
+                ,
+                // Sedum oreganum (Oregon stonecrop)
+                new Plant
+                {
+                    Id = 47,
+                    LocalName = "Sedum oreganum",
+                    CommonName = "Oregon stonecrop",
+                    Family = "Crassulaceae",
+                    Genus = "Sedum",
+                    Species = "oreganum",
+                    Description = "Laaggroeiende, winterharde vetplant afkomstig uit het westen van Noord-Amerika. Vormt dichte matten met kleine, vlezige, groene bladeren en gele bloemen in de zomer. Ideaal als bodembedekker of in rotstuinen.",
+                    ImagePath = diskLocationImages + "Sedum_oreganum_Base01.png",
+                    PlantType = PlantType.Succulent,
+                    PlantClassification = PlantClassification.Angiosperms,
+                    PhylumInfo = (Phylum)GetPhylumByName(phyla, "Magnoliophyta"),
+                    IsEatable = false,
+                    Color = "Groene bladeren; gele bloemen",
+                    IsFlowering = true,
+                    IsEvergreen = true, // Blijft groen in milde winters[1]
+                    IsPoisonous = false,
+                    Shape = "Laag, bodembedekkend, spreidend",
+                    FullGrownHeight = 10,  // 5-15 cm[1]
+                    FullGrownWidth = 30,   // 20-40 cm[1]
+                    Light = "Volle zon tot lichte schaduw[1]",
+                    Water = "Droogtebestendig, matig water geven[1]",
+                    Soil = "Goed doorlatende, arme grond[1]",
+                    FertilizationMethod = "Niet noodzakelijk, eventueel lichte bemesting in voorjaar[1]",
+                    TrimmingInstructions = "Verwijder uitgebloeide bloemen en dode bladeren indien nodig[1]",
+                    TrimmingPeriod = "Na de bloei of in het voorjaar",
+                    TemperatureRangeMinimum = -20, // Winterhard[1]
+                    TemperatureRangeMaximum = 35
+                },
 
+                // Sedum palmeri (Palmer’s stonecrop)
+                new Plant
+                {
+                    Id = 48,
+                    LocalName = "Sedum palmeri",
+                    CommonName = "Palmer’s stonecrop",
+                    Family = "Crassulaceae",
+                    Genus = "Sedum",
+                    Species = "palmeri",
+                    Description = "Sierlijke, semi-wintergroene vetplant met lichtgroene, rozetvormige bladeren en gele bloemen in het vroege voorjaar. Geschikt voor potten, rotstuinen en als kamerplant in koudere klimaten.",
+                    ImagePath = diskLocationImages + "Sedum_palmeri_Base01.png",
+                    PlantType = PlantType.Succulent,
+                    PlantClassification = PlantClassification.Angiosperms,
+                    PhylumInfo = (Phylum)GetPhylumByName(phyla, "Magnoliophyta"),
+                    IsEatable = false,
+                    Color = "Lichtgroene bladeren; gele bloemen",
+                    IsFlowering = true,
+                    IsEvergreen = true, // Semi-wintergroen, afhankelijk van vorst[2]
+                    IsPoisonous = false,
+                    Shape = "Compact, rozetvormig, spreidend",
+                    FullGrownHeight = 20,  // 10-25 cm[2]
+                    FullGrownWidth = 30,   // 20-40 cm[2]
+                    Light = "Volle zon tot halfschaduw[2]",
+                    Water = "Matig water geven; verdraagt droogte[2]",
+                    Soil = "Goed doorlatende, lichte grond[2]",
+                    FertilizationMethod = "Lichte bemesting in het voorjaar[2]",
+                    TrimmingInstructions = "Verwijder uitgebloeide bloemen en beschadigde bladeren[2]",
+                    TrimmingPeriod = "Na de bloei of voorjaar",
+                    TemperatureRangeMinimum = -5, // Matig winterhard, bescherming bij strenge vorst[2]
+                    TemperatureRangeMaximum = 30
+                },
+
+                // Sedum sarmentosum (Stringy stonecrop)
+                new Plant
+                {
+                    Id = 49,
+                    LocalName = "Sedum sarmentosum",
+                    CommonName = "Stringy stonecrop",
+                    Family = "Crassulaceae",
+                    Genus = "Sedum",
+                    Species = "sarmentosum",
+                    Description = "Sterk groeiende, bodembedekkende vetplant met dunne, liggende stengels en heldergele bloemen in de zomer. Zeer geschikt voor groene daken, rotstuinen en als bodembedekker.",
+                    ImagePath = diskLocationImages + "Sedum_sarmentosum_Base01.png",
+                    PlantType = PlantType.Succulent,
+                    PlantClassification = PlantClassification.Angiosperms,
+                    PhylumInfo = (Phylum)GetPhylumByName(phyla, "Magnoliophyta"),
+                    IsEatable = true, // Jonge scheuten soms gebruikt in Aziatische keuken, matig consumeren[3]
+                    Color = "Groene bladeren; gele bloemen",
+                    IsFlowering = true,
+                    IsEvergreen = true, // Blijft groen in milde winters[3]
+                    IsPoisonous = false,
+                    Shape = "Uitlopervormend, bodembedekkend",
+                    FullGrownHeight = 10,  // 5-15 cm[3]
+                    FullGrownWidth = 60,   // 50-80 cm, sterk spreidend[3]
+                    Light = "Volle zon tot halfschaduw[3]",
+                    Water = "Droogtebestendig, weinig water nodig[3]",
+                    Soil = "Lichte, goed doorlatende grond[3]",
+                    FertilizationMethod = "Niet noodzakelijk, eventueel lichte bemesting in voorjaar[3]",
+                    TrimmingInstructions = "Terugknippen indien te uitbundig groeit[3]",
+                    TrimmingPeriod = "Voorjaar of na de bloei",
+                    TemperatureRangeMinimum = -20, // Winterhard[3]
+                    TemperatureRangeMaximum = 35
+                }
 
 
 

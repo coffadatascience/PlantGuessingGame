@@ -69,6 +69,11 @@ namespace PlantGuessingGame.Enums
         /// 
         Biennial,
         /// <summary>
+        /// Succulent
+        /// </summary>
+        ///
+        Succulent,
+        /// <summary>
         /// other (none of the above)
         /// </summary>
         Other,
