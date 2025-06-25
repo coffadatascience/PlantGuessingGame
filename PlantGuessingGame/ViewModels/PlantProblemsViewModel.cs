@@ -22,10 +22,6 @@ namespace PlantGuessingGame.ViewModels
 
         #region private variables
 
-        /// <summary>
-        /// id of current selected plant
-        /// </summary>
-        private int _itemId;
 
         /// <summary>
         /// selected item id
@@ -38,9 +34,9 @@ namespace PlantGuessingGame.ViewModels
         private bool _isDirty;
 
         /// <summary>
-        /// local selected plant variable
+        /// local selected PlantProblem variable
         /// </summary>
-        private Plant selectedPlant;
+        private PlantProblem selectedPlantProblem;
 
         /// <summary>
         /// observable collection to display list of PlantProblems (private)
@@ -68,15 +64,15 @@ namespace PlantGuessingGame.ViewModels
         }
 
         /// <summary>
-        /// The SelectedPlant property, which will hold the plant details.
+        /// The SelectedPlantProblem property, which will hold the plant details.
         /// </summary>
-        public Plant SelectedPlant
+        public PlantProblem SelectedPlantProblem
         {
-            get => selectedPlant;
+            get => selectedPlantProblem;
             set
             {
                 //sets property
-                SetProperty(ref selectedPlant, value);
+                SetProperty(ref selectedPlantProblem, value);
 
             }
         }
@@ -115,8 +111,6 @@ namespace PlantGuessingGame.ViewModels
             // Initialize the PlantProblems collection
             PlantProblems = [];
 
-            // Add PlantProblems on initialization
-            PopulateDataAsync();
         }
 
         #endregion
@@ -130,21 +124,22 @@ namespace PlantGuessingGame.ViewModels
         /// retrieves list of plants from data service
         /// </summary>
         /// <returns></returns>
-        private async Task PopulateDataAsync()
+        private async Task PopulateDataAsync(IDataService dataService)
         {
 
             //clear the items
             PlantProblems.Clear();
 
             //Get problems for specific
-            foreach (var item in await _dataService.GetProblemsForPlantAsync(_itemId))
+            foreach (var item in await dataService.GetProblemsForPlantAsync(_selectedItemId))
             {
                 //add items
                 PlantProblems.Add(item);
 
             }
 
-
+            //set selected phylum
+            selectedPlantProblem = PlantProblems[0];
 
         }
 
@@ -163,13 +158,15 @@ namespace PlantGuessingGame.ViewModels
 
         #endregion
 
+
         #region public methods
 
         /// <summary>
-        /// method to initialize the item detail data
+        /// method to initialize the item problems data
+        /// --> called by overwrite on opening and passed an item
         /// </summary>
         /// <param name="selectedItemId"></param>
-        public async Task InitializeItemDetailDataAsync(int selectedItemId)
+        public async Task InitializeItemPlantProblemsDataAsync(int selectedItemId)
         {
             //set the selected item id
             _selectedItemId = selectedItemId;
@@ -177,7 +174,7 @@ namespace PlantGuessingGame.ViewModels
             //populate the existing item
             if (_selectedItemId >= 0)
             {
-                //await PopulateExistingItemAsync(_dataService);
+                await PopulateDataAsync(_dataService);
             }
 
             //set the is dirty to false

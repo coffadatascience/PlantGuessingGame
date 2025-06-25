@@ -576,7 +576,13 @@
                     <Button
                         Margin="8"
                         Command="{x:Bind ViewModel.ShowImageCommand}"
-                        Content="Show Image" />
+                        Content="Show Images" />
+
+
+                    <Button
+                        Margin="8"
+                        Command="{x:Bind ViewModel.OpenPlantProblemsPageCommand}"
+                        Content="Show Plant Problems" />
 
                 </StackPanel>
 

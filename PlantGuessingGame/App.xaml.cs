@@ -121,6 +121,8 @@ namespace PlantGuessingGame
             navigationService.Configure(nameof(MainWindow), typeof(MainWindow));
             navigationService.Configure(nameof(MainPage), typeof(MainPage));
             navigationService.Configure(nameof(PlantDetailPage), typeof(PlantDetailPage));
+            navigationService.Configure(nameof(PlantProblemsPage), typeof(PlantProblemsPage));
+
             services.AddSingleton<INavigationService>(navigationService);
 
             // Data service
@@ -130,6 +132,7 @@ namespace PlantGuessingGame
             services.AddTransient<MainViewModel>();
             services.AddTransient<PlantOverviewViewModel>();
             services.AddTransient<PlantDetailsViewModel>();
+            services.AddTransient<PlantProblemsViewModel>();
 
             return services.BuildServiceProvider();
         }

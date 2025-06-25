@@ -40,5 +40,39 @@ namespace PlantGuessingGame.Views
         {
             this.InitializeComponent();
         }
+
+
+        /// <summary>
+        /// constructor with selected model
+        /// </summary>
+        /// <param name="plantViewModel"></param>
+        public PlantProblemsPage(PlantProblemsViewModel plantProblemsViewModel)
+        {
+            this.InitializeComponent();
+            this.DataContext = plantProblemsViewModel;  // Set the DataContext to the injected plantProblemsViewModel
+        }
+
+        /// <summary>
+        /// overwrite of on openings of page
+        /// --> is an overwrite and is called on the navigation 
+        /// --> So we can pass the selected item ID of the page that called to open this page by parameter
+        /// NavigationEventArgs allows the passing of a standard parameter in this case the selected id
+        /// </summary>
+        /// <param name="e"></param>
+        protected override async void OnNavigatedTo(NavigationEventArgs e)
+        {
+            // call the base class
+            base.OnNavigatedTo(e);
+
+            // get the selected item id
+            var selectedItemId = (int)e.Parameter;
+
+            // check if the selected item id is greater than 0
+            if (selectedItemId >= 0)
+            {
+                await ViewModel.InitializeItemPlantProblemsDataAsync(selectedItemId);
+            }
+        }
     }
+
 }

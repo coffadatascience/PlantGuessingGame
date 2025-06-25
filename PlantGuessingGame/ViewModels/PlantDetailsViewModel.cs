@@ -136,8 +136,12 @@ namespace PlantGuessingGame.ViewModels
             //new command to import an image
             ImportImageCommand = new RelayCommand(ImportImage);
             ShowImageCommand = new RelayCommand(ShowImages);
+            //add relay command to open the plant problems page
+            OpenPlantProblemsPageCommand = new RelayCommand(OpenPlantProblemsPage);
 
         }
+
+
 
         #endregion
 
@@ -168,6 +172,12 @@ namespace PlantGuessingGame.ViewModels
         /// command to Show the image (only for testing imported images)
         /// </summary>
         public ICommand ShowImageCommand { get; set; }
+
+        /// <summary>
+        /// command to open the plant problems page
+        /// </summary>
+        public ICommand OpenPlantProblemsPageCommand { get; set; }
+        
         /// <summary>
         /// property for the item name
         /// --> Note JCO; the extensive set here is to demonstrate the use of validation and color to provide user feedback
@@ -729,7 +739,7 @@ namespace PlantGuessingGame.ViewModels
             if (_selectedItemId >= 0)
             {
                 //get item
-                var item = await _dataService.GetItemAsync(_selectedItemId);
+                var item = await dataService.GetItemAsync(_selectedItemId);
 
                 //check if we have the item
                 if (item is null == false)
@@ -1065,6 +1075,16 @@ namespace PlantGuessingGame.ViewModels
             SelectedPlantImages.Add(bitmapImage);
         }
 
+        /// <summary>
+        /// open the plant problems page
+        /// </summary>
+        /// <exception cref="NotImplementedException"></exception>
+        private void OpenPlantProblemsPage()
+        {
+            //navigat to the plant problems page
+            _navigationServices.NavigateTo("PlantProblemsPage", _itemId);
+
+        }
 
         /// <summary>
         /// Command that retrieves and shows all plant problems in the database.
