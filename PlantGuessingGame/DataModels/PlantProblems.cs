@@ -19,7 +19,7 @@ namespace PlantGuessingGame.DataModels
         /// <summary>
         /// id of problem
         /// </summary>
-        public int ProblemId { get; set; }
+        public int Id { get; set; }
 
         /// <summary>
         /// name of problem
@@ -69,7 +69,7 @@ namespace PlantGuessingGame.DataModels
         /// <param name="name"></param>
         public PlantProblem(int problemId, string name)
         {
-            ProblemId = problemId;
+            Id = problemId;
             Name = name;
         }
 
@@ -94,7 +94,7 @@ namespace PlantGuessingGame.DataModels
             string severity,
             string category)
         {
-            ProblemId = problemId;
+            Id = problemId;
             Name = name;
             Description = description;
             Symptoms = symptoms;

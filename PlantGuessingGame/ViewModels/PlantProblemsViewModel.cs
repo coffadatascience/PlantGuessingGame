@@ -1,189 +1,207 @@
 ﻿using PlantGuessingGame.DataModels;
-using PlantGuessingGame.Enums;
 using PlantGuessingGame.Interfaces;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace PlantGuessingGame.ViewModels
 {
-
-    /// <summary>
-    /// ViewModel for the plant problems
-    /// --> can open when a plant is selected in the details menu
-    /// --> from the details we want to view the specific plant problems giving an overview of problems and solutions (possibly images)
-    /// </summary>
     public class PlantProblemsViewModel : BindableBase
     {
 
-
         #region private variables
 
+        // Services
+        private readonly INavigationService _navigationService;
+        private readonly IDataService _dataService;
 
-        /// <summary>
-        /// selected item id
-        /// </summary>
+        // Selected item ID
         private int _selectedItemId = -1;
 
-        /// <summary>
-        /// bool for dirty
-        /// </summary>
+        // Dirty flag
         private bool _isDirty;
 
-        /// <summary>
-        /// local selected PlantProblem variable
-        /// </summary>
-        private PlantProblem selectedPlantProblem;
+        // Observable collection of plant problems
+        private ObservableCollection<PlantProblem> _plantProblems = new ObservableCollection<PlantProblem>();
 
-        /// <summary>
-        /// observable collection to display list of PlantProblems (private)
-        /// </summary>
-        private ObservableCollection<PlantProblem> plantProblems = new ObservableCollection<PlantProblem>();
+        // Selected plant problem (for ComboBox)
+        private PlantProblem _selectedPlantProblem;
 
+        // Fields for selected plant problem details
+        private int _selectedProblemId;
+        private string _selectedName;
+        private string _selectedDescription;
+        private string _selectedSymptoms;
+        private string _selectedCauses;
+        private string _selectedSolutions;
+        private string _selectedSeverity;
+        private string _selectedCategory;
 
         #endregion
-
-
 
         #region public variables
 
-        /// <summary>
-        /// Collection of PlantProblems that the View will bind to
-        /// </summary>
+
+        // Public properties for binding
         public ObservableCollection<PlantProblem> PlantProblems
         {
-            get { return plantProblems; }
-            set
-            {
-                plantProblems = value;
-                OnPropertyChanged();
-            }
+            get => _plantProblems;
+            set => SetProperty(ref _plantProblems, value);
         }
 
-        /// <summary>
-        /// The SelectedPlantProblem property, which will hold the plant details.
-        /// </summary>
         public PlantProblem SelectedPlantProblem
         {
-            get => selectedPlantProblem;
+            get => _selectedPlantProblem;
             set
             {
-                //sets property
-                SetProperty(ref selectedPlantProblem, value);
-
+                if (SetProperty(ref _selectedPlantProblem, value))
+                {
+                    // Update all selected fields when selection changes
+                    UpdateSelectedProblemFields();
+                }
             }
         }
 
-        /// <summary>
-        /// property to determine if the item is dirty
-        /// </summary>
+        public int SelectedProblemId
+        {
+            get => _selectedProblemId;
+            set => SetProperty(ref _selectedProblemId, value);
+        }
+
+        public string SelectedName
+        {
+            get => _selectedName;
+            set => SetProperty(ref _selectedName, value);
+        }
+
+        public string SelectedDescription
+        {
+            get => _selectedDescription;
+            set => SetProperty(ref _selectedDescription, value);
+        }
+
+        public string SelectedSymptoms
+        {
+            get => _selectedSymptoms;
+            set => SetProperty(ref _selectedSymptoms, value);
+        }
+
+        public string SelectedCauses
+        {
+            get => _selectedCauses;
+            set => SetProperty(ref _selectedCauses, value);
+        }
+
+        public string SelectedSolutions
+        {
+            get => _selectedSolutions;
+            set => SetProperty(ref _selectedSolutions, value);
+        }
+
+        public string SelectedSeverity
+        {
+            get => _selectedSeverity;
+            set => SetProperty(ref _selectedSeverity, value);
+        }
+
+        public string SelectedCategory
+        {
+            get => _selectedCategory;
+            set => SetProperty(ref _selectedCategory, value);
+        }
+
         public bool IsDirty
         {
             get => _isDirty;
-            set
-            {
-                SetProperty(ref _isDirty, value, nameof(IsDirty));
-            }
+            set => SetProperty(ref _isDirty, value);
         }
+
+        public ICommand NavigateBackCommand { get; }
 
         #endregion
 
-
-        #region constructors
 
 
         /// <summary>
         /// Constructor
-        /// --> gets navigation service from DI
-        /// --> preps command
-        /// --> add list of default plant information (we will make these collection later in a data service)
         /// </summary>
         /// <param name="navigationService"></param>
+        /// <param name="dataService"></param>
         public PlantProblemsViewModel(INavigationService navigationService, IDataService dataService)
         {
-            //set nav
-            _navigationServices = navigationService;
+            _navigationService = navigationService;
             _dataService = dataService;
-
-            // Initialize the PlantProblems collection
-            PlantProblems = [];
-
+            PlantProblems = new ObservableCollection<PlantProblem>();
+            NavigateBackCommand = new RelayCommand(NavigateBack);
         }
 
-        #endregion
-
-
-
-        #region procedures
-
+        /// <summary>
+        /// Helper to update all selected fields when selection changes
+        /// </summary>
+        private void UpdateSelectedProblemFields()
+        {
+            SelectedProblemId = _selectedPlantProblem?.Id ?? 0;
+            SelectedName = _selectedPlantProblem?.Name ?? string.Empty;
+            SelectedDescription = _selectedPlantProblem?.Description ?? string.Empty;
+            SelectedSymptoms = _selectedPlantProblem?.Symptoms ?? string.Empty;
+            SelectedCauses = _selectedPlantProblem?.Causes ?? string.Empty;
+            SelectedSolutions = _selectedPlantProblem?.Solutions ?? string.Empty;
+            SelectedSeverity = _selectedPlantProblem?.Severity ?? string.Empty;
+            SelectedCategory = _selectedPlantProblem?.Category ?? string.Empty;
+        }
 
         /// <summary>
-        /// retrieves list of plants from data service
+        /// Populate data
         /// </summary>
+        /// <param name="dataService"></param>
         /// <returns></returns>
         private async Task PopulateDataAsync(IDataService dataService)
         {
-
-            //clear the items
             PlantProblems.Clear();
-
-            //Get problems for specific
-            foreach (var item in await dataService.GetProblemsForPlantAsync(_selectedItemId))
+            var problems = await dataService.GetProblemsForPlantAsync(_selectedItemId);
+            foreach (var item in problems)
             {
-                //add items
                 PlantProblems.Add(item);
-
             }
-
-            //set selected phylum
-            selectedPlantProblem = PlantProblems[0];
-
+            if (PlantProblems.Count > 0)
+            {
+                SelectedPlantProblem = PlantProblems[0];
+            }
+            else
+            {
+                SelectedPlantProblem = null;
+                UpdateSelectedProblemFields();
+            }
         }
 
-
-
         /// <summary>
-        /// Method to handle the logic of navigating back
+        /// Navigation
         /// </summary>
         private void NavigateBack()
         {
-            // Call the navigation service to navigate back
-            _navigationServices.GoBack();
+            _navigationService.GoBack();
         }
-
-
-
-        #endregion
-
-
-        #region public methods
 
         /// <summary>
-        /// method to initialize the item problems data
-        /// --> called by overwrite on opening and passed an item
+        /// Initialize
         /// </summary>
         /// <param name="selectedItemId"></param>
+        /// <returns></returns>
         public async Task InitializeItemPlantProblemsDataAsync(int selectedItemId)
         {
-            //set the selected item id
             _selectedItemId = selectedItemId;
-
-            //populate the existing item
             if (_selectedItemId >= 0)
             {
-                await PopulateDataAsync(_dataService);
+                try
+                {
+                    await PopulateDataAsync(_dataService);
+                }
+                catch
+                {
+                    // Handle error (e.g., log, show message)
+                }
             }
-
-            //set the is dirty to false
-            // --> Note that dirty is set to false, after population and that during initial population the IsDirty is set to true
             IsDirty = false;
         }
-
-        #endregion
-
-
     }
 }

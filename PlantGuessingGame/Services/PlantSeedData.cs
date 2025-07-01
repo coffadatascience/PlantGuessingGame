@@ -1788,7 +1788,7 @@ namespace PlantGuessingGame.Services
                 // Add the most common problems for Hortensia (Hydrangea genus)
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 1,
+                    Id = 1,
                     Name = "Powdery Mildew",
                     Description = "Fungal disease causing white powdery spots on leaves.",
                     Symptoms = "White powdery coating on leaves.",
@@ -1800,7 +1800,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 2,
+                    Id = 2,
                     Name = "Aphids",
                     Description = "Sap-sucking insects that distort leaves and reduce flowering.",
                     Symptoms = "Distorted leaves, sticky residue (honeydew).",
@@ -1812,7 +1812,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 3,
+                    Id = 3,
                     Name = "Leaf Spot (Cercospora)",
                     Description = "Fungal disease causing brown or black spots on leaves.",
                     Symptoms = "Brown or black spots, leaf drop.",
@@ -1824,7 +1824,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 4,
+                    Id = 4,
                     Name = "Root Rot",
                     Description = "Fungal infection due to soggy soil.",
                     Symptoms = "Wilting, yellowing, stunted growth.",
@@ -1835,7 +1835,7 @@ namespace PlantGuessingGame.Services
                 });
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 5,
+                    Id = 5,
                     Name = "Incorrect Pruning",
                     Description = "Pruning at the wrong time or in the wrong way can result in little to no flowering.",
                     Symptoms = "Few or no flowers, abnormal growth, loss of flower buds.",
@@ -1847,7 +1847,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 6,
+                    Id = 6,
                     Name = "Nutrient Deficiency",
                     Description = "Lack of essential nutrients can lead to poor growth and flowering.",
                     Symptoms = "Yellowing leaves, poor growth, small or few flowers.",
@@ -1859,7 +1859,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 7,
+                    Id = 7,
                     Name = "Nutrient Excess (Overfertilization)",
                     Description = "Overfertilization can damage roots and weaken the plant.",
                     Symptoms = "Leaf burn, poor growth, discolored leaves.",
@@ -1871,7 +1871,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 8,
+                    Id = 8,
                     Name = "Irregular Maintenance",
                     Description = "Neglect or irregular maintenance can result in poor growth, diseases, and little flowering.",
                     Symptoms = "Weak growth, few flowers, susceptibility to diseases and pests.",
@@ -1890,7 +1890,7 @@ namespace PlantGuessingGame.Services
                 // Add the most common problems for Nandina domestica
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 9,
+                    Id = 9,
                     Name = "Leaf Spot Diseases",
                     Description = "Fungal or bacterial leaf spots can occur on Nandina.",
                     Symptoms = "Brown or black spots on leaves, yellowing, leaf drop.",
@@ -1902,7 +1902,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 10,
+                    Id = 10,
                     Name = "Root Rot",
                     Description = "Fungal infection due to soggy soil.",
                     Symptoms = "Wilting, yellowing, stunted growth.",
@@ -1914,7 +1914,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 11,
+                    Id = 11,
                     Name = "Aphids",
                     Description = "Sap-sucking insects that distort leaves and reduce plant vigor.",
                     Symptoms = "Distorted leaves, sticky residue (honeydew), sooty mold.",
@@ -1926,7 +1926,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 12,
+                    Id = 12,
                     Name = "Scale Insects",
                     Description = "Scale insects can infest stems and leaves of Nandina.",
                     Symptoms = "Brown or white bumps on stems and leaves, yellowing, leaf drop.",
@@ -1938,7 +1938,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 13,
+                    Id = 13,
                     Name = "Incorrect Pruning",
                     Description = "Pruning at the wrong time or too hard can damage the plant and reduce fruiting.",
                     Symptoms = "Poor growth, reduced fruiting, irregular shape.",
@@ -1950,7 +1950,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 14,
+                    Id = 14,
                     Name = "Nutrient Deficiency",
                     Description = "Lack of essential nutrients can lead to poor growth and leaf discoloration.",
                     Symptoms = "Yellowing leaves, poor growth, leaf drop.",
@@ -1962,7 +1962,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 15,
+                    Id = 15,
                     Name = "Drought Stress",
                     Description = "Nandina can tolerate some drought but prolonged dry periods cause stress.",
                     Symptoms = "Wilting, leaf drop, brown leaf edges.",
@@ -1974,7 +1974,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 16,
+                    Id = 16,
                     Name = "Irregular Maintenance",
                     Description = "Neglect or irregular maintenance can result in poor growth and increased susceptibility to pests and diseases.",
                     Symptoms = "Weak growth, few flowers or fruits, susceptibility to diseases and pests.",
@@ -1991,7 +1991,7 @@ namespace PlantGuessingGame.Services
                 // Add the most common problems for Carpinus betulus (Hornbeam)
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 17,
+                    Id = 17,
                     Name = "Leaf Spot (Fungal Disease)",
                     Description = "Fungal leaf spots can occur, especially in wet conditions.",
                     Symptoms = "Brown or black spots on leaves, yellowing, premature leaf drop.",
@@ -2003,7 +2003,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 18,
+                    Id = 18,
                     Name = "Powdery Mildew",
                     Description = "Fungal disease causing white powdery coating on leaves.",
                     Symptoms = "White powdery spots on leaves, stunted growth.",
@@ -2015,7 +2015,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 19,
+                    Id = 19,
                     Name = "Aphids",
                     Description = "Sap-sucking insects that can distort new growth.",
                     Symptoms = "Distorted leaves, sticky residue (honeydew), sooty mold.",
@@ -2027,7 +2027,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 20,
+                    Id = 20,
                     Name = "Root Rot",
                     Description = "Fungal infection due to soggy soil.",
                     Symptoms = "Wilting, yellowing, stunted growth.",
@@ -2039,7 +2039,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 21,
+                    Id = 21,
                     Name = "Nutrient Deficiency",
                     Description = "Lack of essential nutrients can lead to poor growth and leaf discoloration.",
                     Symptoms = "Yellowing leaves, poor growth, leaf drop.",
@@ -2051,7 +2051,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 22,
+                    Id = 22,
                     Name = "Drought Stress",
                     Description = "Hornbeam prefers consistent moisture; prolonged dry periods can cause stress.",
                     Symptoms = "Wilting, leaf drop, brown leaf edges.",
@@ -2063,7 +2063,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 23,
+                    Id = 23,
                     Name = "Mechanical Injury",
                     Description = "Damage from lawn mowers, trimmers, or animals.",
                     Symptoms = "Wounds on trunk or branches, bark damage.",
@@ -2075,7 +2075,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 24,
+                    Id = 24,
                     Name = "Irregular Maintenance",
                     Description = "Neglect or irregular maintenance can result in poor growth and increased susceptibility to pests and diseases.",
                     Symptoms = "Weak growth, few flowers or fruits, susceptibility to diseases and pests.",
@@ -2094,7 +2094,7 @@ namespace PlantGuessingGame.Services
                 // Add the most common problems for Fagus sylvatica (European Beech)
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 25,
+                    Id = 25,
                     Name = "Beech Woolly Aphid (Phyllaphis fagi)",
                     Description = "Sap-sucking aphid specific to beech, causes white fluffy patches on leaves and exudes honeydew.",
                     Symptoms = "White, woolly patches on undersides of leaves, sticky honeydew, sooty mold.",
@@ -2106,7 +2106,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 26,
+                    Id = 26,
                     Name = "Beech Bark Disease",
                     Description = "Complex involving scale insects and fungal pathogens, leading to cankers and dieback.",
                     Symptoms = "White woolly patches on trunk, cankers, dieback, 'beech snap' in wind.",
@@ -2118,7 +2118,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 27,
+                    Id = 27,
                     Name = "Beech Leaf Disease (BLD)",
                     Description = "Disease caused by the foliar nematode Litylenchus crenatae, affecting leaf and bud development.",
                     Symptoms = "Interveinal banding, distorted, leathery or small leaves, thin canopy, bud damage.",
@@ -2130,7 +2130,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 28,
+                    Id = 28,
                     Name = "Powdery Mildew",
                     Description = "Fungal disease causing white powdery coating on leaves.",
                     Symptoms = "White powdery spots on leaves, stunted growth.",
@@ -2142,7 +2142,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 29,
+                    Id = 29,
                     Name = "Frost Damage",
                     Description = "Late spring frosts can damage new growth, especially in hedges.",
                     Symptoms = "Brown, shriveled new growth, secondary growth appears later.",
@@ -2154,7 +2154,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 30,
+                    Id = 30,
                     Name = "Honey Fungus (Armillaria mellea)",
                     Description = "Root and butt rot caused by a fungal pathogen.",
                     Symptoms = "Dieback, reduced vigor, white fungal growth under bark, mushrooms at base.",
@@ -2178,7 +2178,7 @@ namespace PlantGuessingGame.Services
                 // Add the most common problems for Platanus acerifolia (London Plane)
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 34,
+                    Id = 34,
                     Name = "Canker Stain (Ceratocystis platani/fimbriata f.sp. platani)",
                     Description = "A lethal fungal disease causing cankers and rapid decline or death of the tree.",
                     Symptoms = "Sparse foliage, small leaves, elongated cankers on branches and trunk, bluish-black or reddish-brown wood under cankers, water sprouts below cankers, eventual tree death.",
@@ -2190,7 +2190,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 35,
+                    Id = 35,
                     Name = "Massaria Disease (Splanchnonema platani)",
                     Description = "Fungal disease causing large lesions on upper branches, leading to branch dieback.",
                     Symptoms = "Large lesions on upper branches, sometimes with orange spore masses, branch dieback.",
@@ -2202,7 +2202,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 36,
+                    Id = 36,
                     Name = "Anthracnose (Apiognomonia veneta)",
                     Description = "Fungal disease causing leaf and twig blight, more severe in cool, wet springs.",
                     Symptoms = "Twig blight, bud blight, shoot blight, leaf blight, crinkling and browning of leaves, witches' broom growth.",
@@ -2214,7 +2214,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 37,
+                    Id = 37,
                     Name = "Powdery Mildew (Erysiphe platani)",
                     Description = "Fungal disease affecting young leaves and shoots, causing white powdery coating.",
                     Symptoms = "White powdery mat on leaves, desiccation and death of new growth.",
@@ -2226,7 +2226,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 38,
+                    Id = 38,
                     Name = "Sycamore Lace Bug",
                     Description = "Insect pest feeding on leaf undersides, causing stippling and discoloration.",
                     Symptoms = "Yellow stippling on upper leaf surfaces, black spots of excrement on undersides, leaf drop in severe cases.",
@@ -2238,7 +2238,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 39,
+                    Id = 39,
                     Name = "Borers and Scales",
                     Description = "Various borers and scale insects can infest the tree, causing localized damage.",
                     Symptoms = "Holes in bark, oozing sap, weakened branches, scale insects visible on bark.",
@@ -2250,7 +2250,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 40,
+                    Id = 40,
                     Name = "Drought Stress",
                     Description = "Extended dry periods can stress the tree, especially young specimens.",
                     Symptoms = "Wilting, leaf drop, reduced growth.",
@@ -2262,7 +2262,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 41,
+                    Id = 41,
                     Name = "Mechanical Injury",
                     Description = "Damage from lawn mowers, trimmers, or vehicles can cause wounds and invite disease.",
                     Symptoms = "Wounds on trunk or branches, bark damage.",
@@ -2279,7 +2279,7 @@ namespace PlantGuessingGame.Services
                 // Add the most common problems for Malus domestica (Apple tree)
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 42,
+                    Id = 42,
                     Name = "Apple Scab",
                     Description = "Fungal disease causing dark, scabby lesions on leaves and fruit.",
                     Symptoms = "Dark spots on leaves, fruit; premature leaf drop, fruit deformation.",
@@ -2291,7 +2291,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 43,
+                    Id = 43,
                     Name = "Powdery Mildew",
                     Description = "Fungal disease causing white powdery coating on leaves and shoots.",
                     Symptoms = "White powdery spots on leaves, distorted growth.",
@@ -2303,7 +2303,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 44,
+                    Id = 44,
                     Name = "Fire Blight",
                     Description = "Bacterial disease causing wilting, blackening of shoots and branches.",
                     Symptoms = "Blackened, wilted shoots; oozing from infected areas.",
@@ -2315,7 +2315,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 45,
+                    Id = 45,
                     Name = "Cedar Apple Rust",
                     Description = "Fungal disease causing yellow-orange spots on leaves and fruit.",
                     Symptoms = "Yellow-orange spots on leaves, fruit; premature leaf drop.",
@@ -2327,7 +2327,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 46,
+                    Id = 46,
                     Name = "Rosy Apple Aphid",
                     Description = "Aphid pest causing curled, distorted leaves and reduced growth.",
                     Symptoms = "Curled, yellow-green leaves, sticky honeydew, sooty mold.",
@@ -2339,7 +2339,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 47,
+                    Id = 47,
                     Name = "Bitter Rot",
                     Description = "Fungal disease causing sunken, brown lesions on fruit.",
                     Symptoms = "Sunken brown spots on fruit, often with concentric rings.",
@@ -2351,7 +2351,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 48,
+                    Id = 48,
                     Name = "Crown Gall",
                     Description = "Bacterial disease causing tumor-like growths on roots and trunk.",
                     Symptoms = "Round, rough swellings on roots and lower trunk.",
@@ -2363,7 +2363,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 49,
+                    Id = 49,
                     Name = "Codling Moth",
                     Description = "Insect pest causing wormy apples.",
                     Symptoms = "Larvae tunnel into fruit, leaving brown excrement at entry hole.",
@@ -2375,7 +2375,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 50,
+                    Id = 50,
                     Name = "Nutrient Deficiency",
                     Description = "Lack of essential nutrients can lead to poor growth and leaf discoloration.",
                     Symptoms = "Yellowing leaves, poor growth, leaf drop.",
@@ -2387,7 +2387,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 51,
+                    Id = 51,
                     Name = "Irregular Maintenance",
                     Description = "Neglect or irregular maintenance can result in poor growth and increased susceptibility to pests and diseases.",
                     Symptoms = "Weak growth, susceptibility to diseases and pests.",
@@ -2404,7 +2404,7 @@ namespace PlantGuessingGame.Services
                 // Add the most common problems for Alnus glutinosa (Common Alder)
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 52,
+                    Id = 52,
                     Name = "Phytophthora Root and Collar Rot (Phytophthora × alni)",
                     Description = "A devastating waterborne disease causing root and collar rot, bark necrosis, and dieback.",
                     Symptoms = "Small, yellow, sparse leaves; premature leaf fall; branch dieback; bark necrosis; bleeding cankers; increased cone production; tree mortality.",
@@ -2416,7 +2416,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 53,
+                    Id = 53,
                     Name = "Alder Yellows (Phytoplasma)",
                     Description = "Bacterial disease causing yellowing, stunted growth, and dieback.",
                     Symptoms = "Yellowing leaves, stunted growth, reduced leaf size and number, dieback, death.",
@@ -2428,7 +2428,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 54,
+                    Id = 54,
                     Name = "Alder Tongue Gall (Taphrina alni)",
                     Description = "Fungal disease causing tongue-like galls on female catkins.",
                     Symptoms = "Green-red elongated galls on female catkins.",
@@ -2440,7 +2440,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 55,
+                    Id = 55,
                     Name = "Leaf Spot and Stem Canker (Septoria alnifolia)",
                     Description = "Fungal disease causing leaf spots, stem cankers, and stem breakage.",
                     Symptoms = "Leaf spots, stem cankers, stem breakage.",
@@ -2452,7 +2452,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 56,
+                    Id = 56,
                     Name = "Rust (Melampsoridium hiratsukanum)",
                     Description = "Fungal disease causing yellow-brown spots on leaves and early leaf fall.",
                     Symptoms = "Yellow-brown spots on leaves, early leaf fall, crown thinning, death in severe cases.",
@@ -2464,7 +2464,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 57,
+                    Id = 57,
                     Name = "Leaf Blotch (Mycopappus alni)",
                     Description = "Fungal disease causing brown blotches on leaves and defoliation.",
                     Symptoms = "Brown blotches on leaves, defoliation.",
@@ -2476,7 +2476,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 58,
+                    Id = 58,
                     Name = "Bark Canker (Erwinia alni)",
                     Description = "Bacterial disease causing bark cankers, bleeding, and branch or tree death.",
                     Symptoms = "Bark cankers, bleeding, branch or tree death.",
@@ -2488,7 +2488,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 59,
+                    Id = 59,
                     Name = "Waterlogging",
                     Description = "Excessive soil moisture can stress and weaken trees.",
                     Symptoms = "Poor growth, yellowing leaves, root rot, dieback.",
@@ -2500,7 +2500,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 60,
+                    Id = 60,
                     Name = "Nutrient Deficiency",
                     Description = "Lack of essential nutrients can lead to poor growth and leaf discoloration.",
                     Symptoms = "Yellowing leaves, poor growth, leaf drop.",
@@ -2512,7 +2512,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 61,
+                    Id = 61,
                     Name = "Irregular Maintenance",
                     Description = "Neglect or irregular maintenance can result in poor growth and increased susceptibility to pests and diseases.",
                     Symptoms = "Weak growth, susceptibility to diseases and pests.",
@@ -2529,7 +2529,7 @@ namespace PlantGuessingGame.Services
                 // Add the most common problems for Tulipa gesneriana (Garden Tulip)
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 62,
+                    Id = 62,
                     Name = "Tulip Fire (Botrytis Blight)",
                     Description = "Fungal disease caused by Botrytis tulipae, attacking all parts of the plant; most common and serious tulip disease.",
                     Symptoms = "Spots on leaves, flowers, and stems; distorted growth; fuzzy gray mold; plant collapse.",
@@ -2541,7 +2541,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 63,
+                    Id = 63,
                     Name = "Rhizoctonia Disease",
                     Description = "Fungal disease causing bulb and stem rot; leads to bare patches and poor emergence.",
                     Symptoms = "Bare patches in plantings; retarded growth; leaf blight; lesions on stem; bulb rot.",
@@ -2553,7 +2553,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 64,
+                    Id = 64,
                     Name = "Tulip Breaking Virus (TBV)",
                     Description = "Viral disease causing color breaking (stripes) in flowers and reduced vigor.",
                     Symptoms = "Striped or mottled flower color; stunted growth; distorted leaves[5][6].",
@@ -2565,7 +2565,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 65,
+                    Id = 65,
                     Name = "Other Viral Diseases",
                     Description = "Includes Tulip Virus X, Tobacco Rattle Virus (TRV), and Tobacco Necrosis Virus (TNV).",
                     Symptoms = "Mosaic, yellowing, malformation of leaves and flowers[4][6].",
@@ -2577,7 +2577,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 66,
+                    Id = 66,
                     Name = "Fusarium Bulb Rot",
                     Description = "Fungal disease causing bulb rot and plant decline.",
                     Symptoms = "Soft, rotten bulbs; poor growth; wilting; plant collapse.",
@@ -2589,7 +2589,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 67,
+                    Id = 67,
                     Name = "Pythium Bulb Rot",
                     Description = "Fungal disease causing bulb and root rot.",
                     Symptoms = "Soft, rotten bulbs; poor root development; wilting; plant collapse.",
@@ -2601,7 +2601,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 68,
+                    Id = 68,
                     Name = "Penicillium Bulb Rot",
                     Description = "Fungal disease causing bulb rot during storage.",
                     Symptoms = "Soft, rotten bulbs; blue-green mold on bulbs; poor growth.",
@@ -2613,7 +2613,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 69,
+                    Id = 69,
                     Name = "Poor Flowering",
                     Description = "Reduced or absent flowering, stunted growth.",
                     Symptoms = "No flowers; small or deformed leaves; weak plants[2][3].",
@@ -2625,7 +2625,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 70,
+                    Id = 70,
                     Name = "Nutrient Deficiency",
                     Description = "Lack of essential nutrients can lead to poor growth and leaf discoloration.",
                     Symptoms = "Yellowing leaves, poor growth, leaf drop.",
@@ -2637,7 +2637,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 71,
+                    Id = 71,
                     Name = "Irregular Maintenance",
                     Description = "Neglect or irregular maintenance can result in poor growth and increased susceptibility to pests and diseases.",
                     Symptoms = "Weak growth, susceptibility to diseases and pests.",
@@ -2654,7 +2654,7 @@ namespace PlantGuessingGame.Services
                 // Add the most common problems for Narcissus pseudonarcissus (Wild Daffodil)
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 72,
+                    Id = 72,
                     Name = "Narcissus Bulb Fly",
                     Description = "Larvae of the narcissus bulb fly tunnel into bulbs, causing rot and plant death.",
                     Symptoms = "Chewed foliage, stunted growth, soft or rotting bulbs, plant collapse[1][6][5].",
@@ -2666,7 +2666,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 73,
+                    Id = 73,
                     Name = "Bulb Rot (Basal Rot)",
                     Description = "Fungal disease causing bulb decay, often in wet conditions.",
                     Symptoms = "Moldy or rotting bulbs, yellowing leaves, stunted growth, plant collapse[1][6][5].",
@@ -2678,7 +2678,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 74,
+                    Id = 74,
                     Name = "Bulb Mites",
                     Description = "Tiny mites that infest bulbs, causing damage and secondary infections.",
                     Symptoms = "Bulb damage, poor growth, secondary fungal or bacterial infections[1][5][6].",
@@ -2690,7 +2690,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 75,
+                    Id = 75,
                     Name = "Viral Diseases",
                     Description = "Several viruses can infect daffodils, including Narcissus yellow stripe virus and Narcissus white streak virus.",
                     Symptoms = "Yellow or white streaks on leaves, reduced flower size, stunted growth[3][6].",
@@ -2702,7 +2702,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 76,
+                    Id = 76,
                     Name = "Slugs and Snails",
                     Description = "Mollusks that chew on leaves and flowers, especially in damp conditions.",
                     Symptoms = "Chewed foliage, slime trails, reduced vigor[5].",
@@ -2714,7 +2714,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 77,
+                    Id = 77,
                     Name = "Contact Dermatitis",
                     Description = "Skin irritation from handling bulbs or foliage, especially for sensitive individuals.",
                     Symptoms = "Dryness, fissures, scaling, erythema of skin; may include vesicles and pustules[2][7].",
@@ -2726,7 +2726,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 78,
+                    Id = 78,
                     Name = "Poor Flowering",
                     Description = "Reduced or absent flowering, often due to cultural issues.",
                     Symptoms = "No flowers, weak or sparse foliage[1][5].",
@@ -2738,7 +2738,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 79,
+                    Id = 79,
                     Name = "Nutrient Deficiency",
                     Description = "Lack of essential nutrients can lead to poor growth and leaf discoloration.",
                     Symptoms = "Yellowing leaves, poor growth, leaf drop.",
@@ -2750,7 +2750,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 80,
+                    Id = 80,
                     Name = "Irregular Maintenance",
                     Description = "Neglect or irregular maintenance can result in poor growth and increased susceptibility to pests and diseases.",
                     Symptoms = "Weak growth, susceptibility to diseases and pests.",
@@ -2767,7 +2767,7 @@ namespace PlantGuessingGame.Services
                 // Add the most common problems for Quercus robur (English Oak)
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 81,
+                    Id = 81,
                     Name = "Oak Wilt",
                     Description = "A deadly fungal disease causing rapid decline and death by blocking the tree’s vascular system.",
                     Symptoms = "Wilting, browning leaves that may fall prematurely, fungal mats beneath the bark, rapid tree death[3][5][6].",
@@ -2779,7 +2779,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 82,
+                    Id = 82,
                     Name = "Acute Oak Decline",
                     Description = "A bacterial disease causing rapid deterioration, often within a few years.",
                     Symptoms = "Weeping lesions from cracks in the bark, rapid dieback, death in 4–5 years[2][7][8].",
@@ -2791,7 +2791,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 83,
+                    Id = 83,
                     Name = "Chronic Oak Decline",
                     Description = "Progressive deterioration over many years, often linked to multiple factors.",
                     Symptoms = "Twig and branch dieback, pale and smaller leaves, ‘staghead’ effect, slow decline[2][7][8].",
@@ -2803,7 +2803,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 84,
+                    Id = 84,
                     Name = "Powdery Mildew",
                     Description = "Fungal disease causing white powdery coating on leaves, reducing photosynthesis.",
                     Symptoms = "White powdery residue on leaves, impaired growth, leaf drop[3][8][1].",
@@ -2815,7 +2815,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 85,
+                    Id = 85,
                     Name = "Oak Anthracnose",
                     Description = "Fungal disease causing dark, sunken lesions on leaves and premature leaf drop.",
                     Symptoms = "Brown spots on leaves, cupping or distortion, leaf drop[5][6][1].",
@@ -2827,7 +2827,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 86,
+                    Id = 86,
                     Name = "Armillaria Root Rot (Honey Fungus)",
                     Description = "Fungal disease causing root and lower trunk decay, leading to tree decline.",
                     Symptoms = "White fungal mats under bark, dark shoestring-like rhizomorphs, dead limbs, tree collapse[2][6][1].",
@@ -2839,7 +2839,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 87,
+                    Id = 87,
                     Name = "Phytophthora Root Rot",
                     Description = "Oomycete pathogen causing root rot and tree decline.",
                     Symptoms = "Root decay, reduced vigor, dieback, increased susceptibility to other stresses[2][4][1].",
@@ -2851,7 +2851,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 88,
+                    Id = 88,
                     Name = "Bacterial Leaf Scorch",
                     Description = "Bacterial disease causing leaf margins to turn brown and dry out.",
                     Symptoms = "Brown, dry leaf margins, premature leaf drop[5][6][1].",
@@ -2863,7 +2863,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 89,
+                    Id = 89,
                     Name = "Wood-Boring Beetles",
                     Description = "Insect pests that tunnel into wood, weakening branches and trunks.",
                     Symptoms = "Holes in bark, sawdust, branch dieback, structural weakness[2][3][5].",
@@ -2875,7 +2875,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 90,
+                    Id = 90,
                     Name = "Drought and Environmental Stress",
                     Description = "Prolonged dry periods and environmental factors can weaken trees.",
                     Symptoms = "Wilting, leaf scorch, reduced growth, increased susceptibility to pests and diseases[2][3][6].",
@@ -2887,7 +2887,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 91,
+                    Id = 91,
                     Name = "Irregular Maintenance",
                     Description = "Neglect or irregular maintenance can result in poor growth and increased susceptibility to pests and diseases.",
                     Symptoms = "Weak growth, susceptibility to diseases and pests.",
@@ -2904,7 +2904,7 @@ namespace PlantGuessingGame.Services
                 // Add the most common problems for Fragaria × ananassa (Garden Strawberry)
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 92,
+                    Id = 92,
                     Name = "Botrytis Fruit Rot (Gray Mold)",
                     Description = "Fungal disease causing gray mold on flowers, leaves, and fruit.",
                     Symptoms = "Gray fuzzy mold, rotting fruit, flower blight[2][1].",
@@ -2916,7 +2916,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 93,
+                    Id = 93,
                     Name = "Powdery Mildew",
                     Description = "Fungal disease causing white powdery coating on leaves.",
                     Symptoms = "White powdery spots on leaves, reduced growth[2][1].",
@@ -2928,7 +2928,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 94,
+                    Id = 94,
                     Name = "Phytophthora Crown and Root Rot",
                     Description = "Oomycete disease causing crown and root rot, plant collapse.",
                     Symptoms = "Wilting, stunted growth, crown and root rot, plant death[2][1].",
@@ -2940,7 +2940,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 95,
+                    Id = 95,
                     Name = "Verticillium Wilt",
                     Description = "Fungal disease causing wilting and plant decline.",
                     Symptoms = "Wilting, yellowing leaves, stunted growth, plant death[1][3].",
@@ -2952,7 +2952,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 96,
+                    Id = 96,
                     Name = "Aphids",
                     Description = "Sap-sucking insects that transmit viruses and weaken plants.",
                     Symptoms = "Curled leaves, sticky honeydew, sooty mold, stunted growth[2].",
@@ -2964,7 +2964,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 97,
+                    Id = 97,
                     Name = "Spider Mites",
                     Description = "Tiny mites that feed on leaves, causing stippling and discoloration.",
                     Symptoms = "Fine webbing, yellow stippling on leaves, leaf drop[2].",
@@ -2976,7 +2976,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 98,
+                    Id = 98,
                     Name = "Plant Bugs (Lygus Bugs)",
                     Description = "Piercing-sucking insects causing distorted fruit and stunted growth.",
                     Symptoms = "Cat-faced or deformed fruit, stippling on leaves, reduced yield[2].",
@@ -2988,7 +2988,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 99,
+                    Id = 99,
                     Name = "Root-Knot Nematodes",
                     Description = "Microscopic worms that infect roots, causing galls and stunted growth.",
                     Symptoms = "Galls on roots, stunted growth, yellowing leaves[2][1].",
@@ -3000,7 +3000,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 100,
+                    Id = 100,
                     Name = "Viral Diseases (Multiple)",
                     Description = "Various viruses transmitted by aphids, thrips, and nematodes.",
                     Symptoms = "Mottled or distorted leaves, stunted growth, reduced yield[1][2].",
@@ -3012,7 +3012,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 101,
+                    Id = 101,
                     Name = "Nutrient Deficiency",
                     Description = "Lack of essential nutrients can lead to poor growth and leaf discoloration.",
                     Symptoms = "Yellowing leaves, poor growth, leaf drop.",
@@ -3024,7 +3024,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 102,
+                    Id = 102,
                     Name = "Irregular Maintenance",
                     Description = "Neglect or irregular maintenance can result in poor growth and increased susceptibility to pests and diseases.",
                     Symptoms = "Weak growth, susceptibility to diseases and pests.",
@@ -3041,7 +3041,7 @@ namespace PlantGuessingGame.Services
                 // Add the most common problems for Cortaderia selloana (Pampas Grass)
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 103,
+                    Id = 103,
                     Name = "Overwatering and Root Rot",
                     Description = "Excess moisture leads to yellowing leaves, root rot, and plant decline.",
                     Symptoms = "Yellow or brown leaves, wilting, foul odor from soil, plant collapse[1][2][5].",
@@ -3053,7 +3053,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 104,
+                    Id = 104,
                     Name = "Underwatering",
                     Description = "Insufficient water leads to crispy, dry leaves and poor growth.",
                     Symptoms = "Crispy, brown leaf tips, reduced growth, wilting[1][5].",
@@ -3065,7 +3065,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 105,
+                    Id = 105,
                     Name = "Fungal and Mold Infections",
                     Description = "Fungal diseases such as leaf blight, powdery mildew, and leaf rot.",
                     Symptoms = "Powdery white coating, black spots, dull leaf color, wilting, leaf death[3][4][5].",
@@ -3077,7 +3077,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 106,
+                    Id = 106,
                     Name = "Pests: Aphids, Mealybugs, Spider Mites",
                     Description = "Sap-sucking insects cause discoloration and weaken the plant.",
                     Symptoms = "Discolored spots on leaves, sticky residue, webbing between leaves[1][5].",
@@ -3089,7 +3089,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 107,
+                    Id = 107,
                     Name = "Nutrient Imbalances",
                     Description = "Excess or deficiency of nutrients affects growth and flowering.",
                     Symptoms = "Fewer flowers, excessive foliage, stunted growth[2][5].",
@@ -3101,7 +3101,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 108,
+                    Id = 108,
                     Name = "Abnormal Flower Development",
                     Description = "Poor or absent flowering due to cultural or disease issues.",
                     Symptoms = "Few or no flowers, distorted blooms, reduced vigor[2].",
@@ -3113,7 +3113,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 109,
+                    Id = 109,
                     Name = "Extreme Temperature Stress",
                     Description = "Damage from frost or heat can affect plant health.",
                     Symptoms = "Leaf burn, wilting, reduced growth[1][5].",
@@ -3125,7 +3125,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 110,
+                    Id = 110,
                     Name = "Invasive Growth and Fire Hazard",
                     Description = "Pampas grass can become invasive, outcompete natives, and increase fire risk.",
                     Symptoms = "Excessive spread, dense clumps, dry leaf buildup, reduced biodiversity[5][8].",
@@ -3137,7 +3137,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 111,
+                    Id = 111,
                     Name = "Allergic Reactions",
                     Description = "Pollen can cause respiratory allergies in sensitive individuals.",
                     Symptoms = "Sneezing, runny nose, itchy eyes, respiratory irritation[7].",
@@ -3149,7 +3149,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 112,
+                    Id = 112,
                     Name = "Physical Injury from Sharp Leaves",
                     Description = "Sharp leaf edges can cause cuts and skin irritation.",
                     Symptoms = "Cuts, skin irritation, discomfort when handling[5][6][8].",
@@ -3166,7 +3166,7 @@ namespace PlantGuessingGame.Services
                 // Add the most common problems for Pennisetum alopecuroides (Fountain Grass)
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 113,
+                    Id = 113,
                     Name = "Rust and Fungal Diseases",
                     Description = "Occasional fungal infections such as rust and leaf spot can occur.",
                     Symptoms = "Orange or brown spots (rust), black or water-soaked spots (leaf spot), yellowing or wilting leaves[2][4][6].",
@@ -3178,7 +3178,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 114,
+                    Id = 114,
                     Name = "Aphids and Spider Mites",
                     Description = "Sap-sucking insects can infest the plant, especially in dry conditions.",
                     Symptoms = "Sticky residue, distorted growth, webbing between leaves, stippling on leaves[4][6].",
@@ -3190,7 +3190,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 115,
+                    Id = 115,
                     Name = "Overwatering and Poor Drainage",
                     Description = "Excess moisture can lead to root rot and yellowing leaves.",
                     Symptoms = "Yellow or brown leaves, wilting, foul odor from soil, mushy roots[3][4].",
@@ -3202,7 +3202,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 116,
+                    Id = 116,
                     Name = "Underwatering and Drought Stress",
                     Description = "Insufficient water can cause leaf tip browning and reduced vigor.",
                     Symptoms = "Brown, crispy leaf tips, wilting, stunted growth[3][4].",
@@ -3214,7 +3214,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 117,
+                    Id = 117,
                     Name = "Grasshoppers",
                     Description = "Grasshoppers may occasionally feed on foliage, especially in late summer.",
                     Symptoms = "Chewed or ragged leaves, visible insects on plant[4].",
@@ -3226,7 +3226,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 118,
+                    Id = 118,
                     Name = "Nutrient Imbalance",
                     Description = "Excess or deficiency of nutrients can affect growth and flowering.",
                     Symptoms = "Fewer flowers, excessive foliage, stunted growth[2][4].",
@@ -3238,7 +3238,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 119,
+                    Id = 119,
                     Name = "Leggy or Sparse Growth",
                     Description = "Plants may become leggy or sparse if not pruned regularly.",
                     Symptoms = "Leggy stems, sparse foliage, reduced ornamental value[2][4].",
@@ -3250,7 +3250,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 120,
+                    Id = 120,
                     Name = "Potential Invasiveness",
                     Description = "Some fountain grass species can become invasive, but most ornamental cultivars are sterile and less likely to spread[7][8].",
                     Symptoms = "Excessive self-seeding, unwanted spread in garden or natural areas.",
@@ -3262,7 +3262,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 121,
+                    Id = 121,
                     Name = "Winter Dieback or Cold Damage",
                     Description = "In colder climates, foliage may die back in winter or be damaged by frost.",
                     Symptoms = "Brown or dead foliage, reduced vigor after winter[5].",
@@ -3279,7 +3279,7 @@ namespace PlantGuessingGame.Services
                 // Add the most common problems for Cotoneaster horizontalis (Rock Cotoneaster)
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 122,
+                    Id = 122,
                     Name = "Fire Blight",
                     Description = "Bacterial disease causing wilting, blackening, and dieback of shoots and branches.",
                     Symptoms = "Blackened, wilted shoots resembling fire damage; sticky fluid may ooze from infected areas[1][2][6].",
@@ -3291,7 +3291,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 123,
+                    Id = 123,
                     Name = "Leaf Spot",
                     Description = "Fungal disease causing dark brown or black spots on leaves, often with yellow halos.",
                     Symptoms = "Brown or black leaf spots, yellowing, premature leaf drop[1][2].",
@@ -3303,7 +3303,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 124,
+                    Id = 124,
                     Name = "Web Blotch",
                     Description = "Fungal disease causing brownish, web-like patches on leaves.",
                     Symptoms = "Brown, web-like patches on leaves, leaf discoloration[1].",
@@ -3315,7 +3315,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 125,
+                    Id = 125,
                     Name = "Powdery Mildew",
                     Description = "Fungal disease causing white, powdery substance on leaves.",
                     Symptoms = "White powdery coating on leaves, yellowing, leaf drop[1][8].",
@@ -3327,7 +3327,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 126,
+                    Id = 126,
                     Name = "Crown Rot",
                     Description = "Fungal disease causing rotting at the base or crown of the plant.",
                     Symptoms = "Rotting base, yellowing or wilting foliage, plant decline[1][2].",
@@ -3339,7 +3339,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 127,
+                    Id = 127,
                     Name = "Scale Insects",
                     Description = "Sap-sucking insects causing yellowing, wilting, and honeydew secretion.",
                     Symptoms = "Small, flat, oval insects on stems and leaves; yellowing or wilting leaves[1][7].",
@@ -3351,7 +3351,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 128,
+                    Id = 128,
                     Name = "Aphids",
                     Description = "Sap-sucking insects causing distorted growth and sooty mold.",
                     Symptoms = "Clusters of small green, black, or white insects on leaves; sticky honeydew; sooty mold[1][7].",
@@ -3363,7 +3363,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 129,
+                    Id = 129,
                     Name = "Webber Caterpillars",
                     Description = "Moth larvae that feed beneath silk webbing, causing defoliation.",
                     Symptoms = "Silk webbing on foliage, brown and dried leaves, visible caterpillars[5].",
@@ -3375,7 +3375,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 130,
+                    Id = 130,
                     Name = "Mites",
                     Description = "Tiny pests causing speckled, discolored leaves and leaf drop.",
                     Symptoms = "Speckled leaves, browning, leaf drop in severe cases[3].",
@@ -3387,7 +3387,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 131,
+                    Id = 131,
                     Name = "Poor Soil or Nutrient Imbalance",
                     Description = "Stunted growth, yellowing leaves, or lack of vigor due to poor soil conditions.",
                     Symptoms = "Stunted growth, yellowing leaves, poor flowering[1].",
@@ -3399,7 +3399,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 132,
+                    Id = 132,
                     Name = "Extreme Weather Stress",
                     Description = "Damage from cold, heat, or drought causing leaf burn or dieback.",
                     Symptoms = "Burned or scorched leaves, early leaf drop, branch dieback[1].",
@@ -3411,7 +3411,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 133,
+                    Id = 133,
                     Name = "Invasive Potential",
                     Description = "Can become invasive in some regions, outcompeting native plants.",
                     Symptoms = "Excessive spread, dense growth, reduced biodiversity in surrounding area[4].",
@@ -3428,7 +3428,7 @@ namespace PlantGuessingGame.Services
                 // Add the most common problems for Weigela florida
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 134,
+                    Id = 134,
                     Name = "Aphids",
                     Description = "Sap-sucking insects that cluster on stems and under leaves, causing yellowing and curling.",
                     Symptoms = "Yellowing, curling leaves; sticky residue (honeydew); sooty mold[1][2][5].",
@@ -3440,7 +3440,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 135,
+                    Id = 135,
                     Name = "Spider Mites",
                     Description = "Tiny spider-like pests causing yellowing and stippling on leaves.",
                     Symptoms = "White dots, yellowing leaves, fine webbing[1][2][5].",
@@ -3452,7 +3452,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 136,
+                    Id = 136,
                     Name = "Scale Insects",
                     Description = "Sap-sucking insects causing discoloration and leaf drop.",
                     Symptoms = "Waxy scales on stems and leaves, yellowing, leaf drop[1][5].",
@@ -3464,7 +3464,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 137,
+                    Id = 137,
                     Name = "Mealybugs",
                     Description = "Fuzzy, white insects causing yellowing and reduced vigor.",
                     Symptoms = "Cottony masses on leaves, stems, and branches; yellowing; reduced vigor[1][2].",
@@ -3476,7 +3476,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 138,
+                    Id = 138,
                     Name = "Four-Lined Plant Bugs",
                     Description = "Sap-sucking insects causing irregular tan spots on foliage.",
                     Symptoms = "Irregular tan spots on leaves, stunted growth[1][2].",
@@ -3488,7 +3488,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 139,
+                    Id = 139,
                     Name = "Leafrollers",
                     Description = "Caterpillars that roll leaves, causing distortion and webbing.",
                     Symptoms = "Curled, rolled leaves with webbing, distorted growth[1][2].",
@@ -3500,7 +3500,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 140,
+                    Id = 140,
                     Name = "Root Nematodes",
                     Description = "Microscopic worms feeding on roots, causing stunted growth and yellowing.",
                     Symptoms = "Stunted growth, reddish-yellow leaves, poor vigor[1].",
@@ -3512,7 +3512,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 141,
+                    Id = 141,
                     Name = "Black Spot",
                     Description = "Fungal disease causing dark black spots on leaves.",
                     Symptoms = "Black spots on leaves, leaf drop, reduced vigor[1][4][3].",
@@ -3524,7 +3524,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 142,
+                    Id = 142,
                     Name = "Anthracnose",
                     Description = "Fungal disease causing brown spots with purple edges.",
                     Symptoms = "Brown spots with purple edges, leaf drop[1][4][3].",
@@ -3536,7 +3536,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 143,
+                    Id = 143,
                     Name = "Botrytis (Gray Mold)",
                     Description = "Fungal disease causing gray mold on leaves, flowers, and stems.",
                     Symptoms = "Gray mold on foliage, flowers, and stems; wilting[1][4].",
@@ -3548,7 +3548,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 144,
+                    Id = 144,
                     Name = "Powdery Mildew",
                     Description = "Fungal disease causing white powdery coating on leaves.",
                     Symptoms = "White powdery coating on leaves, leaf curling, withering[1][4][6].",
@@ -3560,7 +3560,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 145,
+                    Id = 145,
                     Name = "Rust",
                     Description = "Fungal disease causing reddish spots on leaves.",
                     Symptoms = "Reddish or orange spots on leaves, leaf drop[1][6].",
@@ -3572,7 +3572,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 146,
+                    Id = 146,
                     Name = "Root Rot",
                     Description = "Fungal disease causing yellowing and wilting of foliage.",
                     Symptoms = "Yellowing, wilting, plant collapse[1][4].",
@@ -3584,7 +3584,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 147,
+                    Id = 147,
                     Name = "Crown Galls",
                     Description = "Bacterial disease causing swollen growths at the base of the plant.",
                     Symptoms = "Swollen growths at base of stems or roots, stunted growth[1][4].",
@@ -3596,7 +3596,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 148,
+                    Id = 148,
                     Name = "Lack of Blossoms",
                     Description = "Poor or absent flowering due to cultural or environmental issues.",
                     Symptoms = "Few or no flowers, reduced vigor[1][5].",
@@ -3608,7 +3608,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 149,
+                    Id = 149,
                     Name = "Nutrient Deficiency",
                     Description = "Lack of essential nutrients leading to poor growth and leaf discoloration.",
                     Symptoms = "Yellowing leaves, poor growth, leaf drop.",
@@ -3620,7 +3620,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 150,
+                    Id = 150,
                     Name = "Irregular Maintenance",
                     Description = "Neglect or irregular maintenance can result in poor growth and increased susceptibility to pests and diseases.",
                     Symptoms = "Weak growth, susceptibility to diseases and pests.",
@@ -3637,7 +3637,7 @@ namespace PlantGuessingGame.Services
                 // Add the most common problems for Carex pendula (Pendulous Sedge)
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 151,
+                    Id = 151,
                     Name = "Powdery Mildew",
                     Description = "Fungal disease causing white powdery spots on leaves, reducing photosynthesis.",
                     Symptoms = "White powdery coating on leaves, leaf discoloration, reduced vigor[1][4].",
@@ -3649,7 +3649,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 152,
+                    Id = 152,
                     Name = "Rust",
                     Description = "Fungal disease causing orange or brown spots on leaves.",
                     Symptoms = "Orange or brown spots on leaves, leaf drop in severe cases[1][4].",
@@ -3661,7 +3661,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 153,
+                    Id = 153,
                     Name = "Invasive Potential",
                     Description = "Can become invasive in favorable conditions, displacing native and productive plants[6][3][7].",
                     Symptoms = "Excessive spread, dense growth, reduced biodiversity, unpalatable to livestock.",
@@ -3673,7 +3673,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 154,
+                    Id = 154,
                     Name = "Drought Stress",
                     Description = "Reduced vigor and leaf browning in dry conditions.",
                     Symptoms = "Brown leaf tips, wilting, reduced growth[5].",
@@ -3685,7 +3685,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 155,
+                    Id = 155,
                     Name = "Nutrient Deficiency",
                     Description = "Lack of essential nutrients can lead to poor growth and leaf discoloration.",
                     Symptoms = "Yellowing leaves, poor growth, leaf drop.",
@@ -3697,7 +3697,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 156,
+                    Id = 156,
                     Name = "Irregular Maintenance",
                     Description = "Neglect or irregular maintenance can result in poor growth and increased susceptibility to diseases.",
                     Symptoms = "Weak growth, susceptibility to diseases.",
@@ -3714,7 +3714,7 @@ namespace PlantGuessingGame.Services
                 // Add the most common problems for Ficus lyrata (Fiddle-Leaf Fig)
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 157,
+                    Id = 157,
                     Name = "Root Rot",
                     Description = "Fungal infection caused by overwatering and poor drainage, leading to root decay and plant decline.",
                     Symptoms = "Yellowing leaves, wilting, musty odor from soil, plant collapse[1][5][7].",
@@ -3726,7 +3726,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 158,
+                    Id = 158,
                     Name = "Leaf Spot (Fungal or Bacterial)",
                     Description = "Fungal or bacterial infections causing brown or black spots on leaves.",
                     Symptoms = "Brown or black spots, yellow halos, leaf drop[1][3][4].",
@@ -3738,7 +3738,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 159,
+                    Id = 159,
                     Name = "Anthracnose",
                     Description = "Fungal disease causing greasy yellow spots that turn brown and necrotic.",
                     Symptoms = "Greasy yellow spots, brown necrotic areas, leaf drop[3].",
@@ -3750,7 +3750,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 160,
+                    Id = 160,
                     Name = "Powdery Mildew",
                     Description = "Fungal disease causing white powdery coating on leaves.",
                     Symptoms = "White powdery spots on leaves, leaf curling, reduced vigor[5].",
@@ -3762,7 +3762,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 161,
+                    Id = 161,
                     Name = "Edema",
                     Description = "Physiological condition caused by inconsistent watering, leading to cell rupture.",
                     Symptoms = "Tiny red or brown dots on new leaves, especially on the underside[5].",
@@ -3774,7 +3774,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 162,
+                    Id = 162,
                     Name = "Spider Mites",
                     Description = "Tiny spider-like pests causing stippling, webbing, and leaf drop.",
                     Symptoms = "Fine webbing, yellow stippling on leaves, leaf drop[2][4][7].",
@@ -3786,7 +3786,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 163,
+                    Id = 163,
                     Name = "Mealybugs",
                     Description = "White, cottony sap-sucking insects weakening the plant.",
                     Symptoms = "White cottony masses on leaves and stems, sticky residue, leaf drop[1][2][7].",
@@ -3798,7 +3798,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 164,
+                    Id = 164,
                     Name = "Scale Insects",
                     Description = "Hard, brown, bumpy pests that attach to stems and leaves, secreting honeydew.",
                     Symptoms = "Brown bumps on stems and leaves, sticky residue, yellowing leaves[1][3][4].",
@@ -3810,7 +3810,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 165,
+                    Id = 165,
                     Name = "Thrips",
                     Description = "Tiny insects causing silvering, stippling, or distortion of leaves.",
                     Symptoms = "Silvery or stippled leaves, distorted growth, black fecal spots[1][3][4].",
@@ -3822,7 +3822,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 166,
+                    Id = 166,
                     Name = "Aphids",
                     Description = "Sap-sucking insects causing yellowing, curling, and sticky residue.",
                     Symptoms = "Yellowing, curling leaves, sticky honeydew, sooty mold[6][7].",
@@ -3834,7 +3834,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 167,
+                    Id = 167,
                     Name = "Whiteflies and Fungus Gnats",
                     Description = "Flying pests settling around leaves and soil, causing stress and damage.",
                     Symptoms = "Whiteflies: sticky leaves, sooty mold; Fungus gnats: tiny flies near soil, larvae in soil[4].",
@@ -3846,7 +3846,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 168,
+                    Id = 168,
                     Name = "Leaf Drop",
                     Description = "Sudden loss of leaves due to environmental stress.",
                     Symptoms = "Leaves dropping, especially lower leaves[1][7].",
@@ -3858,7 +3858,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 169,
+                    Id = 169,
                     Name = "Brown Leaf Tips or Edges",
                     Description = "Leaf tips or edges turning brown due to low humidity or underwatering.",
                     Symptoms = "Brown, crispy leaf tips or edges[1][6].",
@@ -3870,7 +3870,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 170,
+                    Id = 170,
                     Name = "Lopsided Growth",
                     Description = "Uneven growth due to uneven light exposure.",
                     Symptoms = "One side of the plant with more leaves or longer branches[4].",
@@ -3882,7 +3882,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 171,
+                    Id = 171,
                     Name = "Nutrient Deficiency",
                     Description = "Lack of essential nutrients leading to poor growth and leaf discoloration.",
                     Symptoms = "Yellowing leaves, poor growth, leaf drop.",
@@ -3894,7 +3894,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 172,
+                    Id = 172,
                     Name = "Irregular Maintenance",
                     Description = "Neglect or irregular maintenance can result in poor growth and increased susceptibility to pests and diseases.",
                     Symptoms = "Weak growth, susceptibility to diseases and pests.",
@@ -3911,7 +3911,7 @@ namespace PlantGuessingGame.Services
                 // Add the most common problems for Howea forsteriana (Kentia Palm)
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 173,
+                    Id = 173,
                     Name = "Root Rot",
                     Description = "Fungal disease resulting from overwatering and poor drainage, leading to root decay and plant decline.",
                     Symptoms = "Yellowing leaves, wilting, foul odor from soil, plant collapse[1][3][4].",
@@ -3923,7 +3923,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 174,
+                    Id = 174,
                     Name = "Leaf Spot Diseases (Fungal/Bacterial)",
                     Description = "Fungal or bacterial infections causing spots on leaves, especially in humid conditions.",
                     Symptoms = "Brown or black spots, yellow halos, leaf drop[1][2][7].",
@@ -3935,7 +3935,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 175,
+                    Id = 175,
                     Name = "Powdery Mildew",
                     Description = "Fungal disease causing white powdery coating on leaves.",
                     Symptoms = "White powdery spots on leaves, reduced vigor[3].",
@@ -3947,7 +3947,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 176,
+                    Id = 176,
                     Name = "Spider Mites",
                     Description = "Tiny spider-like pests causing stippling, webbing, and leaf drop.",
                     Symptoms = "Fine webbing, yellow stippling on leaves, leaf drop[2][3][4].",
@@ -3959,7 +3959,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 177,
+                    Id = 177,
                     Name = "Mealybugs",
                     Description = "White, cottony sap-sucking insects weakening the plant.",
                     Symptoms = "White cottony masses on leaves and stems, sticky residue, leaf drop[1][2][3].",
@@ -3971,7 +3971,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 178,
+                    Id = 178,
                     Name = "Scale Insects",
                     Description = "Hard, brown, bumpy pests that attach to stems and leaves, secreting honeydew.",
                     Symptoms = "Brown bumps on stems and leaves, sticky residue, yellowing leaves[1][2][5].",
@@ -3983,7 +3983,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 179,
+                    Id = 179,
                     Name = "Potassium Deficiency",
                     Description = "Lack of potassium causing necrosis at the tips of older leaves.",
                     Symptoms = "Leaflet tip necrosis on oldest leaves, little or no yellow spotting[2][5].",
@@ -3995,7 +3995,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 180,
+                    Id = 180,
                     Name = "Manganese Deficiency",
                     Description = "Lack of manganese causing necrosis at the tips of young leaves.",
                     Symptoms = "Leaflet tip necrosis on youngest leaves, yellowing leaf edges[2][5].",
@@ -4007,7 +4007,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 181,
+                    Id = 181,
                     Name = "Boron Deficiency",
                     Description = "Lack of boron causing stunting and distortion of new leaves.",
                     Symptoms = "Stunted or distorted new leaves, incomplete opening of new leaves, horizontal shoot growth[2][5].",
@@ -4019,7 +4019,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 182,
+                    Id = 182,
                     Name = "Brown Leaf Tips",
                     Description = "Leaf tips turning brown due to low humidity or over-fertilizing.",
                     Symptoms = "Brown, crispy leaf tips, yellow halos[1][3].",
@@ -4031,7 +4031,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 183,
+                    Id = 183,
                     Name = "Yellow Leaves",
                     Description = "Yellowing leaves, especially lower leaves, often due to overwatering or age.",
                     Symptoms = "Yellowing leaves, especially lower, older leaves[1][3][4].",
@@ -4043,7 +4043,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 184,
+                    Id = 184,
                     Name = "Slow Growth",
                     Description = "Reduced or stunted growth due to insufficient light or nutrients.",
                     Symptoms = "Little to no new growth, small leaves[1][3][4].",
@@ -4055,7 +4055,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 185,
+                    Id = 185,
                     Name = "Transplant Shock",
                     Description = "Stress and decline after repotting, especially if roots are disturbed.",
                     Symptoms = "Wilting, yellowing leaves, stunted growth after transplant[3].",
@@ -4067,7 +4067,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 186,
+                    Id = 186,
                     Name = "Underwatering",
                     Description = "Insufficient water leading to dehydration and stress.",
                     Symptoms = "Yellow or paled fronds, brown crispy new growth, gradual decline[3][4].",
@@ -4084,7 +4084,7 @@ namespace PlantGuessingGame.Services
                 // Add the most common problems for Dracaena fragrans (Corn Plant)
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 198,
+                    Id = 198,
                     Name = "Spider Mites",
                     Description = "Tiny spider-like pests causing yellow stippling, webbing, and leaf drop.",
                     Symptoms = "Fine webbing, yellow or brown stippling on leaves, leaf drop[1][5][7].",
@@ -4096,7 +4096,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 199,
+                    Id = 199,
                     Name = "Mealybugs",
                     Description = "Small, white, cottony sap-sucking insects that weaken the plant.",
                     Symptoms = "White cottony masses on leaves and stems, sticky residue, yellowing leaves[1][5][7].",
@@ -4108,7 +4108,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 200,
+                    Id = 200,
                     Name = "Scale Insects",
                     Description = "Hard, brown, bumpy pests that attach to stems and leaves, secreting honeydew.",
                     Symptoms = "Brown bumps on stems and leaves, sticky residue, yellowing leaves[1][5][7].",
@@ -4120,7 +4120,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 201,
+                    Id = 201,
                     Name = "Root Rot",
                     Description = "Fungal disease causing root decay, yellowing, and wilting.",
                     Symptoms = "Yellowing leaves, wilting, foul odor from soil, plant collapse[1][2][5].",
@@ -4132,7 +4132,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 202,
+                    Id = 202,
                     Name = "Leaf Spot (Fungal or Bacterial)",
                     Description = "Fungal or bacterial infections causing brown or black spots on leaves.",
                     Symptoms = "Brown or black spots, yellow halos, leaf drop[1][5][7].",
@@ -4144,7 +4144,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 203,
+                    Id = 203,
                     Name = "Soft Rot",
                     Description = "Bacterial disease causing dark, soft, mushy areas on stems and leaves.",
                     Symptoms = "Dark, soft, mushy spots on lower stems and leaves, plant collapse[5][3].",
@@ -4156,7 +4156,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 204,
+                    Id = 204,
                     Name = "Anthracnose",
                     Description = "Fungal disease causing blackened or pinkish water-soaked lesions on leaves.",
                     Symptoms = "Blackened or pinkish water-soaked lesions, rings of brown or black fungal growth, leaf drop[3].",
@@ -4168,7 +4168,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 205,
+                    Id = 205,
                     Name = "Fluoride Toxicity",
                     Description = "Brown leaf tips and margins caused by fluoride in tap water.",
                     Symptoms = "Brown or necrotic leaf tips and margins, leaf drop[3][6].",
@@ -4180,7 +4180,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 206,
+                    Id = 206,
                     Name = "Brown Leaf Tips",
                     Description = "Leaf tips turning brown due to low humidity, over-fertilizing, or tap water chemicals.",
                     Symptoms = "Brown, crispy leaf tips, yellow halos[3][6].",
@@ -4192,7 +4192,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 207,
+                    Id = 207,
                     Name = "Yellow Leaves",
                     Description = "Yellowing leaves, especially lower leaves, due to overwatering, age, or nutrient deficiency.",
                     Symptoms = "Yellowing leaves, especially lower, older leaves[2][3][6].",
@@ -4204,7 +4204,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 208,
+                    Id = 208,
                     Name = "Stunted Growth",
                     Description = "Slow or stunted growth due to lack of nutrients or root-bound conditions.",
                     Symptoms = "Little to no new growth, small leaves[6].",
@@ -4216,7 +4216,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 209,
+                    Id = 209,
                     Name = "Nutrient Deficiency",
                     Description = "Lack of essential nutrients leading to poor growth and leaf discoloration.",
                     Symptoms = "Yellowing leaves, poor growth, leaf drop.",
@@ -4228,7 +4228,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 210,
+                    Id = 210,
                     Name = "Irregular Maintenance",
                     Description = "Neglect or irregular maintenance can result in poor growth and increased susceptibility to pests and diseases.",
                     Symptoms = "Weak growth, susceptibility to diseases and pests.",
@@ -4245,7 +4245,7 @@ namespace PlantGuessingGame.Services
                 // Add the most common problems for Lonicera nitida (Boxleaf Honeysuckle)
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 211,
+                    Id = 211,
                     Name = "Fungal Diseases (Powdery Mildew, Root Rot)",
                     Description = "Fungal infections can occur, especially in overly wet or poorly ventilated conditions.",
                     Symptoms = "White powdery coating on leaves (powdery mildew), yellowing or wilting (root rot), leaf drop[3][4][5].",
@@ -4257,7 +4257,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 212,
+                    Id = 212,
                     Name = "Honey Fungus",
                     Description = "Fungal disease attacking roots and causing plant decline, though Lonicera nitida is considered somewhat resistant[5].",
                     Symptoms = "Wilting, undersized leaves, failure to flower or fruit, white fungal growth at base, golden brown mushrooms[5].",
@@ -4269,7 +4269,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 213,
+                    Id = 213,
                     Name = "Aphids",
                     Description = "Sap-sucking insects causing distorted growth and sooty mold.",
                     Symptoms = "Clusters of small insects on leaves, sticky residue, sooty mold[3][6].",
@@ -4281,7 +4281,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 214,
+                    Id = 214,
                     Name = "Spider Mites",
                     Description = "Tiny spider-like pests causing stippling and webbing on leaves.",
                     Symptoms = "Fine webbing, yellow stippling on leaves, leaf drop[3][6].",
@@ -4293,7 +4293,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 215,
+                    Id = 215,
                     Name = "Scale Insects",
                     Description = "Sap-sucking pests causing yellowing and leaf drop.",
                     Symptoms = "Brown bumps on stems and leaves, sticky residue, yellowing leaves[3][6].",
@@ -4305,7 +4305,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 216,
+                    Id = 216,
                     Name = "Frost Damage",
                     Description = "Cold weather can cause leaf and stem damage, especially after transplanting or during severe frosts[2][4].",
                     Symptoms = "Blackened or wilted leaves, dieback, reduced vigor.",
@@ -4317,7 +4317,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 217,
+                    Id = 217,
                     Name = "Phytophthora Root Rot",
                     Description = "Fungal-like pathogen causing root decay and plant decline, especially in poorly drained soils[5][6].",
                     Symptoms = "Yellowing leaves, wilting, root decay, plant collapse.",
@@ -4329,7 +4329,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 218,
+                    Id = 218,
                     Name = "Irregular Maintenance",
                     Description = "Neglect or irregular pruning can result in poor shape and increased susceptibility to pests and diseases.",
                     Symptoms = "Leggy growth, susceptibility to diseases and pests.",
@@ -4346,7 +4346,7 @@ namespace PlantGuessingGame.Services
                 // Add the most common problems for Nepeta cataria (Catnip)
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 219,
+                    Id = 219,
                     Name = "Powdery Mildew",
                     Description = "Fungal disease causing white powdery coating on leaves.",
                     Symptoms = "White powdery spots on leaves, leaf curling, reduced vigor[1][4][5].",
@@ -4358,7 +4358,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 220,
+                    Id = 220,
                     Name = "Leaf Spot (Cercospora, Septoria)",
                     Description = "Fungal diseases causing spots with yellow halos or gray centers on leaves.",
                     Symptoms = "Yellow halos around spots (Cercospora), gray spots with dark edges (Septoria), leaf drop[2][4][5].",
@@ -4370,7 +4370,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 221,
+                    Id = 221,
                     Name = "Root Rot",
                     Description = "Fungal disease causing root decay, yellowing, and wilting.",
                     Symptoms = "Yellowing leaves, wilting, foul odor from soil, plant collapse[1][2][6].",
@@ -4382,7 +4382,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 222,
+                    Id = 222,
                     Name = "Bacterial Leaf Spot",
                     Description = "Bacterial disease causing water-soaked spots with yellow halos on leaves.",
                     Symptoms = "Water-soaked spots with yellow halos, spots darken and may turn black, leaf drop[2][4].",
@@ -4394,7 +4394,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 223,
+                    Id = 223,
                     Name = "Aphids",
                     Description = "Sap-sucking insects causing distorted growth and sooty mold.",
                     Symptoms = "Clusters of small insects on leaves, sticky residue, sooty mold[2][3][5].",
@@ -4406,7 +4406,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 224,
+                    Id = 224,
                     Name = "Spider Mites",
                     Description = "Tiny spider-like pests causing stippling and webbing on leaves.",
                     Symptoms = "Fine webbing, yellow stippling on leaves, leaf drop[2][3][5].",
@@ -4418,7 +4418,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 225,
+                    Id = 225,
                     Name = "Thrips and Whiteflies",
                     Description = "Sap-sucking insects causing discoloration and leaf drop.",
                     Symptoms = "Discolored or distorted leaves, sticky residue, silvering or whiteflies on leaves[2][3][5].",
@@ -4430,7 +4430,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 226,
+                    Id = 226,
                     Name = "Flea Beetles",
                     Description = "Small jumping beetles causing tiny holes in leaves.",
                     Symptoms = "Tiny holes in leaves, reduced vigor[2][3].",
@@ -4442,7 +4442,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 227,
+                    Id = 227,
                     Name = "Overwatering and Poor Drainage",
                     Description = "Excess water leading to root rot and fungal diseases.",
                     Symptoms = "Yellowing leaves, wilting, foul odor from soil, plant collapse[3][5][6].",
@@ -4454,7 +4454,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 228,
+                    Id = 228,
                     Name = "Underwatering and Drought Stress",
                     Description = "Insufficient water causing crispy leaves and stunted growth.",
                     Symptoms = "Crispy, dry leaves, stunted growth, wilting[3][5].",
@@ -4466,7 +4466,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 229,
+                    Id = 229,
                     Name = "Leggy Growth and Pale Leaves",
                     Description = "Weak, stretched growth due to insufficient light.",
                     Symptoms = "Pale, leggy stems, reduced vigor[5].",
@@ -4478,7 +4478,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 230,
+                    Id = 230,
                     Name = "Cat Damage",
                     Description = "Cats attracted to the plant may roll on or break stems and foliage[2][7][8].",
                     Symptoms = "Broken stems, flattened plants, reduced vigor.",
@@ -4490,7 +4490,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 231,
+                    Id = 231,
                     Name = "Invasive or Weedy Growth",
                     Description = "Can self-seed and spread in the garden if not managed[1][8].",
                     Symptoms = "Excessive spread, unwanted seedlings, reduced space for other plants.",
@@ -4502,7 +4502,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 232,
+                    Id = 232,
                     Name = "Nutrient Imbalance or Poor Soil",
                     Description = "Lack of nutrients or poor soil quality can reduce plant vigor[3][6].",
                     Symptoms = "Yellowing leaves, poor growth, leaf drop.",
@@ -4519,7 +4519,7 @@ namespace PlantGuessingGame.Services
                 // Add the most common problems for Lavandula angustifolia (English Lavender)
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 233,
+                    Id = 233,
                     Name = "Root Rot",
                     Description = "Fungal disease causing root decay, yellowing, and wilting. Often caused by Phytophthora, Fusarium, Pythium, or Rhizoctonia species[2][3][7].",
                     Symptoms = "Yellowing leaves, wilting, foul odor from soil, plant collapse.",
@@ -4531,7 +4531,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 234,
+                    Id = 234,
                     Name = "Leaf Spot (Septoria)",
                     Description = "Fungal disease causing grey or brown spots with yellow halos on leaves[2][7][8].",
                     Symptoms = "Grey or brown spots on leaves, leaf drop, reduced vigor.",
@@ -4543,7 +4543,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 235,
+                    Id = 235,
                     Name = "Botrytis (Grey Mold)",
                     Description = "Fungal disease causing grey mold and wilting of foliage, especially in humid conditions[2][1][8].",
                     Symptoms = "Grey mold on leaves and stems, wilting, yellowing, plant decline.",
@@ -4555,7 +4555,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 236,
+                    Id = 236,
                     Name = "Alfalfa Mosaic Virus",
                     Description = "Viral disease causing yellow patches, leaf distortion, and stunted growth. Spread by aphids or contaminated tools[2][3][5].",
                     Symptoms = "Yellow patches or rings, contorted leaves, stunted growth.",
@@ -4567,7 +4567,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 237,
+                    Id = 237,
                     Name = "Lavender Shab (Phomopsis lavandulae)",
                     Description = "Fungal disease causing stem wilt, brown and black patches, and plant death[2][5].",
                     Symptoms = "Sudden wilting, brown and black patches on stems, plant death.",
@@ -4579,7 +4579,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 238,
+                    Id = 238,
                     Name = "Aphids",
                     Description = "Sap-sucking insects that can transmit viruses and weaken the plant[2][3][5].",
                     Symptoms = "Clusters of small insects on leaves, sticky residue, sooty mold.",
@@ -4591,7 +4591,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 239,
+                    Id = 239,
                     Name = "Spittlebugs",
                     Description = "Insects that produce frothy spittle on stems, generally harmless to lavender[1][5].",
                     Symptoms = "Foamy spittle on stems, minor cosmetic damage.",
@@ -4603,7 +4603,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 240,
+                    Id = 240,
                     Name = "Garden Weevil",
                     Description = "Beetles that chew on stems and foliage, causing minor damage[1].",
                     Symptoms = "Chewed stems and leaves, minor cosmetic damage.",
@@ -4615,7 +4615,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 241,
+                    Id = 241,
                     Name = "Moles and Voles",
                     Description = "Mammals that can uproot or eat roots and lower stems[2].",
                     Symptoms = "Uprooted plants, eaten roots, plant collapse.",
@@ -4627,7 +4627,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 242,
+                    Id = 242,
                     Name = "Overwatering and Poor Drainage",
                     Description = "Excess moisture leading to root and fungal diseases[2][3][7].",
                     Symptoms = "Yellowing, wilting, foul odor from soil.",
@@ -4639,7 +4639,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 243,
+                    Id = 243,
                     Name = "Leggy Growth and Reduced Flowering",
                     Description = "Weak, stretched growth and few flowers due to insufficient light or overcrowding[2].",
                     Symptoms = "Leggy stems, sparse flowering, reduced vigor.",
@@ -4651,7 +4651,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 244,
+                    Id = 244,
                     Name = "Nutrient Imbalance or Poor Soil",
                     Description = "Lack of nutrients or poor soil quality can reduce plant vigor[7].",
                     Symptoms = "Yellowing leaves, poor growth, leaf drop.",
@@ -4668,7 +4668,7 @@ namespace PlantGuessingGame.Services
                 // Add the most common problems for Paeonia lactiflora (Common Garden Peony)
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 245,
+                    Id = 245,
                     Name = "Botrytis Blight (Gray Mold)",
                     Description = "Fungal disease causing rot and dieback of shoots, buds, and flowers; most common disease of garden peonies[2][5][7].",
                     Symptoms = "Young shoots rot at ground level, wilted and toppled stems, brown or blackish fungal spores, gray mold on stems, blackened or withered buds, brown flowers[2][5][7].",
@@ -4680,7 +4680,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 246,
+                    Id = 246,
                     Name = "Peony Blotch (Measles/Red Spot)",
                     Description = "Fungal disease causing purple-red spots and blotches on leaves, stems, and flowers[2][5].",
                     Symptoms = "Red or purplish spots on leaves (glossy and dark purple on top, chestnut brown underneath), reddish-brown streaks on stems and petioles, coalescing blotches, unsightly foliage[2][5].",
@@ -4692,7 +4692,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 247,
+                    Id = 247,
                     Name = "Powdery Mildew",
                     Description = "Fungal disease producing a light gray or whitish powder on leaves, stems, and flowers[2][4][7].",
                     Symptoms = "White powdery coating on foliage, deformed flowers, leaf drop, mostly cosmetic damage[2][4][7].",
@@ -4704,7 +4704,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 248,
+                    Id = 248,
                     Name = "Phytophthora Blight and Root Rot",
                     Description = "Fungal disease causing stem, root, and crown rot, especially in wet soils[2][5].",
                     Symptoms = "Darkened, leathery stems at soil line, wilting, root and crown rot, plant collapse[2][5].",
@@ -4716,7 +4716,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 249,
+                    Id = 249,
                     Name = "Leaf Spot (Various Fungal)",
                     Description = "Various fungi cause tan to brown spots with distinct borders, mostly cosmetic[2][5].",
                     Symptoms = "Tan to brown spots on leaves, sometimes merging into blights or blotches, leaf drop in severe cases[2][5].",
@@ -4728,7 +4728,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 250,
+                    Id = 250,
                     Name = "Viral Diseases",
                     Description = "Several viruses cause mottling, yellowing, ringspots, and general plant decline[2][3][7].",
                     Symptoms = "Mottled, yellow, or ring-spotted leaves, stunted growth, plant decline[2][3][7].",
@@ -4740,7 +4740,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 251,
+                    Id = 251,
                     Name = "Foliar Nematodes",
                     Description = "Nematodes attacking above-ground plant parts, causing angular, water-soaked lesions and leaf drop[2].",
                     Symptoms = "Angular, water-soaked leaf lesions, brown or black spots, stunting, leaf proliferation, plant decline[2].",
@@ -4752,7 +4752,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 252,
+                    Id = 252,
                     Name = "Bacterial Leaf Spot (Xanthomonas Blight)",
                     Description = "Bacterial disease causing purple leaf spots and blight of shoots[5].",
                     Symptoms = "Purple leaf spots, coalescing blights on shoots, plant decline[5].",
@@ -4764,7 +4764,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 253,
+                    Id = 253,
                     Name = "Anthracnose",
                     Description = "Fungal disease causing brown lesions and dieback[5].",
                     Symptoms = "Brown lesions with concentric rings, dieback of shoots and leaves[5].",
@@ -4776,7 +4776,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 254,
+                    Id = 254,
                     Name = "Moisture Stress and Wilting",
                     Description = "Wilting due to over- or underwatering, or root disease[6][1].",
                     Symptoms = "Wilting, yellowing, leaf drop, plant decline[6][1].",
@@ -4788,7 +4788,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 255,
+                    Id = 255,
                     Name = "Nutrient Deficiency",
                     Description = "Lack of essential nutrients causing poor growth and leaf discoloration[1].",
                     Symptoms = "Yellowing leaves, poor growth, leaf drop.",
@@ -4800,7 +4800,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 256,
+                    Id = 256,
                     Name = "Irregular Maintenance",
                     Description = "Neglect or irregular maintenance can result in poor growth and increased susceptibility to pests and diseases[1][8].",
                     Symptoms = "Weak growth, susceptibility to diseases and pests.",
@@ -4817,7 +4817,7 @@ namespace PlantGuessingGame.Services
                 // Add the most common problems for Papaver nudicaule (Iceland Poppy)
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 257,
+                    Id = 257,
                     Name = "Root Rot",
                     Description = "Fungal disease causing root decay, yellowing, and wilting.",
                     Symptoms = "Yellowing leaves, wilting, foul odor from soil, mushy roots, plant collapse[2][4][7].",
@@ -4829,7 +4829,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 258,
+                    Id = 258,
                     Name = "Powdery Mildew",
                     Description = "Fungal disease causing white powdery spots on leaves and stunted growth.",
                     Symptoms = "White powdery spots on leaves, curled leaves, stunted growth[2][4][8].",
@@ -4841,7 +4841,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 259,
+                    Id = 259,
                     Name = "Rust",
                     Description = "Fungal disease causing orange or yellow spots on leaves, leading to curling and premature drop.",
                     Symptoms = "Orange or yellow spots on leaves, leaf curling, premature leaf drop[2][8].",
@@ -4853,7 +4853,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 260,
+                    Id = 260,
                     Name = "Black Rot and Blight",
                     Description = "Fungal diseases causing dark lesions, wilting, and rapid decay.",
                     Symptoms = "Dark lesions on stems and leaves, wilting, mushy stems, plant decline[2][4][8].",
@@ -4865,7 +4865,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 261,
+                    Id = 261,
                     Name = "Gray Mold (Botrytis)",
                     Description = "Fungal disease causing gray mold on flowers, leaves, and stems.",
                     Symptoms = "Gray mold on flowers and leaves, wilting, plant collapse[4].",
@@ -4877,7 +4877,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 262,
+                    Id = 262,
                     Name = "Aphids",
                     Description = "Sap-sucking insects causing distorted growth and sooty mold.",
                     Symptoms = "Clusters of small insects on stems and leaves, sticky residue, sooty mold[2][5].",
@@ -4889,7 +4889,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 263,
+                    Id = 263,
                     Name = "Spider Mites",
                     Description = "Tiny spider-like pests causing stippling and webbing on leaves.",
                     Symptoms = "Fine webbing, yellow stippling on leaves, leaf drop[2][5].",
@@ -4901,7 +4901,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 264,
+                    Id = 264,
                     Name = "Slugs and Snails",
                     Description = "Mollusks that chew irregular holes in leaves, especially in damp conditions.",
                     Symptoms = "Irregular holes in leaves, slime trails, reduced vigor[2][5].",
@@ -4913,7 +4913,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 265,
+                    Id = 265,
                     Name = "Leafhoppers, Leafminers, and Thrips",
                     Description = "Sap-sucking or leaf-mining insects causing stippling, discoloration, and reduced vigor.",
                     Symptoms = "Stippling, discoloration, tunnels in leaves, reduced plant vigor[5].",
@@ -4925,7 +4925,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 266,
+                    Id = 266,
                     Name = "Incorrect Watering",
                     Description = "Overwatering or underwatering leading to wilting, yellowing, or root rot.",
                     Symptoms = "Wilting, yellowing leaves, mushy stems (overwatering), dry crispy leaves (underwatering)[2][4][7].",
@@ -4937,7 +4937,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 267,
+                    Id = 267,
                     Name = "Incorrect Light Conditions",
                     Description = "Too much or too little light affecting growth and flowering.",
                     Symptoms = "Leggy growth, sparse flowers (low light), scorched leaves, faded colors (excess light)[2].",
@@ -4949,7 +4949,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 268,
+                    Id = 268,
                     Name = "Temperature Stress",
                     Description = "Extreme temperatures causing wilting, leaf drop, or slow growth.",
                     Symptoms = "Wilting, leaf drop, slow growth[2].",
@@ -4961,7 +4961,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 269,
+                    Id = 269,
                     Name = "Nutrient Deficiency",
                     Description = "Lack of essential nutrients leading to poor growth and leaf discoloration.",
                     Symptoms = "Yellowing leaves, poor growth, leaf drop[2].",
@@ -4973,7 +4973,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 270,
+                    Id = 270,
                     Name = "Toxicity",
                     Description = "Plant is toxic to humans and animals if ingested.",
                     Symptoms = "Gastrointestinal upset, lethargy, severe symptoms in pets[6].",
@@ -4990,7 +4990,7 @@ namespace PlantGuessingGame.Services
                 // Add the most common problems for Vinca minor (Common Periwinkle)
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 271,
+                    Id = 271,
                     Name = "Stem Canker (Phoma Blight)",
                     Description = "Fungal disease causing dark brown to black lesions on stems, leading to wilting and dieback[5][8][6].",
                     Symptoms = "Dark brown to black lesions on stems, wilting, dieback, plant collapse.",
@@ -5002,7 +5002,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 272,
+                    Id = 272,
                     Name = "Root and Stem Rot (Rhizoctonia)",
                     Description = "Fungal disease causing blackening or rotting of roots and stems near the soil line[6][8].",
                     Symptoms = "Blackening or rotting of roots and stems, wilting, plant death.",
@@ -5014,7 +5014,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 273,
+                    Id = 273,
                     Name = "Botrytis Blight (Gray Mold)",
                     Description = "Fungal disease causing stem canker, leaf spot, and blight, especially in humid conditions[6].",
                     Symptoms = "Gray mold on leaves and stems, wilting, plant decline.",
@@ -5026,7 +5026,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 274,
+                    Id = 274,
                     Name = "Leaf Spot",
                     Description = "Fungal disease causing dark spots on leaves, leading to browning and death[6][7].",
                     Symptoms = "Dark spots on leaves, browning, leaf death.",
@@ -5038,7 +5038,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 275,
+                    Id = 275,
                     Name = "Phytophthora Blight",
                     Description = "Fungal disease causing yellow to dark brown leaf spots and root/stem rot[2][6].",
                     Symptoms = "Yellow to dark brown leaf spots, root/stem rot, wilting, plant death.",
@@ -5050,7 +5050,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 276,
+                    Id = 276,
                     Name = "Aphids",
                     Description = "Sap-sucking insects causing distorted growth and sooty mold[1][7].",
                     Symptoms = "Clusters of small insects on stems and leaves, sticky residue, sooty mold.",
@@ -5062,7 +5062,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 277,
+                    Id = 277,
                     Name = "Spider Mites",
                     Description = "Tiny spider-like pests causing stippling and webbing on leaves[1][7].",
                     Symptoms = "Fine webbing, yellow stippling on leaves, leaf drop.",
@@ -5074,7 +5074,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 278,
+                    Id = 278,
                     Name = "Scale Insects",
                     Description = "Sap-sucking pests causing yellowing and leaf drop[1][7].",
                     Symptoms = "Brown bumps on stems and leaves, sticky residue, yellowing leaves.",
@@ -5086,7 +5086,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 279,
+                    Id = 279,
                     Name = "Whiteflies",
                     Description = "Small, white, flying insects causing leaf yellowing and plant stress[2][7].",
                     Symptoms = "Tiny white insects on leaf undersides, yellowing leaves, sticky residue.",
@@ -5098,7 +5098,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 280,
+                    Id = 280,
                     Name = "Tomato Spotted Wilt Virus (TSWV)",
                     Description = "Viral disease causing black concentric ring spots, yellowing, stunting, and distortion[3].",
                     Symptoms = "Black ring spots or line patterns, yellowing, stunting, distortion.",
@@ -5110,7 +5110,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 281,
+                    Id = 281,
                     Name = "Overwatering and Poor Drainage",
                     Description = "Excess moisture leading to fungal diseases and root rot[2][6][4].",
                     Symptoms = "Yellowing, wilting, foul odor from soil, plant collapse.",
@@ -5122,7 +5122,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 282,
+                    Id = 282,
                     Name = "Incorrect Light Conditions",
                     Description = "Too much or too little light affecting growth and vigor[4].",
                     Symptoms = "Leggy growth, sparse foliage (low light), scorched leaves (excess light).",
@@ -5134,7 +5134,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 283,
+                    Id = 283,
                     Name = "Temperature Stress",
                     Description = "Extreme temperatures causing wilting or dieback, especially in colder zones[7][4].",
                     Symptoms = "Wilting, leaf drop, dieback, plant death in severe cold.",
@@ -5146,7 +5146,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 284,
+                    Id = 284,
                     Name = "Invasive Growth",
                     Description = "Vinca minor can become invasive, spreading aggressively and outcompeting native plants[7].",
                     Symptoms = "Excessive spread, dense mats, reduced biodiversity.",
@@ -5163,7 +5163,7 @@ namespace PlantGuessingGame.Services
                 // Add the most common problems for Eucalyptus globulus (Tasmanian Blue Gum)
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 285,
+                    Id = 285,
                     Name = "Mycosphaerella Leaf Disease (MLD)/Teratosphaeria Leaf Disease",
                     Description = "Fungal disease causing leaf spots and premature defoliation, severely impacting growth and wood production[5][7][6].",
                     Symptoms = "Leaf spots of varying size, shape, and color; spots enlarge and coalesce; premature leaf drop; reduced photosynthetic capacity.",
@@ -5175,7 +5175,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 286,
+                    Id = 286,
                     Name = "Eucalyptus Canker (Botryosphaeria, Diplodia)",
                     Description = "Fungal disease causing sunken, dead areas on bark, leading to dieback and sometimes tree death[2][1][5].",
                     Symptoms = "Sunken, dark lesions on trunk and branches; leaf drop; branch dieback; tree death in severe cases.",
@@ -5187,7 +5187,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 287,
+                    Id = 287,
                     Name = "Leaf Spot Diseases (Various Fungi)",
                     Description = "Multiple fungal pathogens cause leaf spots, leading to reduced vigor and sometimes defoliation[3][6][2].",
                     Symptoms = "Irregular dark spots on leaves with yellow halos; leaf drop; reduced growth.",
@@ -5199,7 +5199,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 288,
+                    Id = 288,
                     Name = "Armillaria Root Rot",
                     Description = "Fungal disease causing root and lower trunk decay, leading to tree decline[5].",
                     Symptoms = "White fungal mats under bark, dark rhizomorphs, dead limbs, tree collapse.",
@@ -5211,7 +5211,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 289,
+                    Id = 289,
                     Name = "Red Gum Lerp Psyllid",
                     Description = "Insect pest forming protective waxy covers on leaves, causing leaf curling and reduced photosynthesis[2].",
                     Symptoms = "White, sugary lerps on leaf undersides; leaf curling; sticky residue; reduced growth.",
@@ -5223,7 +5223,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 290,
+                    Id = 290,
                     Name = "Autumn Gum Moth",
                     Description = "Caterpillar pest feeding on foliage, causing defoliation and reduced growth[5].",
                     Symptoms = "Chewed leaves, defoliation, reduced vigor.",
@@ -5235,7 +5235,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 291,
+                    Id = 291,
                     Name = "Christmas Beetle",
                     Description = "Beetle pest feeding on leaves, causing skeletonization and defoliation[5].",
                     Symptoms = "Skeletonized leaves, defoliation, reduced vigor.",
@@ -5247,7 +5247,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 292,
+                    Id = 292,
                     Name = "Leafblister Sawfly",
                     Description = "Larvae cause blister-like galls on leaves, reducing photosynthetic area[5].",
                     Symptoms = "Blister-like galls on leaves, leaf distortion, reduced vigor.",
@@ -5259,7 +5259,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 293,
+                    Id = 293,
                     Name = "Leaf Beetles (Chrysomelidae)",
                     Description = "Beetles feeding on foliage, causing holes and reduced vigor[5].",
                     Symptoms = "Chewed leaves, holes, reduced growth.",
@@ -5271,7 +5271,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 294,
+                    Id = 294,
                     Name = "Scale Insects",
                     Description = "Sap-sucking insects causing yellowing, leaf drop, and sooty mold[5][8].",
                     Symptoms = "Brown or white scales on leaves and stems, sticky residue, sooty mold.",
@@ -5283,7 +5283,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 295,
+                    Id = 295,
                     Name = "Bluegum Psyllid",
                     Description = "Sap-sucking insect causing leaf distortion and reduced growth[5].",
                     Symptoms = "Leaf distortion, sticky residue, reduced vigor.",
@@ -5295,7 +5295,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 296,
+                    Id = 296,
                     Name = "Drought Stress",
                     Description = "Water deficit causing wilting, leaf drop, and reduced growth[4][2].",
                     Symptoms = "Wilting, leaf drop, reduced growth, branch dieback.",
@@ -5307,7 +5307,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 297,
+                    Id = 297,
                     Name = "Fire Risk",
                     Description = "High flammability and risk of fire damage, especially in Mediterranean climates[4].",
                     Symptoms = "Burned foliage, trunk damage, tree death.",
@@ -5319,7 +5319,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 298,
+                    Id = 298,
                     Name = "Poor Site Adaptation",
                     Description = "Stress and reduced growth due to unsuitable climate or soil conditions[1][4].",
                     Symptoms = "Stunted growth, leaf drop, increased susceptibility to pests and diseases.",
@@ -5336,7 +5336,7 @@ namespace PlantGuessingGame.Services
                 // Add the most common problems for Photinia × fraseri (Red Tip Photinia)
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 299,
+                    Id = 299,
                     Name = "Entomosporium Leaf Spot",
                     Description = "Fungal disease causing small, circular, red or brown spots on leaves, which can merge and lead to defoliation[2][4][6].",
                     Symptoms = "Circular red/brown spots on both leaf surfaces, spots with gray centers and reddish halos on mature leaves, premature leaf drop, cankers on twigs[2][6][7].",
@@ -5348,7 +5348,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 300,
+                    Id = 300,
                     Name = "Powdery Mildew",
                     Description = "Fungal disease causing white, powdery patches on leaves and stems[1][2][5].",
                     Symptoms = "White or grayish powdery coating on leaves and stems, leaf distortion, reduced vigor.",
@@ -5360,7 +5360,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 301,
+                    Id = 301,
                     Name = "Fireblight",
                     Description = "Bacterial disease causing shoot blight, oozing, and dieback[1][2][5].",
                     Symptoms = "Brown or blackened shoots, scorched appearance, oozing from affected parts, dieback.",
@@ -5372,7 +5372,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 302,
+                    Id = 302,
                     Name = "Black Rot and Blight",
                     Description = "Fungal and bacterial diseases causing dark lesions and rapid wilting[5].",
                     Symptoms = "Dark lesions on leaves and stems, rapid wilting, plant decline.",
@@ -5384,7 +5384,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 303,
+                    Id = 303,
                     Name = "Frost Damage",
                     Description = "Cold weather can cause leaf scorch and dieback, especially in young plants[2][8].",
                     Symptoms = "Blackened or scorched leaves, dieback of shoots, reduced vigor.",
@@ -5396,7 +5396,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 304,
+                    Id = 304,
                     Name = "Pests (Aphids, Scale, Spider Mites)",
                     Description = "Sap-sucking insects causing distorted growth, sooty mold, and reduced vigor[3][5].",
                     Symptoms = "Sticky residue, sooty mold, distorted leaves, webbing (spider mites), yellowing.",
@@ -5408,7 +5408,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 305,
+                    Id = 305,
                     Name = "Physiological Leaf Spot",
                     Description = "Leaf spots caused by environmental stress rather than pathogens[7].",
                     Symptoms = "Irregular leaf spots, no gray centers, often in response to stress.",
@@ -5420,7 +5420,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 306,
+                    Id = 306,
                     Name = "Nutrient Deficiency",
                     Description = "Lack of essential nutrients leading to poor growth and leaf discoloration.",
                     Symptoms = "Yellowing leaves, poor growth, leaf drop.",
@@ -5432,7 +5432,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 307,
+                    Id = 307,
                     Name = "Irregular Maintenance",
                     Description = "Neglect or irregular maintenance can result in poor growth and increased susceptibility to pests and diseases[1][8].",
                     Symptoms = "Weak growth, susceptibility to diseases and pests.",
@@ -5449,7 +5449,7 @@ namespace PlantGuessingGame.Services
                 // Add the most common problems for Prunus laurocerasus (Cherry Laurel)
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 308,
+                    Id = 308,
                     Name = "Powdery Mildew",
                     Description = "Fungal disease causing white powdery spots on leaves, leading to distortion and unsightly foliage[1][2][4].",
                     Symptoms = "White powdery coating on leaves, leaf distortion, reduced vigor, leaf drop.",
@@ -5461,7 +5461,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 309,
+                    Id = 309,
                     Name = "Leaf Spot Fungi (Stigmina carpophila, Eupropolella britannica)",
                     Description = "Fungal diseases causing brown or black spots, sometimes with yellow halos, leading to holes and tattering[1][4][7].",
                     Symptoms = "Brown or black spots with yellow halos, spots on leaf edges, holes or tattered leaves as spots fall out.",
@@ -5473,7 +5473,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 310,
+                    Id = 310,
                     Name = "Bacterial Shothole (Pseudomonas syringae, Xanthomonas arboricola pv. pruni)",
                     Description = "Bacterial disease causing small, water-soaked spots that become necrotic and fall out, leaving shotholes[1][4][7].",
                     Symptoms = "Small, water-soaked spots, brown/black necrotic areas, holes in leaves as tissue falls out.",
@@ -5485,7 +5485,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 311,
+                    Id = 311,
                     Name = "Downy Mildew (Peronospora spp.)",
                     Description = "Fungal disease causing yellow/brown blotches on upper leaf surfaces and white cottony growth underneath[4].",
                     Symptoms = "Yellow/brown irregular blotches on upper leaves, whitish growth on undersides, leaf drop.",
@@ -5497,7 +5497,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 312,
+                    Id = 312,
                     Name = "Fungal Shothole (Neofabraea actinidae, Eupropolella britannica)",
                     Description = "Fungal diseases causing greyish-white or dark brown lesions, leading to holes in leaves[4].",
                     Symptoms = "Greyish-white or dark brown patches, necrotic centers, holes as tissue falls out.",
@@ -5509,7 +5509,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 313,
+                    Id = 313,
                     Name = "Vine Weevil",
                     Description = "Beetle larvae feeding on roots, adults feeding on leaves, causing significant damage[2][4].",
                     Symptoms = "Notched leaf edges, skeletonized leaves (adults), root damage, plant decline (larvae).",
@@ -5521,7 +5521,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 314,
+                    Id = 314,
                     Name = "Scale Insects",
                     Description = "Sap-sucking insects causing yellowing, leaf drop, and reduced vigor[3][4].",
                     Symptoms = "Brown or white scales on stems and leaves, sticky residue, sooty mold, yellowing leaves.",
@@ -5533,7 +5533,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 315,
+                    Id = 315,
                     Name = "Leaf Miner (Lyonetia clerkella)",
                     Description = "Larvae tunneling inside leaves, causing visible trails and possible leaf drop[4].",
                     Symptoms = "Long, winding tunnels inside leaves, leaf distortion, minor leaf drop.",
@@ -5545,7 +5545,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 316,
+                    Id = 316,
                     Name = "Common Green Capsid (Lygocoris pabulinus)",
                     Description = "Sap-sucking insect causing ragged holes in young leaves[4].",
                     Symptoms = "Ragged holes in young leaves, minor distortion.",
@@ -5557,7 +5557,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 317,
+                    Id = 317,
                     Name = "Citrus Red Mite (Panonychus citri)",
                     Description = "Mites causing silvering, yellowing, or speckling on leaves[4].",
                     Symptoms = "Silvering, yellowing, or speckling on leaves, defoliation in severe cases.",
@@ -5569,7 +5569,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 318,
+                    Id = 318,
                     Name = "Poor Drainage",
                     Description = "Waterlogged soil leading to root damage, yellowing, and dieback[5][8].",
                     Symptoms = "Yellowing leaves, browning, dieback, reduced vigor.",
@@ -5581,7 +5581,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 319,
+                    Id = 319,
                     Name = "Frost Damage",
                     Description = "Cold weather causing leaf browning and scorch, especially in winter or spring[5][6][8].",
                     Symptoms = "Brown or scorched leaves, leaf drop, reduced vigor.",
@@ -5593,7 +5593,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 320,
+                    Id = 320,
                     Name = "Nutrient Deficiency",
                     Description = "Lack of essential nutrients leading to poor growth and leaf discoloration[8].",
                     Symptoms = "Yellowing leaves, poor growth, leaf drop.",
@@ -5605,7 +5605,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 321,
+                    Id = 321,
                     Name = "Irregular Maintenance",
                     Description = "Neglect or irregular maintenance can result in poor growth and increased susceptibility to pests and diseases[8].",
                     Symptoms = "Weak growth, susceptibility to diseases and pests.",
@@ -5622,7 +5622,7 @@ namespace PlantGuessingGame.Services
                 // Add the most common problems for Dryopteris filix-mas (Male Fern)
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 322,
+                    Id = 322,
                     Name = "Aphid Infestations",
                     Description = "Occasional infestations by aphids, which can cause leaf curling and reduce vigor[6].",
                     Symptoms = "Clusters of small insects on fronds, sticky residue, sooty mold, leaf curling.",
@@ -5634,7 +5634,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 323,
+                    Id = 323,
                     Name = "Fungal Diseases",
                     Description = "Occasional fungal infections, such as leaf spot or rust, especially in damp conditions[6].",
                     Symptoms = "Spots or discoloration on fronds, leaf drop, reduced vigor.",
@@ -5646,7 +5646,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 324,
+                    Id = 324,
                     Name = "Toxicity",
                     Description = "Male fern is highly toxic if ingested, with chemicals that can cause severe poisoning and even death[1][2][6].",
                     Symptoms = "Severe digestive upset, vision disturbances, liver damage, death if ingested.",
@@ -5658,7 +5658,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 325,
+                    Id = 325,
                     Name = "Poor Soil Drainage",
                     Description = "Waterlogged soil can lead to root rot and reduced plant vigor[6].",
                     Symptoms = "Yellowing fronds, wilting, foul odor from soil, plant collapse.",
@@ -5670,7 +5670,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 326,
+                    Id = 326,
                     Name = "Nutrient Imbalance",
                     Description = "Too much nitrogen or poor soil nutrition can cause foliage burn or poor growth[6].",
                     Symptoms = "Foliage burn, yellowing, poor growth.",
@@ -5682,7 +5682,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 327,
+                    Id = 327,
                     Name = "Habitat Loss",
                     Description = "Destruction or alteration of native habitats can threaten wild populations[6].",
                     Symptoms = "Reduced wild populations, loss of genetic diversity.",
@@ -5699,7 +5699,7 @@ namespace PlantGuessingGame.Services
                 // Add the most common problems for Symphoricarpos × chenaultii (Chenault Snowberry)
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 328,
+                    Id = 328,
                     Name = "Anthracnose",
                     Description = "Fungal disease causing dark brown lesions on leaves, stems, and fruit; can lead to leaf drop and stunted growth[5][6][3].",
                     Symptoms = "Dark brown or black spots on leaves, stems, and fruit; lesions with greyish centers; leaf drop; blackened or deformed fruit.",
@@ -5711,7 +5711,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 329,
+                    Id = 329,
                     Name = "Powdery Mildew",
                     Description = "Fungal disease causing white powdery patches on leaves and stems[5][6][7].",
                     Symptoms = "White powdery coating on leaves and stems, leaf distortion, reduced vigor.",
@@ -5723,7 +5723,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 330,
+                    Id = 330,
                     Name = "Leaf Spot (Various Fungi)",
                     Description = "Various fungi cause brown or black spots on leaves, sometimes with yellow halos[5][4].",
                     Symptoms = "Brown or black spots on leaves, sometimes with yellow halos, leaf drop in severe cases.",
@@ -5735,7 +5735,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 331,
+                    Id = 331,
                     Name = "Aphids",
                     Description = "Sap-sucking insects causing distorted growth and sooty mold[4][6][7].",
                     Symptoms = "Clusters of small insects on leaves and stems, sticky residue, sooty mold.",
@@ -5747,7 +5747,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 332,
+                    Id = 332,
                     Name = "Scale Insects",
                     Description = "Sap-sucking pests causing yellowing and leaf drop[6].",
                     Symptoms = "Brown or white scales on stems and leaves, sticky residue, yellowing leaves.",
@@ -5759,7 +5759,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 333,
+                    Id = 333,
                     Name = "Cold Damage",
                     Description = "Leaf discoloration and dieback when temperatures drop below the plant's tolerance[1].",
                     Symptoms = "Leaf discoloration, dieback, reduced vigor.",
@@ -5771,7 +5771,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 334,
+                    Id = 334,
                     Name = "Moisture Stress",
                     Description = "Underwatering or overwatering leading to wilting, leaf scorch, or root rot[8][5].",
                     Symptoms = "Wilting, leaf scorch, limp or curling leaves, reduced growth.",
@@ -5783,7 +5783,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 335,
+                    Id = 335,
                     Name = "Overcrowding and Poor Air Circulation",
                     Description = "Crowded conditions can increase susceptibility to fungal diseases[5][7].",
                     Symptoms = "Increased fungal disease, reduced vigor.",
@@ -5800,7 +5800,7 @@ namespace PlantGuessingGame.Services
                 // Add the most common problems for Cocos nucifera (Coconut Palm)
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 336,
+                    Id = 336,
                     Name = "Bud Rot",
                     Description = "Fungal disease primarily caused by Phytophthora palmivora, leading to rapid destruction of the bud and eventual death of the palm if untreated[1][5][3].",
                     Symptoms = "Soft, brown to black rot of the bud, wilting of young leaves, foul odor, plant collapse.",
@@ -5812,7 +5812,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 337,
+                    Id = 337,
                     Name = "Gray Leaf Spot & Gray Leaf Blight",
                     Description = "Fungal diseases causing gray or brown spots on leaves, leading to defoliation and reduced vigor[1][3][2].",
                     Symptoms = "Gray or brown spots on leaves, coalescing into large blotches, premature leaf drop, reduced growth.",
@@ -5824,7 +5824,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 338,
+                    Id = 338,
                     Name = "Leaf Rot",
                     Description = "Fungal disease affecting the spear leaf and other fronds, compromising photosynthesis[1][5].",
                     Symptoms = "Rotting of spear leaf and other fronds, yellowing, reduced vigor, plant collapse in severe cases.",
@@ -5836,7 +5836,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 339,
+                    Id = 339,
                     Name = "Stem Bleeding",
                     Description = "Chronic fungal disease causing dark, oozing lesions on the trunk, weakening the palm over time[1][3][5].",
                     Symptoms = "Dark, oozing lesions on trunk, reduced vigor, gradual decline.",
@@ -5848,7 +5848,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 340,
+                    Id = 340,
                     Name = "Lethal Yellowing",
                     Description = "Phytoplasmal disease causing yellowing and premature nut fall, leading to rapid death[4][8].",
                     Symptoms = "Yellowing of lower leaves, premature nut fall, death of the apical meristem, rapid decline.",
@@ -5860,7 +5860,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 341,
+                    Id = 341,
                     Name = "Red Ring Disease",
                     Description = "Nematode disease causing yellowing, wilting, and death of the palm[5][3].",
                     Symptoms = "Yellow or reddish band inside trunk, wilting, rapid death.",
@@ -5872,7 +5872,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 342,
+                    Id = 342,
                     Name = "Cadang-cadang Disease",
                     Description = "Viroid disease causing dwarfing, yellow leaf spots, and eventual death[6][3].",
                     Symptoms = "Yellow leaf spots, dwarfing, reduced nut production, gradual death over several years.",
@@ -5884,7 +5884,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 343,
+                    Id = 343,
                     Name = "Powdery Mildew",
                     Description = "Fungal disease causing white powdery spots on leaves, reducing photosynthesis[7][3].",
                     Symptoms = "White powdery patches on leaves, leaf distortion, reduced growth.",
@@ -5896,7 +5896,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 342, // Note: This ID is a duplicate; should be 344 for uniqueness
+                    Id = 342, // Note: This ID is a duplicate; should be 344 for uniqueness
                     Name = "Rust",
                     Description = "Fungal disease causing orange or brown pustules on leaf undersides[7][3].",
                     Symptoms = "Orange or brown pustules on leaf undersides, leaf yellowing, premature drop.",
@@ -5909,7 +5909,7 @@ namespace PlantGuessingGame.Services
                 // Correcting the duplicate ID:
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 344,
+                    Id = 344,
                     Name = "Black Rot",
                     Description = "Fungal disease causing dark, sunken lesions on fronds[7].",
                     Symptoms = "Dark, sunken lesions on fronds, leaf die-off, plant decline.",
@@ -5921,7 +5921,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 345,
+                    Id = 345,
                     Name = "Bacterial Bud Rot",
                     Description = "Bacterial disease causing rot of the apical meristem, leading to plant death[3][5].",
                     Symptoms = "Soft rot of the bud, wilting of young leaves, foul odor, plant collapse.",
@@ -5933,7 +5933,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 346,
+                    Id = 346,
                     Name = "Nutrient Deficiencies",
                     Description = "Lack of essential nutrients causing yellowing, stunting, and reduced nut production[2][7].",
                     Symptoms = "Yellowing or spotting of leaves, stunted growth, reduced yield.",
@@ -5945,7 +5945,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 347,
+                    Id = 347,
                     Name = "Rhinoceros Beetle",
                     Description = "Beetle pest boring into the bud, causing severe damage or death[7].",
                     Symptoms = "Holes in bud, wilting of young leaves, plant decline.",
@@ -5957,7 +5957,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 348,
+                    Id = 348,
                     Name = "Coconut Mite",
                     Description = "Tiny pest causing browning and deformation of nuts[7].",
                     Symptoms = "Browning, deformation, and premature drop of nuts.",
@@ -5969,7 +5969,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 349,
+                    Id = 349,
                     Name = "Red Palm Weevil",
                     Description = "Beetle larvae boring into trunk, causing rapid decline and death[7].",
                     Symptoms = "Wilting of fronds, holes in trunk, sawdust-like frass, plant collapse.",
@@ -5986,7 +5986,7 @@ namespace PlantGuessingGame.Services
                 // Add the most common problems for Dieffenbachia amoena
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 350,
+                    Id = 350,
                     Name = "Anthracnose",
                     Description = "Fungal disease causing circular to oval brown leaf spots with yellow halos, sometimes with tiny black fungal fruiting structures[1][7][4].",
                     Symptoms = "Brown spots with yellow halos, spots up to 2 inches in diameter, possible black fungal structures.",
@@ -5998,7 +5998,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 351,
+                    Id = 351,
                     Name = "Bacterial Leaf Spot",
                     Description = "Bacterial disease causing small gray or dark green spots that enlarge and become irregularly shaped, tan, dark brown, or black[1][7][4].",
                     Symptoms = "Small gray or dark green spots, irregular tan/dark brown/black lesions, leaf drop.",
@@ -6010,7 +6010,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 352,
+                    Id = 352,
                     Name = "Wilt",
                     Description = "Lower leaves yellow, wilt, and die due to drought or inconsistent watering[1][3][2].",
                     Symptoms = "Yellowing and wilting of lower leaves, plant decline.",
@@ -6022,7 +6022,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 353,
+                    Id = 353,
                     Name = "Marginal Leaf Burn",
                     Description = "Margins of leaves turn brown and die, often due to over-fertilization[1][2][3].",
                     Symptoms = "Brown leaf tips and margins, leaf death.",
@@ -6034,7 +6034,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 354,
+                    Id = 354,
                     Name = "Myrothecium Leaf Spot",
                     Description = "Fungal disease causing large gray-brown, oval leaf spots at tips or margins, with concentric fungal rings on the underside[1][7][4].",
                     Symptoms = "Large gray-brown spots at leaf tips or margins, concentric rings on underside, leaf drop.",
@@ -6046,7 +6046,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 355,
+                    Id = 355,
                     Name = "Nitrogen Deficiency",
                     Description = "Plants show yellowing, smaller leaves, and short internodes due to lack of nitrogen[1][3].",
                     Symptoms = "Yellowing, small leaves, short internodes, reduced growth.",
@@ -6058,7 +6058,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 356,
+                    Id = 356,
                     Name = "Virus (Dasheen Mosaic Virus)",
                     Description = "Viral disease causing mosaic patterns, stunting, and deformed leaves[1][7].",
                     Symptoms = "Light green mosaic patterns on leaves, stunting, deformed leaves, plant decline.",
@@ -6070,7 +6070,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 357,
+                    Id = 357,
                     Name = "Root Rot",
                     Description = "Fungal disease causing yellowing, wilting, and plant collapse due to waterlogged soil[5][6][3].",
                     Symptoms = "Yellowing leaves, wilting, mushy roots, plant collapse.",
@@ -6082,7 +6082,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 358,
+                    Id = 358,
                     Name = "Spider Mites",
                     Description = "Tiny arachnids causing stippling, discoloration, and webbing on leaves[3][5][6].",
                     Symptoms = "Stippling, discoloration, fine webbing, leaf drop.",
@@ -6094,7 +6094,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 359,
+                    Id = 359,
                     Name = "Mealybugs",
                     Description = "White, cottony insects feeding on sap, causing distortion and sticky residue[3][5][6].",
                     Symptoms = "White cottony masses, sticky residue, distorted leaves.",
@@ -6106,7 +6106,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 360,
+                    Id = 360,
                     Name = "Scale Insects",
                     Description = "Sap-sucking insects causing yellowing, leaf drop, and sticky residue[3][5][6].",
                     Symptoms = "Brown or white bumps on stems and leaves, sticky residue, yellowing leaves.",
@@ -6118,7 +6118,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 361,
+                    Id = 361,
                     Name = "Aphids",
                     Description = "Sap-sucking insects causing distorted growth, yellowing, and sooty mold[5][6].",
                     Symptoms = "Clusters of small insects, sticky residue, sooty mold, distorted leaves.",
@@ -6130,7 +6130,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 362,
+                    Id = 362,
                     Name = "Irregular Maintenance",
                     Description = "Neglect or irregular maintenance can increase susceptibility to pests and diseases[3][8].",
                     Symptoms = "Weak growth, susceptibility to pests and diseases.",
@@ -6147,7 +6147,7 @@ namespace PlantGuessingGame.Services
                 // Add notable problems and characteristics for Glaucium flavum (Yellow Horned Poppy)
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 363,
+                    Id = 363,
                     Name = "Toxicity to Humans and Animals",
                     Description = "All parts of the plant, especially the latex, contain toxic alkaloids and can cause severe poisoning if ingested or applied improperly[3][1][2].",
                     Symptoms = "Stomachache, nausea, vomiting, thirst, dry mouth, breathing difficulties, decreased heart rate; in severe cases: confusion, numbness, hypotension, respiratory failure, death[3].",
@@ -6159,7 +6159,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 364,
+                    Id = 364,
                     Name = "Skin Irritation and Blistering",
                     Description = "Contact with the latex or sap can cause dermatitis, blistering, and burns[3].",
                     Symptoms = "Redness, irritation, blisters, burns, scabs on skin.",
@@ -6171,7 +6171,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 365,
+                    Id = 365,
                     Name = "Eye Irritation",
                     Description = "Plant latex can cause severe irritation, conjunctivitis, or ulcers if it contacts the eyes[3].",
                     Symptoms = "Redness, pain, irritation, conjunctivitis, ulcers.",
@@ -6183,7 +6183,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 366,
+                    Id = 366,
                     Name = "Livestock Poisoning",
                     Description = "Toxic to livestock, causing drowsiness, lack of appetite, excessive salivation, and reduced milk production[3].",
                     Symptoms = "Unsteady gait, drowsiness, loss of appetite, salivation, reduced milk production.",
@@ -6195,7 +6195,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 367,
+                    Id = 367,
                     Name = "Weedy or Invasive Growth",
                     Description = "Can become invasive in certain regions, displacing native vegetation[8].",
                     Symptoms = "Aggressive spread, dense stands, reduced biodiversity.",
@@ -6212,7 +6212,7 @@ namespace PlantGuessingGame.Services
                 // Add the most common problems for Paeonia lactiflora (including 'Edulis Superba')
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 368,
+                    Id = 368,
                     Name = "Botrytis Blight (Gray Mold)",
                     Description = "Most common fungal disease, causing blackening of leaves, stems, and flower buds, especially in wet conditions[2][4][7].",
                     Symptoms = "Brown/black spots on shoots, wilting, gray mold on affected parts, collapse of young growth.",
@@ -6224,7 +6224,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 369,
+                    Id = 369,
                     Name = "Powdery Mildew",
                     Description = "Fungal disease producing white powdery patches on leaves and stems[2][6][7].",
                     Symptoms = "White powdery coating on foliage, leaf distortion, premature leaf drop.",
@@ -6236,7 +6236,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 370,
+                    Id = 370,
                     Name = "Leaf Blotch (Measles)",
                     Description = "Fungal disease causing reddish-purple spots that merge into blotches on leaves and stems[5][6].",
                     Symptoms = "Reddish-purple spots, large blotches, leaf drop.",
@@ -6248,7 +6248,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 371,
+                    Id = 371,
                     Name = "Phytophthora Blight and Root Rot",
                     Description = "Fungal disease causing dark brown to black, leathery lesions on stems and roots, leading to wilting and collapse[2][5][6].",
                     Symptoms = "Dark brown/black lesions, wilting, root and crown rot, plant collapse.",
@@ -6260,7 +6260,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 372,
+                    Id = 372,
                     Name = "Bacterial Blight",
                     Description = "Bacterial disease causing spots with red rings or yellow halos[5].",
                     Symptoms = "Spots with red rings or yellow halos, leaf drop, plant decline.",
@@ -6272,7 +6272,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 373,
+                    Id = 373,
                     Name = "Root Rot (Various Fungi)",
                     Description = "Fungal disease causing yellowing, wilting, and foul odor from roots[2][5][6].",
                     Symptoms = "Yellowing leaves, wilting, foul odor from roots, plant collapse.",
@@ -6284,7 +6284,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 374,
+                    Id = 374,
                     Name = "Peony Wilt",
                     Description = "Fungal disease causing brown or black streaks on stems, wilting, and sudden collapse[2][6].",
                     Symptoms = "Brown/black streaks on stems, wilting, collapse.",
@@ -6296,7 +6296,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 375,
+                    Id = 375,
                     Name = "Viral Diseases",
                     Description = "Various viruses causing mottling, ringspots, and stunting[5][8].",
                     Symptoms = "Mottled leaves, ringspots, stunted growth, poor flowering.",
@@ -6308,7 +6308,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 376,
+                    Id = 376,
                     Name = "Overwatering and Poor Drainage",
                     Description = "Excess moisture leading to root and fungal diseases[6][5].",
                     Symptoms = "Yellowing, wilting, foul odor from soil, plant collapse.",
@@ -6320,7 +6320,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 377,
+                    Id = 377,
                     Name = "Nutrient Deficiency",
                     Description = "Lack of essential nutrients causing poor growth and leaf discoloration[6].",
                     Symptoms = "Yellowing leaves, poor growth, leaf drop.",
@@ -6332,7 +6332,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 378,
+                    Id = 378,
                     Name = "Irregular Maintenance",
                     Description = "Neglect or irregular maintenance can increase susceptibility to pests and diseases[8].",
                     Symptoms = "Weak growth, susceptibility to diseases and pests.",
@@ -6349,7 +6349,7 @@ namespace PlantGuessingGame.Services
                 // Add the most common problems for Spathiphyllum wallisii (Peace Lily)
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 379,
+                    Id = 379,
                     Name = "Cylindrocladium Root Rot",
                     Description = "Fungal disease causing root and stem rot, leading to yellowing and wilting of leaves; petioles may develop dark brown spots[1][4][5].",
                     Symptoms = "Yellowing lower leaves, wilting, dark brown spots on petioles, blackened or mushy roots.",
@@ -6361,7 +6361,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 380,
+                    Id = 380,
                     Name = "Pythium Root Rot",
                     Description = "Water mold causing root rot, yellowing, and wilting; roots become black and mushy[1][4][5].",
                     Symptoms = "Yellowing leaves, wilting, black and mushy roots.",
@@ -6373,7 +6373,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 381,
+                    Id = 381,
                     Name = "Leaf Blight (Phytophthora)",
                     Description = "Fungal-like disease causing black or brown dead spots on leaves, which may expand into larger lesions[1][2][4].",
                     Symptoms = "Black or brown dead spots on leaves, wet or mushy spots, expanding lesions.",
@@ -6385,7 +6385,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 382,
+                    Id = 382,
                     Name = "Anthracnose",
                     Description = "Fungal disease causing dark, sunken spots on leaves, often in warm, moist conditions[5].",
                     Symptoms = "Dark, sunken spots on leaves, rapid spread.",
@@ -6397,7 +6397,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 383,
+                    Id = 383,
                     Name = "Dasheen Mosaic Virus",
                     Description = "Viral disease causing yellow to light green mosaic patterns on new leaves[1][5].",
                     Symptoms = "Mosaic patterns (yellow, light green) on leaves, generally mild effect on plant health.",
@@ -6409,7 +6409,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 384,
+                    Id = 384,
                     Name = "Spider Mites",
                     Description = "Tiny arachnids causing stippling, webbing, and leaf discoloration[3][6][8].",
                     Symptoms = "Fine webbing, stippling, yellowing leaves.",
@@ -6421,7 +6421,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 385,
+                    Id = 385,
                     Name = "Mealybugs",
                     Description = "White, cottony insects feeding on sap, causing distortion and sticky residue[6][8].",
                     Symptoms = "White cottony masses, sticky residue, distorted leaves.",
@@ -6433,7 +6433,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 386,
+                    Id = 386,
                     Name = "Scale Insects",
                     Description = "Sap-sucking pests causing yellowing, leaf drop, and sticky residue[6][8].",
                     Symptoms = "Brown or white bumps on stems and leaves, sticky residue, yellowing leaves.",
@@ -6445,7 +6445,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 387,
+                    Id = 387,
                     Name = "Fungus Gnats",
                     Description = "Small flies whose larvae feed on roots, causing stunting and yellowing[6].",
                     Symptoms = "Tiny flies near soil, yellowing leaves, stunted growth.",
@@ -6457,7 +6457,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 388,
+                    Id = 388,
                     Name = "Thrips",
                     Description = "Tiny insects causing discolored, distorted leaves[5].",
                     Symptoms = "Discolored, distorted leaves, stippling.",
@@ -6469,7 +6469,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 389,
+                    Id = 389,
                     Name = "Magnesium Deficiency",
                     Description = "Nutrient deficiency causing yellowing between leaf veins while veins remain green[6].",
                     Symptoms = "Yellowing between veins (interveinal chlorosis), stunted growth.",
@@ -6481,7 +6481,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 390,
+                    Id = 390,
                     Name = "Overwatering/Poor Drainage",
                     Description = "Excess moisture leading to root rot, yellowing, and wilting[1][5][6].",
                     Symptoms = "Yellowing leaves, wilting, foul odor from soil.",
@@ -6493,7 +6493,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 391,
+                    Id = 391,
                     Name = "Toxicity to Pets and Humans",
                     Description = "Plant contains insoluble calcium oxalate crystals, causing irritation if ingested[8].",
                     Symptoms = "Mouth irritation, vomiting, difficulty swallowing.",
@@ -6510,7 +6510,7 @@ namespace PlantGuessingGame.Services
                 // Add the most common problems for Lilium 'Stargazer' (Stargazer Lily)
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 392,
+                    Id = 392,
                     Name = "Botrytis Blight (Gray Mold)",
                     Description = "Fungal disease causing reddish-brown or gray spots on leaves and stems, sometimes leading to collapse[1][3][5].",
                     Symptoms = "Oval or circular reddish-brown spots with pale centers, gray fuzzy growth in humid conditions, spots may merge, leaves and stems may collapse[5][6][7].",
@@ -6522,7 +6522,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 393,
+                    Id = 393,
                     Name = "Bulb Rot (Fusarium, Rhizoctonia)",
                     Description = "Soil-borne fungal diseases causing yellowing foliage and soft, brown, rotting bulbs[3][5][8].",
                     Symptoms = "Yellowing leaves, brown or soft, rotting bulb tissue, foul odor from soil[2][3][8].",
@@ -6534,7 +6534,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 394,
+                    Id = 394,
                     Name = "Lily Mosaic Virus",
                     Description = "Viral disease causing yellow streaking and distortion of leaves and flowers[1][3][8].",
                     Symptoms = "Yellow streaks on leaves, distorted or fewer flowers, stunted growth[3][8].",
@@ -6546,7 +6546,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 395,
+                    Id = 395,
                     Name = "Aphids",
                     Description = "Sap-sucking insects causing distorted growth, sticky residue, and sooty mold[2][7].",
                     Symptoms = "Clusters of small insects on stems and leaves, sticky residue, distorted leaves.",
@@ -6558,7 +6558,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 396,
+                    Id = 396,
                     Name = "Spider Mites",
                     Description = "Tiny arachnids causing stippling, webbing, and leaf discoloration[2][7].",
                     Symptoms = "Fine webbing, stippling, yellowing leaves.",
@@ -6570,7 +6570,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 397,
+                    Id = 397,
                     Name = "Mealybugs",
                     Description = "White, cottony insects feeding on sap, causing distortion and sticky residue[2][7].",
                     Symptoms = "White cottony masses, sticky residue, distorted leaves.",
@@ -6582,7 +6582,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 398,
+                    Id = 398,
                     Name = "Powdery Mildew",
                     Description = "Fungal disease causing white powdery patches on leaves[4][7].",
                     Symptoms = "White powdery coating on leaves, leaf distortion, reduced vigor.",
@@ -6594,7 +6594,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 399,
+                    Id = 399,
                     Name = "Overwatering and Root Rot",
                     Description = "Excess moisture leading to yellowing, wilting, and root/bulb rot[2][3][8].",
                     Symptoms = "Yellowing leaves, wilting, foul odor from soil, mushy roots or bulbs.",
@@ -6606,7 +6606,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 400,
+                    Id = 400,
                     Name = "Inadequate Light",
                     Description = "Too little light can result in weak growth and poor flowering[2][7].",
                     Symptoms = "Leggy stems, weak growth, few or no flowers.",
@@ -6618,7 +6618,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 401,
+                    Id = 401,
                     Name = "Nutrient Deficiency",
                     Description = "Lack of essential nutrients causing poor growth and leaf discoloration[2].",
                     Symptoms = "Yellowing leaves, poor growth, leaf drop.",
@@ -6630,7 +6630,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 402,
+                    Id = 402,
                     Name = "Irregular Maintenance",
                     Description = "Neglect or irregular maintenance can increase susceptibility to pests and diseases[8].",
                     Symptoms = "Weak growth, susceptibility to diseases and pests.",
@@ -6647,7 +6647,7 @@ namespace PlantGuessingGame.Services
                 // Add the most common problems for Clematis armandii
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 403,
+                    Id = 403,
                     Name = "Clematis Wilt",
                     Description = "Fungal disease causing rapid wilting, blackening, and collapse of stems and leaves[2][4][5].",
                     Symptoms = "Sudden wilting, blackened and dry stems and leaves, collapse of affected parts.",
@@ -6659,7 +6659,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 404,
+                    Id = 404,
                     Name = "Powdery Mildew",
                     Description = "Fungal disease causing white powdery coating on leaves and stems, leading to distortion and discoloration[2][6][8].",
                     Symptoms = "White powdery patches on leaves and stems, leaf distortion, reduced vigor.",
@@ -6671,7 +6671,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 405,
+                    Id = 405,
                     Name = "Leaf Spot Diseases",
                     Description = "Fungal diseases causing tan or brown spots on leaves, sometimes with yellow halos[2][6].",
                     Symptoms = "Tan or brown spots, sometimes with yellow halos, leaf drop in severe cases.",
@@ -6683,7 +6683,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 406,
+                    Id = 406,
                     Name = "Root Rot",
                     Description = "Fungal disease causing root decay, yellowing, and wilting of foliage[6].",
                     Symptoms = "Yellowing leaves, wilting, foul odor from soil, plant decline.",
@@ -6695,7 +6695,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 407,
+                    Id = 407,
                     Name = "Aphids",
                     Description = "Sap-sucking insects causing distorted growth, sticky residue, and sooty mold[3][6][7].",
                     Symptoms = "Clusters of small insects on stems and leaves, sticky residue, distorted leaves.",
@@ -6707,7 +6707,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 408,
+                    Id = 408,
                     Name = "Spider Mites",
                     Description = "Tiny arachnids causing stippling, webbing, and leaf discoloration[3][7].",
                     Symptoms = "Fine webbing, stippling, yellowing leaves.",
@@ -6719,7 +6719,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 409,
+                    Id = 409,
                     Name = "Scale Insects",
                     Description = "Sap-sucking pests causing yellowing, leaf drop, and sticky residue[7].",
                     Symptoms = "Brown or white bumps on stems and leaves, sticky residue, yellowing leaves.",
@@ -6731,7 +6731,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 410,
+                    Id = 410,
                     Name = "Mealybugs",
                     Description = "White, cottony insects feeding on sap, causing distortion and sticky residue[3][7].",
                     Symptoms = "White cottony masses, sticky residue, distorted leaves.",
@@ -6743,7 +6743,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 411,
+                    Id = 411,
                     Name = "Fungus Gnats",
                     Description = "Small flies whose larvae feed on roots, causing stunting and yellowing[7].",
                     Symptoms = "Tiny flies near soil, yellowing leaves, stunted growth.",
@@ -6755,7 +6755,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 412,
+                    Id = 412,
                     Name = "Nutrient Deficiency",
                     Description = "Lack of essential nutrients causing poor growth and leaf discoloration[6].",
                     Symptoms = "Yellowing leaves, poor growth, leaf drop.",
@@ -6767,7 +6767,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 413,
+                    Id = 413,
                     Name = "Pruning Problems",
                     Description = "Incorrect pruning can result in loss of flowers, as Clematis armandii blooms on old wood[6].",
                     Symptoms = "Reduced or absent flowering.",
@@ -6784,7 +6784,7 @@ namespace PlantGuessingGame.Services
                 // Add the most common problems for Clematis armandii
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 403,
+                    Id = 403,
                     Name = "Clematis Wilt",
                     Description = "Fungal disease causing rapid wilting, blackening, and collapse of stems and leaves[2][4][5].",
                     Symptoms = "Sudden wilting, blackened and dry stems and leaves, collapse of affected parts.",
@@ -6796,7 +6796,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 404,
+                    Id = 404,
                     Name = "Powdery Mildew",
                     Description = "Fungal disease causing white powdery coating on leaves and stems, leading to distortion and discoloration[2][6][8].",
                     Symptoms = "White powdery patches on leaves and stems, leaf distortion, reduced vigor.",
@@ -6808,7 +6808,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 405,
+                    Id = 405,
                     Name = "Leaf Spot Diseases",
                     Description = "Fungal diseases causing tan or brown spots on leaves, sometimes with yellow halos[2][6].",
                     Symptoms = "Tan or brown spots, sometimes with yellow halos, leaf drop in severe cases.",
@@ -6820,7 +6820,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 406,
+                    Id = 406,
                     Name = "Root Rot",
                     Description = "Fungal disease causing root decay, yellowing, and wilting of foliage[6].",
                     Symptoms = "Yellowing leaves, wilting, foul odor from soil, plant decline.",
@@ -6832,7 +6832,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 407,
+                    Id = 407,
                     Name = "Aphids",
                     Description = "Sap-sucking insects causing distorted growth, sticky residue, and sooty mold[3][6][7].",
                     Symptoms = "Clusters of small insects on stems and leaves, sticky residue, distorted leaves.",
@@ -6844,7 +6844,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 408,
+                    Id = 408,
                     Name = "Spider Mites",
                     Description = "Tiny arachnids causing stippling, webbing, and leaf discoloration[3][7].",
                     Symptoms = "Fine webbing, stippling, yellowing leaves.",
@@ -6856,7 +6856,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 409,
+                    Id = 409,
                     Name = "Scale Insects",
                     Description = "Sap-sucking pests causing yellowing, leaf drop, and sticky residue[7].",
                     Symptoms = "Brown or white bumps on stems and leaves, sticky residue, yellowing leaves.",
@@ -6868,7 +6868,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 410,
+                    Id = 410,
                     Name = "Mealybugs",
                     Description = "White, cottony insects feeding on sap, causing distortion and sticky residue[3][7].",
                     Symptoms = "White cottony masses, sticky residue, distorted leaves.",
@@ -6880,7 +6880,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 411,
+                    Id = 411,
                     Name = "Fungus Gnats",
                     Description = "Small flies whose larvae feed on roots, causing stunting and yellowing[7].",
                     Symptoms = "Tiny flies near soil, yellowing leaves, stunted growth.",
@@ -6892,7 +6892,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 412,
+                    Id = 412,
                     Name = "Nutrient Deficiency",
                     Description = "Lack of essential nutrients causing poor growth and leaf discoloration[6].",
                     Symptoms = "Yellowing leaves, poor growth, leaf drop.",
@@ -6904,7 +6904,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 413,
+                    Id = 413,
                     Name = "Pruning Problems",
                     Description = "Incorrect pruning can result in loss of flowers, as Clematis armandii blooms on old wood[6].",
                     Symptoms = "Reduced or absent flowering.",
@@ -6921,7 +6921,7 @@ namespace PlantGuessingGame.Services
                 // Add the most common problems for Lithodora diffusa
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 414,
+                    Id = 414,
                     Name = "Stem Rot (Phoma)",
                     Description = "Fungal disease causing stem rots, stem cankers, branch dieback, and crown rot[1].",
                     Symptoms = "Stem rots, cankers, branch dieback, crown rot, plant collapse.",
@@ -6933,7 +6933,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 415,
+                    Id = 415,
                     Name = "Black Root Rot (Berkeleyomyces, formerly Thielaviopsis basicola)",
                     Description = "Soil-borne fungus causing root rot, chlorosis, stunting, and scattered branch dieback[3].",
                     Symptoms = "Chlorotic and stunted plants, scattered branch dieback, brown to black root lesions.",
@@ -6945,7 +6945,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 416,
+                    Id = 416,
                     Name = "Powdery Mildew",
                     Description = "Fungal disease causing white powdery patches on leaves and stems[2][5].",
                     Symptoms = "White powdery coating on leaves and stems, leaf distortion, reduced vigor.",
@@ -6957,7 +6957,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 417,
+                    Id = 417,
                     Name = "Root and Crown Rot (Phytophthora, Pythium)",
                     Description = "Water molds causing root and crown rot, wilting, and plant death[4].",
                     Symptoms = "Wilting, yellowing leaves, blackened roots, plant collapse.",
@@ -6969,7 +6969,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 418,
+                    Id = 418,
                     Name = "Bacterial Leaf Spot",
                     Description = "Bacterial disease causing translucent spots with yellow edges and reddish centers, disfigured flowers[6].",
                     Symptoms = "Translucent spots with yellow edges, reddish centers, disfigured flower heads.",
@@ -6981,7 +6981,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 419,
+                    Id = 419,
                     Name = "Aphids",
                     Description = "Sap-sucking insects causing distorted growth, sticky residue, and sooty mold[4][5][6].",
                     Symptoms = "Clusters of small insects on stems and leaves, sticky residue, distorted leaves.",
@@ -6993,7 +6993,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 420,
+                    Id = 420,
                     Name = "Spider Mites",
                     Description = "Tiny arachnids causing stippling, webbing, and leaf discoloration[4][5][6].",
                     Symptoms = "Fine webbing, stippling, yellowing leaves.",
@@ -7005,7 +7005,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 421,
+                    Id = 421,
                     Name = "Whitefly",
                     Description = "Small, white, flying insects causing yellowing and reduced vigor[6].",
                     Symptoms = "Tiny white insects on leaf undersides, yellowing leaves, sticky residue.",
@@ -7017,7 +7017,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 422,
+                    Id = 422,
                     Name = "Root-Knot Nematodes",
                     Description = "Microscopic worms causing root galls, wilting, and stunting[6].",
                     Symptoms = "Wilting, stunted growth, root galls.",
@@ -7029,7 +7029,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 423,
+                    Id = 423,
                     Name = "Overwatering/Waterlogged Soil",
                     Description = "Excess moisture leading to root and stem rot, wilting, and plant death[5][7].",
                     Symptoms = "Wilting, yellowing leaves, foul odor from soil, plant collapse.",
@@ -7041,7 +7041,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 424,
+                    Id = 424,
                     Name = "Poor Soil Quality/Compaction",
                     Description = "Heavy clay or compacted soil can restrict root growth and lead to poor vigor[5][7].",
                     Symptoms = "Stunted growth, poor flowering, chlorosis.",
@@ -7053,7 +7053,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 425,
+                    Id = 425,
                     Name = "Failure to Bloom",
                     Description = "Insufficient sunlight, poor soil, or nutrient deficiencies can prevent flowering[5].",
                     Symptoms = "No or few flowers, weak growth.",
@@ -7070,7 +7070,7 @@ namespace PlantGuessingGame.Services
                 // Add the most common problems for Salix integra (Dappled Willow)
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 426,
+                    Id = 426,
                     Name = "Blights",
                     Description = "Fungal blights can cause rapid wilting and dieback of leaves and shoots[1][2][7].",
                     Symptoms = "Wilting, brown or blackened leaves and shoots, rapid dieback.",
@@ -7082,7 +7082,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 427,
+                    Id = 427,
                     Name = "Powdery Mildew",
                     Description = "Fungal disease causing white powdery patches on leaves and stems[1][2][7].",
                     Symptoms = "White powdery coating on leaves and stems, leaf distortion, reduced vigor.",
@@ -7094,7 +7094,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 428,
+                    Id = 428,
                     Name = "Leaf Spot and Leaf Blotch",
                     Description = "Fungal diseases causing brown or black spots or blotches on leaves, sometimes leading to severe foliage blight[1][5][8].",
                     Symptoms = "Brown or black spots or blotches on leaves, leaf drop, reduced vigor.",
@@ -7106,7 +7106,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 429,
+                    Id = 429,
                     Name = "Rust",
                     Description = "Fungal disease causing orange or brown pustules on leaf undersides[1][2][7].",
                     Symptoms = "Orange or brown pustules on leaf undersides, leaf yellowing, premature drop.",
@@ -7118,7 +7118,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 430,
+                    Id = 430,
                     Name = "Cankers",
                     Description = "Fungal disease causing sunken, dead areas on bark and stems[1][5].",
                     Symptoms = "Sunken, dark lesions on bark and stems, dieback, plant decline.",
@@ -7130,7 +7130,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 431,
+                    Id = 431,
                     Name = "Crown Gall",
                     Description = "Bacterial disease causing swollen growths on roots and stems[1].",
                     Symptoms = "Swollen, woody galls on roots and stems, plant decline.",
@@ -7142,7 +7142,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 432,
+                    Id = 432,
                     Name = "Root Rot",
                     Description = "Fungal disease causing root decay, yellowing, and wilting[4][7].",
                     Symptoms = "Yellowing leaves, wilting, foul odor from soil, plant collapse.",
@@ -7154,7 +7154,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 433,
+                    Id = 433,
                     Name = "Aphids",
                     Description = "Sap-sucking insects causing distorted growth, sticky residue, and sooty mold[1][2][7].",
                     Symptoms = "Clusters of small insects on stems and leaves, sticky residue, distorted leaves.",
@@ -7166,7 +7166,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 434,
+                    Id = 434,
                     Name = "Scale Insects",
                     Description = "Sap-sucking pests causing yellowing, leaf drop, and sticky residue[1][2].",
                     Symptoms = "Brown or white bumps on stems and leaves, sticky residue, yellowing leaves.",
@@ -7178,7 +7178,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 435,
+                    Id = 435,
                     Name = "Borers",
                     Description = "Larvae that tunnel into stems and trunks, causing dieback and plant decline[1][2].",
                     Symptoms = "Entry holes, sawdust-like frass, wilting, dieback.",
@@ -7190,7 +7190,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 436,
+                    Id = 436,
                     Name = "Lace Bugs and Beetles",
                     Description = "Sap-sucking or leaf-chewing insects causing stippling, yellowing, or holes in leaves[1][2].",
                     Symptoms = "Stippling, yellowing, or holes in leaves, reduced vigor.",
@@ -7202,7 +7202,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 437,
+                    Id = 437,
                     Name = "Caterpillars",
                     Description = "Larvae that chew on leaves, causing holes and defoliation[1][2][3].",
                     Symptoms = "Chewed leaves, holes, defoliation.",
@@ -7214,7 +7214,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 438,
+                    Id = 438,
                     Name = "Goat Moth",
                     Description = "Larvae that bore into bark and wood, causing extensive damage[3].",
                     Symptoms = "Entry holes, sawdust-like frass, wilting, dieback.",
@@ -7226,7 +7226,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 439,
+                    Id = 439,
                     Name = "Overwatering and Poor Drainage",
                     Description = "Excess moisture leading to root rot, yellowing, and wilting[4][7].",
                     Symptoms = "Yellowing leaves, wilting, foul odor from soil, plant collapse.",
@@ -7238,7 +7238,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 440,
+                    Id = 440,
                     Name = "Brown Leaf Tips",
                     Description = "Leaf tips turn brown, often due to water stress or improper watering[3].",
                     Symptoms = "Brown leaf tips, leaf drop.",
@@ -7250,7 +7250,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 441,
+                    Id = 441,
                     Name = "Leggy Growth or Leaf Scorch",
                     Description = "Weak, elongated growth or scorched leaves due to improper light or water[7].",
                     Symptoms = "Leggy stems, scorched leaves, reduced vigor.",
@@ -7266,7 +7266,7 @@ namespace PlantGuessingGame.Services
             {
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 501,
+                    Id = 501,
                     Name = "Root Rot",
                     Description = "Fungal disease affecting roots, leading to poor emergence and establishment, especially under cold and wet conditions.",
                     Symptoms = "Poor seedling emergence, yellowing leaves, wilting, stunted growth.",
@@ -7278,7 +7278,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 502,
+                    Id = 502,
                     Name = "Anthracnose",
                     Description = "Fungal disease causing dark lesions on stems and leaves.",
                     Symptoms = "Dark, sunken lesions on stems and leaves, premature leaf drop.",
@@ -7290,7 +7290,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 503,
+                    Id = 503,
                     Name = "Leaf Spot",
                     Description = "Fungal or bacterial disease resulting in spots on leaves.",
                     Symptoms = "Brown or black spots on leaves, possible yellowing and premature leaf drop.",
@@ -7302,7 +7302,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 504,
+                    Id = 504,
                     Name = "Rust",
                     Description = "Fungal disease causing orange or brown pustules on leaf undersides.",
                     Symptoms = "Orange or brown pustules on leaves, leaf yellowing, premature drop.",
@@ -7314,7 +7314,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 505,
+                    Id = 505,
                     Name = "Downy Mildew",
                     Description = "Fungal disease causing yellowing and mottling of leaves.",
                     Symptoms = "Yellow spots or mottling on leaves, fuzzy growth on undersides.",
@@ -7326,7 +7326,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 506,
+                    Id = 506,
                     Name = "Nematodes",
                     Description = "Soil-dwelling roundworms (such as soybean cyst and root-knot nematodes) that damage roots.",
                     Symptoms = "Stunted growth, yellowing leaves, poor vigor, root galls or cysts.",
@@ -7338,7 +7338,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 507,
+                    Id = 507,
                     Name = "Weediness / Self-seeding",
                     Description = "Hairy vetch can become a problematic weed in subsequent crops or open spaces due to its ability to self-seed and persist.",
                     Symptoms = "Unwanted vetch growth in following crops or garden beds.",
@@ -7350,7 +7350,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 508,
+                    Id = 508,
                     Name = "Toxicity to Livestock",
                     Description = "Hairy vetch can cause toxicosis in horses and cattle, especially if large amounts are consumed.",
                     Symptoms = "Weight loss, skin irritation, peeling skin, enlarged lymph nodes, swelling of lower limbs (in horses).",
@@ -7365,7 +7365,7 @@ namespace PlantGuessingGame.Services
             {
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 601,
+                    Id = 601,
                     Name = "Vine Weevil (Taxuskever)",
                     Description = "Larvae of the vine weevil feed on the roots, causing sudden wilting and plant collapse.",
                     Symptoms = "Sudden wilting, stunted growth, roots with notched edges or missing sections.",
@@ -7377,7 +7377,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 602,
+                    Id = 602,
                     Name = "Powdery Mildew",
                     Description = "Fungal disease causing a white, powdery coating on leaves, especially in humid conditions.",
                     Symptoms = "White powdery patches on leaves, leaf distortion, reduced vigor.",
@@ -7389,7 +7389,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 603,
+                    Id = 603,
                     Name = "Rust",
                     Description = "Fungal disease causing orange or brown pustules on the undersides of leaves.",
                     Symptoms = "Orange or brown spots/pustules on leaves, premature leaf drop.",
@@ -7401,7 +7401,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 604,
+                    Id = 604,
                     Name = "Crown Rot / Root Rot",
                     Description = "Rotting at the base or roots due to waterlogged soil or poor drainage.",
                     Symptoms = "Yellowing leaves, wilting, blackened or mushy crown/roots, plant collapse.",
@@ -7413,7 +7413,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 605,
+                    Id = 605,
                     Name = "Leaf Scorch or Sunburn",
                     Description = "Leaf edges turn brown and crispy, especially in hot sun or dry winds.",
                     Symptoms = "Brown, crispy leaf edges, leaf drop, faded foliage color.",
@@ -7425,7 +7425,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 606,
+                    Id = 606,
                     Name = "Leggy Growth / Loss of Color",
                     Description = "Plants become stretched with pale leaves due to too much shade or old foliage.",
                     Symptoms = "Leggy stems, pale or dull leaf color, reduced vigor.",
@@ -7440,7 +7440,7 @@ namespace PlantGuessingGame.Services
             {
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 701,
+                    Id = 701,
                     Name = "Root Rot",
                     Description = "Fungal disease causing root decay, often due to overwatering or poorly drained soil.",
                     Symptoms = "Yellowing leaves, wilting, mushy stems at soil level, plant collapse.",
@@ -7452,7 +7452,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 702,
+                    Id = 702,
                     Name = "Powdery Mildew",
                     Description = "Fungal disease causing white, powdery coating on leaves and stems.",
                     Symptoms = "White powdery patches on leaves and stems, leaf distortion, reduced vigor.",
@@ -7464,7 +7464,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 703,
+                    Id = 703,
                     Name = "Aphids",
                     Description = "Sap-sucking insects that cluster on new growth, causing distortion and sticky residue.",
                     Symptoms = "Distorted young shoots, sticky honeydew, possible sooty mold.",
@@ -7476,7 +7476,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 704,
+                    Id = 704,
                     Name = "Slugs and Snails",
                     Description = "Mollusks that chew holes in leaves, particularly in wet weather or shady locations.",
                     Symptoms = "Irregular holes in leaves, slime trails.",
@@ -7488,7 +7488,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 705,
+                    Id = 705,
                     Name = "Leggy Growth / Flopping",
                     Description = "Stems become weak and fall over, especially in too much shade or overly rich soil.",
                     Symptoms = "Tall, weak stems that flop over, sparse growth.",
@@ -7500,7 +7500,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 706,
+                    Id = 706,
                     Name = "Leaf Spot",
                     Description = "Fungal or bacterial disease causing brown or black spots on leaves.",
                     Symptoms = "Spots on leaves, possible yellowing or premature leaf drop.",
@@ -7512,7 +7512,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 707,
+                    Id = 707,
                     Name = "Overwatering",
                     Description = "Sedum is drought-tolerant and sensitive to excess moisture.",
                     Symptoms = "Yellowing, mushy leaves, root rot.",
@@ -7527,7 +7527,7 @@ namespace PlantGuessingGame.Services
             {
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 801,
+                    Id = 801,
                     Name = "Root Rot (Wortelrot)",
                     Description = "Fungal disease causing decay of roots, often due to waterlogged or poorly drained soil.",
                     Symptoms = "Gele bladeren, verwelking, plant sterft af, bruine of zwarte rotte wortels.",
@@ -7539,7 +7539,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 802,
+                    Id = 802,
                     Name = "Leaf Spot (Bladvlekkenziekte)",
                     Description = "Fungal or bacterial disease causing brown or black spots on leaves.",
                     Symptoms = "Bruine of zwarte vlekken op bladeren, bladval.",
@@ -7551,7 +7551,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 803,
+                    Id = 803,
                     Name = "Powdery Mildew (Meeldauw)",
                     Description = "Fungal disease causing white, powdery coating on leaves and stems.",
                     Symptoms = "Witte poederachtige aanslag op bladeren en stengels, groeiremming.",
@@ -7563,7 +7563,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 804,
+                    Id = 804,
                     Name = "Winter Damage (Vorstschade)",
                     Description = "Damage to foliage and stems due to severe frost or drying winter winds.",
                     Symptoms = "Bruine, verdroogde bladeren, afgestorven toppen.",
@@ -7575,7 +7575,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 805,
+                    Id = 805,
                     Name = "Yellowing Leaves (Verkleurde bladeren)",
                     Description = "Leaves turn yellow, often due to unsuitable soil pH or nutrient deficiency.",
                     Symptoms = "Gele bladeren, slechte groei.",
@@ -7587,7 +7587,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 806,
+                    Id = 806,
                     Name = "Leggy Growth (Slappe groei)",
                     Description = "Plants become leggy and sparse due to lack of pruning or too much shade.",
                     Symptoms = "Lange, slappe stengels, weinig bloemen.",
@@ -7599,7 +7599,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 807,
+                    Id = 807,
                     Name = "Aphids (Bladluizen)",
                     Description = "Small sap-sucking insects that can cause distorted growth and sticky residue.",
                     Symptoms = "Kleine insecten op jonge scheuten, plakkerige honingdauw, misvormde bladeren.",
@@ -7614,7 +7614,7 @@ namespace PlantGuessingGame.Services
             {
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 901,
+                    Id = 901,
                     Name = "Root Rot (Wortelrot)",
                     Description = "Fungal disease causing root decay, especially in poorly drained or waterlogged soil.",
                     Symptoms = "Gele bladeren, verwelking, plant sterft af, bruine of rotte wortels.",
@@ -7626,7 +7626,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 902,
+                    Id = 902,
                     Name = "Rust (Roest)",
                     Description = "Fungal disease causing orange or brown pustules on leaves.",
                     Symptoms = "Oranje of bruine vlekken/pustules op bladeren, bladval.",
@@ -7638,7 +7638,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 903,
+                    Id = 903,
                     Name = "Leaf Spot (Bladvlekkenziekte)",
                     Description = "Fungal or bacterial disease causing brown or black spots on leaves.",
                     Symptoms = "Bruine of zwarte vlekken op bladeren, mogelijk bladval.",
@@ -7650,7 +7650,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 904,
+                    Id = 904,
                     Name = "Slugs and Snails (Slakken en naaktslakken)",
                     Description = "Slugs and snails feed on young leaves, causing holes and ragged edges.",
                     Symptoms = "Gaten in bladeren, rafelige bladranden, slijmsporen.",
@@ -7662,7 +7662,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 905,
+                    Id = 905,
                     Name = "Leaf Tip Browning (Bruine bladpunten)",
                     Description = "Leaf tips turn brown due to drought, salt buildup, or inconsistent watering.",
                     Symptoms = "Bruine bladpunten, soms uitdroging van hele bladeren.",
@@ -7674,7 +7674,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 906,
+                    Id = 906,
                     Name = "Leggy Growth (Slappe groei)",
                     Description = "Plants become leggy and sparse due to too much shade or overcrowding.",
                     Symptoms = "Lange, slappe stengels, weinig blad.",
@@ -7689,7 +7689,7 @@ namespace PlantGuessingGame.Services
             {
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 1001,
+                    Id = 1001,
                     Name = "Root Rot (Wortelrot)",
                     Description = "Fungal disease causing root decay, especially in poorly drained or waterlogged soil.",
                     Symptoms = "Gele bladeren, verwelking, plant sterft af, bruine of rotte wortels.",
@@ -7701,7 +7701,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 1002,
+                    Id = 1002,
                     Name = "Powdery Mildew (Meeldauw)",
                     Description = "Fungal disease causing a white, powdery coating on leaves and stems, especially in humid conditions.",
                     Symptoms = "Witte poederachtige aanslag op bladeren en stengels, groeiremming.",
@@ -7713,7 +7713,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 1003,
+                    Id = 1003,
                     Name = "Leaf Spot (Bladvlekkenziekte)",
                     Description = "Fungal or bacterial disease causing brown or black spots on leaves.",
                     Symptoms = "Bruine of zwarte vlekken op bladeren, mogelijk bladval.",
@@ -7725,7 +7725,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 1004,
+                    Id = 1004,
                     Name = "Slugs and Snails (Slakken en naaktslakken)",
                     Description = "Slugs and snails feed on young leaves and shoots, causing holes and ragged edges.",
                     Symptoms = "Gaten in bladeren, rafelige bladranden, slijmsporen.",
@@ -7737,7 +7737,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 1005,
+                    Id = 1005,
                     Name = "Aphids (Bladluizen)",
                     Description = "Small sap-sucking insects that can cause distorted growth and sticky residue.",
                     Symptoms = "Kleine insecten op jonge scheuten, plakkerige honingdauw, misvormde bladeren.",
@@ -7749,7 +7749,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 1006,
+                    Id = 1006,
                     Name = "Leggy Growth (Slappe groei)",
                     Description = "Plants become leggy and sparse due to too much shade or overcrowding.",
                     Symptoms = "Lange, slappe stengels, weinig bloemen.",
@@ -7761,7 +7761,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 1007,
+                    Id = 1007,
                     Name = "Winter Damage (Vorstschade)",
                     Description = "Damage to foliage and stems due to severe frost or drying winter winds.",
                     Symptoms = "Bruine, verdroogde bladeren, afgestorven toppen.",
@@ -7776,7 +7776,7 @@ namespace PlantGuessingGame.Services
             {
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 1101,
+                    Id = 1101,
                     Name = "Root Rot (Wortelrot)",
                     Description = "Fungal disease causing root decay, especially in poorly drained or waterlogged soil.",
                     Symptoms = "Gele bladeren, verwelking, plant sterft af, bruine of rotte wortels.",
@@ -7788,7 +7788,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 1102,
+                    Id = 1102,
                     Name = "Powdery Mildew (Meeldauw)",
                     Description = "Fungal disease causing a white, powdery coating on leaves and stems, especially in humid conditions.",
                     Symptoms = "Witte poederachtige aanslag op bladeren en stengels, groeiremming.",
@@ -7800,7 +7800,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 1103,
+                    Id = 1103,
                     Name = "Leaf Spot (Bladvlekkenziekte)",
                     Description = "Fungal or bacterial disease causing brown or black spots on leaves.",
                     Symptoms = "Bruine of zwarte vlekken op bladeren, mogelijk bladval.",
@@ -7812,7 +7812,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 1104,
+                    Id = 1104,
                     Name = "Slugs and Snails (Slakken en naaktslakken)",
                     Description = "Slugs and snails feed on young leaves and shoots, causing holes and ragged edges.",
                     Symptoms = "Gaten in bladeren, rafelige bladranden, slijmsporen.",
@@ -7824,7 +7824,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 1105,
+                    Id = 1105,
                     Name = "Aphids (Bladluizen)",
                     Description = "Small sap-sucking insects that can cause distorted growth and sticky residue.",
                     Symptoms = "Kleine insecten op jonge scheuten, plakkerige honingdauw, misvormde bladeren.",
@@ -7836,7 +7836,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 1106,
+                    Id = 1106,
                     Name = "Leggy Growth (Slappe groei)",
                     Description = "Plants become leggy and sparse due to too much shade or overcrowding.",
                     Symptoms = "Lange, slappe stengels, weinig bloemen.",
@@ -7848,7 +7848,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 1107,
+                    Id = 1107,
                     Name = "Winter Damage (Vorstschade)",
                     Description = "Damage to foliage and stems due to severe frost or drying winter winds.",
                     Symptoms = "Bruine, verdroogde bladeren, afgestorven toppen.",
@@ -7863,7 +7863,7 @@ namespace PlantGuessingGame.Services
             {
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 1201,
+                    Id = 1201,
                     Name = "Leaf Curling and Browning",
                     Description = "Leaves curl or develop brown edges/tips, often due to drought, wind, or strong sun.",
                     Symptoms = "Opgerolde bladeren, bruine bladpunten of bladranden, soms bladval.",
@@ -7875,7 +7875,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 1202,
+                    Id = 1202,
                     Name = "Yellowing Leaves (Chlorosis)",
                     Description = "Leaves turn yellow, often due to nutrient deficiency, compacted soil, or poor drainage.",
                     Symptoms = "Gele bladeren, soms slechte groei.",
@@ -7887,7 +7887,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 1203,
+                    Id = 1203,
                     Name = "Root Rot (Wortelrot)",
                     Description = "Fungal disease causing root decay, especially in poorly drained or waterlogged soil.",
                     Symptoms = "Gele bladeren, verwelking, plant sterft af, bruine of rotte wortels.",
@@ -7899,7 +7899,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 1204,
+                    Id = 1204,
                     Name = "Winter Damage (Vorstschade)",
                     Description = "Damage to foliage and stems due to severe frost or drying winter winds.",
                     Symptoms = "Bruine, verdroogde bladeren, afgestorven toppen na strenge vorst.",
@@ -7911,7 +7911,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 1205,
+                    Id = 1205,
                     Name = "Spider Mites (Spint)",
                     Description = "Tiny pests that cause stippling and yellowing of leaves, especially in hot, dry conditions.",
                     Symptoms = "Gele stipjes op bladeren, fijne spinnenwebben, bladval.",
@@ -7923,7 +7923,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 1206,
+                    Id = 1206,
                     Name = "Pale or Sparse Growth",
                     Description = "Weak, pale, or sparse growth due to insufficient nutrients or light.",
                     Symptoms = "Bleek, dun blad, trage groei.",
@@ -7938,7 +7938,7 @@ namespace PlantGuessingGame.Services
             {
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 1301,
+                    Id = 1301,
                     Name = "Crown Rot / Root Rot",
                     Description = "Fungal disease causing decay at the base or roots, often due to waterlogged or poorly drained soil.",
                     Symptoms = "Gele bladeren, verwelking, zwarte of slijmerige wortels, plant sterft af.",
@@ -7950,7 +7950,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 1302,
+                    Id = 1302,
                     Name = "Powdery Mildew",
                     Description = "Fungal disease causing a white, powdery coating on leaves and stems, especially in humid conditions.",
                     Symptoms = "Witte poederachtige aanslag op bladeren en stengels, groeiremming.",
@@ -7962,7 +7962,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 1303,
+                    Id = 1303,
                     Name = "Leaf Spot",
                     Description = "Fungal or bacterial disease causing brown or black spots on leaves.",
                     Symptoms = "Bruine of zwarte vlekken op bladeren, bladval.",
@@ -7974,7 +7974,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 1304,
+                    Id = 1304,
                     Name = "Aphids (Bladluizen)",
                     Description = "Small sap-sucking insects that can cause distorted growth and sticky residue.",
                     Symptoms = "Kleine insecten op jonge scheuten, plakkerige honingdauw, misvormde bladeren.",
@@ -7986,7 +7986,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 1305,
+                    Id = 1305,
                     Name = "Slugs and Snails (Slakken en naaktslakken)",
                     Description = "Slugs and snails feed on young leaves and shoots, causing holes and ragged edges.",
                     Symptoms = "Gaten in bladeren, rafelige bladranden, slijmsporen.",
@@ -7998,7 +7998,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 1306,
+                    Id = 1306,
                     Name = "Leggy Growth / Flopping",
                     Description = "Stems become weak and fall over, especially in too much shade or overly rich soil.",
                     Symptoms = "Lange, slappe stengels, weinig bloemen, planten vallen om.",
@@ -8010,7 +8010,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 1307,
+                    Id = 1307,
                     Name = "Toxicity to Humans and Animals",
                     Description = "All parts of Digitalis purpurea are highly poisonous if ingested.",
                     Symptoms = "Misselijkheid, braken, hartritmestoornissen, soms dodelijk bij inname.",
@@ -8025,7 +8025,7 @@ namespace PlantGuessingGame.Services
             {
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 1401,
+                    Id = 1401,
                     Name = "Leaf Spot",
                     Description = "Fungal or bacterial disease causing brown or black spots on leaves, sometimes leading to leaf drop.",
                     Symptoms = "Bruine of zwarte vlekken op bladeren, soms bladval.",
@@ -8037,7 +8037,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 1402,
+                    Id = 1402,
                     Name = "Powdery Mildew",
                     Description = "Fungal disease causing white, powdery coating on leaves and shoots.",
                     Symptoms = "Witte poederachtige aanslag op bladeren en jonge scheuten.",
@@ -8049,7 +8049,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 1403,
+                    Id = 1403,
                     Name = "Root Rot",
                     Description = "Fungal disease causing root decay, especially in poorly drained or waterlogged soil.",
                     Symptoms = "Gele bladeren, verwelking, plant sterft af, bruine of rotte wortels.",
@@ -8061,7 +8061,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 1404,
+                    Id = 1404,
                     Name = "Aphids (Bladluizen)",
                     Description = "Small sap-sucking insects that can cause distorted growth and sticky residue.",
                     Symptoms = "Kleine insecten op jonge scheuten, plakkerige honingdauw, misvormde bladeren.",
@@ -8073,7 +8073,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 1405,
+                    Id = 1405,
                     Name = "Scale Insects (Schildluizen)",
                     Description = "Sap-sucking pests causing yellowing, leaf drop, and sticky residue.",
                     Symptoms = "Bruine of witte bultjes op stengels en bladeren, plakkerige honingdauw, gele bladeren.",
@@ -8085,7 +8085,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 1406,
+                    Id = 1406,
                     Name = "Brown Leaf Tips",
                     Description = "Leaf tips turn brown, often due to water stress or improper watering.",
                     Symptoms = "Bruine bladpunten, bladval.",
@@ -8097,7 +8097,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 1407,
+                    Id = 1407,
                     Name = "Leggy Growth or Leaf Scorch",
                     Description = "Weak, elongated growth or scorched leaves due to improper light or water.",
                     Symptoms = "Slappe, lange stengels, verbrande bladeren, verminderde groei.",
@@ -8109,7 +8109,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 1408,
+                    Id = 1408,
                     Name = "Chlorosis (Leaf Yellowing)",
                     Description = "Yellowing leaves, often due to nutrient deficiency or unsuitable soil pH.",
                     Symptoms = "Gele bladeren, soms slechte groei.",
@@ -8121,7 +8121,7 @@ namespace PlantGuessingGame.Services
 
                 ListProblems.Add(new PlantProblem
                 {
-                    ProblemId = 1409,
+                    Id = 1409,
                     Name = "Wind Damage",
                     Description = "Leaves become torn, brown, or dry due to strong wind exposure.",
                     Symptoms = "Beschadigde, bruine of droge bladeren, vooral aan de windzijde.",

@@ -808,8 +808,9 @@ namespace PlantGuessingGame.ViewModels
                     //get images
                     ShowImages();
 
+                    //--> we have a specifci page for this now.
                     //test to collect problems
-                    ShowAllProblems();
+                    //ShowAllProblems();
                 }
             }
         }
