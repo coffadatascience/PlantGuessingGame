@@ -946,7 +946,7 @@ namespace PlantGuessingGame.ViewModels
                 {
                     try
                     {
-                        await _dataService.AddItemImageAsync(_itemId, filePath);
+                        await _dataService.AddItemImageTablePlantsAsync(_itemId, filePath);
                         successCount++;
                     }
                     catch (Exception ex)
@@ -974,7 +974,7 @@ namespace PlantGuessingGame.ViewModels
                 // add to observeable collection
                 //---------------
                 // 1. Retrieve the image bytes from the DB
-                var ListImageBytes = await _dataService.GetImagesForParentAsync(_itemId);
+                var ListImageBytes = await _dataService.GetImagesTablePlantsForParentAsync(_itemId);
 
                 //check if we have anything
                 if (ListImageBytes == null || ListImageBytes.Count == 0)
@@ -1024,7 +1024,7 @@ namespace PlantGuessingGame.ViewModels
                 // add to observeable collection
                 //---------------
                 // 1. Retrieve the image bytes from the DB
-                byte[] imageBytes = await _dataService.GetItemImageAsync(imageId);
+                byte[] imageBytes = await _dataService.GetItemImageTablePlantsAsync(imageId);
 
                 if (imageBytes == null || imageBytes.Length == 0)
                 {

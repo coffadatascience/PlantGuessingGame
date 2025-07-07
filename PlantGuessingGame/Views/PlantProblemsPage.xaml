@@ -169,6 +169,10 @@
                 Command="{x:Bind ViewModel.NavigateBackCommand}"
                 HorizontalAlignment="Left"
                 Margin="0,16,0,0"/>
+            
+            
+            
+            
         </Grid>
     </ScrollViewer>
 </Page>

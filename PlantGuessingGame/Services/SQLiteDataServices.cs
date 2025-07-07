@@ -104,6 +104,9 @@ namespace PlantGuessingGame.Services
                 //testing for images
                 await CreatePlantImageTable(db);
                 await CreatePlantSpecificProblemsTableAsync(db);
+                //we want a separate table for the plant problems images
+                //--> note that we have a separate images table for plant problems because we need a parent reference (that in this case in the plant problems)
+                await CreatePlantProblemsImageTable(db);
 
 
                 //add enums
@@ -224,18 +227,18 @@ namespace PlantGuessingGame.Services
         }
 
         /// <summary>
-        /// Public method to add a new image for a parent item.
+        /// Public method to add a new image for a parent plant item.
         /// </summary>
         /// <param name="parentId">The ID of the parent item.</param>
         /// <param name="imagePath">The file path of the image to add.</param>
         /// <returns>The ID of the inserted image.</returns>
-        public async Task<int> AddItemImageAsync(int parentId, string imagePath)
+        public async Task<int> AddItemImageTablePlantsAsync(int parentId, string imagePath)
         {
             byte[] imageBytes = await File.ReadAllBytesAsync(imagePath);
 
             using (var db = await GetSqliteConnectionAsync())
             {
-                return await InsertImageAsync(db, parentId, imageBytes);
+                return await InsertImageTablePlantsAsync(db, parentId, imageBytes);
             }
         }
         /// <summary>
@@ -243,11 +246,11 @@ namespace PlantGuessingGame.Services
         /// </summary>
         /// <param name="id">The image ID.</param>
         /// <returns>The image data as a byte array, or null if not found.</returns>
-        public async Task<byte[]> GetItemImageAsync(int id)
+        public async Task<byte[]> GetItemImageTablePlantsAsync(int id)
         {
             using (var db = await GetSqliteConnectionAsync())
             {
-                return await GetItemImageAsync(db, id);
+                return await GetItemImageTablePlantsAsync(db, id);
             }
         }
 
@@ -256,11 +259,11 @@ namespace PlantGuessingGame.Services
         /// </summary>
         /// <param name="parentId">The ID of the parent entity.</param>
         /// <returns>A list of image byte arrays.</returns>
-        public async Task<List<byte[]>> GetImagesForParentAsync(int parentId)
+        public async Task<List<byte[]>> GetImagesTablePlantsForParentAsync(int parentId)
         {
             using (var db = await GetSqliteConnectionAsync())
             {
-                return await GetImagesForParentAsync(db, parentId);
+                return await GetImagesTablePlantsForParentAsync(db, parentId);
             }
         }
 
@@ -601,7 +604,7 @@ namespace PlantGuessingGame.Services
                         byte[] compressedBytes = memoryStream.ToArray();
 
                         // 4. Insert compressed image
-                        await InsertImageAsync(db, PlantID, compressedBytes);
+                        await InsertImageTablePlantsAsync(db, PlantID, compressedBytes);
 
                     }
                     catch (Exception ex)
@@ -1022,34 +1025,6 @@ namespace PlantGuessingGame.Services
 
         }
 
-
-        /// <summary>
-        /// code to make the problems table
-        /// </summary>
-        /// <param name="db"></param>
-        /// <returns></returns>
-        //private async Task CreatePlantSpecificProblemsTableAsync(SqliteConnection db)
-        //{
-        //    db.Open();
-
-        //    string tableCommand = @"CREATE TABLE IF NOT EXISTS 
-        //        PlantSpecificProblems (
-        //            Id INTEGER PRIMARY KEY AUTOINCREMENT,
-        //            PlantId INTEGER NOT NULL,
-        //            Name NVARCHAR(1000) NOT NULL,
-        //            Description NVARCHAR(3000),
-        //            Symptoms NVARCHAR(3000),
-        //            Causes NVARCHAR(3000),
-        //            Solutions NVARCHAR(3000),
-        //            Severity NVARCHAR(100),
-        //            Category NVARCHAR(100),
-        //            FOREIGN KEY (PlantId) REFERENCES Plants(Id)
-        //        )";
-
-        //    var createTable = new SqliteCommand(tableCommand, db);
-
-        //    await createTable.ExecuteNonQueryAsync();
-        //}
         /// --> Alternative create table function that also removes the rows of problems when deleting a plant
         private async Task CreatePlantSpecificProblemsTableAsync(SqliteConnection db)
         {
@@ -1101,50 +1076,6 @@ namespace PlantGuessingGame.Services
         }
 
 
-        //----------------------------------------------------------
-        //If you want to join to the Plants table to also get plant info (optional, and only if you need it):
-        //----------------------------------------------------------
-        //private async Task<IList<PlantProblemWithPlant>> GetAllPlantProblemsWithPlantInfoAsync(SqliteConnection db)
-        //{
-        //    var problems = await db.QueryAsync<PlantProblem, Plant, PlantProblemWithPlant>(
-        //        @"SELECT
-        //    [PlantSpecificProblems].[Id],
-        //    [PlantSpecificProblems].[PlantId],
-        //    [PlantSpecificProblems].[Name],
-        //    [PlantSpecificProblems].[Description],
-        //    [PlantSpecificProblems].[Symptoms],
-        //    [PlantSpecificProblems].[Causes],
-        //    [PlantSpecificProblems].[Solutions],
-        //    [PlantSpecificProblems].[Severity],
-        //    [PlantSpecificProblems].[Category],
-        //    [Plants].[Id],
-        //    [Plants].[LocalName],
-        //    [Plants].[CommonName],
-        //    [Plants].[Genus],
-        //    [Plants].[Species],
-        //    [Plants].[Family],
-        //    [Plants].[Description] AS PlantDescription,
-        //    [Plants].[ImagePath]
-        //FROM
-        //    [PlantSpecificProblems]
-        //JOIN
-        //    [Plants]
-        //ON
-        //    [Plants].[Id] = [PlantSpecificProblems].[PlantId]",
-        //        (problem, plant) =>
-        //        {
-        //            return new PlantProblemWithPlant
-        //            {
-        //                Problem = problem,
-        //                Plant = plant
-        //            };
-        //        }
-        //    );
-
-        //    return problems.ToList();
-        //}
-
-
         #endregion
 
 
@@ -1176,45 +1107,12 @@ namespace PlantGuessingGame.Services
 
         #region Methods for Blobbing
 
-        /// <summary>
-        /// -------------------------------------------------
-        /// create table for a blob (binary large objects)
-        /// --> creates table with an auto incremented integer id for the BLOBS
-        /// -------------------------------------------------
-        /// Considerations and Best Practices
-        // -->> Although storing images using the BLOB data type in SQL is possible, it may not always be the most efficient solution.Especially for numerous or large images, direct database storage could potentially impact performance and increase the database’s size significantly.In many cases, a more optimized approach involves storing images in a filesystem or cloud storage and maintaining database references(e.g., file paths or URLs).
-        /// </summary>
-        // / <param name="db"></param>
-        /// <returns></returns>
-
-        //private async Task CreatePlantImageTable(SqliteConnection db)
-        //{
-        //    // SQL command to create a table with an ImageID and a foreign key to the parent table (e.g., Plant)
-        //    string tableCommand = @"
-        //        CREATE TABLE IF NOT EXISTS ImageTable (
-        //            ImageID INTEGER PRIMARY KEY AUTOINCREMENT,
-        //            ParentID INTEGER NOT NULL,
-        //            ImageData BLOB,
-        //            FOREIGN KEY (ParentID) REFERENCES Plants(Id) 
-        //        )";
-
-        //    //----------------------------------------------
-        //    // --> Note JCO --> we need to have the cross table reference here
-        //    // --> Note that we use the name of the table and the name of the ID in the parent table, this match the ParentID in the current table
-        //    //!!!!!! --> note that our images need to Reference the Plants table name and ID, to match all images to a specific plant
-        //    //----------------------------------------------
-
-        //    // create command
-        //    var createTable = new SqliteCommand(tableCommand, db);
-
-        //    // execute
-        //    await createTable.ExecuteNonQueryAsync();
-        //}
+   
         /// --> updated version that enables the delete cascade for the image rows
         private async Task CreatePlantImageTable(SqliteConnection db)
         {
                 string tableCommand = @"
-            CREATE TABLE IF NOT EXISTS ImageTable (
+            CREATE TABLE IF NOT EXISTS ImageTablePlants (
                 ImageID INTEGER PRIMARY KEY AUTOINCREMENT,
                 ParentID INTEGER NOT NULL,
                 ImageData BLOB,
@@ -1225,6 +1123,27 @@ namespace PlantGuessingGame.Services
             await createTable.ExecuteNonQueryAsync();
         }
 
+        /// <summary>
+        /// code to create an images table for plant problems
+        /// --> we can have the same name for image id
+        /// --> the matching parent id is that of the PlantSpecificProblems
+        /// </summary>
+        /// <param name="db"></param>
+        /// <returns></returns>
+        private async Task CreatePlantProblemsImageTable(SqliteConnection db)
+        {
+            string tableCommand = @"
+            CREATE TABLE IF NOT EXISTS ImageTablePlantProblems (
+                ImageID INTEGER PRIMARY KEY AUTOINCREMENT,
+                ParentID INTEGER NOT NULL,
+                ImageData BLOB,
+                FOREIGN KEY (ParentID) REFERENCES PlantSpecificProblems(Id) ON DELETE CASCADE
+            )";
+
+            var createTable = new SqliteCommand(tableCommand, db);
+            await createTable.ExecuteNonQueryAsync();
+        }
+        
 
         //----------------------------
         // REFACTOR
@@ -1241,10 +1160,10 @@ namespace PlantGuessingGame.Services
         /// <param name="parentId">The ID of the parent item.</param>
         /// <param name="imageBytes">The image data as a byte array.</param>
         /// <returns>The ID of the inserted image.</returns>
-        private async Task<int> InsertImageAsync(SqliteConnection db, int parentId, byte[] imageBytes)
+        private async Task<int> InsertImageTablePlantsAsync(SqliteConnection db, int parentId, byte[] imageBytes)
         {
             var ids = await db.QueryAsync<long>(
-                    @"INSERT INTO ImageTable (ParentID, ImageData) VALUES (@ParentID, @ImageData);
+                    @"INSERT INTO ImageTablePlants (ParentID, ImageData) VALUES (@ParentID, @ImageData);
               SELECT last_insert_rowid();",
                 new { ParentID = parentId, ImageData = imageBytes });
 
@@ -1258,9 +1177,9 @@ namespace PlantGuessingGame.Services
         /// <param name="db">An open SqliteConnection.</param>
         /// <param name="id">The image ID.</param>
         /// <returns>The image data as a byte array, or null if not found.</returns>
-        private async Task<byte[]> GetItemImageAsync(SqliteConnection db, int id)
+        private async Task<byte[]> GetItemImageTablePlantsAsync(SqliteConnection db, int id)
         {
-            string sql = "SELECT ImageData FROM ImageTable WHERE ImageID = @Id";
+            string sql = "SELECT ImageData FROM ImageTablePlants WHERE ImageID = @Id";
             return await db.ExecuteScalarAsync<byte[]>(sql, new { Id = id });
         }
 
@@ -1270,9 +1189,9 @@ namespace PlantGuessingGame.Services
         /// <param name="db">An open SqliteConnection.</param>
         /// <param name="parentId">The parent ID.</param>
         /// <returns>A list of image byte arrays.</returns>
-        private async Task<List<byte[]>> GetImagesForParentAsync(SqliteConnection db, int parentId)
+        private async Task<List<byte[]>> GetImagesTablePlantsForParentAsync(SqliteConnection db, int parentId)
         {
-            string sql = "SELECT ImageData FROM ImageTable WHERE ParentID = @ParentID";
+            string sql = "SELECT ImageData FROM ImageTablePlants WHERE ParentID = @ParentID";
             var images = await db.QueryAsync<byte[]>(sql, new { ParentID = parentId });
             return images.ToList();
         }
@@ -1291,9 +1210,48 @@ namespace PlantGuessingGame.Services
             return problems.ToList();
         }
 
+        /// <summary>
+        /// coide to insert image for plants problems
+        /// --> parent id is here the id of the plant problems table
+        /// </summary>
+        /// <param name="db"></param>
+        /// <param name="parentId"></param>
+        /// <param name="imageBytes"></param>
+        /// <returns></returns>
+        private async Task<int> InsertImageTablePlantProblemsAsync(SqliteConnection db, int parentId, byte[] imageBytes)
+        {
+            var ids = await db.QueryAsync<long>(
+                    @"INSERT INTO ImageTablePlantProblems (ParentID, ImageData) VALUES (@ParentID, @ImageData);
+              SELECT last_insert_rowid();",
+                new { ParentID = parentId, ImageData = imageBytes });
 
+            return (int)ids.First();
+        }
 
+        /// <summary>
+        /// get image from the plant problmes
+        /// </summary>
+        /// <param name="db"></param>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        private async Task<byte[]> GetItemImageTablePlantProblemsAsync(SqliteConnection db, int id)
+        {
+            string sql = "SELECT ImageData FROM ImageTablePlantProblems WHERE ImageID = @Id";
+            return await db.ExecuteScalarAsync<byte[]>(sql, new { Id = id });
+        }
 
+        /// <summary>
+        /// get all images for the parent problems
+        /// </summary>
+        /// <param name="db"></param>
+        /// <param name="parentId"></param>
+        /// <returns></returns>
+        private async Task<List<byte[]>> GetImagesTablePlantProblemsForParentAsync(SqliteConnection db, int parentId)
+        {
+            string sql = "SELECT ImageData FROM ImageTablePlantProblems WHERE ParentID = @ParentID";
+            var images = await db.QueryAsync<byte[]>(sql, new { ParentID = parentId });
+            return images.ToList();
+        }
 
 
         #endregion

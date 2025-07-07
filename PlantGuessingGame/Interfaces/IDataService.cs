@@ -63,20 +63,20 @@ namespace PlantGuessingGame.Interfaces
         /// </summary>
         /// <param name="item"></param>
         /// <returns></returns>
-        Task<int> AddItemImageAsync(int parentId, string imagePath);
+        Task<int> AddItemImageTablePlantsAsync(int parentId, string imagePath);
 
         /// <summary>
         /// task to get the image by id (int)
         /// </summary>
         /// <param name="v"></param>
         /// <returns></returns>
-        Task<byte[]> GetItemImageAsync(int v);
+        Task<byte[]> GetItemImageTablePlantsAsync(int v);
 
         /// <summary>
         /// task to get the images from the parent by parent id (int)
         /// </summary>
         /// <param name="v"></param>
-        Task<List<byte[]>> GetImagesForParentAsync(int parentId);
+        Task<List<byte[]>> GetImagesTablePlantsForParentAsync(int parentId);
 
         /// <summary>
         /// taks ot get all problems for a parent3

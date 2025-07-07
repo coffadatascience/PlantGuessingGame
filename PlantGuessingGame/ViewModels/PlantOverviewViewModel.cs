@@ -201,7 +201,7 @@ namespace PlantGuessingGame.ViewModels
             DeleteCommand = new RelayCommand(async () => await DeleteItemAsync(), CanDeleteItem);
 
             // Add plants on initialization
-            PopulateDataAsync();
+            _ = PopulateDataAsync();
         }
 
         #endregion

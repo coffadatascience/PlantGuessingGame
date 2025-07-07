@@ -118,6 +118,8 @@ namespace PlantGuessingGame.ViewModels
 
         public ICommand NavigateBackCommand { get; }
 
+
+
         #endregion
 
 
