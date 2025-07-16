@@ -241,6 +241,7 @@ namespace PlantGuessingGame.Services
                 return await InsertImageTablePlantsAsync(db, parentId, imageBytes);
             }
         }
+
         /// <summary>
         /// Public method to retrieve an image by its ID.
         /// </summary>
@@ -280,7 +281,48 @@ namespace PlantGuessingGame.Services
             }
         }
 
+        //Public procedure for images.
+        /// <summary>
+        /// Public method to add a new image for a parent plant Problem item.
+        /// </summary>
+        /// <param name="parentId">The ID of the parent item.</param>
+        /// <param name="imagePath">The file path of the image to add.</param>
+        /// <returns>The ID of the inserted image.</returns>
+        public async Task<int> AddItemImageTablePlantProblemsAsync(int parentId, string imagePath)
+        {
+            byte[] imageBytes = await File.ReadAllBytesAsync(imagePath);
 
+            using (var db = await GetSqliteConnectionAsync())
+            {
+                return await InsertImageTablePlantProblemsAsync(db, parentId, imageBytes);
+            }
+        }
+
+        /// <summary>
+        /// Public method to retrieve an image for a plant problem by its ID.
+        /// </summary>
+        /// <param name="id">The image ID.</param>
+        /// <returns>The image data as a byte array, or null if not found.</returns>
+        public async Task<byte[]> GetItemImageTablePlantProblemsAsync(int id)
+        {
+            using (var db = await GetSqliteConnectionAsync())
+            {
+                return await GetItemImageTablePlantProblemsAsync(db, id);
+            }
+        }
+
+        /// <summary>
+        /// Retrieves all images for a plant problems for a given parent ID.
+        /// </summary>
+        /// <param name="parentId">The ID of the parent entity.</param>
+        /// <returns>A list of image byte arrays.</returns>
+        public async Task<List<byte[]>> GetImagesTablePlantProblemsForParentAsync(int parentId)
+        {
+            using (var db = await GetSqliteConnectionAsync())
+            {
+                return await GetImagesTablePlantProblemsForParentAsync(db, parentId);
+            }
+        }
 
         #endregion
 

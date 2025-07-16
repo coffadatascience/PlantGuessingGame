@@ -1744,6 +1744,391 @@ namespace PlantGuessingGame.Services
                     TemperatureRangeMinimum = -20, // Winterhard[3]
                     TemperatureRangeMaximum = 35
                 }
+                ,
+                // Humulus japonicus (Japanese hop)
+                new Plant
+                {
+                    Id = 50,
+                    LocalName = "Humulus japonicus",
+                    CommonName = "Japanese hop",
+                    Family = "Cannabaceae",
+                    Genus = "Humulus",
+                    Species = "japonicus",
+                    Description = "Krachtig groeiende, eenjarige klimplant met ruwe stengels en diep ingesneden, handvormige bladeren. Wordt soms als sierplant gebruikt, maar kan invasief zijn. Bloeit met kleine, groenachtige bloemen in de zomer.",
+                    ImagePath = diskLocationImages + "Humulus_japonicus_Base01.png",
+                    PlantType = PlantType.Climber,
+                    PlantClassification = PlantClassification.Angiosperms,
+                    PhylumInfo = (Phylum)GetPhylumByName(phyla, "Magnoliophyta"),
+                    IsEatable = false,
+                    Color = "Groene bladeren; groen-witte bloemen",
+                    IsFlowering = true,
+                    IsEvergreen = false,  // Eenjarige plant
+                    IsPoisonous = false,  // Niet eetbaar maar niet giftig
+                    Shape = "Klimplant, sterkgroeiend met uitlopers",
+                    FullGrownHeight = 500,  // Kan 4 tot 6 meter hoog klimmen
+                    FullGrownWidth = 100,   // Brede groei, afhankelijk van ondersteuning
+                    Light = "Volle zon tot halfschaduw",
+                    Water = "Normale vochtigheid; verdraagt geen langdurige droogte",
+                    Soil = "Voedzame, goed doorlatende grond",
+                    FertilizationMethod = "Bij rijke grond niet noodzakelijk; anders lichte bemesting in groeifase",
+                    TrimmingInstructions = "Verwijder uitgebloeide stengels aan einde zomer; kan gesnoeid worden om controle te houden",
+                    TrimmingPeriod = "Einde zomer of vroege herfst",
+                    TemperatureRangeMinimum = -5,  // Zaad is winterhard; plant zelf is eenjarig
+                    TemperatureRangeMaximum = 35
+                }
+                ,
+                // Fuchsia magellanica (Hardy Fuchsia, Magellan Fuchsia)
+                new Plant
+                {
+                    Id = 51,
+                    LocalName = "Fuchsia magellanica",
+                    CommonName = "Hardy Fuchsia",
+                    Family = "Onagraceae",
+                    Genus = "Fuchsia",
+                    Species = "magellanica",
+                    Description =
+                        "Sterk groeiende, bladverliezende struik met sierlijk overhangende takken. Heeft smalle, groene bladeren met gezaagde rand en bloeit langdurig met talrijke, opvallende, langwerpige rood-paarse bloemen die hangend aan de stengels verschijnen van de vroege zomer tot aan de eerste nachtvorst. Aantrekkelijk voor bijen en kolibries. Zeer winterhard voor een Fuchsia.",
+                    ImagePath = diskLocationImages + "Fuchsia_magellanica_Base01.png",
+                    PlantType = PlantType.Shrub,
+                    PlantClassification = PlantClassification.Angiosperms,
+                    PhylumInfo = (Phylum)GetPhylumByName(phyla, "Magnoliophyta"),
+                    IsEatable = true, // Vruchten zijn eetbaar, maar weinig smaakvol[3]
+                    Color = "Groene bladeren; rood met paarse bloemen",
+                    IsFlowering = true,
+                    IsEvergreen = false, // Bladverliezend, soms half-wintergroen in milde winters[5]
+                    IsPoisonous = false,
+                    Shape = "Opgaand, overhangend, breed spreidend",
+                    FullGrownHeight = 300,  // Typisch 1-3 meter; tot 3,6 m bij gunstige omstandigheden[2][3][4][5]
+                    FullGrownWidth = 200,   // Tot 2-3 meter breed[1][5]
+                    Light = "Half-schaduw tot zon, verdraagt ook schaduw[5][4]",
+                    Water = "Regelmatig water geven, matig vochtige grond[5]",
+                    Soil = "Voedzame, goed doorlatende leem, zand of klei; pH neutraal tot licht zuur/alkalisch[5][7]",
+                    FertilizationMethod = "Lichte bemesting in het voorjaar, compost kan de groei stimuleren",
+                    TrimmingInstructions = "In het voorjaar oude en dode takken verwijderen, eventueel na vorst tot op korte stomp terugsnoeien voor compacte groei[5]",
+                    TrimmingPeriod = "Vroeg voorjaar of na de bloei",
+                    TemperatureRangeMinimum = -15, // Winterhard tot -15°C à -17°C[5]
+                    TemperatureRangeMaximum = 35
+                }
+                ,
+                // Callistemon citrinus (Crimson Bottlebrush)
+                new Plant
+                {
+                    Id = 52,
+                    LocalName = "Callistemon citrinus",
+                    CommonName = "Crimson Bottlebrush",
+                    Family = "Myrtaceae",
+                    Genus = "Callistemon",
+                    Species = "citrinus",
+                    Description = "Decoratieve, groenblijvende struik met lancetvormige, aromatische bladeren en opvallende felrode, borstelvormige bloeiwijzen die verschijnen van het late voorjaar tot de nazomer. Bladeren verspreiden een citroengeur bij kneuzen. Wordt vaak als kuipplant gehouden in Nederland vanwege beperkte winterhardheid.",
+                    ImagePath = diskLocationImages + "Callistemon_citrinus_Base01.png",
+                    PlantType = PlantType.Shrub,
+                    PlantClassification = PlantClassification.Angiosperms,
+                    PhylumInfo = (Phylum)GetPhylumByName(phyla, "Magnoliophyta"),
+                    IsEatable = false,
+                    Color = "Groene aromatische bladeren; felrode bloemen",
+                    IsFlowering = true,
+                    IsEvergreen = true, // In warm klimaat; in koudere streken bladsemiwintergroen
+                    IsPoisonous = false,
+                    Shape = "Opgaande, bossige struik tot kleine boom",
+                    FullGrownHeight = 300,  // Typisch 1–3 meter als struik
+                    FullGrownWidth = 250,   // Tot 2-4 meter breed mogelijk
+                    Light = "Volle zon, licht beschut",
+                    Water = "Gemiddeld, geen natte grond, matig droogtetolerant na vestiging",
+                    Soil = "Goed doorlatende, humusrijke, licht zure tot neutrale grond",
+                    FertilizationMethod = "Lichte bemesting in het voorjaar; zuurminnende plantenvoeding aanbevolen",
+                    TrimmingInstructions = "Direct na de bloei licht snoeien om compacte groei en rijke bloei te bevorderen; dode takken verwijderen",
+                    TrimmingPeriod = "Na de bloei (late zomer of nazomer)",
+                    TemperatureRangeMinimum = -5,   // Niet volledig winterhard, beschermen onder 0 °C 
+                    TemperatureRangeMaximum = 40
+                }
+                ,
+                // Nerium oleander (Oleander, Rosebay)
+                new Plant
+                {
+                    Id = 53,
+                    LocalName = "Nerium oleander",
+                    CommonName = "Oleander",
+                    Family = "Apocynaceae",
+                    Genus = "Nerium",
+                    Species = "oleander",
+                    Description = "Wintergroene, sterk vertakte struik of kleine boom met leerachtige, lancetvormige, donkergroene bladeren. Bloeit in de zomer met opvallende trompetvormige bloemen in schermvormige trossen. Kleur varieert van wit tot roze, rood of soms geel. Zeer populair als sierstruik in mediterrane tuinen, parken en openbaar groen. Kan in een milde winter buiten overleven, maar is bij strenge vorst niet volledig winterhard.",
+                    ImagePath = diskLocationImages + "Nerium_oleander_Base01.png",
+                    PlantType = PlantType.Shrub,
+                    PlantClassification = PlantClassification.Angiosperms,
+                    PhylumInfo = (Phylum)GetPhylumByName(phyla, "Magnoliophyta"),
+                    IsEatable = false,  // Alle delen zijn giftig [1][2][3][6][8]
+                    Color = "Groen blad; witte, roze, rode of geelachtige bloemen",
+                    IsFlowering = true,
+                    IsEvergreen = true,
+                    IsPoisonous = true, // Sterk giftig bij inname en sappen kunnen huid irriteren [1][2][6][8]
+                    Shape = "Bossige, opgaande struik, tot kleine boom te leiden",
+                    FullGrownHeight = 600, // 2–6 m (7–20 ft), soms hoger in beschermde gebieden [1][2][3][7][8]
+                    FullGrownWidth = 400,  // 2–4 m breed (kan net zo breed als hoog worden)
+                    Light = "Volle zon tot lichte schaduw; beste bloei in volle zon",
+                    Water = "Zeer droogte- en hittebestendig, maar groeit krachtiger bij regelmatige watergift",
+                    Soil = "Goed doorlatende, humusrijke grond; verdraagt arme, zoute of kalkrijke bodem",
+                    FertilizationMethod = "Voorjaarsmest (universeel of bloeiende planten); niet overbemesten",
+                    TrimmingInstructions = "Regelmatig (licht) snoeien na de bloei voor compacte groei en vorm—draag handschoenen door giftige sap. Dode of bevroren takken in het voorjaar verwijderen.",
+                    TrimmingPeriod = "Na de bloei, of vroege voorjaar (na kans op vorst)",
+                    TemperatureRangeMinimum = -5, // Niet volledig winterhard, kan lichte nachtvorst aan
+                    TemperatureRangeMaximum = 40
+                }
+                ,
+                // Passiflora caerulea (Blue Passionflower)
+                new Plant
+                {
+                    Id = 54,
+                    LocalName = "Passiflora caerulea",
+                    CommonName = "Blue Passionflower",
+                    Family = "Passifloraceae",
+                    Genus = "Passiflora",
+                    Species = "caerulea",
+                    Description = "Sterke, winterharde klimplant met diep ingesneden, handvormige bladeren en opvallende blauw-witte bloemen met een paars kroonkrans. Bloeit van zomer tot herfst. Vormt eetbare maar weinig smakelijke oranje bessen als de zomer warm genoeg is. Geschikt voor pergola's, muren en schuttingen.",
+                    ImagePath = diskLocationImages + "Passiflora_caerulea_Base01.png",
+                    PlantType = PlantType.Climber,
+                    PlantClassification = PlantClassification.Angiosperms,
+                    PhylumInfo = (Phylum)GetPhylumByName(phyla, "Magnoliophyta"),
+                    IsEatable = true, // Vrucht is eetbaar maar flauw; bladeren zijn niet eetbaar
+                    Color = "Groene bladeren; blauw, wit en paars-blauwige bloemen; oranje vrucht",
+                    IsFlowering = true,
+                    IsEvergreen = false, // Meestal bladverliezend in NL
+                    IsPoisonous = false, // Rijpe vrucht eetbaar, onrijpe en plantdelen liefst niet consumeren
+                    Shape = "Klimplant met ranken, snelgroeiend",
+                    FullGrownHeight = 600,  // Kan tot 6-10 meter hoog klimmen bij voldoende ondersteuning
+                    FullGrownWidth = 300,   // Kan breed uitgroeien afhankelijk van steun en snoei
+                    Light = "Zonnige, warme standplaats; verdraagt lichte schaduw",
+                    Water = "Regelmatig water geven, goed doorlatende grond",
+                    Soil = "Voedzame, humusrijke, goed doorlatende grond",
+                    FertilizationMethod = "Voor- en najaarsbemesting voor uitbundige bloei",
+                    TrimmingInstructions = "Terugsnoeien in het voorjaar, dode of zwakke takken verwijderen; groeit snel opnieuw uit.",
+                    TrimmingPeriod = "Vroege voorjaar (maart-april)",
+                    TemperatureRangeMinimum = -10, // Winterhard tot ca -10°C
+                    TemperatureRangeMaximum = 35
+                }
+                ,
+                // Hydrangea serrata (Mountain hydrangea, Tellar)
+                new Plant
+                {
+                    Id = 55,
+                    LocalName = "Hydrangea serrata",
+                    CommonName = "Mountain hydrangea, Tellar",
+                    Family = "Hydrangeaceae",
+                    Genus = "Hydrangea",
+                    Species = "serrata",
+                    Description = "Compacte bladverliezende struik met ovaal tot eirond, gekarteld blad. Vormt prachtige, vlakke schermen met fijne, blauw, lavendel, roze tot rood gekleurde lacecap bloemen vanaf vroege zomer tot de herfst, afhankelijk van de zuurgraad van de grond. Goed winterhard, geschikt voor kleine tuinen, borders en potten. Van oorsprong uit de bergbossen van Japan en Korea. Bekend als 'tea of heaven', bladeren worden daar soms gebruikt voor zoete thee.",
+                    ImagePath = diskLocationImages + "Hydrangea_serrata_Base01.png",
+                    PlantType = PlantType.Shrub,
+                    PlantClassification = PlantClassification.Angiosperms,
+                    PhylumInfo = (Phylum)GetPhylumByName(phyla, "Magnoliophyta"),
+                    IsEatable = false, // Let op: alle plantdelen zijn licht giftig bij inname[1]
+                    Color = "Groene bladeren; bloemen blauw, lavendel, roze of rood afhankelijk van pH",
+                    IsFlowering = true,
+                    IsEvergreen = false, // Bladverliezend
+                    IsPoisonous = true, // Alle delen, inname geeft maagklachten[1]
+                    Shape = "Rond, bossig, compact, laagblijvend",
+                    FullGrownHeight = 120, // 60-150 cm (2-5 feet)[1][2][3][6]
+                    FullGrownWidth = 120,  // 60-180 cm (2-6 feet)[1][2][3][6]
+                    Light = "Halfschaduw tot zon (liefst ochtendzon, middag beschut tegen felle zon)",
+                    Water = "Gemiddeld water, zorg voor vochtige, goed doorlatende grond",
+                    Soil = "Kleigrond, leem of zand, humusrijk, licht zuur tot neutraal; geen natte voeten",
+                    FertilizationMethod = "Voorjaarsbemesting; mulch van bladeren of schors houdt vocht vast",
+                    TrimmingInstructions = "Na de bloei uitgebloeide bloemstengels terugsnoeien tot paar gezonde knoppen; dood of zwak hout in het vroege voorjaar verwijderen",
+                    TrimmingPeriod = "Na de bloei of vroeg voorjaar",
+                    TemperatureRangeMinimum = -25, // Winterhard tot -25°C (USDA 5-9)[1][6]
+                    TemperatureRangeMaximum = 35
+                }
+                ,
+                // Alnus glutinosa (Black Alder, Common Alder, European Alder)
+                new Plant
+                {
+                    Id = 56,
+                    LocalName = "Alnus glutinosa",
+                    CommonName = "Black Alder, Common Alder, European Alder",
+                    Family = "Betulaceae",
+                    Genus = "Alnus",
+                    Species = "glutinosa",
+                    Description = "Middelgrote bladverliezende boom tot 30 meter hoog met een kegelvormige kroon en vaak meerdere stammen. De jonge twijgen en knoppen zijn kleverig, volwassen schors is donker en diep gegroefd. Ovaalronde, donkergroene bladeren met een getande rand; blijft opvallend lang groen in het najaar. Mannelijke (hangende) en vrouwelijke (staande, kegelvormige) katjes verschijnen vóór het uitlopen van het blad in het vroege voorjaar. Vruchtjes lijken op kleine kegeltjes die de hele winter aan de boom blijven. Bekend als pioniersboom op natte standplaatsen (oevers, moeras, beekdalen), waar hij o.a. stikstof bindende wortelknobbeltjes vormt.",
+                    ImagePath = diskLocationImages + "Alnus_glutinosa_Base01.png",
+                    PlantType = PlantType.Tree,
+                    PlantClassification = PlantClassification.Angiosperms,
+                    PhylumInfo = (Phylum)GetPhylumByName(phyla, "Magnoliophyta"),
+                    IsEatable = false, // Niet eetbaar en licht toxisch bij inname
+                    Color = "Donkergroene bladeren; purperen knoppen; bruinzwarte schors; katjes wisselend groen, rood tot bruin",
+                    IsFlowering = true,  // Bloeit voor het uitlopen van het blad
+                    IsEvergreen = false, // Bladverliezend
+                    IsPoisonous = false, // Niet eetbaar, maar niet als sterk giftig beschreven
+                    Shape = "Kegelvormige of brede boom met losse kroon; vaak meerstammig",
+                    FullGrownHeight = 3000,  // 20–30 meter (soms tot 35 meter)[1][4][5]
+                    FullGrownWidth = 1500,   // Kroon tot 10–15 meter breed[4]
+                    Light = "Zon tot halfschaduw",
+                    Water = "Vochtig tot nat; verdraagt tijdelijke overstromingen; groeit slecht op droge gronden",
+                    Soil = "Vochtig, voedselrijk; klei, leem, veen, moeras; pH-neutraal tot licht zuur",
+                    FertilizationMethod = "Geen bemesting nodig; fixeert zelf stikstof via wortelknobbeltjes",
+                    TrimmingInstructions = "Snoei is meestal niet nodig; eventueel te lage of zieke takken in de winter weghalen",
+                    TrimmingPeriod = "Late herfst of winter indien nodig",
+                    TemperatureRangeMinimum = -35, // Winterhard tot USDA zone 3[6]
+                    TemperatureRangeMaximum = 40
+                }
+                ,
+                // Prunus armeniaca (Apricot, Armenian Plum)
+                new Plant
+                {
+                    Id = 57,
+                    LocalName = "Prunus armeniaca",
+                    CommonName = "Apricot, Armenian Plum",
+                    Family = "Rosaceae",
+                    Genus = "Prunus",
+                    Species = "armeniaca",
+                    Description = "Kleine tot middelgrote, bladverliezende boom met een ronde, brede kroon en glanzend donkergroen, eirond blad met fijn gezaagde rand. Bloeit in het vroege voorjaar vóór het uitlopen van het blad met geurende witte tot roze bloemen. Later verschijnen eetbare, geel-oranje, soms rood getinte vruchten met sappig, zoet vlees. De boom is gevoelig voor vroege vorst vanwege de vroege bloei. Geschikt voor voedselbossen en (sier)tuinen met zonnige, beschutte standplaats.",
+                    ImagePath = diskLocationImages + "Prunus_armeniaca_Base01.png",
+                    PlantType = PlantType.Tree,
+                    PlantClassification = PlantClassification.Angiosperms,
+                    PhylumInfo = (Phylum)GetPhylumByName(phyla, "Magnoliophyta"),
+                    IsEatable = true, // Vrucht en (in kleine hoeveelheid, indien zoet) zaad eetbaar, let op bittere variant
+                    Color = "Groen blad; witte tot roze bloemen; geel-oranje vruchten",
+                    IsFlowering = true,
+                    IsEvergreen = false, // Bladverliezend
+                    IsPoisonous = true, // Zaden (pitten) bevatten amygdaline, giftig bij hoge inname[2][4]
+                    Shape = "Rond tot breed spreidend, kleine tot middelgrote boom",
+                    FullGrownHeight = 800,  // 4-8 (tot 12) meter[1][3][5][8]
+                    FullGrownWidth = 600,   // 4-6 (tot 8) meter[3][8]
+                    Light = "Volle zon; beste productie op open, zonnige plek",
+                    Water = "Voorkeur voor vochtige maar goed doorlatende, enigszins kalkrijke grond; gevoelig voor staand water",
+                    Soil = "Zand, leem of lichte klei, goed gedraineerd, matig voedselrijk, neutraal tot licht alkalisch",
+                    FertilizationMethod = "Bemest met compost of organische mest in het vroege voorjaar",
+                    TrimmingInstructions = "Regelmatig uitdunnen en vormsnoei na de oogst of in het voorjaar. Dood hout verwijderen. Let op kwetsbaarheid voor snoeiwonden.",
+                    TrimmingPeriod = "Late zomer (na oogst) of vroege voorjaar (voor sapstroom)",
+                    TemperatureRangeMinimum = -25, // Winterhard tot ca. -25 °C; vroege bloei kwetsbaar voor late nachtvorst[5][6]
+                    TemperatureRangeMaximum = 40
+                }
+                ,
+                // Acanthus mollis (Bear's breeches, Oyster plant)
+                new Plant
+                {
+                    Id = 58,
+                    LocalName = "Acanthus mollis",
+                    CommonName = "Bear's breeches, Oyster plant",
+                    Family = "Acanthaceae",
+                    Genus = "Acanthus",
+                    Species = "mollis",
+                    Description = "Clump-forming, perennial herb native to the Mediterranean. Forms a bold rosette of large, glossy, dark green, lobed leaves up to 50cm long. Erect flowering spikes carry striking purplish and white tubular flowers in summer, sometimes reaching 1–2 meters tall. Valued as an architectural foliage plant and for its historical use in Greek and Roman sculpture. Spreads by creeping roots, can be long-lived and vigorous when established.",
+                    ImagePath = diskLocationImages + "Acanthus_mollis_Base01.png",
+                    PlantType = PlantType.HerbaceousPerennial,
+                    PlantClassification = PlantClassification.Angiosperms,
+                    PhylumInfo = (Phylum)GetPhylumByName(phyla, "Magnoliophyta"),
+                    IsEatable = false, // Ornamental; not considered edible
+                    Color = "Glossy dark green leaves; flower spikes purple and white",
+                    IsFlowering = true,
+                    IsEvergreen = false, // Usually deciduous in colder climates, evergreen in mild ones[4][5]
+                    IsPoisonous = false, // Not known as poisonous for humans or animals
+                    Shape = "Clump-forming basal rosette; upright flower spikes",
+                    FullGrownHeight = 120,  // 0.9–2 meters (usually 1–1.5 m)[2][3][4][7]
+                    FullGrownWidth = 100,   // 0.5–1.5 meters, forms wide clumps[2][3][4][7]
+                    Light = "Full sun to part shade; tolerates light shade",
+                    Water = "Prefers moist but well-drained soil; avoid waterlogged soils",
+                    Soil = "Fertile, humus-rich, well-drained soil; tolerates a range of soils except very wet or poor drainage",
+                    FertilizationMethod = "Mulch in spring, light fertilizing in early growth. No special needs.",
+                    TrimmingInstructions = "Remove spent flower spikes and dead leaves after flowering or in autumn. Divide clumps every few years to control spread.",
+                    TrimmingPeriod = "Late summer to autumn; division in early spring",
+                    TemperatureRangeMinimum = -10, // Hardy to approx. -10°C (USDA zone 7–10)[4]
+                    TemperatureRangeMaximum = 35
+                }
+                ,
+                // Hemerocallis (Daylily)
+                new Plant
+                {
+                    Id = 59,
+                    LocalName = "Hemerocallis",
+                    CommonName = "Daylily",
+                    Family = "Asphodelaceae",
+                    Genus = "Hemerocallis",
+                    Species = "", // Overkoepelende soort, vul specifieke soort/cultivar in indien gewenst
+                    Description = "Sterk groeiende, bladverliezende vaste plant met breed uitlopende pollen van langwerpige, grasachtige bladeren. Bloeit van de vroege zomer tot in de herfst met opvallende, trechter- of stervormige bloemen in vele kleuren. Elke bloem bloeit slechts één dag, maar de bloei zet door dankzij voortdurende knopvorming. Zeer betrouwbaar, weinig eisend en zeer geschikt voor border, oever, talud en grote pot.",
+                    ImagePath = diskLocationImages + "Hemerocallis_Base01.png",
+                    PlantType = PlantType.HerbaceousPerennial,
+                    PlantClassification = PlantClassification.Angiosperms,
+                    PhylumInfo = (Phylum)GetPhylumByName(phyla, "Magnoliophyta"),
+                    IsEatable = true, // Bloemen en knoppen van veel soorten kunnen met mate gegeten worden, rauw, gefrituurd of geblancheerd[4]
+                    Color = "Groene bladeren; bloemen in geel, oranje, rood, roze, paars, wit (afhankelijk van cultivar)",
+                    IsFlowering = true,
+                    IsEvergreen = false, // Meestal bladverliezend of half-wintergroen
+                    IsPoisonous = false, // Niet giftig maar matig eten aanbevolen (laxeert)[4]
+                    Shape = "Polvormende vaste plant met boogvormig afhangend loof en rechtopstaande bloeistengels",
+                    FullGrownHeight = 90,   // 40–120 cm afhankelijk van soort/cultivar[2][3][7][10]
+                    FullGrownWidth = 80,    // 50–100 cm in volwassen pol
+                    Light = "Volle zon tot lichte schaduw (minimaal 6 uur zon voor beste bloei)[5][9][11][15]",
+                    Water = "Vochtige, goed doorlatende bodem; niet nat of langdurig droog",
+                    Soil = "Niet kieskeurig: leem, zand of klei, liefst voedzaam, pH neutraal tot lichtzuur",
+                    FertilizationMethod = "Lichte bemesting in het voorjaar; organisch materiaal in border houden voor vitaliteit",
+                    TrimmingInstructions = "Verwijder uitgebloeide bloemen en bloemstengels voor langere bloei; deel pollen elke 4–5 jaar",
+                    TrimmingPeriod = "Na de bloei of vroege voorjaar (verdelen en opschonen)",
+                    TemperatureRangeMinimum = -30, // Zeer winterhard, tot USDA zone 4–5[10]
+                    TemperatureRangeMaximum = 35
+                }
+                ,
+                // Portulaca oleracea (Common Purslane, Little Hogweed)
+                new Plant
+                {
+                    Id = 60,
+                    LocalName = "Portulaca oleracea",
+                    CommonName = "Common Purslane, Little Hogweed, Pursley",
+                    Family = "Portulacaceae",
+                    Genus = "Portulaca",
+                    Species = "oleracea",
+                    Description = "A fast-growing, low, mat-forming annual succulent with smooth, reddish, often prostrate stems and fleshy, spoon-shaped green leaves. Produces small, yellow, five-petaled flowers (3–6 mm wide) and many-seeded capsules splitting open at maturity. Highly drought-tolerant and can thrive in poor soil; edible parts are tart and nutritious.",
+                    ImagePath = diskLocationImages + "Portulaca_oleracea_Base01.png",
+                    PlantType = PlantType.Succulent,
+                    PlantClassification = PlantClassification.Angiosperms,
+                    PhylumInfo = (Phylum)GetPhylumByName(phyla, "Magnoliophyta"),
+                    IsEatable = true, // Young stems, leaves, and seeds are edible, rich in omega-3 and vitamins[1][2][3]
+                    Color = "Green succulent leaves; yellow flowers; reddish stems",
+                    IsFlowering = true,
+                    IsEvergreen = false, // Annual in most climates; can be perennial in frost-free zones[1]
+                    IsPoisonous = false, // Not poisonous; widely eaten as salad/herb[1][3]
+                    Shape = "Mat-forming, prostrate to ascending herb",
+                    FullGrownHeight = 15,  // Typical height: 5–16 cm[1][3][8]
+                    FullGrownWidth = 90,   // Can spread up to 30–90 cm (1–3 ft), forming wide mats[3][8][9]
+                    Light = "Full sun (minimum 6 hours direct light)[2]",
+                    Water = "Drought-tolerant; prefers well-drained soils but adapts to various moisture levels[1][2][3]",
+                    Soil = "Not fussy—grows in clay, sand, loam, shallow and rocky soil with good drainage[2]",
+                    FertilizationMethod = "Rarely needs fertilizer; will thrive on poor soils",
+                    TrimmingInstructions = "Can be lightly trimmed to contain spread or harvest edible parts. Remove before seed set to control as a weed.",
+                    TrimmingPeriod = "Anytime during rapid growth period, best before flowering for culinary use",
+                    TemperatureRangeMinimum = 2,   // Hardy to about 2°C (frost will kill)[2][3]
+                    TemperatureRangeMaximum = 40   // Grows best in warm, sunny locations[1][10]
+                }
+                ,
+                // Calibrachoa 'Jaune' (Yellow Million Bells, Mini-petunia)
+                new Plant
+                {
+                    Id = 63,
+                    LocalName = "Calibrachoa 'Jaune'",
+                    CommonName = "Yellow Million Bells, Mini-petunia",
+                    Family = "Solanaceae",
+                    Genus = "Calibrachoa",
+                    Species = "", // Cultivar/hybride, soort kan leeg blijven voor cultivars
+                    Description = "Compacte, eenjarige of kortlevende vaste plant met overhangende, licht rankende groeiwijze. Deze rijkbloeiende 'mini-petunia' produceert van het late voorjaar tot de eerste vorst talloze kleine, trompetvormige, helder gele bloemen. Door zijn standvastige bloei en compacte groei ideaal voor hangmanden, potten, balkonbakken en randen. Bladeren elliptisch tot ovaal, frisgroen, glad. Trekt bijen en vlinders.",
+                    ImagePath = diskLocationImages + "Calibrachoa_Jaune_Base01.png",
+                    PlantType = PlantType.HerbaceousPerennial, // Vaak als eenjarige gekweekt in NL
+                    PlantClassification = PlantClassification.Angiosperms,
+                    PhylumInfo = (Phylum)GetPhylumByName(phyla, "Magnoliophyta"),
+                    IsEatable = false, // Niet eetbaar, uitsluitend sierwaarde[3]
+                    Color = "Groene bladeren; felgele, kleine bloemen",
+                    IsFlowering = true,
+                    IsEvergreen = false, // Wordt in koud klimaat als eenjarige gekweekt[3]
+                    IsPoisonous = false, // Niet giftig voor mens of huisdier[3]
+                    Shape = "Compact opgaande tot breed overhangende pol; vaak kussen- of hangvormig",
+                    FullGrownHeight = 25,  // Typisch 10–30 cm[1][3][9]
+                    FullGrownWidth = 60,   // 30–60 cm spreiding (soms meer in pot/hanger)[1][9]
+                    Light = "Volle zon tot lichte schaduw; beste bloei bij minimaal 6 uur zonlicht[2][7][17]",
+                    Water = "Lichtvochtig tot matig droog; niet te nat, goed drainerend substraat[1][2][4][5]",
+                    Soil = "Potgrond of tuingrond; liefst humusrijk, luchtig en goed doorlatend (liefst licht zuur tot neutraal)[1][2][3]",
+                    FertilizationMethod = "Voor de uitplant een langwerkende meststof; daarna elke 2 weken vloeibare voeding voor bloeiende planten voor doorbloei[2][4][5]",
+                    TrimmingInstructions = "Niet nodig; uitgebloeide bloemen vallen vanzelf af. Bij slap of langgroeiend exemplaar licht terugknippen voor vollere groei.[4][5]",
+                    TrimmingPeriod = "Tijdens of direct na de bloeiperiode, indien nodig",
+                    TemperatureRangeMinimum = 5, // Alleen perennif in zachte winters (zone 9+), niet winterhard in NL[1][3]
+                    TemperatureRangeMaximum = 35
+                }
 
 
 

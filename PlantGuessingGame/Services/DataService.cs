@@ -114,10 +114,7 @@
             {
                 throw new NotImplementedException("This method is not implemented in this class.");
             }
-            Task<byte[]> IDataService.GetItemImageAsync(int v)
-            {
-                throw new NotImplementedException();
-            }
+
 
             #endregion
 
@@ -150,12 +147,29 @@
                 return _classifications;
             }
 
+
+
             public Task<List<byte[]>> GetImagesForParentAsync(int parentId)
             {
                 throw new NotImplementedException();
             }
 
             public Task<List<PlantProblem>> GetProblemsForPlantAsync(int parentId)
+            {
+                throw new NotImplementedException();
+            }
+
+            public Task<int> AddItemImageTablePlantsAsync(int parentId, string imagePath)
+            {
+                throw new NotImplementedException();
+            }
+
+            public Task<byte[]> GetItemImageTablePlantsAsync(int v)
+            {
+                throw new NotImplementedException();
+            }
+
+            public Task<List<byte[]>> GetImagesTablePlantsForParentAsync(int parentId)
             {
                 throw new NotImplementedException();
             }
