@@ -208,7 +208,7 @@ namespace PlantGuessingGame.Services
                     Genus = "Malus",
                     Species = "domestica",
                     Description = "A medium-sized, deciduous tree widely cultivated for its edible fruit. Apple trees produce showy white or pink-tinged flowers in spring, followed by crisp, sweet or tart apples in late summer to autumn. There are thousands of cultivars with varying fruit colors, flavors, and uses. Native to Central Asia, now grown worldwide.",
-                    ImagePath = diskLocationImages + "Appelboom_Malus_domestica_Base01.jpeg",
+                    ImagePath = diskLocationImages + "Malus_domestica_Base01.png",
                     PlantType = PlantType.Tree,
                     PlantClassification = PlantClassification.Angiosperms,
                     PhylumInfo = (Phylum)GetPhylumByName(phyla, "Magnoliophyta"),
@@ -1418,6 +1418,10 @@ namespace PlantGuessingGame.Services
                     TemperatureRangeMaximum = 35
                 }
                 ,
+
+
+                //NOTE JCO --> from here is Dutch, we can make a Dutch and English seeding code
+
                 // Erica carnea (Winterheide)
                 new Plant
                 {
@@ -2570,7 +2574,8 @@ namespace PlantGuessingGame.Services
                     Causes = "Fungal infection through wounds, pruning, or mechanical injury.",
                     Solutions = "Avoid pruning in active infection periods, sterilize tools, remove and destroy infected material, monitor for symptoms.",
                     Severity = "High",
-                    Category = "Disease"
+                    Category = "Disease",
+                    ImagePath = diskLocationImages + "PlantProblems\\" + "Platanus_acerifolia_Canker_Stain_01.png"
                 });
 
                 ListProblems.Add(new PlantProblem

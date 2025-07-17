@@ -57,6 +57,12 @@ namespace PlantGuessingGame.DataModels
         /// </summary>
         public string Category { get; set; }
 
+
+        /// <summary>
+        /// url of the main picture (we can use this for seeding, the images will exist in a separate table)
+        /// </summary>
+        public string ImagePath { get; set; } // Can store file path or URL
+
         /// <summary>
         /// Constructor
         /// </summary>
@@ -84,6 +90,7 @@ namespace PlantGuessingGame.DataModels
         /// <param name="solutions"></param>
         /// <param name="severity"></param>
         /// <param name="category"></param>
+        /// <param name="imagePath"></param>
         public PlantProblem(
             int problemId,
             string name,
@@ -92,7 +99,8 @@ namespace PlantGuessingGame.DataModels
             string causes,
             string solutions,
             string severity,
-            string category)
+            string category,
+            string imagePath)
         {
             Id = problemId;
             Name = name;
@@ -102,6 +110,7 @@ namespace PlantGuessingGame.DataModels
             Solutions = solutions;
             Severity = severity;
             Category = category;
+            ImagePath = imagePath;
         }
     }
 

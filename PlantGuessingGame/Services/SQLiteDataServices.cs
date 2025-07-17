@@ -665,8 +665,58 @@ namespace PlantGuessingGame.Services
                     //loop problems
                     foreach (var Problem in CurrentPlantProblems)
                     {
+
                         // Insert problem data first
                         var ProblemId = await InsertPlantProblemAsync(db, PlantID, Problem);
+
+                        //------------------------------------------
+                        // Get plant problems images collection
+                        //------------------------------------------
+                        // Skip if no image path provided
+                        if (string.IsNullOrEmpty(Problem.ImagePath))
+                        {
+                            Console.WriteLine($"No image path for plant {Problem.Name}");
+                            continue;
+                        }
+
+                        // 1. Check if image exists
+                        if (!File.Exists(Problem.ImagePath))
+                        {
+                            Console.WriteLine($"Image not found: {Problem.ImagePath}");
+                            continue;
+                        }
+
+                        try
+                        {
+                            // 2. Load and compress image
+                            using var image = await Image.LoadAsync(Problem.ImagePath);
+
+                            // Resize to max 800px width while maintaining aspect ratio
+                            image.Mutate(x => x.Resize(new ResizeOptions
+                            {
+                                Size = new Size(800, 0), // 0 maintains aspect ratio
+                                Mode = ResizeMode.Max
+                            }));
+
+                            // 3. Convert to JPEG with 75% quality
+                            var encoder = new JpegEncoder
+                            {
+                                Quality = 75 // Medium quality (0-100)
+                            };
+
+                            using var memoryStream = new MemoryStream();
+                            await image.SaveAsync(memoryStream, encoder);
+                            byte[] compressedBytes = memoryStream.ToArray();
+
+                            // 4. Insert compressed image
+                            await InsertImageTablePlantProblemsAsync(db, ProblemId, compressedBytes);
+
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine($"Failed to process image {Problem.ImagePath}: {ex.Message}");
+                        }
+                        //------------------------------------------
                     }
                     //------------------------------------------
 

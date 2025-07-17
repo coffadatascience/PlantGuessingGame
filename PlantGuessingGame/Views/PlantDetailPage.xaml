@@ -20,7 +20,9 @@
             <Setter Property="Margin" Value="8" />
         </Style>
         <Style x:Key="AttributeComboxValueStyle" TargetType="ComboBox">
-            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="HorizontalAlignment" Value="Stretch" />c:\users\jordycoffa\source\repos\plantguessinggame\plantguessinggame\views\plantdetailpage.xaml.cs
+c:\users\jordycoffa\source\repos\plantguessinggame\plantguessinggame\views\plantdetailpage.xaml
+
             <Setter Property="Margin" Value="8" />
         </Style>
     </Page.Resources>
