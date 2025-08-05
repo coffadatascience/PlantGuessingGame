@@ -1,7 +1,11 @@
-﻿using PlantGuessingGame.DataModels;
+﻿using Microsoft.UI.Xaml.Media.Imaging;
+using PlantGuessingGame.DataModels;
 using PlantGuessingGame.Interfaces;
+using System;
 using System.Collections.ObjectModel;
+using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 
 namespace PlantGuessingGame.ViewModels
@@ -39,8 +43,11 @@ namespace PlantGuessingGame.ViewModels
 
         #endregion
 
+
         #region public variables
 
+        //image source collection of images
+        public ObservableCollection<BitmapImage> SelectedPlantImages = new ObservableCollection<BitmapImage>();
 
         // Public properties for binding
         public ObservableCollection<PlantProblem> PlantProblems
@@ -150,6 +157,9 @@ namespace PlantGuessingGame.ViewModels
             SelectedSolutions = _selectedPlantProblem?.Solutions ?? string.Empty;
             SelectedSeverity = _selectedPlantProblem?.Severity ?? string.Empty;
             SelectedCategory = _selectedPlantProblem?.Category ?? string.Empty;
+            //load related images to problem
+            ShowImages();
+
         }
 
         /// <summary>
@@ -167,7 +177,10 @@ namespace PlantGuessingGame.ViewModels
             }
             if (PlantProblems.Count > 0)
             {
+                //set current problem
                 SelectedPlantProblem = PlantProblems[0];
+                //load images for the problem (if any)
+                ShowImages();
             }
             else
             {
@@ -205,5 +218,70 @@ namespace PlantGuessingGame.ViewModels
             }
             IsDirty = false;
         }
+
+
+
+        /// <summary>
+        /// command that retrieves and show the relevant images for the selected problems
+        /// </summary>
+        private async void ShowImages()
+        {
+
+
+            try
+            {
+
+                //clear SelectedPlantImages
+                SelectedPlantImages.Clear();
+
+                //---------------
+                // add to observeable collection
+                //---------------
+                // 1. Retrieve the image bytes from the DB
+                var ListImageBytes = await _dataService.GetImagesTablePlantProblemsForParentAsync(_selectedProblemId);
+
+                //check if we have anything
+                if (ListImageBytes == null || ListImageBytes.Count == 0)
+                {
+                    //MessageBox.Show("No image found for the specified ID.");
+                    return;
+                }
+
+                //loop the list
+                foreach (var ImageBytes in ListImageBytes)
+                {
+                    //add to observeable collection
+                    await AddImageAsync(ImageBytes);
+                }
+                //---------------
+
+
+ 
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error retrieving or opening image: {ex.Message}");
+            }
+        }
+
+        /// <summary>
+        /// adds image
+        /// </summary>
+        /// <param name="imageBytes"></param>
+        /// <returns></returns>
+        public async Task AddImageAsync(byte[] imageBytes)
+        {
+            var bitmapImage = new Microsoft.UI.Xaml.Media.Imaging.BitmapImage();
+            using (var stream = new Windows.Storage.Streams.InMemoryRandomAccessStream())
+            {
+                await stream.WriteAsync(imageBytes.AsBuffer());
+                stream.Seek(0);
+                await bitmapImage.SetSourceAsync(stream);
+            }
+            SelectedPlantImages.Add(bitmapImage);
+        }
+
+
     }
 }

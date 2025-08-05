@@ -174,6 +174,11 @@
                 throw new NotImplementedException();
             }
 
+            public Task<List<byte[]>> GetImagesTablePlantProblemsForParentAsync(int parentId)
+            {
+                throw new NotImplementedException();
+            }
+
 
 
 

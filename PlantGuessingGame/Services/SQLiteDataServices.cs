@@ -709,6 +709,7 @@ namespace PlantGuessingGame.Services
                             byte[] compressedBytes = memoryStream.ToArray();
 
                             // 4. Insert compressed image
+                            // --> note Image ids are autoincrement, we need to pass the parent id of the problem itself
                             await InsertImageTablePlantProblemsAsync(db, ProblemId, compressedBytes);
 
                         }
