@@ -4234,7 +4234,7 @@ namespace PlantGuessingGame.Services
                     TrimmingPeriod = "Tijdens of direct na de bloeiperiode, indien nodig",
                     TemperatureRangeMinimum = 5, // Alleen perennif in zachte winters (zone 9+), niet winterhard in NL[1][3]
                     TemperatureRangeMaximum = 35
-                }
+                },
 
                 //St. John's Wort (hertshooi)
                 new Plant
@@ -4267,7 +4267,7 @@ namespace PlantGuessingGame.Services
                     TrimmingPeriod = "Late summer after flowering; clean pruning in late winter",
                     TemperatureRangeMinimum = -20,
                     TemperatureRangeMaximum = 35
-                }
+                },
 
                 // Begonia Semperflorens
                 new Plant
@@ -4333,7 +4333,7 @@ namespace PlantGuessingGame.Services
                     TrimmingPeriod = "Late winter tot vroege lente",
                     TemperatureRangeMinimum = -25,  // Winterhard tot -25°C
                     TemperatureRangeMaximum = 35
-                }
+                },
 
                 //roze Toscaanse Jasmijn"
                 new Plant
@@ -4466,7 +4466,7 @@ namespace PlantGuessingGame.Services
                 //stokesia (Asteraceau)
                 new Plant
                 {
-                    Id = 64,  // Assign an appropriate unique Id
+                    Id = 69,  // Assign an appropriate unique Id
                     LocalName = "Stokesia",
                     CommonName = "Stokes' Aster",
                     Family = "Asteraceae",
@@ -4498,7 +4498,7 @@ namespace PlantGuessingGame.Services
                 //Nieuw belgische aster
                 new Plant
                 {
-                    Id = 64,  // uniek Id gebruiken
+                    Id = 70,  // uniek Id gebruiken
                     LocalName = "Nieuw-Belgische aster",
                     CommonName = "New York Aster",
                     Family = "Asteraceae",
@@ -4530,7 +4530,7 @@ namespace PlantGuessingGame.Services
                 //Hortensia Annabel
                 new Plant
                 {
-                    Id = 64,  // Uniek ID, pas aan indien nodig
+                    Id = 71,  // Uniek ID, pas aan indien nodig
                     LocalName = "Hortensia Annabel",
                     CommonName = "Hydrangea arborescens 'Annabel'",
                     Family = "Hydrangeaceae",
@@ -4563,7 +4563,7 @@ namespace PlantGuessingGame.Services
                 //Margriet
                 new Plant
                 {
-                    Id = 65,  // Kies een uniek ID dat nog vrij is in jouw lijst
+                    Id = 72,  // Kies een uniek ID dat nog vrij is in jouw lijst
                     LocalName = "Magriet",
                     CommonName = "Oxeye daisy",
                     Family = "Asteraceae",
