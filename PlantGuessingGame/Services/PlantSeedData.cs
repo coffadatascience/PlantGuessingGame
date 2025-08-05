@@ -29,7 +29,7 @@ namespace PlantGuessingGame.Services
         /// return list with plants
         /// </summary>
         /// <returns></returns>
-        public static List<Plant> GetAllPlants(IEnumerable<Phylum> phyla)
+        public static List<Plant> GetAllPlantsEnglish(IEnumerable<Phylum> phyla)
         {
 
 
@@ -2148,7 +2148,7 @@ namespace PlantGuessingGame.Services
         /// </summary>
         /// <param name="phyla"></param>
         /// <returns></returns>
-        public static List<Plant> GetAllPlantsDutch(IEnumerable<Phylum> phyla)
+        public static List<Plant> GetAllPlants(IEnumerable<Phylum> phyla)
         {
             return new List<Plant>
             {
@@ -4139,7 +4139,7 @@ namespace PlantGuessingGame.Services
                 ,
 
 
-                //--> 61-
+                //--> 61-65
                 // Hemerocallis (Daylily)
                 new Plant
                 {
@@ -4236,35 +4236,35 @@ namespace PlantGuessingGame.Services
                     TemperatureRangeMaximum = 35
                 },
 
-                //St. John's Wort (hertshooi)
+                // Hertshooi (St. John's Wort)
                 new Plant
                 {
-                    Id = 62,  // Adjust Id according to your collection
+                    Id = 62,  // Pas Id aan volgens jouw collectie
                     LocalName = "Hertshooi",
-                    CommonName = "St. John's Wort",
+                    CommonName = "Sint-Janskruid",
                     Family = "Hypericaceae",
                     Genus = "Hypericum",
                     Species = "perforatum",
-                    Description = "A perennial herbaceous plant known for its bright yellow flowers with prominent stamens. Widely known for its medicinal properties, used traditionally for mild depression and wound healing. It has opposite leaves with translucent dots and blooms in mid to late summer.",
+                    Description = "Een meerjarige kruidachtige plant, bekend om zijn heldergele bloemen met opvallende meeldraden. Veel gebruikt vanwege zijn medicinale eigenschappen, traditioneel ingezet bij milde depressies en wondgenezing. Heeft tegenoverstaande bladeren met doorschijnende puntjes en bloeit midden tot laat in de zomer.",
                     ImagePath = diskLocationImages + "Hertshooi_Hypericum_perforatum_Base01.png",
                     PlantType = PlantType.HerbaceousPerennial,
                     PlantClassification = PlantClassification.Angiosperms,
                     PhylumInfo = (Phylum)GetPhylumByName(phyla, "Magnoliophyta"),
-                    IsEatable = false, // Used medicinally but not generally eaten as food
-                    Color = "Bright yellow flowers; green leaves with translucent dots",
+                    IsEatable = false, // Medisch gebruikt maar niet algemeen als voedsel
+                    Color = "Heldere gele bloemen; groene bladeren met doorschijnende puntjes",
                     IsFlowering = true,
                     IsEvergreen = false,
                     IsPoisonous = false,
-                    Shape = "Bushy perennial herb with upright stems and showy, star-shaped yellow flowers",
-                    FullGrownHeight = 80,   // Typically 60-90 cm tall
-                    FullGrownWidth = 60,    // 40-60 cm spread
-                    // Plant care properties:
-                    Light = "Full sun to partial shade; prefers sunny locations for best flowering",
-                    Water = "Moderate watering; tolerates dry periods once established",
-                    Soil = "Well-drained, sandy to loamy soil; tolerates poor soil but prefers neutral to slightly acidic pH",
-                    FertilizationMethod = "Generally does not require fertilization; can benefit from light feeding in spring",
-                    TrimmingInstructions = "Cut back after flowering to maintain shape and encourage bushier growth. Remove dead stems in late winter.",
-                    TrimmingPeriod = "Late summer after flowering; clean pruning in late winter",
+                    Shape = "Bossige meerjarige kruid met rechtopstaande stengels en opvallende, stervormige gele bloemen",
+                    FullGrownHeight = 80,   // Gewoonlijk 60-90 cm hoog
+                    FullGrownWidth = 60,    // Spreiding 40-60 cm
+                    // Plantverzorging eigenschappen:
+                    Light = "Volle zon tot halfschaduw; geeft de voorkeur aan zonnige plaatsen voor de beste bloei",
+                    Water = "Matige bewatering; verdraagt droogteperiodes eenmaal gevestigd",
+                    Soil = "Goed doorlatende, zandige tot lemige grond; verdraagt arme grond maar geeft de voorkeur aan neutrale tot licht zure pH",
+                    FertilizationMethod = "Meestal geen bemesting nodig; profiteert van lichte voeding in het voorjaar",
+                    TrimmingInstructions = "Terugsnoeien na de bloei om vorm te behouden en bossiger groei te stimuleren. Verwijder dode stengels in de late winter.",
+                    TrimmingPeriod = "Eind zomer na de bloei; grondig snoeien in de late winter",
                     TemperatureRangeMinimum = -20,
                     TemperatureRangeMaximum = 35
                 },
@@ -4301,6 +4301,9 @@ namespace PlantGuessingGame.Services
                     TemperatureRangeMinimum = 10,  // Niet winterhard; min 10°C
                     TemperatureRangeMaximum = 30
                 },
+
+
+                //--> 66-70
 
                 //Kardinaalsmuts
                 new Plant
@@ -4367,130 +4370,133 @@ namespace PlantGuessingGame.Services
                     TemperatureRangeMaximum = 35
                 },
 
-                //witte jasmijn
+               // Witte Jasmijn
                 new Plant
                 {
-                    Id = 66,  // Assign the next available unique Id
+                    Id = 66,  // Volgende beschikbare Id
                     LocalName = "Jasmijn",
-                    CommonName = "Star Jasmine",
+                    CommonName = "Sterjasmijn",
                     Family = "Apocynaceae",
                     Genus = "Trachelospermum",
                     Species = "jasminoides",
-                    Description = "A vigorous, evergreen climbing plant with glossy green leaves and fragrant white star-shaped flowers. Ideal for covering walls, trellises, and pergolas. Hardy in mild climates and popular for its intense fragrance.",
-                    ImagePath = diskLocationImages + "Jasmijn_Trachelospermum_jasminoides_Base01.png",
+                    Description = "Een krachtige, groenblijvende klimplant met glanzende groene bladeren en geurige, witte stervormige bloemen. Ideaal voor het bedekken van muren, schuttingen en pergola's. Winterhard in milde klimaten en populair vanwege de intense geur.",
+                    ImagePath = diskLocationImages + "Jasmijn_Trachelospermum_jasminoides.png",
                     PlantType = PlantType.Climber,
                     PlantClassification = PlantClassification.Angiosperms,
                     PhylumInfo = (Phylum)GetPhylumByName(phyla, "Magnoliophyta"),
                     IsEatable = false,
-                    Color = "Glossy dark green foliage; white star-shaped flowers",
+                    Color = "Glanzend donkergroen blad; witte stervormige bloemen",
                     IsFlowering = true,
                     IsEvergreen = true,
                     IsPoisonous = false,
-                    Shape = "Twining evergreen climbing vine",
-                    FullGrownHeight = 600,  // Up to 6 meters in height
-                    FullGrownWidth = 300,   // Spread up to 3 meters
-                    Light = "Full sun to partial shade, prefers bright filtered light",
-                    Water = "Moderate water needs; keep soil moist but not waterlogged",
-                    Soil = "Well-drained, fertile soil with neutral to slightly acidic pH",
-                    FertilizationMethod = "Balanced fertilizer in spring and summer",
-                    TrimmingInstructions = "Prune after flowering to maintain shape and encourage bushier growth",
-                    TrimmingPeriod = "Late spring or early summer",
-                    TemperatureRangeMinimum = -10,  // Hardy to about -10°C
+                    Shape = "Slingerachtige groenblijvende klimmer",
+                    FullGrownHeight = 600,  // Tot 6 meter hoog
+                    FullGrownWidth = 300,   // Spreiding tot 3 meter
+                    Light = "Volle zon tot halfschaduw, geeft de voorkeur aan helder gefilterd licht",
+                    Water = "Matige waterbehoefte; houd de grond vochtig maar niet nat",
+                    Soil = "Goed doorlatende, vruchtbare grond met neutrale tot licht zure pH",
+                    FertilizationMethod = "Evenwichtige bemesting in lente en zomer",
+                    TrimmingInstructions = "Snoei na de bloei om de vorm te behouden en bossiger groei te stimuleren",
+                    TrimmingPeriod = "Late lente of vroege zomer",
+                    TemperatureRangeMinimum = -10,
                     TemperatureRangeMaximum = 35
                 },
 
-                //Veronica
+                // Braunsera
                 new Plant
                 {
                     Id = 67,
                     LocalName = "Veronica",
-                    CommonName = "Speedwell",
+                    CommonName = "Dogtong",
                     Family = "Plantaginaceae",
                     Genus = "Veronica",
                     Species = "spicata",
-                    Description = "A perennial herbaceous plant with spikes of small tubular flowers, ranging from blue to violet and pink. Suitable for temperate climates and borders.",
-                    ImagePath = diskLocationImages + "Veronica_spicata_Base01.png",
+                    Description = "Een vaste, kruidachtige plant met aren van kleine, buisvormige bloemen, variërend van blauw tot violettinten en roze. Geschikt voor gematigde klimaten en borders.",
+                    ImagePath = diskLocationImages + "Veronica_spicata.png",
                     PlantType = PlantType.HerbaceousPerennial,
                     PlantClassification = PlantClassification.Angiosperms,
                     PhylumInfo = (Phylum)GetPhylumByName(phyla, "Magnoliophyta"),
                     IsEatable = false,
-                    Color = "Blue to violet and pink flowers, green foliage",
+                    Color = "Blauwe tot violette en roze bloemen, groen blad",
                     IsFlowering = true,
                     IsEvergreen = false,
                     IsPoisonous = false,
-                    Shape = "Upright herbaceous plant with flower spikes",
+                    Shape = "Opgaande, kruidachtige plant met bloemaren",
                     FullGrownHeight = 60,
                     FullGrownWidth = 30,
-                    Light = "Full sun to partial shade",
-                    Water = "Moderate; prefers well-drained soil",
-                    Soil = "Well-drained, fertile soil",
-                    FertilizationMethod = "Balanced fertilizer in spring",
-                    TrimmingInstructions = "Cut back after flowering to promote new growth",
-                    TrimmingPeriod = "Late autumn or early spring",
+                    Light = "Volle zon tot halfschaduw",
+                    Water = "Matige watergift",
+                    Soil = "Goed doorlatende grond",
+                    FertilizationMethod = "Evenwichtige bemesting in lente",
+                    TrimmingInstructions = "Terugknippen na bloei om nieuwe groei te stimuleren",
+                    TrimmingPeriod = "Late herfst of vroege lente",
                     TemperatureRangeMinimum = -20,
                     TemperatureRangeMaximum = 35
                 },
 
-                //Nerium oleander
+                // Nerium oleander
                 new Plant
                 {
                     Id = 68,
-                    LocalName = "Nerium oleander",
+                    LocalName = "Oleander",
                     CommonName = "Oleander",
                     Family = "Apocynaceae",
                     Genus = "Nerium",
                     Species = "oleander",
-                    Description = "Wintergreen, highly branched shrub or small tree. Blooms with trumpet-shaped flowers in colors of white, pink, red, and yellow. Popular in Mediterranean gardens, not fully hardy in cold winters.",
-                    ImagePath = diskLocationImages + "Nerium_oleander_Base.png",
+                    Description = "Wintergroene, sterk vertakte struik of kleine boom. Bloeit met trompetvormige bloemen in wit, roze, rood en geel. Populair in mediterrane tuinen, niet volledig winterhard in koude winters.",
+                    ImagePath = diskLocationImages + "Nerium_oleander.png",
                     PlantType = PlantType.Shrub,
                     PlantClassification = PlantClassification.Angiosperms,
                     PhylumInfo = (Phylum)GetPhylumByName(phyla, "Magnoliophyta"),
                     IsEatable = false,
-                    Color = "Dark green leaves; white, pink, red, and yellow flowers",
+                    Color = "Donkergroen blad; bloemen in wit, roze, rood en geel",
                     IsFlowering = true,
                     IsEvergreen = true,
                     IsPoisonous = true,
-                    Shape = "Wintergreen shrub or small tree",
+                    Shape = "Wintergroene struik of kleine boom",
                     FullGrownHeight = 600,
                     FullGrownWidth = 400,
-                    Light = "Full sun to light shade",
-                    Water = "Moderate; drought and heat tolerant",
-                    Soil = "Well-drained, humus rich; tolerates poor and calcareous soils",
-                    FertilizationMethod = "Spring fertilization, avoid overfeeding",
-                    TrimmingInstructions = "Light pruning after flowering; use protective gear due to toxicity",
-                    TrimmingPeriod = "After flowering",
+                    Light = "Volle zon tot lichte schaduw",
+                    Water = "Matige watergift; droogte- en hittebestendig",
+                    Soil = "Goed doorlatende, humusrijke grond; verdraagt arme en kalkrijke grond",
+                    FertilizationMethod = "Voorjaarsbemesting; overbemesting vermijden",
+                    TrimmingInstructions = "Licht snoeien na bloei; gebruik beschermende kleding vanwege giftigheid",
+                    TrimmingPeriod = "Na bloei",
                     TemperatureRangeMinimum = -5,
                     TemperatureRangeMaximum = 40
                 },
 
-                //stokesia (Asteraceau)
+
+                //--> 71-75
+
+                // Stokesia
                 new Plant
                 {
-                    Id = 69,  // Assign an appropriate unique Id
+                    Id = 69,
                     LocalName = "Stokesia",
                     CommonName = "Stokes' Aster",
                     Family = "Asteraceae",
                     Genus = "Stokesia",
                     Species = "laevis",
-                    Description = "A perennial herbaceous plant known for its showy, thistle-like lavender to blue flowers that bloom in mid to late summer. Native to southeastern United States; commonly grown in gardens for ornamental purposes.",
-                    ImagePath = diskLocationImages + "Stokesia_laevis_Base01.png",
+                    Description = "Vaste, kruidachtige plant met opvallende distelachtige bloemen in lavendel tot blauw die midden tot laat in de zomer bloeien. Oorspronkelijk uit het zuidoosten van de Verenigde Staten; populair als sierplant.",
+                    ImagePath = diskLocationImages + "Stokesia_laevis.png",
                     PlantType = PlantType.Perennial,
                     PlantClassification = PlantClassification.Angiosperms,
                     PhylumInfo = (Phylum)GetPhylumByName(phyla, "Magnoliophyta"),
                     IsEatable = false,
-                    Color = "Lavender to blue flowers; green foliage",
+                    Color = "Lavendel tot blauwe bloemen; groen blad",
                     IsFlowering = true,
                     IsEvergreen = false,
                     IsPoisonous = false,
-                    Shape = "Clump-forming plant with spiny, thistle-like flowers",
-                    FullGrownHeight = 60,    // Height in centimeters
-                    FullGrownWidth = 40,     // Width in centimeters
-                    Light = "Full sun to partial shade",
-                    Water = "Moderate; keep soil consistently moist but well-drained",
-                    Soil = "Prefers fertile, well-drained soil; tolerates neutral to slightly acidic pH",
-                    FertilizationMethod = "Apply balanced fertilizer in spring",
-                    TrimmingInstructions = "Deadhead spent flowers to encourage continuous blooming; cut back in late fall",
-                    TrimmingPeriod = "Late fall",
+                    Shape = "Polvormende plant met stekelige, distelachtige bloemen",
+                    FullGrownHeight = 60,
+                    FullGrownWidth = 40,
+                    Light = "Volle zon tot halfschaduw",
+                    Water = "Matige watergift",
+                    Soil = "Prefereert vruchtbare, goed doorlatende grond",
+                    FertilizationMethod = "Bemesten in lente",
+                    TrimmingInstructions = "Verwijder verdorde bloemen voor langere bloei; snoei in late herfst",
+                    TrimmingPeriod = "Late herfst",
                     TemperatureRangeMinimum = -20,
                     TemperatureRangeMaximum = 35
                 },
