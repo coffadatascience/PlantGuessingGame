@@ -81,6 +81,7 @@ namespace PlantGuessingGame.Enums
         /// Unknown 
         /// </summary>
         Unknown,
-        HerbaceousPerennial
+        HerbaceousPerennial,
+        Annual
     }
 }

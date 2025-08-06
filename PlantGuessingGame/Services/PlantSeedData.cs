@@ -4597,8 +4597,366 @@ namespace PlantGuessingGame.Services
                     TrimmingPeriod = "Direct na de bloei of in het late najaar",
                     TemperatureRangeMinimum = -30,  // Zeer winterhard
                     TemperatureRangeMaximum = 35
-                }
+                },
 
+                // Chrysanthemum
+                new Plant
+                {
+                    Id = 73,
+                    LocalName = "Chrysant",
+                    CommonName = "Chrysanthemum",
+                    Family = "Asteraceae",
+                    Genus = "Chrysanthemum",
+                    Species = "× morifolium",
+                    Description = "Een populaire herfstbloeiende vaste plant met kleurrijke, vaak gevulde bloemen in wit, geel, rood, roze en oranje. Wordt veel gebruikt in borders en boeketten. Goed bestand tegen lichte vorst.",
+                    ImagePath = diskLocationImages + "Chrysanthemum_Base01.png",
+                    PlantType = PlantType.Perennial,
+                    PlantClassification = PlantClassification.Angiosperms,
+                    PhylumInfo = (Phylum)GetPhylumByName(phyla, "Magnoliophyta"),
+                    IsEatable = false,
+                    Color = "Meerdere kleuren: wit, geel, rood, roze, oranje",
+                    IsFlowering = true,
+                    IsEvergreen = false,
+                    IsPoisonous = false,
+                    Shape = "Bossige plant met samengestelde bloemen",
+                    FullGrownHeight = 60,
+                    FullGrownWidth = 50,
+                    Light = "Volle zon tot lichte schaduw",
+                    Water = "Regelmatig water geven; houd de grond vochtig maar niet drassig",
+                    Soil = "Voedzame, goed doorlatende grond",
+                    FertilizationMethod = "Bemesting met volle mest of bloeimest in de lente",
+                    TrimmingInstructions = "Verwijder uitgeblazen bloemen voor compacte groei en langere bloei",
+                    TrimmingPeriod = "Gedurende het groeiseizoen, vooral na de bloei",
+                    TemperatureRangeMinimum = -5,
+                    TemperatureRangeMaximum = 30
+                },
+
+
+                //--> 76-80
+
+                // Laurier
+                new Plant
+                {
+                    Id = 74,
+                    LocalName = "Laurier",
+                    CommonName = "Laurel",
+                    Family = "Lauraceae",
+                    Genus = "Laurus",
+                    Species = "nobilis",
+                    Description = "Een groenblijvende struik of kleine boom met geurende, leerachtige bladeren. Veel gebruikt als keukenkruid en in hagen. Bloeit met onopvallende bloemen en produceert zwarte bessen.",
+                    ImagePath = diskLocationImages + "Laurier_Base01.png",
+                    PlantType = PlantType.Shrub,
+                    PlantClassification = PlantClassification.Angiosperms,
+                    PhylumInfo = (Phylum)GetPhylumByName(phyla, "Magnoliophyta"),
+                    IsEatable = true,
+                    Color = "Donkergroene bladeren, kleine geelwitte bloemen",
+                    IsFlowering = true,
+                    IsEvergreen = true,
+                    IsPoisonous = false,
+                    Shape = "Struikvormig met dicht blad",
+                    FullGrownHeight = 400,
+                    FullGrownWidth = 300,
+                    Light = "Volle zon tot halfschaduw",
+                    Water = "Regelmatig water geven; droogtebestendig eenmaal gevestigd",
+                    Soil = "Voedzame, goed doorlatende grond, licht zuur tot neutraal",
+                    FertilizationMethod = "Lichte bemesting in het voorjaar",
+                    TrimmingInstructions = "Snoei om vorm te behouden, beste in de late winter of vroege lente",
+                    TrimmingPeriod = "Late winter tot vroege lente",
+                    TemperatureRangeMinimum = -10,
+                    TemperatureRangeMaximum = 35
+                },
+
+                // Needle Grass
+                new Plant
+                {
+                    Id = 75,
+                    LocalName = "Naaldgras",
+                    CommonName = "Needle Grass",
+                    Family = "Poaceae",
+                    Genus = "Stipa",
+                    Species = "tenacissima",
+                    Description = "Een droogtetolerante siergras met fijne, naaldachtige bladeren en sierlijke, beweeglijke bloemaren. Ideaal voor rotstuinen en borders met droogte.",
+                    ImagePath = diskLocationImages + "NeedleGrass_Base01.png",
+                    PlantType = PlantType.Grass,
+                    PlantClassification = PlantClassification.Angiosperms,
+                    PhylumInfo = (Phylum)GetPhylumByName(phyla, "Magnoliophyta"),
+                    IsEatable = false,
+                    Color = "Grijs-groen blad, beige bloemaren",
+                    IsFlowering = true,
+                    IsEvergreen = false,
+                    IsPoisonous = false,
+                    Shape = "Loofgras met fijne, deeglijke aren",
+                    FullGrownHeight = 80,
+                    FullGrownWidth = 50,
+                    Light = "Volle zon",
+                    Water = "Matige watergift; droogtetolerant",
+                    Soil = "Zandige, goed doorlatende, arme grond",
+                    FertilizationMethod = "Weinig tot geen bemesting vereist",
+                    TrimmingInstructions = "In het late voorjaar tot vroege zomer afknippen om verjonging te stimuleren",
+                    TrimmingPeriod = "Eind lente tot vroege zomer",
+                    TemperatureRangeMinimum = -10,
+                    TemperatureRangeMaximum = 35
+                },
+
+                // Celosia
+                new Plant
+                {
+                    Id = 76,
+                    LocalName = "Celosia",
+                    CommonName = "Pluimcelosia",
+                    Family = "Amaranthaceae",
+                    Genus = "Celosia",
+                    Species = "argentea",
+                    Description = "Een kleurrijke eenjarige met opvallende, pluimeachtige bloemen in rood, geel, oranje en roze. Populair in zomerse bloembedden en potten. Niet winterhard.",
+                    ImagePath = diskLocationImages + "Celosia_Base01.png",
+                    PlantType = PlantType.Annual,
+                    PlantClassification = PlantClassification.Angiosperms,
+                    PhylumInfo = (Phylum)GetPhylumByName(phyla, "Magnoliophyta"),
+                    IsEatable = false,
+                    Color = "Briljante rood, geel, oranje, roze bloemen",
+                    IsFlowering = true,
+                    IsEvergreen = false,
+                    IsPoisonous = false,
+                    Shape = "Opgaande, pluimachtige bloeiwijzen",
+                    FullGrownHeight = 60,
+                    FullGrownWidth = 30,
+                    Light = "Volle zon",
+                    Water = "Regelmatig water geven; grond vochtig houden",
+                    Soil = "Voedzame, goed doorlatende grond",
+                    FertilizationMethod = "Regelmatig bemesten gedurende het groeiseizoen",
+                    TrimmingInstructions = "Verwijder uitgebloeide bloemen om bloei te verlengen",
+                    TrimmingPeriod = "Gedurende het groeiseizoen",
+                    TemperatureRangeMinimum = 10,
+                    TemperatureRangeMaximum = 35
+                },
+
+                // Buddleja (Vlinderstruik)
+                new Plant
+                {
+                    Id = 77,
+                    LocalName = "Vlinderstruik",
+                    CommonName = "Buddleja",
+                    Family = "Scrophulariaceae",
+                    Genus = "Buddleja",
+                    Species = "davidii",
+                    Description = "Een snelgroeiende, bladverliezende struik met lange pluimachtige bloemen in paars, roze, wit of blauw. Zeer geliefd bij vlinders vanwege de zoete nectar. Bloeit van de zomer tot de herfst.",
+                    ImagePath = diskLocationImages + "Buddleja_davidii_Base01.png",
+                    PlantType = PlantType.Shrub,
+                    PlantClassification = PlantClassification.Angiosperms,
+                    PhylumInfo = (Phylum)GetPhylumByName(phyla, "Magnoliophyta"),
+                    IsEatable = false,
+                    Color = "Paars, roze, wit, blauw bloemaren; groene bladeren",
+                    IsFlowering = true,
+                    IsEvergreen = false,
+                    IsPoisonous = false,
+                    Shape = "Open, bossige struik met langwerpige bloemen",
+                    FullGrownHeight = 300,
+                    FullGrownWidth = 250,
+                    Light = "Volle zon voor de beste bloei",
+                    Water = "Regelmatig water geven, matig vochtig houden",
+                    Soil = "Goed doorlatende, vruchtbare grond",
+                    FertilizationMethod = "Voorjaarsbemesting met organische meststof",
+                    TrimmingInstructions = "Snoei in het vroege voorjaar terug tot ongeveer 30 cm om bloei te stimuleren",
+                    TrimmingPeriod = "Vroege lente",
+                    TemperatureRangeMinimum = -20,
+                    TemperatureRangeMaximum = 35
+                },
+
+                // Leverkruid (Galeopsis)
+                new Plant
+                {
+                    Id = 78,
+                    LocalName = "Leverkruid",
+                    CommonName = "Hemp-nettle",
+                    Family = "Lamiaceae",
+                    Genus = "Galeopsis",
+                    Species = "tetrahit",
+                    Description = "Een snelgroeiende, éénjarige of meerjarige kruidachtige plant met sterk behaarde stengels en rode tot roze bloemen. Komt algemeen voor langs wegen en in bermen.",
+                    ImagePath = diskLocationImages + "Leverkruid_Galeopsis_tetrahit_Base01.png",
+                    PlantType = PlantType.HerbaceousPerennial,
+                    PlantClassification = PlantClassification.Angiosperms,
+                    PhylumInfo = (Phylum)GetPhylumByName(phyla, "Magnoliophyta"),
+                    IsEatable = false,
+                    Color = "Roze tot roodachtige bloemen; groene, behaarde bladeren",
+                    IsFlowering = true,
+                    IsEvergreen = false,
+                    IsPoisonous = false,
+                    Shape = "Opgaand, behaard kruid",
+                    FullGrownHeight = 60,
+                    FullGrownWidth = 30,
+                    Light = "Volle zon tot halfschaduw",
+                    Water = "Moderate water needs, verdraagt korte droogte",
+                    Soil = "Goed doorlatende, matig vochtige grond",
+                    FertilizationMethod = "Geen speciale bemesting nodig",
+                    TrimmingInstructions = "Kan na bloei worden teruggesnoeid om zaadzetting te beperken",
+                    TrimmingPeriod = "Nazomer",
+                    TemperatureRangeMinimum = -15,
+                    TemperatureRangeMaximum = 35
+                },
+
+
+                 //--> 81-85
+
+                // Coleus
+                new Plant
+                {
+                    Id = 79,
+                    LocalName = "Coleus",
+                    CommonName = "Coleus",
+                    Family = "Lamiaceae",
+                    Genus = "Plectranthus",
+                    Species = "scutellarioides",
+                    Description = "Een populaire, kleurrijke, groenblijvende of halfwinterharde kuipplant met felgekleurde bladeren in veel variaties. Wordt vooral gebruikt als sierplant in borders en potten.",
+                    ImagePath = diskLocationImages + "Coleus_Plectranthus_scutellarioides_Base01.png",
+                    PlantType = PlantType.Perennial,
+                    PlantClassification = PlantClassification.Angiosperms,
+                    PhylumInfo = (Phylum)GetPhylumByName(phyla, "Magnoliophyta"),
+                    IsEatable = false,
+                    Color = "Felgekleurde bladeren in rood, geel, paars, groen en oranje tinten",
+                    IsFlowering = true,
+                    IsEvergreen = false,
+                    IsPoisonous = false,
+                    Shape = "Busachtige plant met decoratief blad",
+                    FullGrownHeight = 45,
+                    FullGrownWidth = 45,
+                    Light = "Licht tot halfschaduw, geen volle middagzon",
+                    Water = "Gematigde watergift; houdt van vochtige grond maar niet nat",
+                    Soil = "Voedzame, goed doorlatende potgrond",
+                    FertilizationMethod = "Maandelijkse bemesting tijdens het groeiseizoen",
+                    TrimmingInstructions = "Terugsnoeien om compacte groei te stimuleren",
+                    TrimmingPeriod = "Gedurende het groeiseizoen",
+                    TemperatureRangeMinimum = 5,  // Niet vorstbestendig
+                    TemperatureRangeMaximum = 35
+                },
+
+                // Coreopsis
+                new Plant
+                {
+                    Id = 80,
+                    LocalName = "Coreopsis",
+                    CommonName = "Meisjesogen",
+                    Family = "Asteraceae",
+                    Genus = "Coreopsis",
+                    Species = "tinctoria",
+                    Description = "Een vaste plant met goudgele bloemen die van de late lente tot de herfst bloeit. Zeer aantrekkelijk voor bijen en vlinders, en geschikt voor zonnige borders.",
+                    ImagePath = diskLocationImages + "Coreopsis_tinctoria_Base01.png",
+                    PlantType = PlantType.Perennial,
+                    PlantClassification = PlantClassification.Angiosperms,
+                    PhylumInfo = (Phylum)GetPhylumByName(phyla, "Magnoliophyta"),
+                    IsEatable = false,
+                    Color = "Goudgele bloemen met soms roodbruine accenten",
+                    IsFlowering = true,
+                    IsEvergreen = false,
+                    IsPoisonous = false,
+                    Shape = "Opgaande, bossige plant met fijne bladeren",
+                    FullGrownHeight = 60,
+                    FullGrownWidth = 40,
+                    Light = "Volle zon",
+                    Water = "Regelmatig water geven, verdraagt matige droogte",
+                    Soil = "Goed doorlatende, lichte, voedzame grond",
+                    FertilizationMethod = "Licht bemesten in de lente",
+                    TrimmingInstructions = "Verwijder uitgebloeide bloemen om doorbloei te stimuleren",
+                    TrimmingPeriod = "Gedurende bloeiperiode",
+                    TemperatureRangeMinimum = -20,
+                    TemperatureRangeMaximum = 35
+                },
+
+                // Klimhortensia (Hydrangea anomala subsp. petiolaris)
+                new Plant
+                {
+                    Id = 81,
+                    LocalName = "Klimhortensia",
+                    CommonName = "Climbing hydrangea",
+                    Family = "Hydrangeaceae",
+                    Genus = "Hydrangea",
+                    Species = "anomala subsp. petiolaris",
+                    Description = "Een bladverliezende klimplant met grote, witte bloemschermen in de vroege zomer. Wordt vaak gebruikt om muren en pergola's te bedekken. Verdraagt schaduwrijke plekken goed.",
+                    ImagePath = diskLocationImages + "Klimhortensia_Hydrangea_anomala_Base01.png",
+                    PlantType = PlantType.Climber,
+                    PlantClassification = PlantClassification.Angiosperms,
+                    PhylumInfo = (Phylum)GetPhylumByName(phyla, "Magnoliophyta"),
+                    IsEatable = false,
+                    Color = "Witte bloemen, donkergroen blad",
+                    IsFlowering = true,
+                    IsEvergreen = false,
+                    IsPoisonous = false,
+                    Shape = "Winterverliezende klimplant met stevige hechtwortels",
+                    FullGrownHeight = 900,
+                    FullGrownWidth = 600,
+                    Light = "Halfschaduw tot schaduw",
+                    Water = "Regelmatig water geven, voorkeur voor vochtige grond",
+                    Soil = "Voedzame, goed doorlatende, licht zure tot neutrale grond",
+                    FertilizationMethod = "Lichte voorjaarsbemesting",
+                    TrimmingInstructions = "Snoei na de bloei om vorm en omvang te beheersen",
+                    TrimmingPeriod = "Vroege zomer",
+                    TemperatureRangeMinimum = -20,
+                    TemperatureRangeMaximum = 35
+                },
+
+                // Rhododendron
+                new Plant
+                {
+                    Id = 82,
+                    LocalName = "Rhododendron",
+                    CommonName = "Rhododendron",
+                    Family = "Ericaceae",
+                    Genus = "Rhododendron",
+                    Species = "ponticum",
+                    Description = "Een groenblijvende heester met grote, vaak getande bladeren en indrukwekkende bloemclusters in wit, roze, rood, paars en geel. Houdt van zure, vochtige bodems en een beschutte plek.",
+                    ImagePath = diskLocationImages + "Rhododendron_ponticum_Base01.png",
+                    PlantType = PlantType.Shrub,
+                    PlantClassification = PlantClassification.Angiosperms,
+                    PhylumInfo = (Phylum)GetPhylumByName(phyla, "Magnoliophyta"),
+                    IsEatable = false,
+                    Color = "Roze, paars, wit en andere kleuren; donkergroen blad",
+                    IsFlowering = true,
+                    IsEvergreen = true,
+                    IsPoisonous = false,
+                    Shape = "Bossige, compact groeiende heester",
+                    FullGrownHeight = 250,
+                    FullGrownWidth = 200,
+                    Light = "Halfschaduw tot schaduw; geen volle zon",
+                    Water = "Vochtige, zure grond; regelmatig water geven",
+                    Soil = "Zure, goed doorlatende, humusrijke grond",
+                    FertilizationMethod = "Bemesten in het vroege voorjaar met speciaal rhododendronvoedingsmengsel",
+                    TrimmingInstructions = "Verwijder verdorde bloemen en snoei na bloei indien nodig",
+                    TrimmingPeriod = "Najaar of direct na bloei",
+                    TemperatureRangeMinimum = -20,
+                    TemperatureRangeMaximum = 30
+                },
+
+                // Pluimhortensia (Hydrangea paniculata 'Limelight')
+                new Plant
+                {
+                    Id = 83,  // Pas aan naar uniek ID in jouw lijst
+                    LocalName = "Pluimhortensia",
+                    CommonName = "Hydrangea paniculata 'Limelight'",
+                    Family = "Hydrangeaceae",
+                    Genus = "Hydrangea",
+                    Species = "paniculata 'Limelight'",
+                    Description = "Een sierlijke, bladverliezende struik met indrukwekkende pluimvormige bloemschermen in limoen- tot cremewit. Bloeit rijkelijk van juli tot aan de eerste vorst. Bij zonnig weer verkleuren de bloemen in de herfst naar een zachte roze tint, terwijl het blad paarsachtige herfstkleuren krijgt. De struik wordt maximaal 1,5 tot 2 meter hoog en 1,5 meter breed.",
+                    ImagePath = diskLocationImages + "Pluimhortensia_Hydrangea_paniculata_Limelight_Base01.png",
+                    PlantType = PlantType.Shrub,
+                    PlantClassification = PlantClassification.Angiosperms,
+                    PhylumInfo = (Phylum)GetPhylumByName(phyla, "Magnoliophyta"),
+                    IsEatable = false,
+                    Color = "Limoenwit tot crèmewitte bloemen, herfstkleur: roze bloemen en paarsachtig blad",
+                    IsFlowering = true,
+                    IsEvergreen = false,
+                    IsPoisonous = false,
+                    Shape = "Bladverliezende struik met ronde, volle groei en grote pluimvormige bloemtrossen",
+                    FullGrownHeight = 200,  // Max 1,5 - 2 meter hoog
+                    FullGrownWidth = 150,   // Circa 1,5 meter breed
+                    Light = "Volle zon tot halfschaduw",
+                    Water = "Regelmatig water geven; verdraagt enige droogte maar groeit het beste op vochtige grond",
+                    Soil = "Voedzame, goed doorlatende, vochtige grond; verdraagt neutrale tot licht kalkrijke pH",
+                    FertilizationMethod = "Voorjaarsbemesting met organische meststoffen",
+                    TrimmingInstructions = "Snoei oude bloemen einde winter weg en snoei indien nodig takken tot de helft terug om compacte groei te behouden",
+                    TrimmingPeriod = "Vroege lente, voor het nieuwe seizoen begint",
+                    TemperatureRangeMinimum = -20,
+                    TemperatureRangeMaximum = 35,
+                    //SpecialFeatures = new[] { "Snijbloem", "Droogbloem", "Kuipplant" }
+                }
 
 
             };
