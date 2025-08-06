@@ -948,6 +948,9 @@ namespace PlantGuessingGame.ViewModels
                     {
                         await _dataService.AddItemImageTablePlantsAsync(_itemId, filePath);
                         successCount++;
+
+                        //even though the miage has been imported we will place dirty to true so save/continue is enabled
+                        IsDirty = true;
                     }
                     catch (Exception ex)
                     {
@@ -956,6 +959,9 @@ namespace PlantGuessingGame.ViewModels
                 }
 
                 MessageBox.Show($"{successCount} image(s) imported successfully!");
+
+                //show images
+                ShowImages();
             }
         }
 
@@ -969,6 +975,9 @@ namespace PlantGuessingGame.ViewModels
 
             try
             {
+
+                //clear SelectedPlantImages
+                SelectedPlantImages.Clear();
 
                 //---------------
                 // add to observeable collection
@@ -1014,11 +1023,18 @@ namespace PlantGuessingGame.ViewModels
             }
         }
 
+        /// <summary>
+        /// get images from the database
+        /// </summary>
+        /// <param name="imageId"></param>
+        /// <returns></returns>
         public async Task RetrieveAndOpenImageAsync(int imageId)
         {
 
             try
             {
+
+
 
                 //---------------
                 // add to observeable collection
