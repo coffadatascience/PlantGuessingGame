@@ -343,11 +343,11 @@ namespace PlantGuessingGame.Services
 
             var newIds = await db.QueryAsync<long>(
                 @"INSERT INTO Plants
-                (LocalName, CommonName, Genus, Species, Family, Description, ImagePath, PhylumId, PlantType, PlantClassification,
+                (LocalName, CommonName, Genus, Species, Family, Description, Etymology, ImagePath, PhylumId, PlantType, PlantClassification,
                  IsEatable, Color, IsFlowering, IsEvergreen, TrimmingInstructions, TrimmingPeriod, TemperatureRangeMinimum, TemperatureRangeMaximum,
                  IsPoisonous, FertilizationMethod, Shape, FullGrownHeight, FullGrownWidth, Light, Water, Soil)
                 VALUES
-                (@LocalName, @CommonName, @Genus, @Species, @Family, @Description, @ImagePath, @PhylumId, @PlantType, @PlantClassification,
+                (@LocalName, @CommonName, @Genus, @Species, @Family, @Description, @Etymology, @ImagePath, @PhylumId, @PlantType, @PlantClassification,
                  @IsEatable, @Color, @IsFlowering, @IsEvergreen, @TrimmingInstructions, @TrimmingPeriod, @TemperatureRangeMinimum, @TemperatureRangeMaximum,
                  @IsPoisonous, @FertilizationMethod, @Shape, @FullGrownHeight, @FullGrownWidth, @Light, @Water, @Soil);
                 SELECT last_insert_rowid()", item);

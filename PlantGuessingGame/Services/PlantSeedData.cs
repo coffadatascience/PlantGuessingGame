@@ -4952,7 +4952,7 @@ namespace PlantGuessingGame.Services
                     Genus = "Rhododendron",
                     Species = "ponticum",
                     Description = "Een groenblijvende heester met grote, vaak getande bladeren en indrukwekkende bloemclusters in wit, roze, rood, paars en geel. Houdt van zure, vochtige bodems en een beschutte plek.",
-                    Etymology = "De geslachtsnaam 'Rhododendron' komt van het Grieks ‘rhodos’ (roos) en ‘dendron’ (boom); 'ponticum' verwijst naar de Pontus-regio aan de Zwarte Zee."
+                    Etymology = "De geslachtsnaam 'Rhododendron' komt van het Grieks ‘rhodos’ (roos) en ‘dendron’ (boom); 'ponticum' verwijst naar de Pontus-regio aan de Zwarte Zee.",
                     ImagePath = diskLocationImages + "Rhododendron_ponticum_Base01.png",
                     PlantType = PlantType.Shrub,
                     PlantClassification = PlantClassification.Angiosperms,
@@ -5350,7 +5350,7 @@ namespace PlantGuessingGame.Services
                     Genus = "Verbena",
                     Species = "officinalis",
                     Description = "Een meerjarige plant met kleine paarse bloemen, bekend om zijn sierwaarde en gebruik in traditionele geneeskunde.",
-                    Etymology = "De naam 'Verbena' is Latijn voor heilige tak; 'officinalis' wijst op traditionele medicinale toepassing."
+                    Etymology = "De naam 'Verbena' is Latijn voor heilige tak; 'officinalis' wijst op traditionele medicinale toepassing.",
                     ImagePath = diskLocationImages + "Verbena_officinalis_Base01.png",
                     PlantType = PlantType.PerennialFlower,
                     PlantClassification = PlantClassification.Angiosperms,
