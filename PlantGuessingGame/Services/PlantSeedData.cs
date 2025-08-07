@@ -4959,6 +4959,361 @@ namespace PlantGuessingGame.Services
                 }
 
 
+                //--> 86-90
+                // Carex morrowii (Japanese Sedge)
+                new Plant
+                {
+                    Id = 85,
+                    LocalName = "Japanse zegge",
+                    CommonName = "Carex morrowii",
+                    Family = "Cyperaceae",
+                    Genus = "Carex",
+                    Species = "morrowii",
+                    Description = "Een groenblijvende siergrasachtige met brede, vaak gevlekte bladeren. Geschikt als bodembedekker in halfschaduw en vochtige tot matig vochtige grond.",
+                    ImagePath = diskLocationImages + "Carex_morrowii_Base01.png",
+                    PlantType = PlantType.OrnamentalGrass,
+                    PlantClassification = PlantClassification.Angiosperms,
+                    PhylumInfo = (Phylum)GetPhylumByName(phyla, "Magnoliophyta"),
+                    IsEatable = false,
+                    Color = "Groene tot geelgroene bladeren, soms met wit gevlekt",
+                    IsFlowering = false,
+                    IsEvergreen = true,
+                    IsPoisonous = false,
+                    Shape = "Overhangende, brede bladeren met brede plukvormige groei",
+                    FullGrownHeight = 40, // in cm
+                    FullGrownWidth = 50,  // in cm
+                    Light = "Halfschaduw tot schaduw; kan volle zon verdragen als de grond vochtig blijft",
+                    Water = "Matig vochtig houden; niet laten uitdrogen, vooral in de zomer. Overbewatering vermijden om wortelrot te voorkomen.",
+                    Soil = "Voedzame, goed doorlatende, licht zure tot neutrale grond",
+                    FertilizationMethod = "Lichte bemesting in het voorjaar met organische meststof",
+                    TrimmingInstructions = "Verwijder in het late voorjaar of vroege voorjaar oude of beschadigde bladeren tot aan de basis.",
+                    TrimmingPeriod = "Vroege lente",
+                    TemperatureRangeMinimum = -20,
+                    TemperatureRangeMaximum = 35
+                },
+
+                // Acer campestre (Veldesdoorn)
+                new Plant
+                {
+                    Id = 86,
+                    LocalName = "Veldesdoorn",
+                    CommonName = "Acer campestre",
+                    Family = "Sapindaceae",
+                    Genus = "Acer",
+                    Species = "campestre",
+                    Description = "Een kleine tot middelgrote, bladverliezende boom met gelobde bladeren en een dichte kroon. Wordt vaak gebruikt als haag of straatboom.",
+                    ImagePath = diskLocationImages + "Acer_campestre_Base01.png",
+                    PlantType = PlantType.Tree,
+                    PlantClassification = PlantClassification.Angiosperms,
+                    PhylumInfo = (Phylum)GetPhylumByName(phyla, "Magnoliophyta"),
+                    IsEatable = false,
+                    Color = "Groen blad met mooie herfstkleuren in geel, oranje en rood",
+                    IsFlowering = true,
+                    IsEvergreen = false,
+                    IsPoisonous = false,
+                    Shape = "Dichte, ronde tot brede kroon met losse vertakkingen",
+                    FullGrownHeight = 1500,  // in cm (15 meter)
+                    FullGrownWidth = 1000,   // in cm (10 meter)
+                    Light = "Volle zon tot halfschaduw",
+                    Water = "Regelmatig bij droogte, verdraagt droogte eenmaal gevestigd",
+                    Soil = "Goed doorlatende, vruchtbare grond; verdraagt verschillende pH-waarden",
+                    FertilizationMethod = "Lente bemesting met organische meststof",
+                    TrimmingInstructions = "Snoei in de winter of vroege lente om vorm te behouden en dode takken te verwijderen.",
+                    TrimmingPeriod = "Winter of vroege lente",
+                    TemperatureRangeMinimum = -25,
+                    TemperatureRangeMaximum = 40
+                },
+
+                // Ajuga reptans (Kruipend zenegroen)
+                new Plant
+                {
+                    Id = 87,
+                    LocalName = "Kruipend zenegroen",
+                    CommonName = "Ajuga reptans",
+                    Family = "Lamiaceae",
+                    Genus = "Ajuga",
+                    Species = "reptans",
+                    Description = "Een laagblijvende, wintergroene bodembedekker met glanzende bladeren en blauwe bloemtrossen in het voorjaar.",
+                    ImagePath = diskLocationImages + "Ajuga_reptans_Base01.png",
+                    PlantType = PlantType.Groundcover,
+                    PlantClassification = PlantClassification.Angiosperms,
+                    PhylumInfo = (Phylum)GetPhylumByName(phyla, "Magnoliophyta"),
+                    IsEatable = false,
+                    Color = "Diep paarse tot blauwe bloemen; bladeren variëren van groen tot paarsachtig",
+                    IsFlowering = true,
+                    IsEvergreen = true,
+                    IsPoisonous = false,
+                    Shape = "Kruipend met dicht bladerdek en uitlopers",
+                    FullGrownHeight = 10,  // in cm
+                    FullGrownWidth = 60,   // in cm
+                    Light = "Volle zon tot halfschaduw",
+                    Water = "Vochtig houden, vooral in warm weer; verdraagt lichte droogte",
+                    Soil = "Voedzame, goed doorlatende vochtige grond",
+                    FertilizationMethod = "Lente bemesting met lichte organische meststof",
+                    TrimmingInstructions = "Na de bloei kunnen uitgebloeide bloemen verwijderd worden voor netter uiterlijk.",
+                    TrimmingPeriod = "Lente of zomer",
+                    TemperatureRangeMinimum = -20,
+                    TemperatureRangeMaximum = 35
+                },
+
+                // Gypsophila paniculata (Gipskruid)
+                new Plant
+                {
+                    Id = 88,
+                    LocalName = "Gipskruid",
+                    CommonName = "Gypsophila paniculata",
+                    Family = "Caryophyllaceae",
+                    Genus = "Gypsophila",
+                    Species = "paniculata",
+                    Description = "Een meerjarige plant met fijne, luchtige witte of roze bloemtrossen, populair als snijbloem.",
+                    ImagePath = diskLocationImages + "Gypsophila_paniculata_Base01.png",
+                    PlantType = PlantType.PerennialFlower,
+                    PlantClassification = PlantClassification.Angiosperms,
+                    PhylumInfo = (Phylum)GetPhylumByName(phyla, "Magnoliophyta"),
+                    IsEatable = false,
+                    Color = "Witte tot lichtroze bloemen",
+                    IsFlowering = true,
+                    IsEvergreen = false,
+                    IsPoisonous = false,
+                    Shape = "Losse, luchtige bloeiwijzen met fijne stelen",
+                    FullGrownHeight = 90,  // in cm
+                    FullGrownWidth = 60,   // in cm
+                    Light = "Volle zon",
+                    Water = "Matige watergift; verdraagt droogte eenmaal gevestigd",
+                    Soil = "Zandige, goed doorlatende grond, prefereert kalkrijk",
+                    FertilizationMethod = "Lente bemesting met gebalanceerde meststof",
+                    TrimmingInstructions = "Na de bloei lichte terugsnoei om gezonde groei te stimuleren.",
+                    TrimmingPeriod = "Zomer na bloei",
+                    TemperatureRangeMinimum = -15,
+                    TemperatureRangeMaximum = 35
+                },
+
+                // Carex oshimensis 'Ribbon Falls' (Carex Ribbon Falls)
+                new Plant
+                {
+                    Id = 89,
+                    LocalName = "Carex Ribbon Falls",
+                    CommonName = "Carex oshimensis 'Ribbon Falls'",
+                    Family = "Cyperaceae",
+                    Genus = "Carex",
+                    Species = "oshimensis 'Ribbon Falls'",
+                    Description = "Een groenblijvende siergrasachtige met lange, slanke bladeren die elegant overhangen, ideaal voor borders en potten.",
+                    ImagePath = diskLocationImages + "Carex_RibbonFalls_Base01.png",
+                    PlantType = PlantType.OrnamentalGrass,
+                    PlantClassification = PlantClassification.Angiosperms,
+                    PhylumInfo = (Phylum)GetPhylumByName(phyla, "Magnoliophyta"),
+                    IsEatable = false,
+                    Color = "Heldergroen blad met lichte middenstreep",
+                    IsFlowering = false,
+                    IsEvergreen = true,
+                    IsPoisonous = false,
+                    Shape = "Lange, gebogen bladeren met vallende groei",
+                    FullGrownHeight = 30, // in cm
+                    FullGrownWidth = 50,  // in cm
+                    Light = "Halfschaduw tot schaduw; verdraagt lichte zon",
+                    Water = "Regelmatig water geven; grond licht vochtig houden zonder te drassig te maken",
+                    Soil = "Voedzame, goed doorlatende grond met vochtige houdende eigenschappen",
+                    FertilizationMethod = "Lichte lente bemesting met organische meststof",
+                    TrimmingInstructions = "Verwijder dorre bladeren in het vroege voorjaar om groei te stimuleren.",
+                    TrimmingPeriod = "Vroege lente",
+                    TemperatureRangeMinimum = -20,
+                    TemperatureRangeMaximum = 35
+                },
+
+                //91-95
+                // Celosia argentea (Looppaard)
+                new Plant
+                {
+                    Id = 90,
+                    LocalName = "Looppaard",
+                    CommonName = "Celosia argentea",
+                    Family = "Amaranthaceae",
+                    Genus = "Celosia",
+                    Species = "argentea",
+                    Description = "Een kleurrijke eenjarige plant met opvallende, pluimvormige bloemen in rood, geel en oranje tinten. Populair in bloemenborders en potten.",
+                    ImagePath = diskLocationImages + "Celosia_argentea_Base01.png",
+                    PlantType = PlantType.AnnualFlower,
+                    PlantClassification = PlantClassification.Angiosperms,
+                    PhylumInfo = (Phylum)GetPhylumByName(phyla, "Magnoliophyta"),
+                    IsEatable = false,
+                    Color = "Felrode, gele en oranje pluimvormige bloemen",
+                    IsFlowering = true,
+                    IsEvergreen = false,
+                    IsPoisonous = false,
+                    Shape = "Opgaande, compacte struikachtige groei",
+                    FullGrownHeight = 60, // in cm
+                    FullGrownWidth = 30,  // in cm
+                    Light = "Volle zon",
+                    Water = "Regelmatig water geven; grond vochtig houden maar niet drassig",
+                    Soil = "Goed doorlatende, voedzame grond",
+                    FertilizationMethod = "Periodiek bemesten tijdens groeiseizoen met vloeibare meststof",
+                    TrimmingInstructions = "Verwijder uitgebloeide bloemen om bloei te verlengen",
+                    TrimmingPeriod = "Gedurende het groeiseizoen",
+                    TemperatureRangeMinimum = 10,
+                    TemperatureRangeMaximum = 35
+                },
+
+                // Ligustrum ovalifolium (Liguster)
+                new Plant
+                {
+                    Id = 91,
+                    LocalName = "Liguster",
+                    CommonName = "Ligustrum ovalifolium",
+                    Family = "Oleaceae",
+                    Genus = "Ligustrum",
+                    Species = "ovalifolium",
+                    Description = "Een snelgroeiende, half wintergroene haagplant met kleine ovale bladeren en witte bloemen in de zomer, gevolgd door zwarte bessen in de herfst.",
+                    ImagePath = diskLocationImages + "Ligustrum_ovalifolium_Base01.png",
+                    PlantType = PlantType.Shrub,
+                    PlantClassification = PlantClassification.Angiosperms,
+                    PhylumInfo = (Phylum)GetPhylumByName(phyla, "Magnoliophyta"),
+                    IsEatable = false,
+                    Color = "Witte bloemen; donkergroene bladeren; zwarte bessen",
+                    IsFlowering = true,
+                    IsEvergreen = false,  // Half wintergroen, kan blad verliezen in strenge winters
+                    IsPoisonous = true,   // Bessen zijn giftig
+                    Shape = "Dichte, struikvormige haagplant",
+                    FullGrownHeight = 300, // in cm (3 meter)
+                    FullGrownWidth = 300,  // in cm (3 meter)
+                    Light = "Volle zon tot halfschaduw",
+                    Water = "Regelmatig water geven bij droogte; houdt van licht vochtige grond zonder wateroverlast",
+                    Soil = "Goed doorlatende, voedzame grond, verschillende pH-waarden mogelijk",
+                    FertilizationMethod = "Voorjaars- en eventueel zomerse bemesting met organische meststof",
+                    TrimmingInstructions = "Snoei twee keer per jaar: voorjaar (april) en nazomer (september) om compacte groei te behouden",
+                    TrimmingPeriod = "April en september",
+                    TemperatureRangeMinimum = -20,
+                    TemperatureRangeMaximum = 35
+                },
+
+                // Anemone hupehensis (Japanse anemoon)
+                new Plant
+                {
+                    Id = 92,
+                    LocalName = "Japanse anemoon",
+                    CommonName = "Anemone hupehensis",
+                    Family = "Ranunculaceae",
+                    Genus = "Anemone",
+                    Species = "hupehensis",
+                    Description = "Een vaste plant met sierlijke, grote bloemen in roze of wit die bloeit in de late zomer en herfst.",
+                    ImagePath = diskLocationImages + "Anemone_hupehensis_Base01.png",
+                    PlantType = PlantType.PerennialFlower,
+                    PlantClassification = PlantClassification.Angiosperms,
+                    PhylumInfo = (Phylum)GetPhylumByName(phyla, "Magnoliophyta"),
+                    IsEatable = false,
+                    Color = "Roze tot witte bloemen",
+                    IsFlowering = true,
+                    IsEvergreen = false,
+                    IsPoisonous = false,
+                    Shape = "Opgerichte stengels met grote enkelvoudige bloemen",
+                    FullGrownHeight = 90,  // in cm
+                    FullGrownWidth = 60,   // in cm
+                    Light = "Halfschaduw tot volle zon",
+                    Water = "Regelmatig water geven, grond vochtig maar goed doorlatend",
+                    Soil = "Voedzame, goed doorlatende grond met voorkeur voor licht zure tot neutrale pH",
+                    FertilizationMethod = "Lente bemesting met organische meststoffen",
+                    TrimmingInstructions = "Verwijder oude bloemstengels na de bloei om gezonde groei te stimuleren",
+                    TrimmingPeriod = "Najaar of vroege lente",
+                    TemperatureRangeMinimum = -20,
+                    TemperatureRangeMaximum = 30
+                },
+
+                // Impatiens walleriana (Vlijtig liesje)
+                new Plant
+                {
+                    Id = 93,
+                    LocalName = "Vlijtig liesje",
+                    CommonName = "Impatiens walleriana",
+                    Family = "Balsaminaceae",
+                    Genus = "Impatiens",
+                    Species = "walleriana",
+                    Description = "Een populaire eenjarige bodembedekker met heldere, kleurrijke bloemen in diverse tinten, ideaal voor schaduwrijke plekken.",
+                    ImagePath = diskLocationImages + "Impatiens_walleriana_Base01.png",
+                    PlantType = PlantType.AnnualFlower,
+                    PlantClassification = PlantClassification.Angiosperms,
+                    PhylumInfo = (Phylum)GetPhylumByName(phyla, "Magnoliophyta"),
+                    IsEatable = false,
+                    Color = "Roze, rood, wit en oranje bloemen",
+                    IsFlowering = true,
+                    IsEvergreen = false,
+                    IsPoisonous = false,
+                    Shape = "Compacte, bossige groei",
+                    FullGrownHeight = 30,  // in cm
+                    FullGrownWidth = 40,   // in cm
+                    Light = "Halfschaduw tot schaduw, niet in volle zon",
+                    Water = "Regelmatig water geven, houdt van vochtige grond maar vermijd natte voeten",
+                    Soil = "Voedzame, goed doorlatende grond",
+                    FertilizationMethod = "Maandelijkse bemesting met vloeibare meststof tijdens groeiseizoen",
+                    TrimmingInstructions = "Verwijder uitgebloeide bloemen om nieuwe groei te stimuleren",
+                    TrimmingPeriod = "Gedurende het groeiseizoen",
+                    TemperatureRangeMinimum = 10,
+                    TemperatureRangeMaximum = 30
+                },
+
+                // Calendula officinalis (Goudsbloem)
+                new Plant
+                {
+                    Id = 94,
+                    LocalName = "Goudsbloem",
+                    CommonName = "Calendula officinalis",
+                    Family = "Asteraceae",
+                    Genus = "Calendula",
+                    Species = "officinalis",
+                    Description = "Een eenjarige plant met heldergele tot oranje bloemen, goed voor borders en als snijbloem. Staat bekend om medicinale eigenschappen.",
+                    ImagePath = diskLocationImages + "Calendula_officinalis_Base01.png",
+                    PlantType = PlantType.AnnualFlower,
+                    PlantClassification = PlantClassification.Angiosperms,
+                    PhylumInfo = (Phylum)GetPhylumByName(phyla, "Magnoliophyta"),
+                    IsEatable = true,
+                    Color = "Geel tot oranje bloemen",
+                    IsFlowering = true,
+                    IsEvergreen = false,
+                    IsPoisonous = false,
+                    Shape = "Oprichte stengels met grote enkelvoudige bloemen",
+                    FullGrownHeight = 50,  // in cm
+                    FullGrownWidth = 30,   // in cm
+                    Light = "Volle zon",
+                    Water = "Regelmatig water geven; grond vochtig houden maar goed doorlatend",
+                    Soil = "Voedzame, goed doorlatende grond",
+                    FertilizationMethod = "Lente bemesting met organische meststof",
+                    TrimmingInstructions = "Verwijder uitgebloeide bloemen om bloei te verlengen",
+                    TrimmingPeriod = "Gedurende het groeiseizoen",
+                    TemperatureRangeMinimum = 5,
+                    TemperatureRangeMaximum = 30
+                },
+
+                // Verbena officinalis (IJzerhard / Verbena)
+                new Plant
+                {
+                    Id = 95,
+                    LocalName = "IJzerhard",
+                    CommonName = "Verbena officinalis",
+                    Family = "Verbenaceae",
+                    Genus = "Verbena",
+                    Species = "officinalis",
+                    Description = "Een meerjarige plant met kleine paarse bloemen, bekend om zijn sierwaarde en gebruik in traditionele geneeskunde.",
+                    ImagePath = diskLocationImages + "Verbena_officinalis_Base01.png",
+                    PlantType = PlantType.PerennialFlower,
+                    PlantClassification = PlantClassification.Angiosperms,
+                    PhylumInfo = (Phylum)GetPhylumByName(phyla, "Magnoliophyta"),
+                    IsEatable = false,
+                    Color = "Paarse bloemen",
+                    IsFlowering = true,
+                    IsEvergreen = false,
+                    IsPoisonous = false,
+                    Shape = "Oprichtende stengels met kleine tuilvormige bloemen",
+                    FullGrownHeight = 60,  // in cm
+                    FullGrownWidth = 40,   // in cm
+                    Light = "Volle zon tot halfschaduw",
+                    Water = "Matig vochtig houden; droogte tolerant",
+                    Soil = "Goed doorlatende, zandige tot lichte kleigrond",
+                    FertilizationMethod = "Lente bemesting met uitgebalanceerde meststof",
+                    TrimmingInstructions = "Snoei na de bloei om groei en blom te stimuleren",
+                    TrimmingPeriod = "Einde zomer",
+                    TemperatureRangeMinimum = -15,
+                    TemperatureRangeMaximum = 35
+                }
+
+
             };
         }
 
