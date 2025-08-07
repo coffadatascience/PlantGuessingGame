@@ -53,6 +53,7 @@ namespace PlantGuessingGame.ViewModels
         private string _itemSpecies;
         private string _itemFamily;
         private string _itemDescription;
+        private string _itemEtymology;
 
         //--------------------------------------
         // Other relevant information
@@ -330,6 +331,24 @@ namespace PlantGuessingGame.ViewModels
             set
             {
                 if (!SetProperty(ref _itemDescription, value, nameof(ItemDescription)))
+                    return;
+
+
+                //set to dirty cause we changed a value
+                IsDirty = true;
+
+            }
+        }
+
+        /// <summary>
+        /// field for Etymology
+        /// </summary>
+        public string ItemEtymology
+        {
+            get => _itemEtymology;
+            set
+            {
+                if (!SetProperty(ref _itemEtymology, value, nameof(ItemEtymology)))
                     return;
 
 
@@ -763,6 +782,7 @@ namespace PlantGuessingGame.ViewModels
                     ItemSpecies = item.Species;
                     ItemFamily = item.Family;
                     ItemDescription = item.Description;
+                    ItemEtymology = item.Etymology;
 
                     //set enums
                     SelectedPlantType = item.PlantType.ToString();

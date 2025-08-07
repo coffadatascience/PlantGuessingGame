@@ -59,6 +59,11 @@ namespace PlantGuessingGame.DataModels
         public string Description { get; set; }
 
         /// <summary>
+        /// Etymology, to help with remembering plant names
+        /// </summary>
+        public string Etymology { get; set; }   
+
+        /// <summary>
         /// url of the main picture (we also want a list of pictures0
         /// </summary>
         public string ImagePath { get; set; } // Can store file path or URL

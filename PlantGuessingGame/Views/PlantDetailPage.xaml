@@ -94,6 +94,7 @@ c:\users\jordycoffa\source\repos\plantguessinggame\plantguessinggame\views\plant
                             <RowDefinition Height="Auto" />
                             <RowDefinition Height="Auto" />
                             <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
                             <RowDefinition Height="*" />
                         </Grid.RowDefinitions>
 
@@ -175,15 +176,30 @@ c:\users\jordycoffa\source\repos\plantguessinggame\plantguessinggame\views\plant
                             Text="{x:Bind ViewModel.ItemDescription, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                             TextWrapping="Wrap" />
 
-                        <!--  plant type: Note links to an observeable collection and a selected type that has a set property  -->
-                        <!--  Style: note that the style AttributeComboxValueStyle needs to be available in the resources, page or app wide  -->
+                        <!--  Etymology  -->
                         <TextBlock
                             Grid.Row="6"
                             VerticalAlignment="Center"
                             Style="{StaticResource DefaultTextBoxStyle}"
+                            Text="Etymology:"
+                            TextWrapping="Wrap" />
+                        <TextBox
+                            Grid.Row="6"
+                            Grid.Column="1"
+                            Style="{StaticResource AttributeValueStyle}"
+                            Text="{x:Bind ViewModel.ItemEtymology, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                            TextWrapping="Wrap" />
+
+                        
+                        <!--  plant type: Note links to an observeable collection and a selected type that has a set property  -->
+                        <!--  Style: note that the style AttributeComboxValueStyle needs to be available in the resources, page or app wide  -->
+                        <TextBlock
+                            Grid.Row="7"
+                            VerticalAlignment="Center"
+                            Style="{StaticResource DefaultTextBoxStyle}"
                             Text="Type:" />
                         <ComboBox
-                            Grid.Row="6"
+                            Grid.Row="7"
                             Grid.Column="1"
                             ItemsSource="{x:Bind ViewModel.PlantTypes}"
                             SelectedValue="{x:Bind ViewModel.SelectedPlantType, Mode=TwoWay}"
@@ -192,12 +208,12 @@ c:\users\jordycoffa\source\repos\plantguessinggame\plantguessinggame\views\plant
 
                         <!--  Plant Classification  -->
                         <TextBlock
-                            Grid.Row="7"
+                            Grid.Row="8"
                             VerticalAlignment="Center"
                             Style="{StaticResource DefaultTextBoxStyle}"
                             Text="Classification:" />
                         <ComboBox
-                            Grid.Row="7"
+                            Grid.Row="8"
                             Grid.Column="1"
                             ItemsSource="{x:Bind ViewModel.PlantClassifications}"
                             SelectedValue="{x:Bind ViewModel.SelectedPlantClassification, Mode=TwoWay}"
@@ -206,12 +222,12 @@ c:\users\jordycoffa\source\repos\plantguessinggame\plantguessinggame\views\plant
 
                         <!--  SelectedPhylum  -->
                         <TextBlock
-                            Grid.Row="8"
+                            Grid.Row="9"
                             VerticalAlignment="Center"
                             Style="{StaticResource DefaultTextBoxStyle}"
                             Text="Phylum:" />
                         <ComboBox
-                            Grid.Row="8"
+                            Grid.Row="9"
                             Grid.Column="1"
                             ItemsSource="{x:Bind ViewModel.Phyla}"
                             SelectedValue="{x:Bind ViewModel.SelectedPhylum, Mode=TwoWay}"
