@@ -343,11 +343,11 @@ namespace PlantGuessingGame.Services
 
             var newIds = await db.QueryAsync<long>(
                 @"INSERT INTO Plants
-                (LocalName, CommonName, Genus, Species, Family, Description, Etymology, ImagePath, PhylumId, PlantType, PlantClassification,
+                (LocalName, CommonName, AlternativeNames, Genus, Species, Family, Description, Etymology, ImagePath, PhylumId, PlantType, PlantClassification,
                  IsEatable, Color, IsFlowering, IsEvergreen, TrimmingInstructions, TrimmingPeriod, TemperatureRangeMinimum, TemperatureRangeMaximum,
                  IsPoisonous, FertilizationMethod, Shape, FullGrownHeight, FullGrownWidth, Light, Water, Soil)
                 VALUES
-                (@LocalName, @CommonName, @Genus, @Species, @Family, @Description, @Etymology, @ImagePath, @PhylumId, @PlantType, @PlantClassification,
+                (@LocalName, @CommonName, @AlternativeNames, @Genus, @Species, @Family, @Description, @Etymology, @ImagePath, @PhylumId, @PlantType, @PlantClassification,
                  @IsEatable, @Color, @IsFlowering, @IsEvergreen, @TrimmingInstructions, @TrimmingPeriod, @TemperatureRangeMinimum, @TemperatureRangeMaximum,
                  @IsPoisonous, @FertilizationMethod, @Shape, @FullGrownHeight, @FullGrownWidth, @Light, @Water, @Soil);
                 SELECT last_insert_rowid()", item);
@@ -953,6 +953,7 @@ namespace PlantGuessingGame.Services
                     Id INTEGER PRIMARY KEY AUTOINCREMENT, 
                     LocalName NVARCHAR(1000) NOT NULL, 
                     CommonName NVARCHAR(1000) NOT NULL, 
+                    AlternativeNames NVARCHAR(1000), 
                     Genus NVARCHAR(1000), 
                     Species NVARCHAR(1000), 
                     Family NVARCHAR(1000), 
@@ -1030,6 +1031,7 @@ namespace PlantGuessingGame.Services
                     [Plants].[Id],
                     [Plants].[LocalName],
                     [Plants].[CommonName],
+                    [Plants].[AlternativeNames],
                     [Plants].[Genus],
                     [Plants].[Species],
                     [Plants].[Family],
@@ -1092,6 +1094,7 @@ namespace PlantGuessingGame.Services
                 SET 
                     LocalName = @LocalName,
                     CommonName = @CommonName,
+                    AlternativeNames = @AlternativeNames,
                     Genus = @Genus,
                     Species = @Species,
                     Family = @Family,
@@ -1155,17 +1158,17 @@ namespace PlantGuessingGame.Services
         {
             var problems = await db.QueryAsync<PlantProblem>(
                 @"SELECT
-            [Id],
-            [PlantId],
-            [Name],
-            [Description],
-            [Symptoms],
-            [Causes],
-            [Solutions],
-            [Severity],
-            [Category]
+                [Id],
+                [PlantId],
+                [Name],
+                [Description],
+                [Symptoms],
+                [Causes],
+                [Solutions],
+                [Severity],
+                [Category]
         FROM
-            [PlantSpecificProblems]"
+                [PlantSpecificProblems]"
             );
 
             return problems.ToList();

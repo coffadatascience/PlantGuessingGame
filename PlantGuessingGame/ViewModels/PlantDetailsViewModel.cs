@@ -47,6 +47,7 @@ namespace PlantGuessingGame.ViewModels
         // List of local variables that we place here that are observed and serve for user / dataservice (database) interaction via their public related vars
         private string _itemLocalName;
         private string _itemCommonName;
+        private string _itemAlternativeNames;
 
         // Other relevant variables
         private string _itemGenus;
@@ -244,6 +245,21 @@ namespace PlantGuessingGame.ViewModels
                     }
 
                 }
+
+            }
+        }
+
+        public string ItemAlternativeNames
+        {
+            get => _itemAlternativeNames;
+            set
+            {
+                if (!SetProperty(ref _itemAlternativeNames, value, nameof(ItemAlternativeNames)))
+                    return;
+
+
+                //set to dirty cause we changed a value
+                IsDirty = true;
 
             }
         }
@@ -776,6 +792,7 @@ namespace PlantGuessingGame.ViewModels
                     _itemId = item.Id;
                     ItemLocalName = item.LocalName;
                     ItemCommonName = item.CommonName;
+                    ItemAlternativeNames = item.AlternativeNames;
 
                     //set other variables
                     ItemGenus = item.Genus;

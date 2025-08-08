@@ -34,9 +34,14 @@ namespace PlantGuessingGame.DataModels
         public string LocalName { get; set; }
 
         /// <summary>
-        /// common name as in general usage (international)
+        /// common name as in general usage (international), we can also add alternatives, plants seem to change names or get new more international names. (e.g. Rhododendron was altijd Azalea uit de Ericacea familie; heide familie)
         /// </summary>
         public string CommonName { get; set; }
+
+        /// <summary>
+        /// list with alternative names
+        /// </summary>
+        public string AlternativeNames { get; set; }
 
         /// <summary>
         /// genus, as we use for denotation and recognition

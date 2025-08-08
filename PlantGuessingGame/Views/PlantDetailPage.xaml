@@ -95,6 +95,7 @@ c:\users\jordycoffa\source\repos\plantguessinggame\plantguessinggame\views\plant
                             <RowDefinition Height="Auto" />
                             <RowDefinition Height="Auto" />
                             <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
                             <RowDefinition Height="*" />
                         </Grid.RowDefinitions>
 
@@ -126,51 +127,63 @@ c:\users\jordycoffa\source\repos\plantguessinggame\plantguessinggame\views\plant
                             Style="{StaticResource AttributeValueStyle}"
                             Text="{x:Bind ViewModel.ItemCommonName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
-                        <!--  genus  -->
+                        <!--  Alternative names - note that these have update source triggers via the bindable base  -->
                         <TextBlock
                             Grid.Row="2"
                             VerticalAlignment="Center"
                             Style="{StaticResource DefaultTextBoxStyle}"
-                            Text="Genus:" />
+                            Text="Alternative Names:" />
                         <TextBox
                             Grid.Row="2"
+                            Grid.Column="1"
+                            Style="{StaticResource AttributeValueStyle}"
+                            Text="{x:Bind ViewModel.ItemAlternativeNames, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                        
+                        <!--  genus  -->
+                        <TextBlock
+                            Grid.Row="3"
+                            VerticalAlignment="Center"
+                            Style="{StaticResource DefaultTextBoxStyle}"
+                            Text="Genus:" />
+                        <TextBox
+                            Grid.Row="3"
                             Grid.Column="1"
                             Style="{StaticResource AttributeValueStyle}"
                             Text="{x:Bind ViewModel.ItemGenus, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
                         <!--  species  -->
                         <TextBlock
-                            Grid.Row="3"
+                            Grid.Row="4"
                             VerticalAlignment="Center"
                             Style="{StaticResource DefaultTextBoxStyle}"
                             Text="Species:" />
                         <TextBox
-                            Grid.Row="3"
+                            Grid.Row="4"
                             Grid.Column="1"
                             Style="{StaticResource AttributeValueStyle}"
                             Text="{x:Bind ViewModel.ItemSpecies, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
                         <!--  family  -->
                         <TextBlock
-                            Grid.Row="4"
+                            Grid.Row="5"
                             VerticalAlignment="Center"
                             Style="{StaticResource DefaultTextBoxStyle}"
                             Text="Family:" />
                         <TextBox
-                            Grid.Row="4"
+                            Grid.Row="5"
                             Grid.Column="1"
                             Style="{StaticResource AttributeValueStyle}"
                             Text="{x:Bind ViewModel.ItemFamily, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
                         <!--  description  -->
                         <TextBlock
-                            Grid.Row="5"
+                            Grid.Row="6"
                             VerticalAlignment="Center"
                             Style="{StaticResource DefaultTextBoxStyle}"
                             Text="Description:"
                             TextWrapping="Wrap" />
                         <TextBox
-                            Grid.Row="5"
+                            Grid.Row="6"
                             Grid.Column="1"
                             Style="{StaticResource AttributeValueStyle}"
                             Text="{x:Bind ViewModel.ItemDescription, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
@@ -178,13 +191,13 @@ c:\users\jordycoffa\source\repos\plantguessinggame\plantguessinggame\views\plant
 
                         <!--  Etymology  -->
                         <TextBlock
-                            Grid.Row="6"
+                            Grid.Row="7"
                             VerticalAlignment="Center"
                             Style="{StaticResource DefaultTextBoxStyle}"
                             Text="Etymology:"
                             TextWrapping="Wrap" />
                         <TextBox
-                            Grid.Row="6"
+                            Grid.Row="7"
                             Grid.Column="1"
                             Style="{StaticResource AttributeValueStyle}"
                             Text="{x:Bind ViewModel.ItemEtymology, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
@@ -194,12 +207,12 @@ c:\users\jordycoffa\source\repos\plantguessinggame\plantguessinggame\views\plant
                         <!--  plant type: Note links to an observeable collection and a selected type that has a set property  -->
                         <!--  Style: note that the style AttributeComboxValueStyle needs to be available in the resources, page or app wide  -->
                         <TextBlock
-                            Grid.Row="7"
+                            Grid.Row="8"
                             VerticalAlignment="Center"
                             Style="{StaticResource DefaultTextBoxStyle}"
                             Text="Type:" />
                         <ComboBox
-                            Grid.Row="7"
+                            Grid.Row="8"
                             Grid.Column="1"
                             ItemsSource="{x:Bind ViewModel.PlantTypes}"
                             SelectedValue="{x:Bind ViewModel.SelectedPlantType, Mode=TwoWay}"
@@ -208,12 +221,12 @@ c:\users\jordycoffa\source\repos\plantguessinggame\plantguessinggame\views\plant
 
                         <!--  Plant Classification  -->
                         <TextBlock
-                            Grid.Row="8"
+                            Grid.Row="9"
                             VerticalAlignment="Center"
                             Style="{StaticResource DefaultTextBoxStyle}"
                             Text="Classification:" />
                         <ComboBox
-                            Grid.Row="8"
+                            Grid.Row="9"
                             Grid.Column="1"
                             ItemsSource="{x:Bind ViewModel.PlantClassifications}"
                             SelectedValue="{x:Bind ViewModel.SelectedPlantClassification, Mode=TwoWay}"
@@ -222,12 +235,12 @@ c:\users\jordycoffa\source\repos\plantguessinggame\plantguessinggame\views\plant
 
                         <!--  SelectedPhylum  -->
                         <TextBlock
-                            Grid.Row="9"
+                            Grid.Row="10"
                             VerticalAlignment="Center"
                             Style="{StaticResource DefaultTextBoxStyle}"
                             Text="Phylum:" />
                         <ComboBox
-                            Grid.Row="9"
+                            Grid.Row="10"
                             Grid.Column="1"
                             ItemsSource="{x:Bind ViewModel.Phyla}"
                             SelectedValue="{x:Bind ViewModel.SelectedPhylum, Mode=TwoWay}"
