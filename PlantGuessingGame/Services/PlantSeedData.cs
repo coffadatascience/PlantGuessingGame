@@ -5571,11 +5571,487 @@ namespace PlantGuessingGame.Services
                     TrimmingPeriod = "Direct na bloei",
                     TemperatureRangeMinimum = -8, // Meeste soorten tot ca. -8°C winterhard
                     TemperatureRangeMaximum = 35
-                }
+                },
 
 
+                    // Portulaca (bv. Portulaca grandiflora)
+                new Plant
+                {
+                    Id = 99,
+                    LocalName = "Portulaca",
+                    CommonName = "Portulaca",
+                    AlternativeNames = "Moss rose, Portulak, Rose moss",
+                    Family = "Portulacaceae",
+                    Genus = "Portulaca",
+                    Species = "grandiflora",
+                    Description = "Laagblijvende, half-succulente eenjarige plant met felgekleurde bloemen in roze, rood, oranje, geel of wit. Bloeit rijk in de zomer en verdraagt droogte goed.",
+                    Etymology = "De naam Portulaca komt van het Latijnse 'portula', verwijzend naar het klepje in het zaaddoosje.",
+                    ImagePath = diskLocationImages + "Portulaca_Base01.png",
+                    PlantType = PlantType.Annual,
+                    PlantClassification = PlantClassification.Angiosperms,
+                    PhylumInfo = (Phylum)GetPhylumByName(phyla, "Magnoliophyta"),
+                    IsEatable = false,
+                    Color = "Roze, rood, oranje, geel, wit bloemen; groen blad",
+                    IsFlowering = true,
+                    IsEvergreen = false,
+                    IsPoisonous = false,
+                    Shape = "Laag spreidende matvormende groei",
+                    FullGrownHeight = 15,
+                    FullGrownWidth = 30,
+                    Light = "Volle zon",
+                    Water = "Weinig water nodig; droogteresistent",
+                    Soil = "Goed doorlatend, arm tot gemiddeld, zandig",
+                    FertilizationMethod = "Lichte bemesting tijdens groeiseizoen",
+                    TrimmingInstructions = "Uitgebloeide bloemen verwijderen voor langere bloei",
+                    TrimmingPeriod = "Zomer",
+                    TemperatureRangeMinimum = 5,
+                    TemperatureRangeMaximum = 40
+                },
+
+                 //101-105
+
+                // Bonte Photinia (Photinia × fraseri 'Red Robin Variegata')
+                new Plant
+                {
+                    Id = 100,
+                    LocalName = "Bonte Photinia",
+                    CommonName = "Photinia",
+                    AlternativeNames = "Red tip photinia, Bonte glansmispel",
+                    Family = "Rosaceae",
+                    Genus = "Photinia",
+                    Species = "× fraseri 'Red Robin Variegata'",
+                    Description = "Groenblijvende struik met bontgekleurde bladeren (groen met crème randen) en jonge scheuten felrood in voorjaar. Kleine witte bloemen in trossen in het voorjaar.",
+                    Etymology = "De naam Photinia komt van het Griekse 'phōtos' voor glans, verwijzend naar de glanzende bladeren.",
+                    ImagePath = diskLocationImages + "Photinia_Bonte_Base01.png",
+                    PlantType = PlantType.Shrub,
+                    PlantClassification = PlantClassification.Angiosperms,
+                    PhylumInfo = (Phylum)GetPhylumByName(phyla, "Magnoliophyta"),
+                    IsEatable = false,
+                    Color = "Rood (jonge scheuten), groen-crème blad; witte bloemen",
+                    IsFlowering = true,
+                    IsEvergreen = true,
+                    IsPoisonous = false,
+                    Shape = "Bossige opgaande struik",
+                    FullGrownHeight = 300,
+                    FullGrownWidth = 250,
+                    Light = "Volle zon tot lichte schaduw",
+                    Water = "Regelmatig water, verdraagt enige droogte",
+                    Soil = "Goed doorlatend, humusrijk",
+                    FertilizationMethod = "Voorjaar bemesten met universele meststof",
+                    TrimmingInstructions = "Na bloei of zomer snoeien om vorm te behouden",
+                    TrimmingPeriod = "Zomer",
+                    TemperatureRangeMinimum = -15,
+                    TemperatureRangeMaximum = 35
+                },
+
+                // Curcuma (ornamental ginger, bv. Curcuma alismatifolia)
+                new Plant
+                {
+                    Id = 101,
+                    LocalName = "Curcuma",
+                    CommonName = "Curcuma",
+                    AlternativeNames = "Siamese tulp, Ornamental ginger",
+                    Family = "Zingiberaceae",
+                    Genus = "Curcuma",
+                    Species = "alismatifolia",
+                    Description = "Tropische vaste plant met opvallende bloeiwijzen in roze, paars of wit, gevormd door schutbladen. Bekend als sierplant en verwant aan kurkuma specerij.",
+                    Etymology = "De naam Curcuma komt van het Arabische 'kurkum' voor geel, verwijzend naar de kleurstof kurkuma uit sommige soorten.",
+                    ImagePath = diskLocationImages + "Curcuma_Base01.png",
+                    PlantType = PlantType.Perennial,
+                    PlantClassification = PlantClassification.Angiosperms,
+                    PhylumInfo = (Phylum)GetPhylumByName(phyla, "Magnoliophyta"),
+                    IsEatable = false, // alismatifolia niet eetbaar
+                    Color = "Roze/paars/wit bloemen; groen blad",
+                    IsFlowering = true,
+                    IsEvergreen = false, // bovengronds deel sterft af
+                    IsPoisonous = false,
+                    Shape = "Rechtopstaande bladeren met centrale bloeistengel",
+                    FullGrownHeight = 70,
+                    FullGrownWidth = 40,
+                    Light = "Halfzon tot lichte schaduw",
+                    Water = "Regelmatig tijdens groei; minder in rustperiode",
+                    Soil = "Luchtig, humusrijk, goed doorlatend",
+                    FertilizationMethod = "Elke 2 weken in groeiseizoen bemesten",
+                    TrimmingInstructions = "Dode bladeren verwijderen na bloei",
+                    TrimmingPeriod = "Late zomer/herfst",
+                    TemperatureRangeMinimum = 10,
+                    TemperatureRangeMaximum = 35
+                },
+
+                // Syringa (bv. Syringa vulgaris – gewone sering)
+                new Plant
+                {
+                    Id = 102,
+                    LocalName = "Sering",
+                    CommonName = "Lilac",
+                    AlternativeNames = "Gewone sering, Common lilac",
+                    Family = "Oleaceae",
+                    Genus = "Syringa",
+                    Species = "vulgaris",
+                    Description = "Bladverliezende struik of kleine boom met hartvormig blad en grote geurige bloempluimen in paars, roze, wit of blauw in het voorjaar.",
+                    Etymology = "De naam Syringa komt van het Griekse 'syrinx', wat pijp betekent, verwijzend naar de holle stengels van verwante soorten.",
+                    ImagePath = diskLocationImages + "Syringa_vulgaris_Base01.png",
+                    PlantType = PlantType.Shrub,
+                    PlantClassification = PlantClassification.Angiosperms,
+                    PhylumInfo = (Phylum)GetPhylumByName(phyla, "Magnoliophyta"),
+                    IsEatable = false,
+                    Color = "Paars, roze, wit, blauw bloemen; groen blad",
+                    IsFlowering = true,
+                    IsEvergreen = false,
+                    IsPoisonous = false,
+                    Shape = "Opgaand met meerdere stammen, grote bloempluimen",
+                    FullGrownHeight = 400,
+                    FullGrownWidth = 300,
+                    Light = "Volle zon",
+                    Water = "Gemiddeld water; verdraagt droogte na vestiging",
+                    Soil = "Goed doorlatend, neutraal tot kalkrijk",
+                    FertilizationMethod = "Voorjaar bemesten met universele meststof",
+                    TrimmingInstructions = "Direct na bloei snoeien om vorm te behouden",
+                    TrimmingPeriod = "Late lente",
+                    TemperatureRangeMinimum = -25,
+                    TemperatureRangeMaximum = 30
+                },
+
+                // Stipa (bijv. Stipa tenuissima – vedergras)
+                new Plant
+                {
+                    Id = 104,
+                    LocalName = "Vedergras",
+                    CommonName = "Stipa",
+                    AlternativeNames = "Mexican feather grass, Nassella tenuissima",
+                    Family = "Poaceae",
+                    Genus = "Stipa",
+                    Species = "tenuissima",
+                    Description = "Siergras met fijne, draadvormige bladeren en zijdeachtige bloempluimen die elegant wuiven in de wind. Populair in natuurlijke en prairiebeplanting.",
+                    Etymology = "De naam Stipa komt uit het Grieks en verwijst naar vlas of vezel, vanwege de fijne bloemaren.",
+                    ImagePath = diskLocationImages + "Stipa_tenuissima_Base01.png",
+                    PlantType = PlantType.Grass,
+                    PlantClassification = PlantClassification.Angiosperms,
+                    PhylumInfo = (Phylum)GetPhylumByName(phyla, "Magnoliophyta"),
+                    IsEatable = false,
+                    Color = "Groen blad; zilver-beige bloemaren",
+                    IsFlowering = true,
+                    IsEvergreen = false, // half wintergroen afhankelijk van klimaat
+                    IsPoisonous = false,
+                    Shape = "Polvormend, fijnbladig siergras",
+                    FullGrownHeight = 60,
+                    FullGrownWidth = 40,
+                    Light = "Volle zon",
+                    Water = "Droog tot gemiddeld; verdraagt droogte",
+                    Soil = "Goed doorlatend, bij voorkeur arm",
+                    FertilizationMethod = "Weinig voeding nodig",
+                    TrimmingInstructions = "In het voorjaar oude bladeren terugknippen",
+                    TrimmingPeriod = "Vroege lente",
+                    TemperatureRangeMinimum = -15,
+                    TemperatureRangeMaximum = 35
+                },
+
+                // Ligustrum (bijv. Ligustrum ovalifolium – kleinbladige liguster)
+                new Plant
+                {
+                    Id = 105,
+                    LocalName = "Liguster",
+                    CommonName = "Privet",
+                    AlternativeNames = "Ligustrum, Haagliguster",
+                    Family = "Oleaceae",
+                    Genus = "Ligustrum",
+                    Species = "ovalifolium",
+                    Description = "Snelgroeiende heester, vaak gebruikt voor hagen. Kleine groene bladeren, witte bloempluimen in juni-juli en zwarte bessen in de herfst.",
+                    Etymology = "Ligustrum is Latijn voor 'verbinder', mogelijk door het gebruik van takken voor vlechtwerk.",
+                    ImagePath = diskLocationImages + "Ligustrum_ovalifolium_Base01.png",
+                    PlantType = PlantType.Shrub,
+                    PlantClassification = PlantClassification.Angiosperms,
+                    PhylumInfo = (Phylum)GetPhylumByName(phyla, "Magnoliophyta"),
+                    IsEatable = false,
+                    Color = "Groen blad; witte bloemen; zwarte bessen",
+                    IsFlowering = true,
+                    IsEvergreen = true, // half wintergroen bij strenge vorst
+                    IsPoisonous = true, // bessen giftig
+                    Shape = "Dichte, opgaande heester",
+                    FullGrownHeight = 400,
+                    FullGrownWidth = 250,
+                    Light = "Volle zon tot halfschaduw",
+                    Water = "Gemiddeld; droogtetolerant na vestiging",
+                    Soil = "Goed doorlatend, veelzijdig",
+                    FertilizationMethod = "Voorjaar lichte bemesting",
+                    TrimmingInstructions = "Regelmatig snoeien voor dichte haag",
+                    TrimmingPeriod = "Late lente en zomer",
+                    TemperatureRangeMinimum = -15,
+                    TemperatureRangeMaximum = 35
+                },
+
+                // Vlijtig Liesje (Impatiens walleriana)
+                new Plant
+                {
+                    Id = 106,
+                    LocalName = "Vlijtig Liesje",
+                    CommonName = "Busy Lizzie",
+                    AlternativeNames = "Impatiens, Impatiens walleriana",
+                    Family = "Balsaminaceae",
+                    Genus = "Impatiens",
+                    Species = "walleriana",
+                    Description = "Eenjarige bloeier met overvloedige bloemen in vele kleuren, bloeit van lente tot herfst. Geweldig voor borders, potten en schaduwrijke plaatsen.",
+                    Etymology = "De naam Impatiens verwijst naar de springende zaden bij rijpheid ('ongeduldig').",
+                    ImagePath = diskLocationImages + "Impatiens_walleriana_Base01.png",
+                    PlantType = PlantType.Annual,
+                    PlantClassification = PlantClassification.Angiosperms,
+                    PhylumInfo = (Phylum)GetPhylumByName(phyla, "Magnoliophyta"),
+                    IsEatable = false,
+                    Color = "Roze, rood, wit, paars, oranje bloemen; groen blad",
+                    IsFlowering = true,
+                    IsEvergreen = false,
+                    IsPoisonous = false,
+                    Shape = "Compact en bossig",
+                    FullGrownHeight = 30,
+                    FullGrownWidth = 35,
+                    Light = "Halfzon tot schaduw",
+                    Water = "Regelmatig; houdt van vochtige grond",
+                    Soil = "Luchtig, humusrijk",
+                    FertilizationMethod = "Elke 2 weken bemesten tijdens bloei",
+                    TrimmingInstructions = "Uitgebloeide bloemen verwijderen",
+                    TrimmingPeriod = "Zomer",
+                    TemperatureRangeMinimum = 10,
+                    TemperatureRangeMaximum = 30
+                },
+
+                // Calendula (bijv. Calendula officinalis – goudsbloem)
+                new Plant
+                {
+                    Id = 107,
+                    LocalName = "Goudsbloem",
+                    CommonName = "Calendula",
+                    AlternativeNames = "Calendula officinalis, Marigold",
+                    Family = "Asteraceae",
+                    Genus = "Calendula",
+                    Species = "officinalis",
+                    Description = "Eenjarige bloem met fel oranje tot gele bloemhoofden. Bloeit langdurig van lente tot herfst. Bekend om geneeskrachtige en culinaire toepassingen.",
+                    Etymology = "Calendula betekent 'kleine kalender', verwijzend naar de lange bloeiperiode.",
+                    ImagePath = diskLocationImages + "Calendula_officinalis_Base01.png",
+                    PlantType = PlantType.Annual,
+                    PlantClassification = PlantClassification.Angiosperms,
+                    PhylumInfo = (Phylum)GetPhylumByName(phyla, "Magnoliophyta"),
+                    IsEatable = true, // Bloemblaadjes eetbaar
+                    Color = "Oranje, geel bloemen; groen blad",
+                    IsFlowering = true,
+                    IsEvergreen = false,
+                    IsPoisonous = false,
+                    Shape = "Bossige groei met bloemstelen",
+                    FullGrownHeight = 50,
+                    FullGrownWidth = 40,
+                    Light = "Volle zon",
+                    Water = "Gemiddeld; verdraagt droogte",
+                    Soil = "Goed doorlatend, gemiddeld",
+                    FertilizationMethod = "Lichte bemesting voor langere bloei",
+                    TrimmingInstructions = "Uitgebloeide bloemen verwijderen",
+                    TrimmingPeriod = "Zomer",
+                    TemperatureRangeMinimum = 5,
+                    TemperatureRangeMaximum = 35
+                },
+
+                // Portugese laurier (Prunus lusitanica)
+                new Plant
+                {
+                    Id = 108,
+                    LocalName = "Portugese laurier",
+                    CommonName = "Portuguese laurel",
+                    AlternativeNames = "Prunus lusitanica",
+                    Family = "Rosaceae",
+                    Genus = "Prunus",
+                    Species = "lusitanica",
+                    Description = "Groenblijvende heester of kleine boom met donkergroen blad en witte bloempluimen in de vroege zomer. Sterk en geschikt als haagplant.",
+                    Etymology = "Prunus is de Latijnse naam voor pruim en verwante soorten; 'lusitanica' verwijst naar Portugal.",
+                    ImagePath = diskLocationImages + "Prunus_lusitanica_Base01.png",
+                    PlantType = PlantType.Shrub,
+                    PlantClassification = PlantClassification.Angiosperms,
+                    PhylumInfo = (Phylum)GetPhylumByName(phyla, "Magnoliophyta"),
+                    IsEatable = false, // bladeren en pitten giftig
+                    Color = "Witte bloemen; groen blad; zwarte vruchten",
+                    IsFlowering = true,
+                    IsEvergreen = true,
+                    IsPoisonous = true,
+                    Shape = "Dicht vertakte, opgaande struik",
+                    FullGrownHeight = 600,
+                    FullGrownWidth = 400,
+                    Light = "Volle zon tot halfschaduw",
+                    Water = "Gemiddeld; verdraagt droogte na vestiging",
+                    Soil = "Goed doorlatend, vruchtbaar",
+                    FertilizationMethod = "Voorjaar universele meststof",
+                    TrimmingInstructions = "Snoeien na bloei of in zomer om vorm te behouden",
+                    TrimmingPeriod = "Zomer",
+                    TemperatureRangeMinimum = -15,
+                    TemperatureRangeMaximum = 35
+                },
+
+                // Kardinaalsmuts (Euonymus europaeus)
+                new Plant
+                {
+                    Id = 109,
+                    LocalName = "Kardinaalsmuts",
+                    CommonName = "Spindle",
+                    AlternativeNames = "Euonymus europaeus, Wilde kardinaalsmuts",
+                    Family = "Celastraceae",
+                    Genus = "Euonymus",
+                    Species = "europaeus",
+                    Description = "Grote bladverliezende struik met groen blad en kleine lichtgroene bloemetjes in mei-juni. Opvallend zijn de roze doosvruchten met helderrode zaden in de herfst. Vruchten zijn licht giftig. Verdraagt drogere en matig voedselrijke grond, groeit het best in zon tot halfschaduw.",
+                    Etymology = "Euonymus betekent 'goed genaamd' in het Grieks, verwijzend naar de sierlijke vruchten.",
+                    ImagePath = diskLocationImages + "Euonymus_europaeus_Base01.png",
+                    PlantType = PlantType.Shrub,
+                    PlantClassification = PlantClassification.Angiosperms,
+                    PhylumInfo = (Phylum)GetPhylumByName(phyla, "Magnoliophyta"),
+                    IsEatable = false,
+                    Color = "Groen blad; roze en rood in herfstvruchten",
+                    IsFlowering = true,
+                    IsEvergreen = false,
+                    IsPoisonous = true, // vruchten licht giftig
+                    Shape = "Opgaande, brede struik",
+                    FullGrownHeight = 400, // ca. 4 meter
+                    FullGrownWidth = 300, // ca. 3 meter
+                    Light = "Volle zon tot halfschaduw",
+                    Water = "Gemiddeld; verdraagt soms droge omstandigheden",
+                    Soil = "Gemiddeld voedselrijk, goed doorlatend, matig droog tot vochtig",
+                    FertilizationMethod = "Lentebemesting met organische meststof",
+                    TrimmingInstructions = "Na bloei eventueel licht snoeien om vorm te behouden",
+                    TrimmingPeriod = "Zomer",
+                    TemperatureRangeMinimum = -25,
+                    TemperatureRangeMaximum = 35
+                },
+
+                // Zwarte Dahlia (Dahlia pinnata of Dahlia variëteiten)
+                new Plant
+                {
+                    Id = 110,
+                    LocalName = "Zwarte Dahlia",
+                    CommonName = "Black Dahlia",
+                    AlternativeNames = "Dahlia, Dahlia pinnata",
+                    Family = "Asteraceae",
+                    Genus = "Dahlia",
+                    Species = "pinnata",
+                    Description = "Opvallende vaste plant of zomerbloem met grote bloemen, vaak in donkere paarse tot bijna zwarte tinten. Bloeit van midden zomer tot herfst. Houdt van zonnige locaties en rijke goed doorlatende grond.",
+                    Etymology = "Vernoemd naar de Zweedse botanicus Anders Dahl.",
+                    ImagePath = diskLocationImages + "Dahlia_black_Base01.png",
+                    PlantType = PlantType.Perennial,
+                    PlantClassification = PlantClassification.Angiosperms,
+                    PhylumInfo = (Phylum)GetPhylumByName(phyla, "Magnoliophyta"),
+                    IsEatable = false,
+                    Color = "Diep paars tot zwartachtige bloemen; groen blad",
+                    IsFlowering = true,
+                    IsEvergreen = false,
+                    IsPoisonous = false,
+                    Shape = "Bossige, rechtopstaande plant",
+                    FullGrownHeight = 90,
+                    FullGrownWidth = 60,
+                    Light = "Volle zon",
+                    Water = "Regelmatig water geven, niet nat houden",
+                    Soil = "Rijke, goed doorlatende grond",
+                    FertilizationMethod = "Maandelijkse bemesting tijdens groeiperiode",
+                    TrimmingInstructions = "Dode bloemen regelmatig verwijderen voor langere bloei",
+                    TrimmingPeriod = "Zomer tot herfst",
+                    TemperatureRangeMinimum = 5, // Niet winterhard in koude gebieden
+                    TemperatureRangeMaximum = 35
+                },
+
+                // Cipres (Cupressus sempervirens)
+                new Plant
+                {
+                    Id = 111,
+                    LocalName = "Cipres",
+                    CommonName = "Italian Cypress",
+                    AlternativeNames = "Cupressus sempervirens, Mediterrane cipres",
+                    Family = "Cupressaceae",
+                    Genus = "Cupressus",
+                    Species = "sempervirens",
+                    Description = "Slanke, rechtopgaande naaldboom met grijsgroene schubachtige bladeren. Wordt vaak gebruikt als solitair of haagplant in mediterrane tuinen. Zeer winterhard en verdraagt droge, kalkrijke grond goed.",
+                    Etymology = "Cupressus is Latijn voor cipres; sempervirens betekent 'altijd groen'.",
+                    ImagePath = diskLocationImages + "Cupressus_sempervirens_Base01.png",
+                    PlantType = PlantType.Tree,
+                    PlantClassification = PlantClassification.Gymnosperms,
+                    PhylumInfo = (Phylum)GetPhylumByName(phyla, "Pinophyta"),
+                    IsEatable = false,
+                    Color = "Grijsgroen loof",
+                    IsFlowering = false,
+                    IsEvergreen = true,
+                    IsPoisonous = false,
+                    Shape = "Slank, kegelvormig, rechtopgaand",
+                    FullGrownHeight = 1500, // 15 meter
+                    FullGrownWidth = 150,  // 1.5 meter smal
+                    Light = "Volle zon",
+                    Water = "Weinig water nodig; droogtebestendig",
+                    Soil = "Goed doorlatend, kalkrijk, droog",
+                    FertilizationMethod = "Minimale bemesting nodig",
+                    TrimmingInstructions = "Af en toe vormsnoei om compacte groei te bevorderen",
+                    TrimmingPeriod = "Lente of zomer",
+                    TemperatureRangeMinimum = -15,
+                    TemperatureRangeMaximum = 40
+                },
+
+                // Cupressus arizonica (Arizona cipres)
+                new Plant
+                {
+                    Id = 114,
+                    LocalName = "Arizona cipres",
+                    CommonName = "Arizona Cypress",
+                    AlternativeNames = "Cupressus arizonica, Hesperocyparis arizonica",
+                    Family = "Cupressaceae",
+                    Genus = "Cupressus",
+                    Species = "arizonica",
+                    Description = "Evergreen conifeer met opvallend blauwgroene tot grijsgroene schubachtige bladeren. Heeft een piramidale tot kegelvormige groei. Wordt 12-18 meter hoog met een breedte van 4,5-6 meter. Gebruikt als sierboom, windscherm en voor droogtetolerante beplanting.",
+                    Etymology = "Verwijst naar de staat Arizona in de VS, waar deze cipres van nature voorkomt.",
+                    ImagePath = diskLocationImages + "Cupressus_arizonica_Base01.png",
+                    PlantType = PlantType.Tree,
+                    PlantClassification = PlantClassification.Gymnosperms,
+                    PhylumInfo = (Phylum)GetPhylumByName(phyla, "Pinophyta"),
+                    IsEatable = false,
+                    Color = "Blauwgroene tot grijsgroene bladeren",
+                    IsFlowering = false,
+                    IsEvergreen = true,
+                    IsPoisonous = false,
+                    Shape = "Piramidale tot kegelvormige boom",
+                    FullGrownHeight = 1800,  // 18 meter in cm
+                    FullGrownWidth = 600,    // 6 meter in cm
+                    Light = "Volle zon",
+                    Water = "Laag; verdraagt droogte goed",
+                    Soil = "Goed doorlatend, geschikt voor zandige en rotsachtige bodems",
+                    FertilizationMethod = "Minimale bemesting vereist",
+                    TrimmingInstructions = "Af en toe lichte snoei om vorm te behouden",
+                    TrimmingPeriod = "Lente of zomer",
+                    TemperatureRangeMinimum = -15,
+                    TemperatureRangeMaximum = 40
+                },
 
 
+                // Cupressus macrocarpa (Monterey Cypress)
+                new Plant
+                {
+                    Id = 113,
+                    LocalName = "Monterey cipres",
+                    CommonName = "Monterey Cypress",
+                    AlternativeNames = "Cupressus macrocarpa, Hesperocyparis macrocarpa",
+                    Family = "Cupressaceae",
+                    Genus = "Cupressus",
+                    Species = "macrocarpa",
+                    Description = "Een middelgrote tot grote, groenblijvende conifeer met een kolomvormige groei als jonge boom, die met leeftijd breder en onregelmatig wordt door de invloed van wind. Bekend om de dichte, heldergroene schubachtige bladeren die een citrusachtige geur afgeven bij verbrijzeling. Vaak gebruikt als windscherm en sierboom langs de kust.",
+                    Etymology = "De soortaanduiding 'macrocarpa' betekent 'grote vrucht', verwijzend naar de relatief grote zaden/cones.",
+                    ImagePath = diskLocationImages + "Cupressus_macrocarpa_Base01.png",
+                    PlantType = PlantType.Tree,
+                    PlantClassification = PlantClassification.Gymnosperms,
+                    PhylumInfo = (Phylum)GetPhylumByName(phyla, "Pinophyta"),
+                    IsEatable = false,
+                    Color = "Heldergroen loof",
+                    IsFlowering = false,
+                    IsEvergreen = true,
+                    IsPoisonous = false,
+                    Shape = "Kolomvormig tot breed pyramidaal, met verweerde, onregelmatige kroon bij volwassen bomen",
+                    FullGrownHeight = 2000, // cm, dus ongeveer 20 meter
+                    FullGrownWidth = 800,   // cm, tot 8 meter breed
+                    Light = "Volle zon",
+                    Water = "Laag tot gemiddeld; verdraagt droogte goed",
+                    Soil = "Goed doorlatend, neutraal tot licht zuur, verdraagt zoute kustgrond",
+                    FertilizationMethod = "Minimale bemesting nodig",
+                    TrimmingInstructions = "Snoei zelden; eventueel lichte vormsnoei in lente",
+                    TrimmingPeriod = "Lente",
+                    TemperatureRangeMinimum = -15,
+                    TemperatureRangeMaximum = 40
+                },
 
             };
         }
