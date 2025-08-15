@@ -5746,6 +5746,9 @@ namespace PlantGuessingGame.Services
                     TemperatureRangeMaximum = 35
                 },
 
+
+                //106-110
+
                 // Ligustrum (bijv. Ligustrum ovalifolium – kleinbladige liguster)
                 new Plant
                 {
@@ -5779,6 +5782,8 @@ namespace PlantGuessingGame.Services
                     TemperatureRangeMinimum = -15,
                     TemperatureRangeMaximum = 35
                 },
+
+
 
                 // Vlijtig Liesje (Impatiens walleriana)
                 new Plant
@@ -5881,6 +5886,8 @@ namespace PlantGuessingGame.Services
                     TemperatureRangeMinimum = -15,
                     TemperatureRangeMaximum = 35
                 },
+
+                 //111-115
 
                 // Kardinaalsmuts (Euonymus europaeus)
                 new Plant
@@ -6052,6 +6059,286 @@ namespace PlantGuessingGame.Services
                     TemperatureRangeMinimum = -15,
                     TemperatureRangeMaximum = 40
                 },
+
+                //116-120
+
+                // Citronella geranium (Pelargonium ‘Citronella’)
+                new Plant
+                {
+                    Id = 114,
+                    LocalName = "Citroen-geranium",
+                    CommonName = "Citronella Geranium",
+                    AlternativeNames = "Pelargonium 'Citronella', Muskuskruid, Lemon-scented geranium",
+                    Family = "Geraniaceae",
+                    Genus = "Pelargonium",
+                    Species = "'Citronella'",
+                    Description = "Een geurende kuipplant met gekarteld groen blad en een sterke citroengeur. Bloeit roze-lila, vooral geschikt als terrasplant en muggenwerend.",
+                    Etymology = "Pelargonium afkomstig van het Griekse 'pelargos', ooievaar (zaaddoosvorm); 'citronella' vanwege de citroengeur.",
+                    ImagePath = diskLocationImages + "Pelargonium_citronella_Base01.png",
+                    PlantType = PlantType.Perennial,
+                    PlantClassification = PlantClassification.Angiosperms,
+                    PhylumInfo = (Phylum)GetPhylumByName(phyla, "Magnoliophyta"),
+                    IsEatable = false,
+                    Color = "Groen blad; roze-lila bloemen",
+                    IsFlowering = true,
+                    IsEvergreen = false, // Overwinteren binnen
+                    IsPoisonous = false,
+                    Shape = "Bossige, opgaande plant",
+                    FullGrownHeight = 90,
+                    FullGrownWidth = 70,
+                    Light = "Volle zon tot halfschaduw",
+                    Water = "Regelmatig, grond licht vochtig houden",
+                    Soil = "Luchtig, goed doorlatend, licht voedselrijk",
+                    FertilizationMethod = "Maandelijks tijdens groeiseizoen bemesten",
+                    TrimmingInstructions = "Regelmatig toppen voor bossige vorm",
+                    TrimmingPeriod = "Vroege zomer",
+                    TemperatureRangeMinimum = 5,
+                    TemperatureRangeMaximum = 30
+                },
+
+                // Fargesia rufa (schaduw-bamboe)
+                new Plant
+                {
+                    Id = 115,
+                    LocalName = "Fargesia rufa",
+                    CommonName = "Rufa bamboe",
+                    AlternativeNames = "Schaduw-bamboe, Chinese fountain bamboo",
+                    Family = "Poaceae",
+                    Genus = "Fargesia",
+                    Species = "rufa",
+                    Description = "Compacte, niet-woekerende bamboe met frisgroen blad en sierlijke overhangende stelen. Ideaal als haag of solitair in schaduwtuin.",
+                    Etymology = "Fargesia is genoemd naar Paul Farges, een Franse missionaris-botanicus.",
+                    ImagePath = diskLocationImages + "Fargesia_rufa_Base01.png",
+                    PlantType = PlantType.Grass,
+                    PlantClassification = PlantClassification.Angiosperms,
+                    PhylumInfo = (Phylum)GetPhylumByName(phyla, "Magnoliophyta"),
+                    IsEatable = false,
+                    Color = "Groen blad en stelen (jonge stengels soms roodachtig)",
+                    IsFlowering = false,
+                    IsEvergreen = true,
+                    IsPoisonous = false,
+                    Shape = "Polvormend, overhangend groeitype",
+                    FullGrownHeight = 250,
+                    FullGrownWidth = 150,
+                    Light = "Halfschaduw tot schaduw",
+                    Water = "Regelmatig, houdt van vochtige grond",
+                    Soil = "Humusrijk, vochtig, goed doorlatend",
+                    FertilizationMethod = "Voorjaar bemesten met organische mest",
+                    TrimmingInstructions = "Oude stengels na de winter verwijderen",
+                    TrimmingPeriod = "Vroege lente",
+                    TemperatureRangeMinimum = -18,
+                    TemperatureRangeMaximum = 35
+                },
+
+                // Phyllostachys nigra (zwarte bamboe)
+                new Plant
+                {
+                    Id = 116,
+                    LocalName = "Zwarte bamboe",
+                    CommonName = "Black bamboo",
+                    AlternativeNames = "Phyllostachys nigra",
+                    Family = "Poaceae",
+                    Genus = "Phyllostachys",
+                    Species = "nigra",
+                    Description = "Opvallende bamboe met glanzend zwarte stengels en groen blad. Matig woekerend, geschikt als solitair of haag.",
+                    Etymology = "'Nigra' betekent 'zwart' en verwijst naar de kleur van de stelen.",
+                    ImagePath = diskLocationImages + "Phyllostachys_nigra_Base01.png",
+                    PlantType = PlantType.Grass,
+                    PlantClassification = PlantClassification.Angiosperms,
+                    PhylumInfo = (Phylum)GetPhylumByName(phyla, "Magnoliophyta"),
+                    IsEatable = false,
+                    Color = "Zwarte stengel, groen blad",
+                    IsFlowering = false,
+                    IsEvergreen = true,
+                    IsPoisonous = false,
+                    Shape = "Polvormend, rechtopgaand",
+                    FullGrownHeight = 400,
+                    FullGrownWidth = 300,
+                    Light = "Volle zon tot halfschaduw",
+                    Water = "Regelmatig; verdraagt niet langdurig droog",
+                    Soil = "Goed doorlatend, humusrijk",
+                    FertilizationMethod = "Voorjaar bemesten",
+                    TrimmingInstructions = "Oude stengels wegsnoeien in het voorjaar",
+                    TrimmingPeriod = "Vroege lente",
+                    TemperatureRangeMinimum = -15,
+                    TemperatureRangeMaximum = 35
+                },
+
+                // Viburnum plicatum 'Mariesii'
+                new Plant
+                {
+                    Id = 117,
+                    LocalName = "Sneeuwbal 'Mariesii'",
+                    CommonName = "Viburnum Mariesii",
+                    AlternativeNames = "Viburnum plicatum 'Mariesii', Japanse sneeuwbal",
+                    Family = "Adoxaceae",
+                    Genus = "Viburnum",
+                    Species = "plicatum 'Mariesii'",
+                    Description = "Sierstruik met opvallende horizontale takstand, donkergroen blad, witte schermbloemen in mei-juni en mooie herfstkleur.",
+                    Etymology = "Plicatum betekent 'geplooid', verwijzend naar het geplooide blad. 'Mariesii' verwijst naar Charles Maries, Engelse plantenverzamelaar.",
+                    ImagePath = diskLocationImages + "Viburnum_Mariesii_Base01.png",
+                    PlantType = PlantType.Shrub,
+                    PlantClassification = PlantClassification.Angiosperms,
+                    PhylumInfo = (Phylum)GetPhylumByName(phyla, "Magnoliophyta"),
+                    IsEatable = false,
+                    Color = "Witte bloemen, donkergroen blad (herfst: roodpaars)",
+                    IsFlowering = true,
+                    IsEvergreen = false,
+                    IsPoisonous = false,
+                    Shape = "Brede waaiervormige struik met gelaagde takken",
+                    FullGrownHeight = 200,
+                    FullGrownWidth = 300,
+                    Light = "Halfzon tot zon",
+                    Water = "Gemiddeld; houdt van vochtige, humusrijk grond",
+                    Soil = "Licht zuur tot neutraal, doorlatend",
+                    FertilizationMethod = "Jaarlijks organische mest in het voorjaar",
+                    TrimmingInstructions = "Na bloei dood hout en vormsnoei",
+                    TrimmingPeriod = "Late lente",
+                    TemperatureRangeMinimum = -15,
+                    TemperatureRangeMaximum = 35
+                },
+
+                // Bambusa vulgaris
+                new Plant
+                {
+                    Id = 118,
+                    LocalName = "Gele bamboe",
+                    CommonName = "Common bamboo",
+                    AlternativeNames = "Bambusa vulgaris, Golden bamboo",
+                    Family = "Poaceae",
+                    Genus = "Bambusa",
+                    Species = "vulgaris",
+                    Description = "Sterkgroeiende, grote bamboe met stevig, geel-groen stengel, open groeiwijze en sierlijk blad. Geschikt voor grote tuinen of beschutting.",
+                    Etymology = "Vulgaris betekent 'algemeen gangbaar'.",
+                    ImagePath = diskLocationImages + "Bambusa_vulgaris_Base01.png",
+                    PlantType = PlantType.Grass,
+                    PlantClassification = PlantClassification.Angiosperms,
+                    PhylumInfo = (Phylum)GetPhylumByName(phyla, "Magnoliophyta"),
+                    IsEatable = false,
+                    Color = "Geel-groene stengel, groen blad",
+                    IsFlowering = false,
+                    IsEvergreen = true,
+                    IsPoisonous = false,
+                    Shape = "Polvormig, hoog opgaand",
+                    FullGrownHeight = 800,
+                    FullGrownWidth = 500,
+                    Light = "Volle zon tot halfschaduw",
+                    Water = "Regelmatig, niet te nat",
+                    Soil = "Goed doorlatend, humusrijk",
+                    FertilizationMethod = "Voorjaar bemesten",
+                    TrimmingInstructions = "Zwakke stengels verwijderen",
+                    TrimmingPeriod = "Voorjaar en zomer",
+                    TemperatureRangeMinimum = 0,
+                    TemperatureRangeMaximum = 35
+                },
+
+
+                //121-125
+
+                // Lobelia x gerardii
+                new Plant
+                {
+                    Id = 119,
+                    LocalName = "Lobelie 'Gerardii'",
+                    CommonName = "Gerard's Lobelia",
+                    AlternativeNames = "Lobelia x gerardii",
+                    Family = "Campanulaceae",
+                    Genus = "Lobelia",
+                    Species = "x gerardii",
+                    Description = "Vaste plant met opgaande paarse bloemaren in juli-augustus. Geschikt voor natte tot vochtige borders en als bijenplant.",
+                    Etymology = "Lobelia vernoemd naar de Antwerpse botanicus M. Lobel (Maarten de L’Obel).",
+                    ImagePath = diskLocationImages + "Lobelia_gerardii_Base01.png",
+                    PlantType = PlantType.Perennial,
+                    PlantClassification = PlantClassification.Angiosperms,
+                    PhylumInfo = (Phylum)GetPhylumByName(phyla, "Magnoliophyta"),
+                    IsEatable = false,
+                    Color = "Paarsroze bloemaren, groen blad",
+                    IsFlowering = true,
+                    IsEvergreen = false,
+                    IsPoisonous = false,
+                    Shape = "Bossige, rechtopstaande plant",
+                    FullGrownHeight = 80,
+                    FullGrownWidth = 40,
+                    Light = "Volle zon tot halfschaduw",
+                    Water = "Houdt van vochtige grond; niet droog",
+                    Soil = "Vochtig, humusrijk, doorlatend",
+                    FertilizationMethod = "Jaarlijks organisch in het voorjaar",
+                    TrimmingInstructions = "Uitgebloeide bloemstelen verwijderen",
+                    TrimmingPeriod = "Late zomer",
+                    TemperatureRangeMinimum = -20,
+                    TemperatureRangeMaximum = 35
+                },
+
+                // Lythrum salicaria (Purple Loosestrife)
+                new Plant
+                {
+                    Id = 120,
+                    LocalName = "Kruipende loostrife",
+                    CommonName = "Purple Loosestrife",
+                    AlternativeNames = "Lythrum salicaria, Grote kattenstaart",
+                    Family = "Lythraceae",
+                    Genus = "Lythrum",
+                    Species = "salicaria",
+                    Description = "Robuuste, rechtopstaande vaste plant met lancevormige bladeren en opvallende dichte bloemen die paarsroze tot magenta kleuren. Bloeit van juni tot september en groeit vooral in vochtige gebieden zoals oeverwallen en moerassen.",
+                    Etymology = "De naam Lythrum is afgeleid van het Griekse woord voor losmaking, wellicht verwijzend naar de verspreiding van zaden.",
+                    ImagePath = diskLocationImages + "Lythrum_salicaria_Base01.png",
+                    PlantType = PlantType.Perennial,
+                    PlantClassification = PlantClassification.Angiosperms,
+                    PhylumInfo = (Phylum)GetPhylumByName(phyla, "Magnoliophyta"),
+                    IsEatable = true,  // bladeren en bloemen zijn eetbaar in gematigde mate
+                    Color = "Paarsroze, magenta bloemen; groen blad",
+                    IsFlowering = true,
+                    IsEvergreen = false,
+                    IsPoisonous = false,
+                    Shape = "Kolomvormige rechtopstaande bloempluimen",
+                    FullGrownHeight = 120,
+                    FullGrownWidth = 80,
+                    Light = "Volle zon tot halfschaduw",
+                    Water = "Vochtig tot natte grond; groeit goed in moerassen en langs oevers",
+                    Soil = "Vochtig, klei- tot veenrijke bodems, goed doorlatend",
+                    FertilizationMethod = "Licht bemesten in voorjaar",
+                    TrimmingInstructions = "Na bloei terugknippen om verspreiding te beheersen",
+                    TrimmingPeriod = "Nazomer tot vroege herfst",
+                    TemperatureRangeMinimum = -25,
+                    TemperatureRangeMaximum = 35
+                },
+
+                // Rudbeckia (Black-Eyed Susan)
+                new Plant
+                {
+                    Id = 121,
+                    LocalName = "Zonnehoed",
+                    CommonName = "Black-Eyed Susan",
+                    AlternativeNames = "Rudbeckia, Gloriosa Daisy",
+                    Family = "Asteraceae",
+                    Genus = "Rudbeckia",
+                    Species = "", // multiple species and hybrids
+                    Description = "Vaste plant met grote, heldergele bloemhoofdjes met een donkerbruin tot zwart hart. Bloeit van de zomer tot de herfst. Zeer geliefd in borders en voor snijbloemen.",
+                    Etymology = "Naam vernoemd naar Olof Rudbeck, een Zweedse botanicus.",
+                    ImagePath = diskLocationImages + "Rudbeckia_Base01.png",
+                    PlantType = PlantType.Perennial,
+                    PlantClassification = PlantClassification.Angiosperms,
+                    PhylumInfo = (Phylum)GetPhylumByName(phyla, "Magnoliophyta"),
+                    IsEatable = false,
+                    Color = "Heldergeel met donker hart",
+                    IsFlowering = true,
+                    IsEvergreen = false,
+                    IsPoisonous = false,
+                    Shape = "Bossige, opgaande bloeier",
+                    FullGrownHeight = 90,
+                    FullGrownWidth = 45,
+                    Light = "Volle zon",
+                    Water = "Gemiddeld; verdraagt korte periodes van droogte",
+                    Soil = "Goed doorlatend, humusrijk",
+                    FertilizationMethod = "Lente bemesten met universele meststof",
+                    TrimmingInstructions = "Vermijd uitdrogen, uitgebloeide bloemen verwijderen",
+                    TrimmingPeriod = "Zomer tot vroege herfst",
+                    TemperatureRangeMinimum = -25,
+                    TemperatureRangeMaximum = 35
+                },
+
+
+
 
             };
         }
