@@ -6,8 +6,14 @@
     xmlns:local="using:PlantGuessingGame.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    KeyDown="Page_KeyDown"
+    IsTabStop="True"
+    Loaded="Page_Loaded">
 
+    
+    <!--Note here is a KeyDown action that refers to the code behind-->
+    
     <Page.Resources>
         <Style x:Key="AttributeTitleStyle" TargetType="TextBlock">
             <Setter Property="HorizontalAlignment" Value="Right" />
@@ -24,29 +30,18 @@
         </Style>
     </Page.Resources>
 
-    
     <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
-
-
         <StackPanel Orientation="Horizontal">
 
-            
             <Grid Margin="24">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
-                    <!-- Title -->
                     <RowDefinition Height="Auto"/>
-                    <!-- Line after title -->
                     <RowDefinition Height="Auto"/>
-                    <!-- ComboBox grid -->
                     <RowDefinition Height="Auto"/>
-                    <!-- Line after ComboBox -->
                     <RowDefinition Height="Auto"/>
-                    <!-- Details grid -->
                     <RowDefinition Height="Auto"/>
-                    <!-- Line after details -->
                     <RowDefinition Height="Auto"/>
-                    <!-- Back button -->
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="900"/>
@@ -55,17 +50,13 @@
                 <!-- Title Section -->
                 <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="0,0,0,8">
                     <SymbolIcon Margin="8" Symbol="Clock" />
-                    <TextBlock
-                    Margin="8"
-                    FontSize="24"
-                    FontWeight="SemiBold"
-                    Text="Plant Problems" />
+                    <TextBlock Margin="8" FontSize="24" FontWeight="SemiBold" Text="Plant Problems" />
                 </StackPanel>
 
                 <!-- Accent line after title -->
                 <Border Grid.Row="1" BorderBrush="{ThemeResource SystemAccentColor}" BorderThickness="0,0,0,2" Margin="0,0,0,16"/>
 
-                <!-- ComboBox Grid (no border here) -->
+                <!-- ComboBox Grid -->
                 <Grid Grid.Row="2">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
@@ -85,7 +76,7 @@
                 <!-- Accent line after ComboBox -->
                 <Border Grid.Row="3" BorderBrush="{ThemeResource SystemAccentColor}" BorderThickness="0,0,0,2" Margin="0,0,0,16"/>
 
-                <!-- Details Grid (no border here) -->
+                <!-- Details Grid -->
                 <Grid Grid.Row="4">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
@@ -170,73 +161,50 @@
 
                 <!-- Back Button -->
                 <Button
-                Grid.Row="6"
-                Content="Back"
-                Command="{x:Bind ViewModel.NavigateBackCommand}"
-                HorizontalAlignment="Left"
-                Margin="0,16,0,0"/>
-
-
-
-
+                    Grid.Row="6"
+                    Content="Back"
+                    Command="{x:Bind ViewModel.NavigateBackCommand}"
+                    HorizontalAlignment="Left"
+                    Margin="0,16,0,0"/>
             </Grid>
 
-
-            <!--  Plant details title section  -->
+            <!-- Plant details title section -->
             <StackPanel Orientation="Vertical">
-
                 <TextBlock
                     Margin="8"
                     Style="{StaticResource SubheaderTextBlockStyle}"
                     Text="Plant Images" />
-
-
-                            <GridView
+                <GridView
                     Margin="12"
                     HorizontalAlignment="Stretch"
                     IsItemClickEnabled="True"
                     ItemsSource="{x:Bind ViewModel.SelectedPlantImages, Mode=OneWay}"
                     SelectionMode="Single">
-
-                                <!--  Setup for container  -->
-                                <GridView.ItemContainerStyle>
-                                    <Style BasedOn="{StaticResource DefaultGridViewItemStyle}" TargetType="GridViewItem">
-                                        <Setter Property="Margin" Value="5,5,5,5" />
-                                    </Style>
-                                </GridView.ItemContainerStyle>
-
-                                <!--
-                        An extra property also needs to be added to the GridView's ItemsWrapGrid.
-                        The following sets the maximum # of items to show before wrapping.
-                    -->
-                                <GridView.ItemsPanel>
-                                    <ItemsPanelTemplate>
-                                        <ItemsWrapGrid
+                    <GridView.ItemContainerStyle>
+                        <Style BasedOn="{StaticResource DefaultGridViewItemStyle}" TargetType="GridViewItem">
+                            <Setter Property="Margin" Value="5,5,5,5" />
+                        </Style>
+                    </GridView.ItemContainerStyle>
+                    <GridView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <ItemsWrapGrid
                                 x:Name="MaxItemsWrapGrid"
                                 MaximumRowsOrColumns="2"
                                 Orientation="Horizontal" />
-                                    </ItemsPanelTemplate>
-                                </GridView.ItemsPanel>
-
-                                <GridView.ItemTemplate>
-                                    <DataTemplate>
-                                        <Image
+                        </ItemsPanelTemplate>
+                    </GridView.ItemsPanel>
+                    <GridView.ItemTemplate>
+                        <DataTemplate>
+                            <Image
                                 Width="300"
                                 Height="300"
                                 Source="{Binding}"
                                 Stretch="UniformToFill" />
-                                    </DataTemplate>
-
-                                </GridView.ItemTemplate>
-
-                            </GridView>
-
-
+                        </DataTemplate>
+                    </GridView.ItemTemplate>
+                </GridView>
             </StackPanel>
-
         </StackPanel>
-
     </ScrollViewer>
-    
-    
+
 </Page>
