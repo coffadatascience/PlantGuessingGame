@@ -288,7 +288,7 @@ namespace PlantGuessingGame.Services
         /// <param name="parentId">The ID of the parent item.</param>
         /// <param name="imagePath">The file path of the image to add.</param>
         /// <returns>The ID of the inserted image.</returns>
-        public async Task<int> AddItemImageTablePlantProblemsAsync(int parentId, string imagePath)
+        public async Task<int> AddItemImageTablePlantProblemAsync(int parentId, string imagePath)
         {
             byte[] imageBytes = await File.ReadAllBytesAsync(imagePath);
 

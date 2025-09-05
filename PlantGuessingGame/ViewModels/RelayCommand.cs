@@ -80,10 +80,11 @@ namespace PlantGuessingGame.ViewModels
 
         }
 
+
         /// <summary>
         /// event handler for CanExecuteChanged
         /// </summary>
-        public void RaiseCanexecuteChanged() => CanExecuteChanged?.Invoke(this, EventArgs.Empty);
+        public void RaiseCanExecuteChanged() => CanExecuteChanged?.Invoke(this, EventArgs.Empty);
 
     }
 
@@ -108,6 +109,7 @@ namespace PlantGuessingGame.ViewModels
         public void Execute(object? parameter) => _execute((T)parameter);
         public void RaiseCanExecuteChanged() => CanExecuteChanged?.Invoke(this, EventArgs.Empty);
     }
+
 
 
 }

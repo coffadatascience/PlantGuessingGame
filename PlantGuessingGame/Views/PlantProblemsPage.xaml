@@ -11,9 +11,6 @@
     IsTabStop="True"
     Loaded="Page_Loaded">
 
-    
-    <!--Note here is a KeyDown action that refers to the code behind-->
-    
     <Page.Resources>
         <Style x:Key="AttributeTitleStyle" TargetType="TextBlock">
             <Setter Property="HorizontalAlignment" Value="Right" />
@@ -32,7 +29,6 @@
 
     <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
         <StackPanel Orientation="Horizontal">
-
             <Grid Margin="24">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
@@ -159,13 +155,15 @@
                 <!-- Accent line after last textbox -->
                 <Border Grid.Row="5" BorderBrush="{ThemeResource SystemAccentColor}" BorderThickness="0,0,0,2" Margin="0,16,0,0"/>
 
-                <!-- Back Button -->
-                <Button
-                    Grid.Row="6"
-                    Content="Back"
-                    Command="{x:Bind ViewModel.NavigateBackCommand}"
-                    HorizontalAlignment="Left"
-                    Margin="0,16,0,0"/>
+                <!-- Buttons Row -->
+                <StackPanel Grid.Row="6" Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,16,0,0" Spacing="12">
+                    <Button
+                        Content="Back"
+                        Command="{x:Bind ViewModel.NavigateBackCommand}"/>
+                    <Button
+                        Content="Import Image"
+                        Command="{x:Bind ViewModel.ImportImageCommand}"/>
+                </StackPanel>
             </Grid>
 
             <!-- Plant details title section -->
@@ -206,5 +204,4 @@
             </StackPanel>
         </StackPanel>
     </ScrollViewer>
-
 </Page>

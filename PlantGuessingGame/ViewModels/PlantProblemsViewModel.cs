@@ -3,10 +3,13 @@ using PlantGuessingGame.DataModels;
 using PlantGuessingGame.Interfaces;
 using System;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
+using Windows.Storage.Pickers;
+using Windows.Storage;
 
 namespace PlantGuessingGame.ViewModels
 {
@@ -34,6 +37,8 @@ namespace PlantGuessingGame.ViewModels
         private ICommand _navigateBackCommand;
         private ICommand _selectPreviousItemCommand;
         private ICommand _selectNextItemCommand;
+        private ICommand _importImageCommand;
+
         #endregion
 
         #region public properties
@@ -45,6 +50,7 @@ namespace PlantGuessingGame.ViewModels
             set => SetProperty(ref _plantProblems, value);
         }
 
+
         public PlantProblem SelectedPlantProblem
         {
             get => _selectedPlantProblem;
@@ -53,9 +59,19 @@ namespace PlantGuessingGame.ViewModels
                 if (SetProperty(ref _selectedPlantProblem, value))
                 {
                     UpdateSelectedProblemFields();
+
+                    // Inform command to reevaluate CanExecute so button enabled state updates
+                    ((RelayCommand)_importImageCommand).RaiseCanExecuteChanged();
+
+
+                    // Similarly you might want to raise CanExecuteChanged for other commands if they depend on selection
+                    //((RelayCommand)_selectPreviousItemCommand).RaiseCanExecuteChanged();
+                    //((RelayCommand)_selectNextItemCommand).RaiseCanExecuteChanged();
+
                 }
             }
         }
+
 
         public int SelectedProblemId
         {
@@ -116,6 +132,8 @@ namespace PlantGuessingGame.ViewModels
         public ICommand SelectPreviousItemCommand => _selectPreviousItemCommand ??= new RelayCommand(SelectPreviousItem, CanSelectPreviousItem);
 
         public ICommand SelectNextItemCommand => _selectNextItemCommand ??= new RelayCommand(SelectNextItem, CanSelectNextItem);
+
+        public ICommand ImportImageCommand => _importImageCommand ??= new RelayCommand(async () => await ImportImageAsync(), CanImportImage);
         #endregion
 
         public PlantProblemsViewModel(INavigationService navigationService, IDataService dataService)
@@ -174,7 +192,7 @@ namespace PlantGuessingGame.ViewModels
                 }
                 catch
                 {
-                    // Handle errors
+                    // Handle errors accordingly
                 }
             }
             IsDirty = false;
@@ -190,9 +208,7 @@ namespace PlantGuessingGame.ViewModels
                 if (imageBytesList == null || imageBytesList.Count == 0) return;
 
                 foreach (var imageBytes in imageBytesList)
-                {
                     await AddImageAsync(imageBytes);
-                }
             }
             catch (Exception ex)
             {
@@ -247,5 +263,55 @@ namespace PlantGuessingGame.ViewModels
             int currentIndex = PlantProblems.IndexOf(SelectedPlantProblem);
             SelectedPlantProblem = PlantProblems[currentIndex + 1];
         }
+
+        private bool CanImportImage()
+        {
+            return SelectedPlantProblem != null;
+        }
+
+        private async Task ImportImageAsync()
+        {
+            if (SelectedPlantProblem == null)
+                return;
+
+            try
+            {
+                var picker = new FileOpenPicker
+                {
+                    ViewMode = PickerViewMode.Thumbnail,
+                    SuggestedStartLocation = PickerLocationId.PicturesLibrary,
+                    // Note: Multiselect is not directly supported by FileOpenPicker in WinUI3;
+                    // consider picking files one by one or using FolderPicker for folder selection instead.
+                };
+                picker.FileTypeFilter.Add(".jpg");
+                picker.FileTypeFilter.Add(".jpeg");
+                picker.FileTypeFilter.Add(".png");
+                picker.FileTypeFilter.Add(".bmp");
+                picker.FileTypeFilter.Add(".gif");
+
+
+
+                // Must initialize picker with Win32 window handle in WinUI3 Desktop apps:
+                var windowHandle = WinRT.Interop.WindowNative.GetWindowHandle(App.CurrentWindow); // Assuming your App.Window is your MainWindow
+                WinRT.Interop.InitializeWithWindow.Initialize(picker, windowHandle);
+
+
+                var file = await picker.PickSingleFileAsync();
+                if (file == null)
+                    return; // user cancelled
+
+                // Use path (if accessible), or fallback to stream or copy as needed
+                var filePath = file.Path;
+
+                await _dataService.AddItemImageTablePlantProblemAsync(SelectedProblemId, filePath);
+
+                ShowImages();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error importing image: {ex.Message}");
+            }
+        }
+
     }
 }
