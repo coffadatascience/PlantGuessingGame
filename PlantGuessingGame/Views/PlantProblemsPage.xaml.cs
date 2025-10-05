@@ -73,6 +73,42 @@ namespace PlantGuessingGame.Views
                 await ViewModel.InitializeItemPlantProblemsDataAsync(selectedItemId);
             }
         }
+
+
+        /// <summary>
+        /// to loaded event
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            // Set focus to the page to receive key events
+            this.Focus(FocusState.Programmatic);
+        }
+
+        /// <summary>
+        /// kery down event and link to command in the VM
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Page_KeyDown(object sender, KeyRoutedEventArgs e)
+        {
+            var vm = this.ViewModel;
+            if (vm == null) return;
+
+            if (e.Key == Windows.System.VirtualKey.Left)
+            {
+                if (vm.SelectPreviousItemCommand?.CanExecute(null) ?? false)
+                    vm.SelectPreviousItemCommand.Execute(null);
+                e.Handled = true;
+            }
+            else if (e.Key == Windows.System.VirtualKey.Right)
+            {
+                if (vm.SelectNextItemCommand?.CanExecute(null) ?? false)
+                    vm.SelectNextItemCommand.Execute(null);
+                e.Handled = true;
+            }
+        }
     }
 
 }

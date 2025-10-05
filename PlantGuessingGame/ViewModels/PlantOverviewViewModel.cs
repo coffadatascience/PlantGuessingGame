@@ -92,7 +92,7 @@ namespace PlantGuessingGame.ViewModels
 
                 // --> 20250102 Note that this doesnt work because the Interface ICommand does not have the method RaiseCanExecuteChanged
                 //     This interface has been recently changed and now works different (with the eventhandler CanExecuteChanged)
-                ((RelayCommand)DeleteCommand).RaiseCanexecuteChanged();
+                ((RelayCommand)DeleteCommand).RaiseCanExecuteChanged();
 
 
             }

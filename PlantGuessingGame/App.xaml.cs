@@ -32,6 +32,12 @@ namespace PlantGuessingGame
 
         public IServiceProvider Container { get; private set; }
 
+        /// <summary>
+        /// Static property for global access to current window instance.
+        /// Use this to get window handle for interop like file picker initialization.
+        /// </summary>
+        public static Window? CurrentWindow { get; private set; }
+
         #endregion
 
         /// <summary>
@@ -71,6 +77,9 @@ namespace PlantGuessingGame
 
             // Create and activate the main window
             m_window = new Window();
+
+            //set so we have a handle
+            CurrentWindow = m_window; // Assign static property for global access
 
             var rootFrame = new Frame();
             rootFrame.NavigationFailed += OnNavigationFailed;

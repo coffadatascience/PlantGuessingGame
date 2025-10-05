@@ -179,6 +179,11 @@
                 throw new NotImplementedException();
             }
 
+            public Task<int> AddItemImageTablePlantProblemAsync(int parentId, string imagePath)
+            {
+                throw new NotImplementedException();
+            }
+
 
 
 
