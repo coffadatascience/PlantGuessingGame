@@ -172,6 +172,12 @@ namespace PlantGuessingGame.ViewModels
         /// </summary>
         public ICommand DeleteCommand { get; set; }
 
+
+        /// <summary>
+        /// sort command
+        /// </summary>
+        public ICommand SortPlantListCommand { get; set; }
+
         #endregion
 
 
@@ -199,6 +205,8 @@ namespace PlantGuessingGame.ViewModels
             AddEditCommand = new RelayCommand(AddPlant);
             //delete command
             DeleteCommand = new RelayCommand(async () => await DeleteItemAsync(), CanDeleteItem);
+            //sort command
+            SortPlantListCommand = new RelayCommand(SortPlantList);
 
             // Add plants on initialization
             _ = PopulateDataAsync();
@@ -221,6 +229,26 @@ namespace PlantGuessingGame.ViewModels
         {
             //add or edit item
             AddOrEditItem();
+        }
+
+
+        /// <summary>
+        /// Function to sort command
+        /// </summary>
+        /// <exception cref="NotImplementedException"></exception>
+        private void SortPlantList()
+        {
+            // Sort the plants by CommonName
+            var sortedPlants = Plants.OrderBy(p => p.CommonName).ToList();
+
+            // Clear the existing collection
+            Plants.Clear();
+
+            // Re-add the sorted items
+            foreach (var plant in sortedPlants)
+            {
+                Plants.Add(plant);
+            }
         }
 
         #endregion

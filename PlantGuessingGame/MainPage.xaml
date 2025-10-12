@@ -9,30 +9,20 @@
     xmlns:model="using:PlantGuessingGame.DataModels"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     mc:Ignorable="d">
-    <!--  Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"  -->
-
-
-    <!--<StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-    -->
-    <!--<Button x:Name="myButton" Click="myButton_Click">Click Me</Button>-->
-    <!--
-
-        <Button DoubleTapped="{x:Bind ViewModel.NavigateToDetailsPage}"
-                        Content="Open Detail Page"
-                        Margin="8"/>
-
-    </StackPanel>-->
-
 
     <Grid>
-
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
+            <!-- Header with Sort button and ComboBox -->
             <RowDefinition Height="*" />
+            <!-- ListView -->
             <RowDefinition Height="Auto" />
+            <!-- Bottom buttons -->
         </Grid.RowDefinitions>
 
-        <StackPanel>
+        <!-- Header: Title and horizontal panel with Sort left, ComboBox right -->
+        <StackPanel Grid.Row="0">
+            <!-- Title row -->
             <StackPanel Orientation="Horizontal">
                 <SymbolIcon Margin="8" Symbol="Home" />
                 <TextBlock
@@ -41,24 +31,37 @@
                     Text="The Plant Guessing Game" />
             </StackPanel>
 
-            <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
-                <TextBlock
-                    Margin="4"
-                    VerticalAlignment="Bottom"
-                    Style="{StaticResource SubtitleTextBlockStyle}"
-                    Text="Plant Type: " />
+            <!-- Sort button left, ComboBox right on the same horizontal line -->
+            <Grid HorizontalAlignment="Stretch" Margin="0,4,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
 
-                <ComboBox
-                    Width="120"
-                    Margin="0,2,6,4"
-                    HorizontalAlignment="Right"
-                    VerticalAlignment="Bottom"
-                    ItemsSource="{x:Bind ViewModel.PlantTypes}"
-                    SelectedItem="{x:Bind ViewModel.SelectedPlantType, Mode=TwoWay}" />
+                <Button Content="Sort" Width="150" Margin="8,0" VerticalAlignment="Center" Grid.Column="0" Command="{x:Bind ViewModel.SortPlantListCommand}" />
 
-            </StackPanel>
+                <!-- Spacer -->
+                <StackPanel Grid.Column="1" />
+
+                <StackPanel Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
+                    <TextBlock
+                        Margin="4"
+                        VerticalAlignment="Center"
+                        Style="{StaticResource SubtitleTextBlockStyle}"
+                        Text="Plant Type: " />
+
+                    <ComboBox
+                        Width="120"
+                        Margin="0,2,6,4"
+                        VerticalAlignment="Center"
+                        ItemsSource="{x:Bind ViewModel.PlantTypes}"
+                        SelectedItem="{x:Bind ViewModel.SelectedPlantType, Mode=TwoWay}" />
+                </StackPanel>
+            </Grid>
         </StackPanel>
 
+        <!-- ListView showing plants -->
         <ListView
             Grid.Row="1"
             DoubleTapped="{x:Bind ViewModel.ListViewDoubleTapped}"
@@ -122,7 +125,6 @@
                                 Style="{StaticResource TitleTextBlockStyle}"
                                 Text="Description" />
                         </Border>
-
                     </Grid>
                 </DataTemplate>
             </ListView.HeaderTemplate>
@@ -143,20 +145,18 @@
                         <TextBlock Grid.Column="2" Text="{x:Bind Genus}" />
                         <TextBlock Grid.Column="3" Text="{x:Bind Species}" />
                         <TextBlock Grid.Column="4" Text="{x:Bind Description}" />
-
-
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
 
+        <!-- Bottom buttons -->
         <Border
             Grid.Row="2"
             Margin="4,0"
             BorderBrush="{ThemeResource SystemAccentColor}"
             BorderThickness="0,2,0,0">
             <StackPanel
-                Grid.Row="2"
                 HorizontalAlignment="Right"
                 Orientation="Horizontal">
                 <Button
@@ -167,11 +167,6 @@
                     Margin="8"
                     Command="{x:Bind ViewModel.DeleteCommand}"
                     Content="Delete Plant" />
-                <!--<Button
-                    Margin="8"
-                    HorizontalAlignment="Right"
-                    Click="AddWindow_Click"
-                    Content="Add Window" />-->
             </StackPanel>
         </Border>
 
