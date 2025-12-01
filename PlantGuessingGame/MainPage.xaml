@@ -13,14 +13,14 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
-            <!-- Header with Sort button and ComboBox -->
+            <!-- Header with Sort button, Search box and ComboBox -->
             <RowDefinition Height="*" />
             <!-- ListView -->
             <RowDefinition Height="Auto" />
             <!-- Bottom buttons -->
         </Grid.RowDefinitions>
 
-        <!-- Header: Title and horizontal panel with Sort left, ComboBox right -->
+        <!-- Header: Title and horizontal panel with Sort, Search, ComboBox -->
         <StackPanel Grid.Row="0">
             <!-- Title row -->
             <StackPanel Orientation="Horizontal">
@@ -31,20 +31,38 @@
                     Text="The Plant Guessing Game" />
             </StackPanel>
 
-            <!-- Sort button left, ComboBox right on the same horizontal line -->
+            <!-- Sort button, Search TextBox, ComboBox on the same horizontal line -->
             <Grid HorizontalAlignment="Stretch" Margin="0,4,0,0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto" />
+                    <!-- Sort button -->
+                    <ColumnDefinition Width="250" />
+                    <!-- Search TextBox -->
                     <ColumnDefinition Width="*" />
+                    <!-- Spacer -->
                     <ColumnDefinition Width="Auto" />
+                    <!-- ComboBox + label -->
                 </Grid.ColumnDefinitions>
 
-                <Button Content="Sort" Width="150" Margin="8,0" VerticalAlignment="Center" Grid.Column="0" Command="{x:Bind ViewModel.SortPlantListCommand}" />
+                <Button 
+                    Content="Sort" 
+                    Width="150" 
+                    Margin="8,0" 
+                    VerticalAlignment="Center" 
+                    Grid.Column="0" 
+                    Command="{x:Bind ViewModel.SortPlantListCommand}" />
 
-                <!-- Spacer -->
-                <StackPanel Grid.Column="1" />
+                <TextBox 
+                    Width="240"
+                    Margin="8,0"
+                    VerticalAlignment="Center" 
+                    Grid.Column="1"
+                    PlaceholderText="Search plants..."
+                    Text="{x:Bind ViewModel.SearchText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
-                <StackPanel Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
+                <!-- Spacer takes column 2 -->
+
+                <StackPanel Grid.Column="3" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
                     <TextBlock
                         Margin="4"
                         VerticalAlignment="Center"
@@ -65,7 +83,7 @@
         <ListView
             Grid.Row="1"
             DoubleTapped="{x:Bind ViewModel.ListViewDoubleTapped}"
-            ItemsSource="{x:Bind ViewModel.Plants}"
+            ItemsSource="{Binding Plants}"
             SelectedItem="{x:Bind ViewModel.SelectedPlant, Mode=TwoWay}">
 
             <ListView.HeaderTemplate>

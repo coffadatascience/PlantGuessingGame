@@ -214,5 +214,26 @@ namespace PlantGuessingGame.ViewModels
             return false;
         }
 
+        /// <summary>
+        /// overload for set property that includes a Call back
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="originalValue"></param>
+        /// <param name="newValue"></param>
+        /// <param name="onChanged"></param>
+        /// <param name="propertyName"></param>
+        /// <returns></returns>
+        protected bool SetProperty<T>(ref T originalValue, T newValue, Action onChanged, [CallerMemberName] string propertyName = null)
+        {
+            if (!EqualityComparer<T>.Default.Equals(originalValue, newValue))
+            {
+                originalValue = newValue;
+                OnPropertyChanged(propertyName, newValue);
+                onChanged?.Invoke();  // Invoke the callback after property changed
+                return true;
+            }
+            return false;
+        }
+
     }
 }

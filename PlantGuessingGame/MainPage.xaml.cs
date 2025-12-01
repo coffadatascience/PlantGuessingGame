@@ -32,6 +32,7 @@ namespace PlantGuessingGame
         public MainPage()
         {
             this.InitializeComponent();
+            this.DataContext = ViewModel; // assign your ViewModel instance here
         }
 
 

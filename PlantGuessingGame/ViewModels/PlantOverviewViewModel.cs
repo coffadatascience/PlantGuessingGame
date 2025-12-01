@@ -55,22 +55,25 @@ namespace PlantGuessingGame.ViewModels
         /// </summary>
         private IList<string> plantTypes;
 
+        /// <summary>
+        /// New for searching plants by name
+        /// </summary>
+        private string _searchText = string.Empty;
+
+
         #endregion
 
 
         #region public variables
 
         /// <summary>
-        /// Collection of plants that the View will bind to
+        /// Collection of plants that the View will bind to        
+        /// NOTE: plants is now Binding to the list box, so it updates in real time
         /// </summary>
         public ObservableCollection<Plant> Plants
         {
-            get { return plants; }
-            set
-            {
-                plants = value;
-                OnPropertyChanged();
-            }
+            get => plants;
+            set => SetProperty(ref plants, value);
         }
 
         /// <summary>
@@ -178,6 +181,18 @@ namespace PlantGuessingGame.ViewModels
         /// </summary>
         public ICommand SortPlantListCommand { get; set; }
 
+
+        /// <summary>
+        /// to activate the proecedure OnSearchTextChanged, we add an overload to the set property in the bindable base
+        /// --> This then receives a call back and activates OnSearchTextChanged, so this doesnt have to be in the base
+        /// --> Call back on set activates the filter that alters the Plants list
+        /// </summary>
+        public string SearchText
+        {
+            get => _searchText;
+            set => SetProperty(ref _searchText, value, OnSearchTextChanged);
+        }
+
         #endregion
 
 
@@ -258,6 +273,31 @@ namespace PlantGuessingGame.ViewModels
 
 
         /// <summary>
+        /// method to handle search filtering
+        /// --> Called via call back on the set property of the search text
+        /// </summary>
+        private void OnSearchTextChanged()
+        {
+            if (string.IsNullOrWhiteSpace(SearchText))
+            {
+                Plants = new ObservableCollection<Plant>(allPlants);
+            }
+            else
+            {
+                var lowerSearch = SearchText.ToLowerInvariant();
+                var filtered = allPlants.Where(p =>
+                    (!string.IsNullOrEmpty(p.CommonName) && p.CommonName.ToLowerInvariant().Contains(lowerSearch)) ||
+                    (!string.IsNullOrEmpty(p.Family) && p.Family.ToLowerInvariant().Contains(lowerSearch)) ||
+                    (!string.IsNullOrEmpty(p.Genus) && p.Genus.ToLowerInvariant().Contains(lowerSearch)) ||
+                    (!string.IsNullOrEmpty(p.Species) && p.Species.ToLowerInvariant().Contains(lowerSearch)) ||
+                    (!string.IsNullOrEmpty(p.Description) && p.Description.ToLowerInvariant().Contains(lowerSearch))
+                );
+
+                Plants = new ObservableCollection<Plant>(filtered);
+            }
+        }
+
+        /// <summary>
         /// Method to add a plant to the collection
         /// --> Change this for an edit, or an add but awaits the return info
         /// JCO --> we can create a relay command here that is passed with an update of the screen via an delegate
@@ -317,17 +357,6 @@ namespace PlantGuessingGame.ViewModels
             // Call the navigation service to navigate back
             _navigationServices.GoBack();
         }
-
-        /// <summary>
-        /// INotifyPropertyChanged implementation
-        /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-
 
         /// <summary>
         /// async method to delete item (replace above sync method)

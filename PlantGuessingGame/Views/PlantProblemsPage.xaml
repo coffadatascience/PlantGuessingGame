@@ -5,11 +5,11 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="using:PlantGuessingGame.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
-    KeyDown="Page_KeyDown"
     IsTabStop="True"
-    Loaded="Page_Loaded">
+    KeyDown="Page_KeyDown"
+    Loaded="Page_Loaded"
+    mc:Ignorable="d">
 
     <Page.Resources>
         <Style x:Key="AttributeTitleStyle" TargetType="TextBlock">
@@ -31,142 +31,210 @@
         <StackPanel Orientation="Horizontal">
             <Grid Margin="24">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="900"/>
+                    <ColumnDefinition Width="900" />
                 </Grid.ColumnDefinitions>
 
-                <!-- Title Section -->
-                <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="0,0,0,8">
+                <!--  Title Section  -->
+                <StackPanel
+                    Grid.Row="0"
+                    Margin="0,0,0,8"
+                    Orientation="Horizontal">
                     <SymbolIcon Margin="8" Symbol="Clock" />
-                    <TextBlock Margin="8" FontSize="24" FontWeight="SemiBold" Text="Plant Problems" />
+                    <TextBlock
+                        Margin="8"
+                        FontSize="24"
+                        FontWeight="SemiBold"
+                        Text="Plant Problems" />
                 </StackPanel>
 
-                <!-- Accent line after title -->
-                <Border Grid.Row="1" BorderBrush="{ThemeResource SystemAccentColor}" BorderThickness="0,0,0,2" Margin="0,0,0,16"/>
+                <!--  Accent line after title  -->
+                <Border
+                    Grid.Row="1"
+                    Margin="0,0,0,16"
+                    BorderBrush="{ThemeResource SystemAccentColor}"
+                    BorderThickness="0,0,0,2" />
 
-                <!-- ComboBox Grid -->
+                <!--  ComboBox Grid  -->
                 <Grid Grid.Row="2">
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="200"/>
-                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="200" />
+                        <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
-                    <TextBlock Grid.Row="0" Grid.Column="0" Text="Problem:" Style="{StaticResource AttributeTitleStyle}"/>
-                    <ComboBox Grid.Row="0" Grid.Column="1"
-                          Style="{StaticResource AttributeComboxValueStyle}"
-                          ItemsSource="{x:Bind ViewModel.PlantProblems}"
-                          SelectedItem="{x:Bind ViewModel.SelectedPlantProblem, Mode=TwoWay}"
-                          DisplayMemberPath="Name"/>
+                    <TextBlock
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Style="{StaticResource AttributeTitleStyle}"
+                        Text="Problem:" />
+                    <ComboBox
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        DisplayMemberPath="Name"
+                        ItemsSource="{x:Bind ViewModel.PlantProblems}"
+                        SelectedItem="{x:Bind ViewModel.SelectedPlantProblem, Mode=TwoWay}"
+                        Style="{StaticResource AttributeComboxValueStyle}" />
                 </Grid>
 
-                <!-- Accent line after ComboBox -->
-                <Border Grid.Row="3" BorderBrush="{ThemeResource SystemAccentColor}" BorderThickness="0,0,0,2" Margin="0,0,0,16"/>
+                <!--  Accent line after ComboBox  -->
+                <Border
+                    Grid.Row="3"
+                    Margin="0,0,0,16"
+                    BorderBrush="{ThemeResource SystemAccentColor}"
+                    BorderThickness="0,0,0,2" />
 
-                <!-- Details Grid -->
+                <!--  Details Grid  -->
                 <Grid Grid.Row="4">
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="200"/>
-                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="200" />
+                        <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
 
-                    <!-- Problem ID -->
-                    <TextBlock Grid.Row="0" Grid.Column="0" Text="Problem ID:" Style="{StaticResource AttributeTitleStyle}"/>
-                    <TextBox Grid.Row="0" Grid.Column="1"
-                         Style="{StaticResource AttributeValueStyle}"
-                         Text="{x:Bind ViewModel.SelectedProblemId, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                         IsReadOnly="True"/>
+                    <!--  Problem ID  -->
+                    <TextBlock
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Style="{StaticResource AttributeTitleStyle}"
+                        Text="Problem ID:" />
+                    <TextBox
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        IsReadOnly="True"
+                        Style="{StaticResource AttributeValueStyle}"
+                        Text="{x:Bind ViewModel.SelectedProblemId, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
-                    <!-- Name -->
-                    <TextBlock Grid.Row="1" Grid.Column="0" Text="Name:" Style="{StaticResource AttributeTitleStyle}"/>
-                    <TextBox Grid.Row="1" Grid.Column="1"
-                         Style="{StaticResource AttributeValueStyle}"
-                         Text="{x:Bind ViewModel.SelectedName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                    <!--  Name  -->
+                    <TextBlock
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        Style="{StaticResource AttributeTitleStyle}"
+                        Text="Name:" />
+                    <TextBox
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        Style="{StaticResource AttributeValueStyle}"
+                        Text="{x:Bind ViewModel.SelectedName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
-                    <!-- Description -->
-                    <TextBlock Grid.Row="2" Grid.Column="0" Text="Description:" Style="{StaticResource AttributeTitleStyle}"/>
-                    <TextBox Grid.Row="2" Grid.Column="1"
-                         Style="{StaticResource AttributeValueStyle}"
-                         Text="{x:Bind ViewModel.SelectedDescription, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                         AcceptsReturn="True"
-                         TextWrapping="Wrap"
-                         MinHeight="60"
-                         MaxHeight="200"
-                         ScrollViewer.VerticalScrollBarVisibility="Auto"/>
+                    <!--  Description  -->
+                    <TextBlock
+                        Grid.Row="2"
+                        Grid.Column="0"
+                        Style="{StaticResource AttributeTitleStyle}"
+                        Text="Description:" />
+                    <TextBox
+                        Grid.Row="2"
+                        Grid.Column="1"
+                        MinHeight="60"
+                        MaxHeight="200"
+                        AcceptsReturn="True"
+                        ScrollViewer.VerticalScrollBarVisibility="Auto"
+                        Style="{StaticResource AttributeValueStyle}"
+                        Text="{x:Bind ViewModel.SelectedDescription, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                        TextWrapping="Wrap" />
 
-                    <!-- Symptoms -->
-                    <TextBlock Grid.Row="3" Grid.Column="0" Text="Symptoms:" Style="{StaticResource AttributeTitleStyle}"/>
-                    <TextBox Grid.Row="3" Grid.Column="1"
-                         Style="{StaticResource AttributeValueStyle}"
-                         Text="{x:Bind ViewModel.SelectedSymptoms, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                         AcceptsReturn="True"
-                         TextWrapping="Wrap"
-                         MinHeight="60"
-                         MaxHeight="200"
-                         ScrollViewer.VerticalScrollBarVisibility="Auto"/>
+                    <!--  Symptoms  -->
+                    <TextBlock
+                        Grid.Row="3"
+                        Grid.Column="0"
+                        Style="{StaticResource AttributeTitleStyle}"
+                        Text="Symptoms:" />
+                    <TextBox
+                        Grid.Row="3"
+                        Grid.Column="1"
+                        MinHeight="60"
+                        MaxHeight="200"
+                        AcceptsReturn="True"
+                        ScrollViewer.VerticalScrollBarVisibility="Auto"
+                        Style="{StaticResource AttributeValueStyle}"
+                        Text="{x:Bind ViewModel.SelectedSymptoms, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                        TextWrapping="Wrap" />
 
-                    <!-- Causes -->
-                    <TextBlock Grid.Row="4" Grid.Column="0" Text="Causes:" Style="{StaticResource AttributeTitleStyle}"/>
-                    <TextBox Grid.Row="4" Grid.Column="1"
-                         Style="{StaticResource AttributeValueStyle}"
-                         Text="{x:Bind ViewModel.SelectedCauses, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                         AcceptsReturn="True"
-                         TextWrapping="Wrap"
-                         MinHeight="60"
-                         MaxHeight="200"
-                         ScrollViewer.VerticalScrollBarVisibility="Auto"/>
+                    <!--  Causes  -->
+                    <TextBlock
+                        Grid.Row="4"
+                        Grid.Column="0"
+                        Style="{StaticResource AttributeTitleStyle}"
+                        Text="Causes:" />
+                    <TextBox
+                        Grid.Row="4"
+                        Grid.Column="1"
+                        MinHeight="60"
+                        MaxHeight="200"
+                        AcceptsReturn="True"
+                        ScrollViewer.VerticalScrollBarVisibility="Auto"
+                        Style="{StaticResource AttributeValueStyle}"
+                        Text="{x:Bind ViewModel.SelectedCauses, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                        TextWrapping="Wrap" />
 
-                    <!-- Solutions -->
-                    <TextBlock Grid.Row="5" Grid.Column="0" Text="Solutions:" Style="{StaticResource AttributeTitleStyle}"/>
-                    <TextBox Grid.Row="5" Grid.Column="1"
-                         Style="{StaticResource AttributeValueStyle}"
-                         Text="{x:Bind ViewModel.SelectedSolutions, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                         AcceptsReturn="True"
-                         TextWrapping="Wrap"
-                         MinHeight="60"
-                         MaxHeight="200"
-                         ScrollViewer.VerticalScrollBarVisibility="Auto"/>
+                    <!--  Solutions  -->
+                    <TextBlock
+                        Grid.Row="5"
+                        Grid.Column="0"
+                        Style="{StaticResource AttributeTitleStyle}"
+                        Text="Solutions:" />
+                    <TextBox
+                        Grid.Row="5"
+                        Grid.Column="1"
+                        MinHeight="60"
+                        MaxHeight="200"
+                        AcceptsReturn="True"
+                        ScrollViewer.VerticalScrollBarVisibility="Auto"
+                        Style="{StaticResource AttributeValueStyle}"
+                        Text="{x:Bind ViewModel.SelectedSolutions, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                        TextWrapping="Wrap" />
 
-                    <!-- Severity -->
-                    <TextBlock Grid.Row="6" Grid.Column="0" Text="Severity:" Style="{StaticResource AttributeTitleStyle}"/>
-                    <TextBox Grid.Row="6" Grid.Column="1"
-                         Style="{StaticResource AttributeValueStyle}"
-                         Text="{x:Bind ViewModel.SelectedSeverity, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                    <!--  Severity  -->
+                    <TextBlock
+                        Grid.Row="6"
+                        Grid.Column="0"
+                        Style="{StaticResource AttributeTitleStyle}"
+                        Text="Severity:" />
+                    <TextBox
+                        Grid.Row="6"
+                        Grid.Column="1"
+                        Style="{StaticResource AttributeValueStyle}"
+                        Text="{x:Bind ViewModel.SelectedSeverity, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                 </Grid>
 
-                <!-- Accent line after last textbox -->
-                <Border Grid.Row="5" BorderBrush="{ThemeResource SystemAccentColor}" BorderThickness="0,0,0,2" Margin="0,16,0,0"/>
+                <!--  Accent line after last textbox  -->
+                <Border
+                    Grid.Row="5"
+                    Margin="0,16,0,0"
+                    BorderBrush="{ThemeResource SystemAccentColor}"
+                    BorderThickness="0,0,0,2" />
 
-                <!-- Buttons Row -->
-                <StackPanel Grid.Row="6" Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,16,0,0" Spacing="12">
-                    <Button
-                        Content="Back"
-                        Command="{x:Bind ViewModel.NavigateBackCommand}"/>
-                    <Button
-                        Content="Import Image"
-                        Command="{x:Bind ViewModel.ImportImageCommand}"/>
+                <!--  Buttons Row  -->
+                <StackPanel
+                    Grid.Row="6"
+                    Margin="0,16,0,0"
+                    HorizontalAlignment="Left"
+                    Orientation="Horizontal"
+                    Spacing="12">
+                    <Button Command="{x:Bind ViewModel.NavigateBackCommand}" Content="Back" />
+                    <Button Command="{x:Bind ViewModel.ImportImageCommand}" Content="Import Image" />
                 </StackPanel>
             </Grid>
 
-            <!-- Plant details title section -->
+            <!--  Plant details title section  -->
             <StackPanel Orientation="Vertical">
                 <TextBlock
                     Margin="8"

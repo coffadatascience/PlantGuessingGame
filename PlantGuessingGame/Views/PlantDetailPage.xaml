@@ -138,7 +138,7 @@ c:\users\jordycoffa\source\repos\plantguessinggame\plantguessinggame\views\plant
                             Grid.Column="1"
                             Style="{StaticResource AttributeValueStyle}"
                             Text="{x:Bind ViewModel.ItemAlternativeNames, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-                        
+
                         <!--  genus  -->
                         <TextBlock
                             Grid.Row="3"
@@ -203,7 +203,7 @@ c:\users\jordycoffa\source\repos\plantguessinggame\plantguessinggame\views\plant
                             Text="{x:Bind ViewModel.ItemEtymology, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                             TextWrapping="Wrap" />
 
-                        
+
                         <!--  plant type: Note links to an observeable collection and a selected type that has a set property  -->
                         <!--  Style: note that the style AttributeComboxValueStyle needs to be available in the resources, page or app wide  -->
                         <TextBlock
