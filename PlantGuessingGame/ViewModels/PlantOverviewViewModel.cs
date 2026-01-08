@@ -393,7 +393,7 @@ namespace PlantGuessingGame.ViewModels
 
             //navigate to the edit page by passing the selected item (therefore the item detail page should process the selected item and load the content)
             _navigationServices.NavigateTo("PlantDetailPage", selectedItemId);
-
+            
         }
 
         #endregion
